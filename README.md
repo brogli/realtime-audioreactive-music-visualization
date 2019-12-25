@@ -1,2 +1,2 @@
 # realtime-audioreactive-music-visualization
-This project should enable me to create audioreactive realtime music visualizations with, amongst others, unity.
+Me having a go at real-time audio- (and human) reactive music visualization, made with untiy.
