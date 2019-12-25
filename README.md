@@ -1,4 +1,4 @@
-# realtime-audioreactive-music-visualization
+# Real-time audio-reactive music visualization
 This is me having a go at real-time audio- (and human) reactive music visualization, made with untiy.
 
 What I want: 
