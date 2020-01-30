@@ -1,4 +1,4 @@
-<mxfile host="www.draw.io" modified="2020-01-30T17:48:25.390Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0" etag="olRWjIuGYLCRzaB4ke6G" version="12.6.2" type="github">
+<mxfile host="www.draw.io" modified="2020-01-30T17:54:07.292Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0" etag="iPjBEWoiaGhVKp40M35-" version="12.6.2" type="github">
   <diagram id="kDup70aPqAmlONpFN8vK" name="Page-1">
     <mxGraphModel dx="1206" dy="769" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -106,7 +106,7 @@
         <mxCell id="gkqPeHBAmK1bLLE0qPdu-11" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;FourInFour&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;br&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
           <mxGeometry x="500" y="780" width="160" height="100" as="geometry"/>
         </mxCell>
-        <mxCell id="gkqPeHBAmK1bLLE0qPdu-12" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;MelodyKeyUserInput&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
+        <mxCell id="gkqPeHBAmK1bLLE0qPdu-12" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;GlobalIntensityUserInput&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
           <mxGeometry x="1150" y="670" width="160" height="80" as="geometry"/>
         </mxCell>
         <mxCell id="gkqPeHBAmK1bLLE0qPdu-13" value="Extends" style="endArrow=block;endSize=16;endFill=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;strokeColor=#000000;shadow=0;comic=0;textOpacity=0;fontColor=none;labelBackgroundColor=none;noLabel=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="gkqPeHBAmK1bLLE0qPdu-12" target="_s8e9NvMkZ89bHvfG3n6-1">
