@@ -30,4 +30,6 @@ public interface IUserInputsUpdater
     #region visual effects
     void UpdateVisualEffects();
     #endregion
+
+    void UpdateUserInputs();
 }
