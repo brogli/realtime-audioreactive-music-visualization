@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-09-18T12:18:05.755Z" agent="5.0 (Windows)" etag="W08iN2lF896sZLAdtlto" version="15.2.9" type="github">
+<mxfile host="app.diagrams.net" modified="2021-09-18T12:24:47.097Z" agent="5.0 (Windows)" etag="sdBMOMrpfOZ1hygXT7vh" version="15.2.9" type="github">
   <diagram id="kDup70aPqAmlONpFN8vK" name="Page-1">
     <mxGraphModel dx="1673" dy="896" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -184,8 +184,8 @@
         <mxCell id="YY2gHRtdCYsPqJjgCvtX-6" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;MqttAdapter&lt;/b&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&amp;nbsp;+ PollMessages()&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ PollMessages()&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ SendMessage()&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
           <mxGeometry x="1140" y="1760" width="160" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="YY2gHRtdCYsPqJjgCvtX-7" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;MqttFacade&lt;/b&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;br&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ UpdateMqttInputs(MqttAdapter): void&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ SendMessage(MqttAdapter): void&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1110" y="1380" width="240" height="100" as="geometry" />
+        <mxCell id="YY2gHRtdCYsPqJjgCvtX-7" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;MqttFacade&lt;/b&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;div&gt;&amp;nbsp;+ MqttEvent0: delegate void&lt;/div&gt;&lt;div&gt;&amp;nbsp;+ EmitMqttEvent0: event MqttEvent0&lt;/div&gt;&lt;div&gt;&amp;nbsp;...&lt;br&gt;&lt;/div&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ UpdateMqttInputs(MqttAdapter): void&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ SendMessage(MqttAdapter): void&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1100" y="1290" width="240" height="180" as="geometry" />
         </mxCell>
         <mxCell id="YY2gHRtdCYsPqJjgCvtX-8" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;MqttInputsUpdater&lt;/b&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;br&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ PollMessages(MqttAdapter)&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
           <mxGeometry x="1260" y="1550" width="170" height="100" as="geometry" />
@@ -306,6 +306,21 @@
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="887.9411764705883" y="1750" as="sourcePoint" />
             <mxPoint x="997.0588235294117" y="1680" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-33" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;ExternalInputsUpdater&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ field: Type&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ UpdateExternalInputs(): void&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ RegisterExternalInputs(): void&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fontColor=default;strokeColor=default;" vertex="1" parent="1">
+          <mxGeometry x="500" y="1120" width="230" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-34" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;fontColor=default;" edge="1" parent="1" source="YY2gHRtdCYsPqJjgCvtX-7" target="Bzb-3gxFvcCEt1NOHRP6-33">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="946.1782352941176" y="1350" as="sourcePoint" />
+            <mxPoint x="870.001764705882" y="1420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-35" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;fontColor=default;" edge="1" parent="1" source="Bzb-3gxFvcCEt1NOHRP6-1" target="Bzb-3gxFvcCEt1NOHRP6-33">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="660" y="1013.1999999999999" as="sourcePoint" />
+            <mxPoint x="540" y="999.9999999999999" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
