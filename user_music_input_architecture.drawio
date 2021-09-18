@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-09-18T13:00:23.320Z" agent="5.0 (Windows)" etag="MPxKcneVvxRAnH9AKD4a" version="15.2.9" type="github">
+<mxfile host="app.diagrams.net" modified="2021-09-18T13:06:41.883Z" agent="5.0 (Windows)" etag="mybLR9J7eyioBV4ZP939" version="15.2.9" type="github">
   <diagram id="kDup70aPqAmlONpFN8vK" name="Page-1">
     <mxGraphModel dx="2523" dy="896" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -50,7 +50,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="IexDdL5BKOaNLtybtklX-15" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;MusicValuesProvider&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ FourInFourEvent: delegate void&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ EmitFourInFourEvent: event FourInFourEvent&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ FourInFourValue: float&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;...&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ Bpm: float&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ SetFourInFourValue(): void&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ GetFourInFourValue(): float&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;...&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
-          <mxGeometry x="680" y="270" width="270" height="190" as="geometry" />
+          <mxGeometry x="480" y="340" width="270" height="190" as="geometry" />
         </mxCell>
         <mxCell id="_s8e9NvMkZ89bHvfG3n6-1" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;i&gt;&lt;b&gt;FadedUserInput&lt;/b&gt;&lt;/i&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ ActivateEvent: delegate void&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ EmitActivateEvent: event ActivateEvent&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ DeactivateEvent: delegate void&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ EmitDeactivateEvent: event DeactivateEvent&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ isActive: boolean&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ currentInputValue: float&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ SetNewStateIfNecessary(): void&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
           <mxGeometry x="2070" y="655" width="290" height="160" as="geometry" />
@@ -240,7 +240,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="Bzb-3gxFvcCEt1NOHRP6-12" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;SceneImplementation&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ &lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ RegisterMusicValues(): void&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ RegisterUserInputs(): void&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fontColor=default;strokeColor=default;" vertex="1" parent="1">
-          <mxGeometry x="870" y="590" width="270" height="140" as="geometry" />
+          <mxGeometry x="820" y="560" width="270" height="140" as="geometry" />
         </mxCell>
         <mxCell id="Bzb-3gxFvcCEt1NOHRP6-13" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;fontColor=default;" edge="1" parent="1" source="Bzb-3gxFvcCEt1NOHRP6-1" target="IexDdL5BKOaNLtybtklX-4">
           <mxGeometry width="160" relative="1" as="geometry">
@@ -276,9 +276,9 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="Bzb-3gxFvcCEt1NOHRP6-26" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;UserOutputHandler&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ &lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ RegisterUserInputs(): void&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fontColor=default;strokeColor=default;" vertex="1" parent="1">
-          <mxGeometry x="1130" y="850" width="180" height="90" as="geometry" />
+          <mxGeometry x="1020" y="815" width="180" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-27" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;fontColor=default;" edge="1" parent="1" source="YY2gHRtdCYsPqJjgCvtX-7" target="Bzb-3gxFvcCEt1NOHRP6-26">
+        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-27" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;fontColor=default;startArrow=none;" edge="1" parent="1" source="Bzb-3gxFvcCEt1NOHRP6-41" target="Bzb-3gxFvcCEt1NOHRP6-26">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="930" y="1140" as="sourcePoint" />
             <mxPoint x="1090" y="1140" as="targetPoint" />
@@ -309,7 +309,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="Bzb-3gxFvcCEt1NOHRP6-33" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;ExternalInputsUpdater&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ field: Type&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ UpdateExternalInputs(): void&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ RegisterExternalInputs(): void&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fontColor=default;strokeColor=default;" vertex="1" parent="1">
-          <mxGeometry x="500" y="1120" width="230" height="160" as="geometry" />
+          <mxGeometry x="500" y="1060" width="230" height="160" as="geometry" />
         </mxCell>
         <mxCell id="Bzb-3gxFvcCEt1NOHRP6-34" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;fontColor=default;" edge="1" parent="1" source="YY2gHRtdCYsPqJjgCvtX-7" target="Bzb-3gxFvcCEt1NOHRP6-33">
           <mxGeometry width="160" relative="1" as="geometry">
@@ -321,6 +321,39 @@
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="660" y="1013.1999999999999" as="sourcePoint" />
             <mxPoint x="540" y="999.9999999999999" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-36" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;MusicValuesOutputHandler&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ &lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ &lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fontColor=default;strokeColor=default;" vertex="1" parent="1">
+          <mxGeometry x="1270" y="560" width="180" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-39" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;fontColor=default;" edge="1" parent="1" source="IexDdL5BKOaNLtybtklX-15" target="Bzb-3gxFvcCEt1NOHRP6-36">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="829.9999999999995" y="309.9972727272725" as="sourcePoint" />
+            <mxPoint x="1180" y="371.4642148760329" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-40" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;fontColor=default;" edge="1" parent="1" source="Bzb-3gxFvcCEt1NOHRP6-44" target="Bzb-3gxFvcCEt1NOHRP6-36">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="1421.4415384615381" y="1235" as="sourcePoint" />
+            <mxPoint x="1339.9992307692305" y="850" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-41" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;UserOutputMqttAdapter&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ &lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ ?&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fontColor=default;strokeColor=default;" vertex="1" parent="1">
+          <mxGeometry x="980" y="1070" width="180" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-43" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;fontColor=default;startArrow=none;" edge="1" parent="1" source="YY2gHRtdCYsPqJjgCvtX-7" target="Bzb-3gxFvcCEt1NOHRP6-41">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="1128.2352941176468" y="1080" as="sourcePoint" />
+            <mxPoint x="1121.7647058823527" y="915" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-44" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;MusicValuesOutputMqttAdapter&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ &lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ ?&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fontColor=default;strokeColor=default;" vertex="1" parent="1">
+          <mxGeometry x="1230" y="1070" width="200" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-45" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;fontColor=default;" edge="1" parent="1" source="YY2gHRtdCYsPqJjgCvtX-7" target="Bzb-3gxFvcCEt1NOHRP6-44">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="1343.375" y="970" as="sourcePoint" />
+            <mxPoint x="1367" y="1010" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
