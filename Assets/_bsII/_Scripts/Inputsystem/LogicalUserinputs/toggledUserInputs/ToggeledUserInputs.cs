@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ToggeledUserInputs<T> where T : new()
+public class ToggeledUserInputs<T> where T : new(), IUserInput
 {
     public T[] keys;
 
