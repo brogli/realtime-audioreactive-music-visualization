@@ -1,29 +1,29 @@
-<mxfile host="app.diagrams.net" modified="2021-09-18T13:16:23.478Z" agent="5.0 (Windows)" etag="zXYVN62-cQ6q-HdUQ3tZ" version="15.2.9" type="github">
+<mxfile host="app.diagrams.net" modified="2022-04-08T12:17:18.733Z" agent="5.0 (Windows)" etag="CjthmnDvt8RuXJcM979D" version="17.4.1" type="github">
   <diagram id="kDup70aPqAmlONpFN8vK" name="Page-1">
-    <mxGraphModel dx="2523" dy="896" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2926" dy="1072" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-16" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;" edge="1" parent="1" source="IexDdL5BKOaNLtybtklX-4" target="Bzb-3gxFvcCEt1NOHRP6-14">
+        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-16" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;" parent="1" source="IexDdL5BKOaNLtybtklX-4" target="Bzb-3gxFvcCEt1NOHRP6-14" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="669.9978260869565" y="230" as="sourcePoint" />
             <mxPoint x="621.3021739130435" y="-90" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-21" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;ExplosionKeyUserInput&lt;/b&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
-          <mxGeometry x="2470" y="940" width="160" height="80" as="geometry" />
+        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-21" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;ExplosionKeyUserInput&lt;/b&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
+          <mxGeometry x="2890" y="910" width="160" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-20" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;MelodyKeyUserInput&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1940" y="890" width="160" height="80" as="geometry" />
+        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-20" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;MelodyKeyUserInput&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
+          <mxGeometry x="2360" y="860" width="160" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-19" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;DroneKeyUserInput&lt;/b&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1830" y="1020" width="160" height="80" as="geometry" />
+        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-19" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;DroneKeyUserInput&lt;/b&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
+          <mxGeometry x="2250" y="990" width="160" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-18" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;StreamKeyUserInput&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
-          <mxGeometry x="2680" y="930" width="160" height="80" as="geometry" />
+        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-18" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;StreamKeyUserInput&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
+          <mxGeometry x="3100" y="900" width="160" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-17" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;FourInFourUserInput&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;br&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1530" y="1040" width="160" height="100" as="geometry" />
+        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-17" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;FourInFourUserInput&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;br&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1950" y="1010" width="160" height="100" as="geometry" />
         </mxCell>
         <mxCell id="IexDdL5BKOaNLtybtklX-1" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;MidiBeatValuesUpdater&lt;/b&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ UpdateBeatValues(): void&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
           <mxGeometry x="240" y="380" width="160" height="70" as="geometry" />
@@ -55,35 +55,35 @@
             <mxPoint x="700" y="350" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="IexDdL5BKOaNLtybtklX-15" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;MusicValuesProvider&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ FourInFourEvent: delegate void&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ EmitFourInFourEvent: event FourInFourEvent&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ FourInFourValue: float&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;...&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ Bpm: float&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ SetFourInFourValue(): void&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ GetFourInFourValue(): float&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;...&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
+        <mxCell id="IexDdL5BKOaNLtybtklX-15" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;MusicValuesModel&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ FourInFourEvent: delegate void&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ EmitFourInFourEvent: event FourInFourEvent&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ FourInFourValue: float&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;...&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ Bpm: float&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ SetFourInFourValue(): void&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ GetFourInFourValue(): float&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;...&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
           <mxGeometry x="460" y="370" width="270" height="190" as="geometry" />
         </mxCell>
         <mxCell id="_s8e9NvMkZ89bHvfG3n6-1" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;i&gt;&lt;b&gt;FadedUserInput&lt;/b&gt;&lt;/i&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ ActivateEvent: delegate void&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ EmitActivateEvent: event ActivateEvent&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ DeactivateEvent: delegate void&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ EmitDeactivateEvent: event DeactivateEvent&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ isActive: boolean&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ currentInputValue: float&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ SetNewStateIfNecessary(): void&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
-          <mxGeometry x="2070" y="655" width="290" height="160" as="geometry" />
+          <mxGeometry x="2490" y="625" width="290" height="160" as="geometry" />
         </mxCell>
         <mxCell id="_s8e9NvMkZ89bHvfG3n6-2" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;IUserInputsUpdater&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;- &lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ UpdateFourInFour: void&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ UpdateTwoInFour: void&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ UpdateEightInFour: void&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ UpdateSixteenInFour: void&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ UpdateStreamKeys: void&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ UpdateMelodyKeys: void&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ UpdateMoodKeys: void&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ UpdateGlobalIntensity: void&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
           <mxGeometry x="60" y="595" width="180" height="365" as="geometry" />
         </mxCell>
         <mxCell id="p0SsCodFUb69BNhrjL_O-1" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;MelodyKeyUserInput&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1930" y="880" width="160" height="80" as="geometry" />
+          <mxGeometry x="2350" y="850" width="160" height="80" as="geometry" />
         </mxCell>
         <mxCell id="p0SsCodFUb69BNhrjL_O-2" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;i&gt;&lt;b&gt;ToggledUserInput&lt;/b&gt;&lt;/i&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ KeyUpEvent: delegate void&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ EmitKeyUpEvent: event KeyUpEvent&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ KeyDownEvent: delegate void&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ EmitKeyDownEvent: event KeyDownEvent&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ isPressed: boolean&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ SetNewStateIfNecessary(): void&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1770" y="655" width="260" height="160" as="geometry" />
+          <mxGeometry x="2190" y="625" width="260" height="160" as="geometry" />
         </mxCell>
         <mxCell id="p0SsCodFUb69BNhrjL_O-4" value="Extends" style="endArrow=block;endSize=16;endFill=0;strokeColor=#000000;shadow=0;comic=0;textOpacity=0;fontColor=none;labelBackgroundColor=none;noLabel=1;" parent="1" source="p0SsCodFUb69BNhrjL_O-1" target="p0SsCodFUb69BNhrjL_O-2" edge="1">
           <mxGeometry x="-0.0476" width="160" relative="1" as="geometry">
-            <mxPoint x="1540" y="1020" as="sourcePoint" />
-            <mxPoint x="1700" y="1020" as="targetPoint" />
+            <mxPoint x="1960" y="990" as="sourcePoint" />
+            <mxPoint x="2120" y="990" as="targetPoint" />
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="p0SsCodFUb69BNhrjL_O-5" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;MoodKeyUserInput&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
-          <mxGeometry x="2670" y="920" width="160" height="80" as="geometry" />
+          <mxGeometry x="3090" y="890" width="160" height="80" as="geometry" />
         </mxCell>
         <mxCell id="p0SsCodFUb69BNhrjL_O-6" value="Extends" style="endArrow=block;endSize=16;endFill=0;strokeColor=#000000;shadow=0;comic=0;textOpacity=0;fontColor=none;labelBackgroundColor=none;noLabel=1;" parent="1" source="p0SsCodFUb69BNhrjL_O-5" target="gkqPeHBAmK1bLLE0qPdu-8" edge="1">
           <mxGeometry x="-0.0476" width="160" relative="1" as="geometry">
-            <mxPoint x="1760" y="890" as="sourcePoint" />
-            <mxPoint x="1760" y="795" as="targetPoint" />
+            <mxPoint x="2180" y="860" as="sourcePoint" />
+            <mxPoint x="2180" y="765" as="targetPoint" />
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
@@ -106,66 +106,66 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="gkqPeHBAmK1bLLE0qPdu-8" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;i&gt;&lt;b&gt;TriggeredUserInput&lt;/b&gt;&lt;/i&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ TriggerEvent: delegate void&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ EmitTriggerEvent: event EmitTriggerEvent&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ SetNewStateIfNecessary(): void&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
-          <mxGeometry x="2390" y="655" width="290" height="100" as="geometry" />
+          <mxGeometry x="2810" y="625" width="290" height="100" as="geometry" />
         </mxCell>
         <mxCell id="gkqPeHBAmK1bLLE0qPdu-9" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;ExplosionKeyUserInput&lt;/b&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
-          <mxGeometry x="2460" y="930" width="160" height="80" as="geometry" />
+          <mxGeometry x="2880" y="900" width="160" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="gkqPeHBAmK1bLLE0qPdu-10" value="Extends" style="endArrow=block;endSize=16;endFill=0;strokeColor=#000000;shadow=0;comic=0;textOpacity=0;fontColor=none;labelBackgroundColor=none;noLabel=1;" parent="1" source="gkqPeHBAmK1bLLE0qPdu-9" edge="1" target="gkqPeHBAmK1bLLE0qPdu-8">
+        <mxCell id="gkqPeHBAmK1bLLE0qPdu-10" value="Extends" style="endArrow=block;endSize=16;endFill=0;strokeColor=#000000;shadow=0;comic=0;textOpacity=0;fontColor=none;labelBackgroundColor=none;noLabel=1;" parent="1" source="gkqPeHBAmK1bLLE0qPdu-9" target="gkqPeHBAmK1bLLE0qPdu-8" edge="1">
           <mxGeometry x="-0.0476" width="160" relative="1" as="geometry">
-            <mxPoint x="1815" y="930" as="sourcePoint" />
-            <mxPoint x="2540" y="772" as="targetPoint" />
+            <mxPoint x="2235" y="900" as="sourcePoint" />
+            <mxPoint x="2960" y="742" as="targetPoint" />
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="gkqPeHBAmK1bLLE0qPdu-11" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;FourInFourUserInput&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;br&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1520" y="1030" width="160" height="100" as="geometry" />
+          <mxGeometry x="1940" y="1000" width="160" height="100" as="geometry" />
         </mxCell>
         <mxCell id="gkqPeHBAmK1bLLE0qPdu-12" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;GlobalIntensityUserInput&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
-          <mxGeometry x="2170" y="920" width="160" height="80" as="geometry" />
+          <mxGeometry x="2590" y="890" width="160" height="80" as="geometry" />
         </mxCell>
         <mxCell id="gkqPeHBAmK1bLLE0qPdu-13" value="Extends" style="endArrow=block;endSize=16;endFill=0;strokeColor=#000000;shadow=0;comic=0;textOpacity=0;fontColor=none;labelBackgroundColor=none;noLabel=1;" parent="1" source="gkqPeHBAmK1bLLE0qPdu-12" target="_s8e9NvMkZ89bHvfG3n6-1" edge="1">
           <mxGeometry x="-0.0476" width="160" relative="1" as="geometry">
-            <mxPoint x="2170" y="920" as="sourcePoint" />
-            <mxPoint x="2200" y="792" as="targetPoint" />
+            <mxPoint x="2590" y="890" as="sourcePoint" />
+            <mxPoint x="2620" y="762" as="targetPoint" />
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="gkqPeHBAmK1bLLE0qPdu-15" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;UserInput&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ SetNewStateIfNecessary(): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1970" y="360" width="190" height="110" as="geometry" />
+          <mxGeometry x="2390" y="330" width="190" height="110" as="geometry" />
         </mxCell>
         <mxCell id="gkqPeHBAmK1bLLE0qPdu-17" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;" parent="1" source="p0SsCodFUb69BNhrjL_O-2" target="gkqPeHBAmK1bLLE0qPdu-15" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
-            <mxPoint x="790" y="350" as="sourcePoint" />
-            <mxPoint x="950" y="350" as="targetPoint" />
+            <mxPoint x="1210" y="320" as="sourcePoint" />
+            <mxPoint x="1370" y="320" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="gkqPeHBAmK1bLLE0qPdu-18" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;" parent="1" source="_s8e9NvMkZ89bHvfG3n6-1" target="gkqPeHBAmK1bLLE0qPdu-15" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
-            <mxPoint x="1110" y="380" as="sourcePoint" />
-            <mxPoint x="1270" y="380" as="targetPoint" />
+            <mxPoint x="1530" y="350" as="sourcePoint" />
+            <mxPoint x="1690" y="350" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="gkqPeHBAmK1bLLE0qPdu-19" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;" parent="1" source="gkqPeHBAmK1bLLE0qPdu-8" target="gkqPeHBAmK1bLLE0qPdu-15" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
-            <mxPoint x="1440" y="380" as="sourcePoint" />
-            <mxPoint x="1600" y="380" as="targetPoint" />
+            <mxPoint x="1860" y="350" as="sourcePoint" />
+            <mxPoint x="2020" y="350" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="gkqPeHBAmK1bLLE0qPdu-20" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;i&gt;&lt;b&gt;ToggledAndFadedUserInput&lt;/b&gt;&lt;/i&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ KeyUpEvent: delegate void&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ EmitKeyUpEvent: event KeyUpEvent&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ KeyDownEvent: delegate void&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ EmitKeyDownEvent: event KeyDownEvent&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ isPressed: boolean&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ currentInputValue: float&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ toggeledUserInput: ToggeledUserInput&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ fadedUserInput: FadedUserInput&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ SetNewStateIfNecessary(): void&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1470" y="655" width="260" height="215" as="geometry" />
+          <mxGeometry x="1890" y="625" width="260" height="215" as="geometry" />
         </mxCell>
         <mxCell id="gkqPeHBAmK1bLLE0qPdu-21" value="Extends" style="endArrow=block;endSize=16;endFill=0;strokeColor=#000000;shadow=0;comic=0;textOpacity=0;fontColor=none;labelBackgroundColor=none;noLabel=1;" parent="1" source="gkqPeHBAmK1bLLE0qPdu-11" target="gkqPeHBAmK1bLLE0qPdu-20" edge="1">
           <mxGeometry x="-0.0476" width="160" relative="1" as="geometry">
-            <mxPoint x="1815" y="930" as="sourcePoint" />
-            <mxPoint x="1871" y="825.96" as="targetPoint" />
+            <mxPoint x="2235" y="900" as="sourcePoint" />
+            <mxPoint x="2291" y="795.96" as="targetPoint" />
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="gkqPeHBAmK1bLLE0qPdu-22" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;" parent="1" source="gkqPeHBAmK1bLLE0qPdu-20" target="gkqPeHBAmK1bLLE0qPdu-15" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
-            <mxPoint x="890" y="415" as="sourcePoint" />
-            <mxPoint x="1097.5" y="330" as="targetPoint" />
+            <mxPoint x="1310" y="385" as="sourcePoint" />
+            <mxPoint x="1517.5" y="300" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="YY2gHRtdCYsPqJjgCvtX-1" value="" style="endArrow=diamondThin;endFill=1;endSize=24;html=1;" parent="1" source="IexDdL5BKOaNLtybtklX-4" target="IexDdL5BKOaNLtybtklX-9" edge="1">
@@ -175,182 +175,140 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="YY2gHRtdCYsPqJjgCvtX-2" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;SceneManager&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;br&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ LoadScene(SceneId)&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1930" y="1140" width="160" height="100" as="geometry" />
+          <mxGeometry x="2350" y="1110" width="160" height="100" as="geometry" />
         </mxCell>
         <mxCell id="YY2gHRtdCYsPqJjgCvtX-3" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;LoadSceneUserInput&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;br&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ LoadScene(SceneId)&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
-          <mxGeometry x="2270" y="1040" width="160" height="100" as="geometry" />
+          <mxGeometry x="2690" y="1010" width="160" height="100" as="geometry" />
         </mxCell>
         <mxCell id="YY2gHRtdCYsPqJjgCvtX-5" value="Extends" style="endArrow=block;endSize=16;endFill=0;strokeColor=#000000;shadow=0;comic=0;textOpacity=0;fontColor=none;labelBackgroundColor=none;noLabel=1;" parent="1" source="YY2gHRtdCYsPqJjgCvtX-3" target="gkqPeHBAmK1bLLE0qPdu-8" edge="1">
           <mxGeometry x="-0.0476" width="160" relative="1" as="geometry">
-            <mxPoint x="1730" y="1150" as="sourcePoint" />
-            <mxPoint x="1730" y="960" as="targetPoint" />
+            <mxPoint x="2150" y="1120" as="sourcePoint" />
+            <mxPoint x="2150" y="930" as="targetPoint" />
             <mxPoint as="offset" />
           </mxGeometry>
-        </mxCell>
-        <mxCell id="YY2gHRtdCYsPqJjgCvtX-6" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;MqttAdapter&lt;/b&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&amp;nbsp;+ PollMessages()&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ PollMessages()&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ SendMessage()&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1140" y="1760" width="160" height="100" as="geometry" />
         </mxCell>
         <mxCell id="YY2gHRtdCYsPqJjgCvtX-7" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;MqttFacade&lt;/b&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;div&gt;&amp;nbsp;+ MqttInput0: UserInput&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp;...&lt;br&gt;&lt;/div&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ SendMessage(MqttAdapter): void&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
           <mxGeometry x="1100" y="1290" width="240" height="180" as="geometry" />
         </mxCell>
-        <mxCell id="YY2gHRtdCYsPqJjgCvtX-8" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;MqttInputsUpdater&lt;/b&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;br&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ PollMessages(MqttAdapter)&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1275" y="1540" width="170" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="YY2gHRtdCYsPqJjgCvtX-10" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;MqttAdapter&lt;/b&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;br&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ PollMessages()&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ SendMessage()&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1400" y="1750" width="160" height="120" as="geometry" />
-        </mxCell>
-        <mxCell id="YY2gHRtdCYsPqJjgCvtX-11" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;" parent="1" source="YY2gHRtdCYsPqJjgCvtX-6" target="YY2gHRtdCYsPqJjgCvtX-10" edge="1">
-          <mxGeometry width="160" relative="1" as="geometry">
-            <mxPoint x="980" y="1449.02" as="sourcePoint" />
-            <mxPoint x="946" y="1390" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="YY2gHRtdCYsPqJjgCvtX-12" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;MqttSender&lt;/b&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;div&gt;&amp;nbsp;- outgoingMessages: Queue &lt;br&gt;&lt;/div&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ SendMessage()&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
-          <mxGeometry x="980" y="1540" width="210" height="100" as="geometry" />
-        </mxCell>
         <mxCell id="Hk9LADAd_C7SH6eBaAao-1" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;DroneKeyUserInput&lt;/b&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1820" y="1010" width="160" height="80" as="geometry" />
+          <mxGeometry x="2240" y="980" width="160" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="Hk9LADAd_C7SH6eBaAao-2" value="Extends" style="endArrow=block;endSize=16;endFill=0;strokeColor=#000000;shadow=0;comic=0;textOpacity=0;fontColor=none;labelBackgroundColor=none;noLabel=1;" parent="1" source="Hk9LADAd_C7SH6eBaAao-1" edge="1" target="p0SsCodFUb69BNhrjL_O-2">
+        <mxCell id="Hk9LADAd_C7SH6eBaAao-2" value="Extends" style="endArrow=block;endSize=16;endFill=0;strokeColor=#000000;shadow=0;comic=0;textOpacity=0;fontColor=none;labelBackgroundColor=none;noLabel=1;" parent="1" source="Hk9LADAd_C7SH6eBaAao-1" target="p0SsCodFUb69BNhrjL_O-2" edge="1">
           <mxGeometry x="-0.0476" width="160" relative="1" as="geometry">
-            <mxPoint x="1889" y="879.04" as="sourcePoint" />
-            <mxPoint x="1920" y="815" as="targetPoint" />
+            <mxPoint x="2309" y="849.04" as="sourcePoint" />
+            <mxPoint x="2340" y="785" as="targetPoint" />
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-1" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;UserInputsProvider&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ FourInFourUserInput: ToggledAndFadedUserInput&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ OneInFourUserInput: ToggledAndFadedUserInput&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ TwoInFouruserInput: ToggledAndFadedUserInput&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ EightInFourUserInput: ToggledAndFadedUserInput&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ SixteenInFourUserInput: ToggledAndFadedUserInput&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ VolumeUserInput: ToggeledAndFadedUserInput&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;...&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
+        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-1" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;UserInputsModel&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ FourInFourUserInput: ToggledAndFadedUserInput&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ OneInFourUserInput: ToggledAndFadedUserInput&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ TwoInFouruserInput: ToggledAndFadedUserInput&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ EightInFourUserInput: ToggledAndFadedUserInput&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ SixteenInFourUserInput: ToggledAndFadedUserInput&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ VolumeUserInput: ToggeledAndFadedUserInput&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;...&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
           <mxGeometry x="410" y="687.5" width="330" height="202.5" as="geometry" />
         </mxCell>
-        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-2" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;" edge="1" parent="1" source="IexDdL5BKOaNLtybtklX-15" target="IexDdL5BKOaNLtybtklX-9">
+        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-2" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;" parent="1" source="IexDdL5BKOaNLtybtklX-15" target="IexDdL5BKOaNLtybtklX-9" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="440" y="440" as="sourcePoint" />
             <mxPoint x="570" y="150" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-3" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;fontColor=default;" edge="1" parent="1" source="Bzb-3gxFvcCEt1NOHRP6-1" target="_s8e9NvMkZ89bHvfG3n6-2">
+        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-3" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;fontColor=default;" parent="1" source="Bzb-3gxFvcCEt1NOHRP6-1" target="_s8e9NvMkZ89bHvfG3n6-2" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="440" y="720" as="sourcePoint" />
             <mxPoint x="355" y="720" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-6" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;fontColor=default;" edge="1" parent="1" source="Bzb-3gxFvcCEt1NOHRP6-1" target="Bzb-3gxFvcCEt1NOHRP6-12">
+        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-6" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;fontColor=default;" parent="1" source="Bzb-3gxFvcCEt1NOHRP6-1" target="Bzb-3gxFvcCEt1NOHRP6-12" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="990" y="710" as="sourcePoint" />
             <mxPoint x="1070" y="550" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-7" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;fontColor=default;" edge="1" parent="1" source="IexDdL5BKOaNLtybtklX-15" target="Bzb-3gxFvcCEt1NOHRP6-12">
+        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-7" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;fontColor=default;" parent="1" source="IexDdL5BKOaNLtybtklX-15" target="Bzb-3gxFvcCEt1NOHRP6-12" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="720" y="757.5" as="sourcePoint" />
             <mxPoint x="1070" y="490" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-12" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;SceneImplementation&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ &lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ RegisterMusicValues(): void&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ RegisterUserInputs(): void&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fontColor=default;strokeColor=default;" vertex="1" parent="1">
+        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-12" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;SceneImplementation&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ &lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ RegisterMusicValues(): void&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ RegisterUserInputs(): void&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fontColor=default;strokeColor=default;" parent="1" vertex="1">
           <mxGeometry x="800" y="560" width="270" height="140" as="geometry" />
         </mxCell>
-        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-13" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;fontColor=default;" edge="1" parent="1" source="Bzb-3gxFvcCEt1NOHRP6-1" target="IexDdL5BKOaNLtybtklX-4">
+        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-13" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;fontColor=default;" parent="1" source="Bzb-3gxFvcCEt1NOHRP6-1" target="IexDdL5BKOaNLtybtklX-4" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="570" y="484.6555813953488" as="sourcePoint" />
             <mxPoint x="730" y="440.0044186046513" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-14" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;UserInputsConsumer&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ &lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ RegisterUserInputs(): void&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fontColor=default;strokeColor=default;" vertex="1" parent="1">
+        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-14" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;UserInputsConsumer&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ &lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ RegisterUserInputs(): void&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fontColor=default;strokeColor=default;" parent="1" vertex="1">
           <mxGeometry x="1100" y="20" width="190" height="140" as="geometry" />
         </mxCell>
-        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-15" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;" edge="1" parent="1" source="Bzb-3gxFvcCEt1NOHRP6-12" target="Bzb-3gxFvcCEt1NOHRP6-14">
+        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-15" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;" parent="1" source="Bzb-3gxFvcCEt1NOHRP6-12" target="Bzb-3gxFvcCEt1NOHRP6-14" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="1050.0003448275863" y="400" as="sourcePoint" />
             <mxPoint x="1060.8624137931035" y="190" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-23" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;fontColor=default;" edge="1" parent="1" source="Bzb-3gxFvcCEt1NOHRP6-1" target="Bzb-3gxFvcCEt1NOHRP6-26">
+        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-23" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;fontColor=default;" parent="1" source="Bzb-3gxFvcCEt1NOHRP6-1" target="Bzb-3gxFvcCEt1NOHRP6-26" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="790" y="738.8581730769231" as="sourcePoint" />
             <mxPoint x="1269.9999999999995" y="941.360544217687" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-24" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;" edge="1" parent="1" source="Bzb-3gxFvcCEt1NOHRP6-26" target="Bzb-3gxFvcCEt1NOHRP6-14">
+        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-24" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;" parent="1" source="Bzb-3gxFvcCEt1NOHRP6-26" target="Bzb-3gxFvcCEt1NOHRP6-14" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="1352.0833333333335" y="910" as="sourcePoint" />
             <mxPoint x="1353.2692307692305" y="200" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-26" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;UserOutputHandler&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ &lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ RegisterUserInputs(): void&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fontColor=default;strokeColor=default;" vertex="1" parent="1">
-          <mxGeometry x="1020" y="815" width="180" height="90" as="geometry" />
+        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-26" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;UserOutputHandler&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ &lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ RegisterUserInputs(): void&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fontColor=default;strokeColor=default;" parent="1" vertex="1">
+          <mxGeometry x="995" y="743.75" width="180" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-27" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;fontColor=default;startArrow=none;" edge="1" parent="1" source="Bzb-3gxFvcCEt1NOHRP6-41" target="Bzb-3gxFvcCEt1NOHRP6-26">
+        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-27" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;fontColor=default;startArrow=none;" parent="1" source="Bzb-3gxFvcCEt1NOHRP6-41" target="Bzb-3gxFvcCEt1NOHRP6-26" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="930" y="1140" as="sourcePoint" />
             <mxPoint x="1090" y="1140" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-28" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;fontColor=default;" edge="1" parent="1" source="YY2gHRtdCYsPqJjgCvtX-6" target="YY2gHRtdCYsPqJjgCvtX-12">
-          <mxGeometry width="160" relative="1" as="geometry">
-            <mxPoint x="1080" y="1790" as="sourcePoint" />
-            <mxPoint x="1240" y="1790" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-29" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;fontColor=default;" edge="1" parent="1" source="YY2gHRtdCYsPqJjgCvtX-8" target="YY2gHRtdCYsPqJjgCvtX-7">
-          <mxGeometry width="160" relative="1" as="geometry">
-            <mxPoint x="867.9411764705883" y="1730" as="sourcePoint" />
-            <mxPoint x="1510" y="1490" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-30" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;fontColor=default;" edge="1" parent="1" source="YY2gHRtdCYsPqJjgCvtX-12" target="YY2gHRtdCYsPqJjgCvtX-7">
-          <mxGeometry width="160" relative="1" as="geometry">
-            <mxPoint x="1210.0011764705882" y="1840" as="sourcePoint" />
-            <mxPoint x="1040" y="1520" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-31" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;fontColor=default;" edge="1" parent="1" source="YY2gHRtdCYsPqJjgCvtX-6" target="YY2gHRtdCYsPqJjgCvtX-8">
-          <mxGeometry width="160" relative="1" as="geometry">
-            <mxPoint x="887.9411764705883" y="1750" as="sourcePoint" />
-            <mxPoint x="997.0588235294117" y="1680" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-33" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;ExternalInputsUpdater&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ field: Type&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ UpdateExternalInputs(): void&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ RegisterExternalInputs(): void&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fontColor=default;strokeColor=default;" vertex="1" parent="1">
+        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-33" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;ExternalInputsUpdater&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ field: Type&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ UpdateExternalInputs(): void&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ RegisterExternalInputs(): void&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fontColor=default;strokeColor=default;" parent="1" vertex="1">
           <mxGeometry x="500" y="1060" width="230" height="160" as="geometry" />
         </mxCell>
-        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-34" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;fontColor=default;" edge="1" parent="1" source="YY2gHRtdCYsPqJjgCvtX-7" target="Bzb-3gxFvcCEt1NOHRP6-33">
+        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-34" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;fontColor=default;" parent="1" source="YY2gHRtdCYsPqJjgCvtX-7" target="Bzb-3gxFvcCEt1NOHRP6-33" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="946.1782352941176" y="1350" as="sourcePoint" />
             <mxPoint x="870.001764705882" y="1420" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-35" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;fontColor=default;" edge="1" parent="1" source="Bzb-3gxFvcCEt1NOHRP6-1" target="Bzb-3gxFvcCEt1NOHRP6-33">
+        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-35" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;fontColor=default;" parent="1" source="Bzb-3gxFvcCEt1NOHRP6-1" target="Bzb-3gxFvcCEt1NOHRP6-33" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="660" y="1013.1999999999999" as="sourcePoint" />
             <mxPoint x="540" y="999.9999999999999" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-36" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;MusicValuesOutputHandler&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ &lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ &lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fontColor=default;strokeColor=default;" vertex="1" parent="1">
-          <mxGeometry x="1270" y="560" width="180" height="90" as="geometry" />
+        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-36" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;MusicValuesOutputHandler&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ &lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ &lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fontColor=default;strokeColor=default;" parent="1" vertex="1">
+          <mxGeometry x="1260" y="420" width="180" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-39" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;fontColor=default;" edge="1" parent="1" source="IexDdL5BKOaNLtybtklX-15" target="Bzb-3gxFvcCEt1NOHRP6-36">
+        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-39" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;fontColor=default;" parent="1" source="IexDdL5BKOaNLtybtklX-15" target="Bzb-3gxFvcCEt1NOHRP6-36" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="829.9999999999995" y="309.9972727272725" as="sourcePoint" />
             <mxPoint x="1180" y="371.4642148760329" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-40" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;fontColor=default;" edge="1" parent="1" source="Bzb-3gxFvcCEt1NOHRP6-44" target="Bzb-3gxFvcCEt1NOHRP6-36">
+        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-40" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;fontColor=default;" parent="1" source="Bzb-3gxFvcCEt1NOHRP6-44" target="Bzb-3gxFvcCEt1NOHRP6-36" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="1421.4415384615381" y="1235" as="sourcePoint" />
             <mxPoint x="1339.9992307692305" y="850" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-41" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;UserOutputMqttAdapter&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ &lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ ?&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fontColor=default;strokeColor=default;" vertex="1" parent="1">
+        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-41" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;UserOutputMqttAdapter&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ &lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ ?&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fontColor=default;strokeColor=default;" parent="1" vertex="1">
           <mxGeometry x="995" y="1070" width="180" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-43" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;fontColor=default;startArrow=none;" edge="1" parent="1" source="YY2gHRtdCYsPqJjgCvtX-7" target="Bzb-3gxFvcCEt1NOHRP6-41">
+        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-43" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;fontColor=default;startArrow=none;" parent="1" source="YY2gHRtdCYsPqJjgCvtX-7" target="Bzb-3gxFvcCEt1NOHRP6-41" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="1128.2352941176468" y="1080" as="sourcePoint" />
             <mxPoint x="1121.7647058823527" y="915" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-44" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;MusicValuesOutputMqttAdapter&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ &lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ ?&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fontColor=default;strokeColor=default;" vertex="1" parent="1">
+        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-44" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;MusicValuesOutputMqttAdapter&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ &lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ ?&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fontColor=default;strokeColor=default;" parent="1" vertex="1">
           <mxGeometry x="1245" y="1070" width="200" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-45" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;fontColor=default;" edge="1" parent="1" source="YY2gHRtdCYsPqJjgCvtX-7" target="Bzb-3gxFvcCEt1NOHRP6-44">
+        <mxCell id="Bzb-3gxFvcCEt1NOHRP6-45" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;fontColor=default;" parent="1" source="YY2gHRtdCYsPqJjgCvtX-7" target="Bzb-3gxFvcCEt1NOHRP6-44" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="1343.375" y="970" as="sourcePoint" />
             <mxPoint x="1367" y="1010" as="targetPoint" />
