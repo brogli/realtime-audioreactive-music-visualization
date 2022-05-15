@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class MidiMessageProcessor : MonoBehaviour
 {
+    private BeatclockProcessor _beatclockProcessor;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        _beatclockProcessor = GameObject.FindGameObjectWithTag("BeatclockProcessor").GetComponent<BeatclockProcessor>();
     }
 
     // Update is called once per frame
@@ -34,6 +36,6 @@ public class MidiMessageProcessor : MonoBehaviour
 
     internal void ProcessBeatclock()
     {
-        //Debug.Log("clock");
+        _beatclockProcessor.ProcessBeatclock();
     }
 }
