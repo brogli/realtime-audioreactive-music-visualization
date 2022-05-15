@@ -7,7 +7,7 @@ What I want:
 - Be able to improvise these "visuals" as my friends dj.
 
 How I try to achieve this (technically):
-- Using my fork of [Keijro's MidiJack plugin](https://github.com/keijiro/MidiJack), and a yet to be determined MQTT Unity PLugin I'm able to get user input from midi controllers or from an MQTT publisher into Unity.
+- Using [Keijro's RtMidi wrapper](https://github.com/keijiro/jp.keijiro.rtmidi), and a yet to be determined MQTT Unity PLugin I'm able to get user input from midi controllers or from an MQTT publisher into Unity.
 - Using a very nice third-party programm called [Wavesum](http://wavesum.net/products.html), I get a beatclock signal (over midi) into Unity. This signal is detected in real-time listening to the microphone input of my computer.
 - Using Unity's own FFT-Implentation I'm able to get a real-time frequency spectrum analysis.
 
