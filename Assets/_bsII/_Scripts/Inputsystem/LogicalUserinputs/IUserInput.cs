@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IUserInput
 {
-    void SetNewStateIfNecessary(bool newInfo);
+    void SetNewStateIfNecessary(bool newIsPressed, float value);
 }

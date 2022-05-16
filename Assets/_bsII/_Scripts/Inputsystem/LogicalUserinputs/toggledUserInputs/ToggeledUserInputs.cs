@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class ToggeledUserInputs<T> where T : IUserInput, new()
 {
-    public T[] keys;
+    public T[] Keys { get; private set; }
 
     public ToggeledUserInputs()
     {
-        keys = new T[8];
-        for (int i = 0; i<keys.Length; i++)
+        Keys = new T[8];
+        for (int i = 0; i < Keys.Length; i++)
         {
-            keys[i] = new T();
+            Keys[i] = new T();
         }
     }
 }

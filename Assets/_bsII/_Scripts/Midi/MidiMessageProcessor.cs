@@ -6,11 +6,13 @@ using UnityEngine;
 public class MidiMessageProcessor : MonoBehaviour
 {
     private BeatclockProcessor _beatclockProcessor;
+    private NoteProcessor _noteProcessor;
 
     // Start is called before the first frame update
     void Start()
     {
         _beatclockProcessor = GameObject.FindGameObjectWithTag("BeatclockProcessor").GetComponent<BeatclockProcessor>();
+        _noteProcessor = GameObject.FindGameObjectWithTag("NoteProcessor").GetComponent<NoteProcessor>();
     }
 
     // Update is called once per frame
@@ -21,12 +23,12 @@ public class MidiMessageProcessor : MonoBehaviour
 
     internal void ProcessNoteOn(string name, byte channel, byte note, byte velocity)
     {
-        Debug.Log("note on");
+        _noteProcessor.ProcessNoteOn(channel, note, velocity);
     }
 
     internal void ProcessNoteOff(string name, byte channel, byte note)
     {
-        Debug.Log("note off");
+        _noteProcessor.ProcessNoteOff(channel, note);
     }
 
     internal void ProcessControlChange(string name, byte channel, byte number, byte value)

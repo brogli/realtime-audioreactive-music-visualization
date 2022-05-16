@@ -13,7 +13,9 @@ public abstract class ToggeledUserInput : IUserInput
 
     public bool IsPressed { get; private set; }
 
-    public void SetNewStateIfNecessary(bool newIsPressed)
+    public float Value { get; private set; }
+
+    public void SetNewStateIfNecessary(bool newIsPressed, float value)
     {
         if (newIsPressed == IsPressed)
         {
@@ -29,6 +31,8 @@ public abstract class ToggeledUserInput : IUserInput
             IsPressed = false;
             KeyUpEventEmitted?.Invoke();
         }
+
+        Value = value;
     }
 }
 

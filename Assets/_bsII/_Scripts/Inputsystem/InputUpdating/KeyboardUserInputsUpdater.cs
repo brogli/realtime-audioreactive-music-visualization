@@ -9,14 +9,14 @@ public class KeyboardUserInputsUpdater : IUserInputsUpdater
     private KeyCode[] numberKeyCodes = { KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3, KeyCode.Alpha4, KeyCode.Alpha5, KeyCode.Alpha6, KeyCode.Alpha7, KeyCode.Alpha8 };
     private KeyCode melodyKeysModifierKey = KeyCode.LeftShift;
 
-    public KeyboardUserInputsUpdater(UserInputsProvider userInputsProvider)
+    public KeyboardUserInputsUpdater(UserInputsModel userInputsProvider)
     {
         initializeUpdateAccess(userInputsProvider);
     }
 
-    private void initializeUpdateAccess(UserInputsProvider userInputsProvider)
+    private void initializeUpdateAccess(UserInputsModel userInputsProvider)
     {
-        melodyKeys = userInputsProvider.melodyKeys;
+        melodyKeys = userInputsProvider.MelodyKeys;
     }
 
     public void UpdateDroneKeys()
@@ -48,9 +48,9 @@ public class KeyboardUserInputsUpdater : IUserInputsUpdater
     {
         if (Input.GetKey(melodyKeysModifierKey))
         {
-            for (int i = 0; i < melodyKeys.keys.Length; i++)
+            for (int i = 0; i < melodyKeys.Keys.Length; i++)
             {
-                melodyKeys.keys[i].SetNewStateIfNecessary(Input.GetKey(numberKeyCodes[i]));
+                melodyKeys.Keys[i].SetNewStateIfNecessary(Input.GetKey(numberKeyCodes[i]), 1);
             }
         }
     }

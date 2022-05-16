@@ -1,6 +1,6 @@
 public class FadedUserinput : IUserInput
 {
-    public void SetNewStateIfNecessary(bool newInfo)
+    public void SetNewStateIfNecessary(bool newInfo, float value)
     {
         throw new System.NotImplementedException();
     }

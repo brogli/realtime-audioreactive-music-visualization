@@ -5,24 +5,24 @@ using UnityEngine;
 public class GameConductor : MonoBehaviour
 {
 
-    public UserInputsProvider userInputsProvider;
-    public IUserInputsUpdater userInputsUpdater;
+    //public UserInputsModel userInputsModel;
+    //public IUserInputsUpdater userInputsUpdater;
 
     // Start is called before the first frame update
     void Start()
     {
-        userInputsProvider = new UserInputsProvider();
-        userInputsUpdater = new KeyboardUserInputsUpdater(userInputsProvider);
+        //userInputsModel = new UserInputsModel();
+        //userInputsUpdater = new KeyboardUserInputsUpdater(userInputsModel);
     }
 
     // Update is called once per frame
     void Update()
     {
-        userInputsUpdater.UpdateUserInputs();
+        //userInputsUpdater.UpdateUserInputs();
         
-        foreach (MelodyKey melodyKey in userInputsProvider.melodyKeys.keys)
-        {
-            Debug.Log(melodyKey.IsPressed);
-        }
+        //foreach (MelodyKey melodyKey in userInputsModel.melodyKeys.keys)
+        //{
+        //    Debug.Log(melodyKey.IsPressed);
+        //}
     }
 }
