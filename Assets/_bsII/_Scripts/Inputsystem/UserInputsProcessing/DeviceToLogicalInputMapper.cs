@@ -28,8 +28,8 @@ public class DeviceToLogicalInputMapper : MonoBehaviour
         {
             //    return _userInputsModel.MelodyKeys.Keys[0];
             System.Object hello =_userInputsModel.GetType().GetProperty("MelodyKeys").GetValue(_userInputsModel);
-            var vello = (ToggeledUserInputs<MelodyKey>)hello;
-            var bello = vello.Keys[0];
+            ToggeledUserInputs<MelodyKey> vello = (ToggeledUserInputs<MelodyKey>)hello;
+            MelodyKey bello = vello.Keys[0];
 
             //Debug.Log("hody");
             return bello;
