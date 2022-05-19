@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class KeyboardUserInputsUpdater : IUserInputsUpdater
 {
-    private ToggeledUserInputs<MelodyKey> melodyKeys;
+    private UserInputCollectionOfEight<MelodyKey> melodyKeys;
     private KeyCode[] numberKeyCodes = { KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3, KeyCode.Alpha4, KeyCode.Alpha5, KeyCode.Alpha6, KeyCode.Alpha7, KeyCode.Alpha8 };
     private KeyCode melodyKeysModifierKey = KeyCode.LeftShift;
 

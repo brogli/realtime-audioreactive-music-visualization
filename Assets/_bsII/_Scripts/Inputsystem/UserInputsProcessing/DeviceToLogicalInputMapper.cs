@@ -26,13 +26,9 @@ public class DeviceToLogicalInputMapper : MonoBehaviour
         // channel 0, note 72 -> melodyKey index 0
         if (channel == 0 && note == 72)
         {
-            //    return _userInputsModel.MelodyKeys.Keys[0];
-            System.Object hello =_userInputsModel.GetType().GetProperty("MelodyKeys").GetValue(_userInputsModel);
-            ToggeledUserInputs<MelodyKey> vello = (ToggeledUserInputs<MelodyKey>)hello;
-            MelodyKey bello = vello.Keys[0];
-
-            //Debug.Log("hody");
-            return bello;
+            System.Object property =_userInputsModel.GetType().GetProperty("MelodyKeys").GetValue(_userInputsModel);
+            UserInputCollectionOfEight<IUserInput> userInputCollection = (UserInputCollectionOfEight<IUserInput>)property;
+            return userInputCollection.Keys[0];
         }
         else
         {

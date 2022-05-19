@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class UserInputsModel : MonoBehaviour
 {
-    public ToggeledUserInputs<MelodyKey> MelodyKeys { get; private set; }
+    public UserInputCollectionOfEight<MelodyKey> MelodyKeys { get; private set; }
 
     public void Start()
     {
-        MelodyKeys = new ToggeledUserInputs<MelodyKey>();
+        MelodyKeys = new UserInputCollectionOfEight<MelodyKey>();
     }
 }
