@@ -21,12 +21,12 @@ public class NoteProcessor : MonoBehaviour
 
     public void ProcessNoteOn(byte channel, byte note, byte velocity)
     {
-        _deviceToLogicalInputMapper.GetLogicalInputByChannelAndNote(channel, note).SetNewStateIfNecessary(true, velocity / 127.0f);
+        _deviceToLogicalInputMapper.GetLogicalInputByChannelAndNote(channel, note)?.SetNewStateIfNecessary(true, velocity / 127.0f);
 
     }
 
     public void ProcessNoteOff(byte channel, byte note)
     {
-        _deviceToLogicalInputMapper.GetLogicalInputByChannelAndNote(channel, note).SetNewStateIfNecessary(false, 0);
+        _deviceToLogicalInputMapper.GetLogicalInputByChannelAndNote(channel, note)?.SetNewStateIfNecessary(false, 0);
     }
 }

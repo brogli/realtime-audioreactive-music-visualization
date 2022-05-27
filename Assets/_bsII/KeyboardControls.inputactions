@@ -1,0 +1,54 @@
+{
+    "name": "KeyboardControls",
+    "maps": [
+        {
+            "name": "KeyboardControls",
+            "id": "cecb5236-16cb-4f7a-813c-4e80ce3e525b",
+            "actions": [
+                {
+                    "name": "Reload Game Settings",
+                    "type": "Button",
+                    "id": "4729cfaa-94c6-4ba9-9be5-b17a59137010",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Set Game Settings To Default",
+                    "type": "Button",
+                    "id": "cab00c8b-5226-4f61-b361-d4c3ff4711c7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "f612a33b-e202-4907-99dd-d19b1a3ddd08",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reload Game Settings",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2ff3cae3-9c8e-407d-b6c7-2c805cbff44b",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Set Game Settings To Default",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class ToggeledUserInput : IUserInput
+public class ToggeledUserInput : IUserInput
 {
     public delegate void KeyUpEvent();
     public event KeyUpEvent KeyUpEventEmitted;

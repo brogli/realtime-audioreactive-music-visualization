@@ -1,0 +1,23 @@
+{
+    "midiDeviceInputs": {
+        "noteInputs": {
+            "0_72": {
+                "collection": true,
+                "targetProperty": "MelodyKeys",
+                "type": "ToggeledUserInput",
+                "targetIndex": 0
+            },
+            "0_73": {
+                "collection": true,
+                "targetProperty": "MelodyKeys",
+                "type": "ToggeledUserInput",
+                "targetIndex": 1
+            }
+        },
+        "ccInputs": {
+            "channelNumber_ccNumber": {
+                "targetProperty": "fourInFour"
+            }
+        }
+    }
+}

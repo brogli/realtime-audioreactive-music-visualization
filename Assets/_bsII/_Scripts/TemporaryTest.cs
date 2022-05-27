@@ -46,6 +46,6 @@ public class TemporaryTest : MonoBehaviour
         //    }
         //}
 
-        Debug.Log(_userInputsModel.MelodyKeys.Keys[0].IsPressed);
+        //Debug.Log(_userInputsModel.MelodyKeys.Keys[0].IsPressed);
     }
 }
