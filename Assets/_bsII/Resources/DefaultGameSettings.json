@@ -1,6 +1,150 @@
 {
     "midiDeviceInputs": {
         "noteInputs": {
+            "0_36": {
+                "collection": true,
+                "targetProperty": "ExplosionKeys",
+                "type": "TriggeredUserInput",
+                "targetIndex": 0
+            },
+            "0_37": {
+                "collection": true,
+                "targetProperty": "ExplosionKeys",
+                "type": "TriggeredUserInput",
+                "targetIndex": 1
+            },
+            "0_38": {
+                "collection": true,
+                "targetProperty": "ExplosionKeys",
+                "type": "TriggeredUserInput",
+                "targetIndex": 2
+            },
+            "0_39": {
+                "collection": true,
+                "targetProperty": "ExplosionKeys",
+                "type": "TriggeredUserInput",
+                "targetIndex": 3
+            },
+            "0_40": {
+                "collection": true,
+                "targetProperty": "ExplosionKeys",
+                "type": "TriggeredUserInput",
+                "targetIndex": 4
+            },
+            "0_41": {
+                "collection": true,
+                "targetProperty": "ExplosionKeys",
+                "type": "TriggeredUserInput",
+                "targetIndex": 5
+            },
+            "0_42": {
+                "collection": true,
+                "targetProperty": "ExplosionKeys",
+                "type": "TriggeredUserInput",
+                "targetIndex": 6
+            },
+            "0_43": {
+                "collection": true,
+                "targetProperty": "ExplosionKeys",
+                "type": "TriggeredUserInput",
+                "targetIndex": 7
+            },
+            "0_48": {
+                "collection": true,
+                "targetProperty": "DroneKeys",
+                "type": "ToggeledUserInput",
+                "targetIndex": 0
+            },
+            "0_49": {
+                "collection": true,
+                "targetProperty": "DroneKeys",
+                "type": "ToggeledUserInput",
+                "targetIndex": 1
+            },
+            "0_50": {
+                "collection": true,
+                "targetProperty": "DroneKeys",
+                "type": "ToggeledUserInput",
+                "targetIndex": 2
+            },
+            "0_51": {
+                "collection": true,
+                "targetProperty": "DroneKeys",
+                "type": "ToggeledUserInput",
+                "targetIndex": 3
+            },
+            "0_52": {
+                "collection": true,
+                "targetProperty": "DroneKeys",
+                "type": "ToggeledUserInput",
+                "targetIndex": 4
+            },
+            "0_53": {
+                "collection": true,
+                "targetProperty": "DroneKeys",
+                "type": "ToggeledUserInput",
+                "targetIndex": 5
+            },
+            "0_54": {
+                "collection": true,
+                "targetProperty": "DroneKeys",
+                "type": "ToggeledUserInput",
+                "targetIndex": 6
+            },
+            "0_55": {
+                "collection": true,
+                "targetProperty": "DroneKeys",
+                "type": "ToggeledUserInput",
+                "targetIndex": 7
+            },
+            "0_61": {
+                "collection": true,
+                "targetProperty": "MoodKeys",
+                "type": "TriggeredUserInput",
+                "targetIndex": 0
+            },
+            "0_62": {
+                "collection": true,
+                "targetProperty": "MoodKeys",
+                "type": "TriggeredUserInput",
+                "targetIndex": 1
+            },
+            "0_63": {
+                "collection": true,
+                "targetProperty": "MoodKeys",
+                "type": "TriggeredUserInput",
+                "targetIndex": 2
+            },
+            "0_64": {
+                "collection": true,
+                "targetProperty": "MoodKeys",
+                "type": "TriggeredUserInput",
+                "targetIndex": 3
+            },
+            "0_65": {
+                "collection": true,
+                "targetProperty": "MoodKeys",
+                "type": "TriggeredUserInput",
+                "targetIndex": 4
+            },
+            "0_66": {
+                "collection": true,
+                "targetProperty": "MoodKeys",
+                "type": "TriggeredUserInput",
+                "targetIndex": 5
+            },
+            "0_67": {
+                "collection": true,
+                "targetProperty": "MoodKeys",
+                "type": "TriggeredUserInput",
+                "targetIndex": 6
+            },
+            "0_68": {
+                "collection": true,
+                "targetProperty": "MoodKeys",
+                "type": "TriggeredUserInput",
+                "targetIndex": 7
+            },
             "0_72": {
                 "collection": true,
                 "targetProperty": "MelodyKeys",
@@ -12,6 +156,42 @@
                 "targetProperty": "MelodyKeys",
                 "type": "ToggeledUserInput",
                 "targetIndex": 1
+            },
+            "0_74": {
+                "collection": true,
+                "targetProperty": "MelodyKeys",
+                "type": "ToggeledUserInput",
+                "targetIndex": 2
+            },
+            "0_75": {
+                "collection": true,
+                "targetProperty": "MelodyKeys",
+                "type": "ToggeledUserInput",
+                "targetIndex": 3
+            },
+            "0_76": {
+                "collection": true,
+                "targetProperty": "MelodyKeys",
+                "type": "ToggeledUserInput",
+                "targetIndex": 4
+            },
+            "0_77": {
+                "collection": true,
+                "targetProperty": "MelodyKeys",
+                "type": "ToggeledUserInput",
+                "targetIndex": 5
+            },
+            "0_78": {
+                "collection": true,
+                "targetProperty": "MelodyKeys",
+                "type": "ToggeledUserInput",
+                "targetIndex": 6
+            },
+            "0_79": {
+                "collection": true,
+                "targetProperty": "MelodyKeys",
+                "type": "ToggeledUserInput",
+                "targetIndex": 7
             }
         },
         "ccInputs": {
