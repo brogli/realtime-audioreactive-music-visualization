@@ -34,14 +34,14 @@ public class UserInputsModel : MonoBehaviour
         var moodKeys = new TriggeredUserInput[8];
         for (int i = 0; i < melodyKeys.Length; i++)
         {
-            moodKeys[i] = new TriggeredUserInput();
+            moodKeys[i] = new TriggeredUserInput(i);
         }
         MoodKeys = new UserInputCollectionOfEight<TriggeredUserInput>(moodKeys);
 
         var explosionKeys = new TriggeredUserInput[8];
         for (int i = 0; i < melodyKeys.Length; i++)
         {
-            explosionKeys[i] = new TriggeredUserInput();
+            explosionKeys[i] = new TriggeredUserInput(i);
         }
         ExplosionKeys = new UserInputCollectionOfEight<TriggeredUserInput>(explosionKeys);
         ReloadGameSettings = new TriggeredUserInput();

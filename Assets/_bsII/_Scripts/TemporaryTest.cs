@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,10 @@ using UnityEngine;
 public class TemporaryTest : MonoBehaviour
 {
     public List<GameObject> cubes;
+    public List<GameObject> MelodyKeys;
+    public List<GameObject> DroneKeys;
+    public List<GameObject> MoodKeys;
+    public List<GameObject> ExplosionKeys;
     private MusicValuesModel _musicValuesModel;
     private UserInputsModel _userInputsModel;
 
@@ -13,39 +18,130 @@ public class TemporaryTest : MonoBehaviour
     {
         _musicValuesModel = GameObject.FindGameObjectWithTag("MusicValuesModel").GetComponent<MusicValuesModel>();
         _userInputsModel = GameObject.FindGameObjectWithTag("UserInputsModel").GetComponent<UserInputsModel>();
+        RegisterMoodKeysSubscriptions();
+        RegisterExplosionKeysSubscriptions();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //for (int i = 0; i < cubes.Count; i++)
-        //{
-        //    if (i == 0)
-        //    {
-        //        cubes[i].transform.localScale = new Vector3(cubes[i].transform.localScale.x, _musicValuesModel.FourInFourValue, cubes[i].transform.localScale.z);
-        //    }
+        BeatElements();
+        MelodyKeysImplementation();
+        DroneKeysImplementation();
+    }
 
-        //    if (i == 1)
-        //    {
-        //        cubes[i].transform.localScale = new Vector3(cubes[i].transform.localScale.x, _musicValuesModel.OneInFourValue, cubes[i].transform.localScale.z);
-        //    }
+    private void RegisterExplosionKeysSubscriptions()
+    {
+        for (int i = 0; i < _userInputsModel.MoodKeys.Keys.Length; i++)
+        {
+            _userInputsModel.ExplosionKeys.Keys[i].EmitTriggerEvent += StartIt;
+            ExplosionKeys[i].SetActive(false);
+        }
+    }
 
-        //    if (i == 2)
-        //    {
-        //        cubes[i].transform.localScale = new Vector3(cubes[i].transform.localScale.x, _musicValuesModel.TwoInFourValue, cubes[i].transform.localScale.z);
-        //    }
+    private void StartIt(int index)
+    {
+        StartCoroutine(ShowForAWhile(index));
+    }
 
-        //    if (i == 3)
-        //    {
-        //        cubes[i].transform.localScale = new Vector3(cubes[i].transform.localScale.x, _musicValuesModel.EightInFourValue, cubes[i].transform.localScale.z);
-        //    }
+    private IEnumerator ShowForAWhile(int index)
+    {
+        ExplosionKeys[index].SetActive(true);
 
-        //    if (i == 4)
-        //    {
-        //        cubes[i].transform.localScale = new Vector3(cubes[i].transform.localScale.x, _musicValuesModel.SixteenInFourValue, cubes[i].transform.localScale.z);
-        //    }
-        //}
 
-        //Debug.Log(_userInputsModel.MelodyKeys.Keys[0].IsPressed);
+        yield return new WaitForSeconds(3f);
+
+        ExplosionKeys[index].SetActive(false);
+    }
+
+    private void RegisterMoodKeysSubscriptions()
+    {
+        for (int i = 0; i < _userInputsModel.MoodKeys.Keys.Length; i++)
+        {
+            _userInputsModel.MoodKeys.Keys[i].EmitTriggerEvent += MoodKeysImplementation;
+        }
+    }
+
+    public void OnDisable()
+    {
+        for (int i = 0; i < _userInputsModel.MoodKeys.Keys.Length; i++)
+        {
+            _userInputsModel.MoodKeys.Keys[i].EmitTriggerEvent -= MoodKeysImplementation;
+        }
+    }
+
+
+    private void MoodKeysImplementation(int index)
+    {
+        for (int i = 0; i < _userInputsModel.MoodKeys.Keys.Length; i++)
+        {
+            if (i == index)
+            {
+                MoodKeys[i].SetActive(true);
+            } else
+            {
+                MoodKeys[i].SetActive(false);
+            }
+        }
+    }
+
+    private void MelodyKeysImplementation()
+    {
+        for (int i = 0; i < _userInputsModel.MelodyKeys.Keys.Length; i++)
+        {
+            if (_userInputsModel.MelodyKeys.Keys[i].IsPressed)
+            {
+                MelodyKeys[i].SetActive(true);
+            } else
+            {
+                MelodyKeys[i].SetActive(false);
+            }
+        }
+    }
+
+    private void DroneKeysImplementation()
+    {
+        for (int i = 0; i < _userInputsModel.DroneKeys.Keys.Length; i++)
+        {
+            if (_userInputsModel.DroneKeys.Keys[i].IsPressed)
+            {
+                DroneKeys[i].SetActive(true);
+            }
+            else
+            {
+                DroneKeys[i].SetActive(false);
+            }
+        }
+    }
+
+    private void BeatElements()
+    {
+        for (int i = 0; i < cubes.Count; i++)
+        {
+            if (i == 0)
+            {
+                cubes[i].transform.localScale = new Vector3(cubes[i].transform.localScale.x, _musicValuesModel.FourInFourValue, cubes[i].transform.localScale.z);
+            }
+
+            if (i == 1)
+            {
+                cubes[i].transform.localScale = new Vector3(cubes[i].transform.localScale.x, _musicValuesModel.OneInFourValue, cubes[i].transform.localScale.z);
+            }
+
+            if (i == 2)
+            {
+                cubes[i].transform.localScale = new Vector3(cubes[i].transform.localScale.x, _musicValuesModel.TwoInFourValue, cubes[i].transform.localScale.z);
+            }
+
+            if (i == 3)
+            {
+                cubes[i].transform.localScale = new Vector3(cubes[i].transform.localScale.x, _musicValuesModel.EightInFourValue, cubes[i].transform.localScale.z);
+            }
+
+            if (i == 4)
+            {
+                cubes[i].transform.localScale = new Vector3(cubes[i].transform.localScale.x, _musicValuesModel.SixteenInFourValue, cubes[i].transform.localScale.z);
+            }
+        }
     }
 }

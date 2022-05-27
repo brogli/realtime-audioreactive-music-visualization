@@ -97,49 +97,49 @@
                 "type": "ToggeledUserInput",
                 "targetIndex": 7
             },
-            "0_61": {
+            "0_60": {
                 "collection": true,
                 "targetProperty": "MoodKeys",
                 "type": "TriggeredUserInput",
                 "targetIndex": 0
             },
-            "0_62": {
+            "0_61": {
                 "collection": true,
                 "targetProperty": "MoodKeys",
                 "type": "TriggeredUserInput",
                 "targetIndex": 1
             },
-            "0_63": {
+            "0_62": {
                 "collection": true,
                 "targetProperty": "MoodKeys",
                 "type": "TriggeredUserInput",
                 "targetIndex": 2
             },
-            "0_64": {
+            "0_63": {
                 "collection": true,
                 "targetProperty": "MoodKeys",
                 "type": "TriggeredUserInput",
                 "targetIndex": 3
             },
-            "0_65": {
+            "0_64": {
                 "collection": true,
                 "targetProperty": "MoodKeys",
                 "type": "TriggeredUserInput",
                 "targetIndex": 4
             },
-            "0_66": {
+            "0_65": {
                 "collection": true,
                 "targetProperty": "MoodKeys",
                 "type": "TriggeredUserInput",
                 "targetIndex": 5
             },
-            "0_67": {
+            "0_66": {
                 "collection": true,
                 "targetProperty": "MoodKeys",
                 "type": "TriggeredUserInput",
                 "targetIndex": 6
             },
-            "0_68": {
+            "0_67": {
                 "collection": true,
                 "targetProperty": "MoodKeys",
                 "type": "TriggeredUserInput",

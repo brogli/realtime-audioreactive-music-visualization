@@ -24,7 +24,7 @@ public class GameSettingsHandler : MonoBehaviour
         _userInputsModel = GameObject.FindGameObjectWithTag("UserInputsModel").GetComponent<UserInputsModel>();
         _userInputsModel.ReloadGameSettings.EmitTriggerEvent += ReloadGameSettings;
         _userInputsModel.ResetGameSettingsToDefaults.EmitTriggerEvent += ResetGameSettingsToDefault;
-        ReloadGameSettings();
+        ReloadGameSettings(0);
         
     }
 
@@ -38,7 +38,7 @@ public class GameSettingsHandler : MonoBehaviour
     {
     }
 
-    public async void ReloadGameSettings()
+    public async void ReloadGameSettings(int index)
     {
         Debug.Log("Reloading Game Settings");
         if (DoesFileExist(_gameSettingsPath))
@@ -55,12 +55,12 @@ public class GameSettingsHandler : MonoBehaviour
         Debug.Log(GameSettings);
     }
 
-    public void ResetGameSettingsToDefault()
+    public void ResetGameSettingsToDefault(int index)
     {
         Debug.Log("Resetting game settings to default");
         string defaultGameSettingsJson = ReadFromDefaults();
         WriteToFile(defaultGameSettingsJson, _gameSettingsPath);
-        ReloadGameSettings();
+        ReloadGameSettings(index);
     }
 
     private string ReadFromDefaults()
