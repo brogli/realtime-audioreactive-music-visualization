@@ -20,6 +20,7 @@ public class TemporaryTest : MonoBehaviour
         _userInputsModel = GameObject.FindGameObjectWithTag("UserInputsModel").GetComponent<UserInputsModel>();
         RegisterMoodKeysSubscriptions();
         RegisterExplosionKeysSubscriptions();
+        RegisterBeatRelatedUserInputs();
     }
 
     // Update is called once per frame
@@ -30,16 +31,53 @@ public class TemporaryTest : MonoBehaviour
         DroneKeysImplementation();
     }
 
+    private void RegisterBeatRelatedUserInputs()
+    {
+        _userInputsModel.FourInFourUserInput.KeyDownEventEmitted += () => cubes[0].SetActive(true);
+        _userInputsModel.FourInFourUserInput.KeyUpEventEmitted += () => cubes[0].SetActive(false);
+        _userInputsModel.OneInFourUserInput.KeyDownEventEmitted += () => cubes[1].SetActive(true);
+        _userInputsModel.OneInFourUserInput.KeyUpEventEmitted += () => cubes[1].SetActive(false);
+        _userInputsModel.TwoInFourUserInput.KeyDownEventEmitted += () => cubes[2].SetActive(true);
+        _userInputsModel.TwoInFourUserInput.KeyUpEventEmitted += () => cubes[2].SetActive(false);
+        _userInputsModel.EightInFourUserInput.KeyDownEventEmitted += () => cubes[3].SetActive(true);
+        _userInputsModel.EightInFourUserInput.KeyUpEventEmitted += () => cubes[3].SetActive(false);
+        _userInputsModel.SixteenInFourUserInput.KeyDownEventEmitted += () => cubes[4].SetActive(true);
+        _userInputsModel.SixteenInFourUserInput.KeyUpEventEmitted += () => cubes[4].SetActive(false);
+        _userInputsModel.OneInEightUserInput.KeyDownEventEmitted += () => cubes[5].SetActive(true);
+        _userInputsModel.OneInEightUserInput.KeyUpEventEmitted += () => cubes[5].SetActive(false);
+    }
+
+
+    public void OnDisable()
+    {
+        for (int i = 0; i < _userInputsModel.MoodKeys.Keys.Length; i++)
+        {
+            _userInputsModel.MoodKeys.Keys[i].EmitCollectionKeyTriggeredEvent -= MoodKeysImplementation;
+        }
+        _userInputsModel.FourInFourUserInput.KeyDownEventEmitted -= () => cubes[0].SetActive(true);
+        _userInputsModel.FourInFourUserInput.KeyUpEventEmitted -= () => cubes[0].SetActive(false);
+        _userInputsModel.OneInFourUserInput.KeyDownEventEmitted -= () => cubes[1].SetActive(true);
+        _userInputsModel.OneInFourUserInput.KeyUpEventEmitted -= () => cubes[1].SetActive(false);
+        _userInputsModel.TwoInFourUserInput.KeyDownEventEmitted -= () => cubes[2].SetActive(true);
+        _userInputsModel.TwoInFourUserInput.KeyUpEventEmitted -= () => cubes[2].SetActive(false);
+        _userInputsModel.EightInFourUserInput.KeyDownEventEmitted -= () => cubes[3].SetActive(true);
+        _userInputsModel.EightInFourUserInput.KeyUpEventEmitted -= () => cubes[3].SetActive(false);
+        _userInputsModel.SixteenInFourUserInput.KeyDownEventEmitted -= () => cubes[4].SetActive(true);
+        _userInputsModel.SixteenInFourUserInput.KeyUpEventEmitted -= () => cubes[4].SetActive(false);
+        _userInputsModel.OneInEightUserInput.KeyDownEventEmitted -= () => cubes[5].SetActive(true);
+        _userInputsModel.OneInEightUserInput.KeyUpEventEmitted -= () => cubes[5].SetActive(false);
+    }
+
     private void RegisterExplosionKeysSubscriptions()
     {
         for (int i = 0; i < _userInputsModel.MoodKeys.Keys.Length; i++)
         {
-            _userInputsModel.ExplosionKeys.Keys[i].EmitCollectionKeyTriggeredEvent += StartIt;
+            _userInputsModel.ExplosionKeys.Keys[i].EmitCollectionKeyTriggeredEvent += StartExplosionCoroutine;
             ExplosionKeys[i].SetActive(false);
         }
     }
 
-    private void StartIt(int index)
+    private void StartExplosionCoroutine(int index)
     {
         StartCoroutine(ShowForAWhile(index));
     }
@@ -59,14 +97,6 @@ public class TemporaryTest : MonoBehaviour
         for (int i = 0; i < _userInputsModel.MoodKeys.Keys.Length; i++)
         {
             _userInputsModel.MoodKeys.Keys[i].EmitCollectionKeyTriggeredEvent += MoodKeysImplementation;
-        }
-    }
-
-    public void OnDisable()
-    {
-        for (int i = 0; i < _userInputsModel.MoodKeys.Keys.Length; i++)
-        {
-            _userInputsModel.MoodKeys.Keys[i].EmitCollectionKeyTriggeredEvent -= MoodKeysImplementation;
         }
     }
 

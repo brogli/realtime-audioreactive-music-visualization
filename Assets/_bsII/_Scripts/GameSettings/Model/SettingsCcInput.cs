@@ -6,4 +6,5 @@ using UnityEngine;
 public class SettingsCcInput
 {
     public string targetProperty;
+    public InputType type;
 }

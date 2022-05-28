@@ -195,8 +195,29 @@
             }
         },
         "ccInputs": {
-            "channelNumber_ccNumber": {
-                "targetProperty": "fourInFour"
+            "2_33": {
+                "targetProperty": "FourInFourUserInput",
+                "type": "ToggeledUserInput"
+            },
+            "2_34": {
+                "targetProperty": "OneInFourUserInput",
+                "type": "ToggeledUserInput"
+            },
+            "2_35": {
+                "targetProperty": "TwoInFourUserInput",
+                "type": "ToggeledUserInput"
+            },
+            "2_36": {
+                "targetProperty": "EightInFourUserInput",
+                "type": "ToggeledUserInput"
+            },
+            "2_37": {
+                "targetProperty": "SixteenInFourUserInput",
+                "type": "ToggeledUserInput"
+            },
+            "2_38": {
+                "targetProperty": "OneInEightUserInput",
+                "type": "ToggeledUserInput"
             }
         }
     }

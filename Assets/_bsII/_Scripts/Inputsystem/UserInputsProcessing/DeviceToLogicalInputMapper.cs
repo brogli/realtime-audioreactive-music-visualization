@@ -70,6 +70,19 @@ public class DeviceToLogicalInputMapper : MonoBehaviour
 
     public IUserInput GetLogicalInputByChannelAndCcNumber(int channel, int ccNumber)
     {
-        throw new NotImplementedException();
+        SettingsCcInput ccInput;
+        if (_gameSettingsHandler.GameSettings.midiDeviceInputs.ccInputs.TryGetValue(channel + "_" + ccNumber, out ccInput))
+        {
+            System.Object property = _userInputsModel.GetType().GetProperty(ccInput.targetProperty).GetValue(_userInputsModel);
+
+            IUserInput userInput = (IUserInput)property;
+            return userInput;
+            
+        }
+        else
+        {
+            Debug.Log("Note not found");
+            return null;
+        }
     }
 }
