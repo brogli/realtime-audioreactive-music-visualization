@@ -86,6 +86,22 @@ public class MusicValuesModel : MonoBehaviour
             sixteenInFourValue = value;
         }
     }
+
+    public event BeatEvent EmitOneInEightEvent;
+    private float oneInEightValue = 1.0f;
+
+    public float OneInEightValue
+    {
+        get => oneInEightValue;
+        set
+        {
+            if (oneInEightValue > 0.5 && value < 0.5)
+            {
+                EmitOneInEightEvent?.Invoke();
+            }
+            oneInEightValue = value;
+        }
+    }
     #endregion
 
 

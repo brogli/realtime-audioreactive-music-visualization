@@ -144,6 +144,11 @@ public class TemporaryTest : MonoBehaviour
             {
                 cubes[i].transform.localScale = new Vector3(cubes[i].transform.localScale.x, _musicValuesModel.SixteenInFourValue, cubes[i].transform.localScale.z);
             }
+
+            if (i == 5)
+            {
+                cubes[i].transform.localScale = new Vector3(cubes[i].transform.localScale.x, _musicValuesModel.OneInEightValue, cubes[i].transform.localScale.z);
+            }
         }
     }
 }
