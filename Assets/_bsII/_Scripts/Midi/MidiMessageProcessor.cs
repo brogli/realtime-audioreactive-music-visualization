@@ -7,12 +7,14 @@ public class MidiMessageProcessor : MonoBehaviour
 {
     private BeatclockProcessor _beatclockProcessor;
     private NoteProcessor _noteProcessor;
+    private ControlChangeProcessor _controlChangeProcessor;
 
     // Start is called before the first frame update
     void Start()
     {
         _beatclockProcessor = GameObject.FindGameObjectWithTag("BeatclockProcessor").GetComponent<BeatclockProcessor>();
         _noteProcessor = GameObject.FindGameObjectWithTag("NoteProcessor").GetComponent<NoteProcessor>();
+        _controlChangeProcessor = GameObject.FindGameObjectWithTag("ControlChangeProcessor").GetComponent<ControlChangeProcessor>();
     }
 
     // Update is called once per frame
@@ -33,7 +35,7 @@ public class MidiMessageProcessor : MonoBehaviour
 
     internal void ProcessControlChange(string name, byte channel, byte number, byte value)
     {
-        Debug.Log("cc change");
+        _controlChangeProcessor.ProcessControlChange(channel, number, value);
     }
 
     internal void ProcessBeatclock()

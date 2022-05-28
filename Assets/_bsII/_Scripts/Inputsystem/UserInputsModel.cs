@@ -15,7 +15,40 @@ public class UserInputsModel : MonoBehaviour
     public UserInputCollectionOfEight<TriggeredUserInput> MoodKeys { get; private set; }
     public UserInputCollectionOfEight<TriggeredUserInput> ExplosionKeys { get; private set; }
     #endregion
+
+    #region beat user inputs
+    public ToggeledUserInput FourInFourUserInput { get; private set; }
+    public ToggeledUserInput OneInFourUserInput { get; private set; }
+    public ToggeledUserInput TwoInFourUserInput { get; private set; }
+    public ToggeledUserInput EightInFourUserInput { get; private set; }
+    public ToggeledUserInput SixteenInFourUserInput { get; private set; }
+    public ToggeledUserInput OneInEightUserInput { get; private set; }
+    #endregion
+
     public void Awake()
+    {
+        InitializeMelodyMoodDroneExplosionKeys();
+        InitializeManagementInputs();
+        InitializeBeatUserInputs();
+    }
+
+    private void InitializeBeatUserInputs()
+    {
+        FourInFourUserInput = new ToggeledUserInput();
+        OneInFourUserInput = new ToggeledUserInput();
+        TwoInFourUserInput = new ToggeledUserInput();
+        EightInFourUserInput = new ToggeledUserInput();
+        SixteenInFourUserInput = new ToggeledUserInput();
+        OneInEightUserInput = new ToggeledUserInput();
+    }
+
+    private void InitializeManagementInputs()
+    {
+        ReloadGameSettings = new TriggeredUserInput();
+        ResetGameSettingsToDefaults = new TriggeredUserInput();
+    }
+
+    private void InitializeMelodyMoodDroneExplosionKeys()
     {
         var melodyKeys = new ToggeledUserInput[8];
         for (int i = 0; i < melodyKeys.Length; i++)
@@ -44,7 +77,5 @@ public class UserInputsModel : MonoBehaviour
             explosionKeys[i] = new TriggeredUserInput(i);
         }
         ExplosionKeys = new UserInputCollectionOfEight<TriggeredUserInput>(explosionKeys);
-        ReloadGameSettings = new TriggeredUserInput();
-        ResetGameSettingsToDefaults = new TriggeredUserInput();
     }
 }
