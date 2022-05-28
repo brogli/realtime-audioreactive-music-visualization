@@ -22,23 +22,23 @@ public class GameSettingsHandler : MonoBehaviour
     public void Start()
     {
         _userInputsModel = GameObject.FindGameObjectWithTag("UserInputsModel").GetComponent<UserInputsModel>();
-        _userInputsModel.ReloadGameSettings.EmitTriggerEvent += ReloadGameSettings;
-        _userInputsModel.ResetGameSettingsToDefaults.EmitTriggerEvent += ResetGameSettingsToDefault;
-        ReloadGameSettings(0);
-        
+        _userInputsModel.ReloadGameSettings.EmitKeyTriggeredEvent += ReloadGameSettings;
+        _userInputsModel.ResetGameSettingsToDefaults.EmitKeyTriggeredEvent += ResetGameSettingsToDefault;
+        ReloadGameSettings();
+
     }
 
     public void OnDisable()
     {
-        _userInputsModel.ReloadGameSettings.EmitTriggerEvent -= ReloadGameSettings;
-        _userInputsModel.ResetGameSettingsToDefaults.EmitTriggerEvent -= ResetGameSettingsToDefault;
+        _userInputsModel.ReloadGameSettings.EmitKeyTriggeredEvent -= ReloadGameSettings;
+        _userInputsModel.ResetGameSettingsToDefaults.EmitKeyTriggeredEvent -= ResetGameSettingsToDefault;
     }
 
     public void Update()
     {
     }
 
-    public async void ReloadGameSettings(int index)
+    public async void ReloadGameSettings()
     {
         Debug.Log("Reloading Game Settings");
         if (DoesFileExist(_gameSettingsPath))
@@ -55,12 +55,12 @@ public class GameSettingsHandler : MonoBehaviour
         Debug.Log(GameSettings);
     }
 
-    public void ResetGameSettingsToDefault(int index)
+    public void ResetGameSettingsToDefault()
     {
         Debug.Log("Resetting game settings to default");
         string defaultGameSettingsJson = ReadFromDefaults();
         WriteToFile(defaultGameSettingsJson, _gameSettingsPath);
-        ReloadGameSettings(index);
+        ReloadGameSettings();
     }
 
     private string ReadFromDefaults()

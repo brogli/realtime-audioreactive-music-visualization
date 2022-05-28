@@ -12,12 +12,14 @@ public class BeatclockProcessor : MonoBehaviour
     private int _twoInFourValue = 1;
     private int _eightInFourValue = 1;
     private int _sixteenInFourValue = 1;
+    private int _oneInEightValue = 1;
 
+    private const float QuarterAmountClockPulses = 6;
+    private const float HalfAmountClockPulses = 12;
     private const float RegularAmountClockPulses = 24;
     private const float DoubleAmountClockPulses = 48;
     private const float QuadrupleAmountClockPulses = 96;
-    private const float HalfAmountClockPulses = 12;
-    private const float QuarterAmountClockPulses = 6;
+    private const float EightTimesAmountClockPulses = 192;
 
     public void Start()
     {
@@ -81,6 +83,15 @@ public class BeatclockProcessor : MonoBehaviour
         {
             _sixteenInFourValue++;
         }
+
+        // one in eight
+        if ((_oneInEightValue + 1) > EightTimesAmountClockPulses)
+        {
+            _oneInEightValue = 1;
+        } else
+        {
+            _oneInEightValue++;
+        }
     }
 
     private void NormalizeAndPushValues()
@@ -90,5 +101,6 @@ public class BeatclockProcessor : MonoBehaviour
         _musicValuesModel.TwoInFourValue = _twoInFourValue / DoubleAmountClockPulses;
         _musicValuesModel.EightInFourValue = _eightInFourValue / HalfAmountClockPulses;
         _musicValuesModel.SixteenInFourValue = _sixteenInFourValue / QuarterAmountClockPulses;
+        _musicValuesModel.OneInEightValue = _oneInEightValue / EightTimesAmountClockPulses;
     }
 }

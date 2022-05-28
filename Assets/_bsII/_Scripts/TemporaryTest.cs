@@ -34,7 +34,7 @@ public class TemporaryTest : MonoBehaviour
     {
         for (int i = 0; i < _userInputsModel.MoodKeys.Keys.Length; i++)
         {
-            _userInputsModel.ExplosionKeys.Keys[i].EmitTriggerEvent += StartIt;
+            _userInputsModel.ExplosionKeys.Keys[i].EmitCollectionKeyTriggeredEvent += StartIt;
             ExplosionKeys[i].SetActive(false);
         }
     }
@@ -58,7 +58,7 @@ public class TemporaryTest : MonoBehaviour
     {
         for (int i = 0; i < _userInputsModel.MoodKeys.Keys.Length; i++)
         {
-            _userInputsModel.MoodKeys.Keys[i].EmitTriggerEvent += MoodKeysImplementation;
+            _userInputsModel.MoodKeys.Keys[i].EmitCollectionKeyTriggeredEvent += MoodKeysImplementation;
         }
     }
 
@@ -66,7 +66,7 @@ public class TemporaryTest : MonoBehaviour
     {
         for (int i = 0; i < _userInputsModel.MoodKeys.Keys.Length; i++)
         {
-            _userInputsModel.MoodKeys.Keys[i].EmitTriggerEvent -= MoodKeysImplementation;
+            _userInputsModel.MoodKeys.Keys[i].EmitCollectionKeyTriggeredEvent -= MoodKeysImplementation;
         }
     }
 
@@ -78,7 +78,8 @@ public class TemporaryTest : MonoBehaviour
             if (i == index)
             {
                 MoodKeys[i].SetActive(true);
-            } else
+            }
+            else
             {
                 MoodKeys[i].SetActive(false);
             }
@@ -92,7 +93,8 @@ public class TemporaryTest : MonoBehaviour
             if (_userInputsModel.MelodyKeys.Keys[i].IsPressed)
             {
                 MelodyKeys[i].SetActive(true);
-            } else
+            }
+            else
             {
                 MelodyKeys[i].SetActive(false);
             }
@@ -141,6 +143,11 @@ public class TemporaryTest : MonoBehaviour
             if (i == 4)
             {
                 cubes[i].transform.localScale = new Vector3(cubes[i].transform.localScale.x, _musicValuesModel.SixteenInFourValue, cubes[i].transform.localScale.z);
+            }
+
+            if (i == 5)
+            {
+                cubes[i].transform.localScale = new Vector3(cubes[i].transform.localScale.x, _musicValuesModel.OneInEightValue, cubes[i].transform.localScale.z);
             }
         }
     }
