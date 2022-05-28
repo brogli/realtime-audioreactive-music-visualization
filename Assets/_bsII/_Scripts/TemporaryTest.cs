@@ -78,7 +78,8 @@ public class TemporaryTest : MonoBehaviour
             if (i == index)
             {
                 MoodKeys[i].SetActive(true);
-            } else
+            }
+            else
             {
                 MoodKeys[i].SetActive(false);
             }
@@ -92,7 +93,8 @@ public class TemporaryTest : MonoBehaviour
             if (_userInputsModel.MelodyKeys.Keys[i].IsPressed)
             {
                 MelodyKeys[i].SetActive(true);
-            } else
+            }
+            else
             {
                 MelodyKeys[i].SetActive(false);
             }

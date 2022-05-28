@@ -25,7 +25,7 @@ public class GameSettingsHandler : MonoBehaviour
         _userInputsModel.ReloadGameSettings.EmitKeyTriggeredEvent += ReloadGameSettings;
         _userInputsModel.ResetGameSettingsToDefaults.EmitKeyTriggeredEvent += ResetGameSettingsToDefault;
         ReloadGameSettings();
-        
+
     }
 
     public void OnDisable()
