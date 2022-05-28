@@ -6,8 +6,10 @@ using UnityEngine;
 public class TriggeredUserInput : IUserInput
 {
     public int index = 0;
-    public delegate void KeyTriggerEvent(int index);
-    public event KeyTriggerEvent EmitTriggerEvent;
+    public delegate void KeyTriggerEvent();
+    public delegate void CollectionKeyTriggerEvent(int index);
+    public event KeyTriggerEvent EmitKeyTriggeredEvent;
+    public event CollectionKeyTriggerEvent EmitCollectionKeyTriggeredEvent;
 
     public TriggeredUserInput()
     {
@@ -21,6 +23,7 @@ public class TriggeredUserInput : IUserInput
 
     public void SetNewStateIfNecessary(bool newIsPressed, float value)
     {
-        EmitTriggerEvent?.Invoke(index);
+        EmitKeyTriggeredEvent?.Invoke();
+        EmitCollectionKeyTriggeredEvent?.Invoke(index);
     }
 }

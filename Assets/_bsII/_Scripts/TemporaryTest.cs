@@ -34,7 +34,7 @@ public class TemporaryTest : MonoBehaviour
     {
         for (int i = 0; i < _userInputsModel.MoodKeys.Keys.Length; i++)
         {
-            _userInputsModel.ExplosionKeys.Keys[i].EmitTriggerEvent += StartIt;
+            _userInputsModel.ExplosionKeys.Keys[i].EmitCollectionKeyTriggeredEvent += StartIt;
             ExplosionKeys[i].SetActive(false);
         }
     }
@@ -58,7 +58,7 @@ public class TemporaryTest : MonoBehaviour
     {
         for (int i = 0; i < _userInputsModel.MoodKeys.Keys.Length; i++)
         {
-            _userInputsModel.MoodKeys.Keys[i].EmitTriggerEvent += MoodKeysImplementation;
+            _userInputsModel.MoodKeys.Keys[i].EmitCollectionKeyTriggeredEvent += MoodKeysImplementation;
         }
     }
 
@@ -66,7 +66,7 @@ public class TemporaryTest : MonoBehaviour
     {
         for (int i = 0; i < _userInputsModel.MoodKeys.Keys.Length; i++)
         {
-            _userInputsModel.MoodKeys.Keys[i].EmitTriggerEvent -= MoodKeysImplementation;
+            _userInputsModel.MoodKeys.Keys[i].EmitCollectionKeyTriggeredEvent -= MoodKeysImplementation;
         }
     }
 
