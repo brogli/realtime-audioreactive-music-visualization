@@ -33,18 +33,23 @@ public class TemporaryTest : MonoBehaviour
 
     private void RegisterBeatRelatedUserInputs()
     {
-        _userInputsModel.FourInFourUserInput.KeyDownEventEmitted += () => cubes[0].SetActive(true);
-        _userInputsModel.FourInFourUserInput.KeyUpEventEmitted += () => cubes[0].SetActive(false);
-        _userInputsModel.OneInFourUserInput.KeyDownEventEmitted += () => cubes[1].SetActive(true);
-        _userInputsModel.OneInFourUserInput.KeyUpEventEmitted += () => cubes[1].SetActive(false);
-        _userInputsModel.TwoInFourUserInput.KeyDownEventEmitted += () => cubes[2].SetActive(true);
-        _userInputsModel.TwoInFourUserInput.KeyUpEventEmitted += () => cubes[2].SetActive(false);
-        _userInputsModel.EightInFourUserInput.KeyDownEventEmitted += () => cubes[3].SetActive(true);
-        _userInputsModel.EightInFourUserInput.KeyUpEventEmitted += () => cubes[3].SetActive(false);
-        _userInputsModel.SixteenInFourUserInput.KeyDownEventEmitted += () => cubes[4].SetActive(true);
-        _userInputsModel.SixteenInFourUserInput.KeyUpEventEmitted += () => cubes[4].SetActive(false);
-        _userInputsModel.OneInEightUserInput.KeyDownEventEmitted += () => cubes[5].SetActive(true);
-        _userInputsModel.OneInEightUserInput.KeyUpEventEmitted += () => cubes[5].SetActive(false);
+        _userInputsModel.FourInFourUserInput.EmitTurnedOffEvent += () => cubes[0].SetActive(false);
+        _userInputsModel.FourInFourUserInput.EmitTurnedOnEvent += () => cubes[0].SetActive(true);
+
+        _userInputsModel.OneInFourUserInput.EmitTurnedOffEvent += () => cubes[1].SetActive(false);
+        _userInputsModel.OneInFourUserInput.EmitTurnedOnEvent += () => cubes[1].SetActive(true);
+
+        _userInputsModel.TwoInFourUserInput.EmitTurnedOffEvent += () => cubes[2].SetActive(false);
+        _userInputsModel.TwoInFourUserInput.EmitTurnedOnEvent += () => cubes[2].SetActive(true);
+
+        _userInputsModel.EightInFourUserInput.EmitTurnedOffEvent += () => cubes[3].SetActive(false);
+        _userInputsModel.EightInFourUserInput.EmitTurnedOnEvent += () => cubes[3].SetActive(true);
+
+        _userInputsModel.SixteenInFourUserInput.EmitTurnedOffEvent += () => cubes[4].SetActive(false);
+        _userInputsModel.SixteenInFourUserInput.EmitTurnedOnEvent += () => cubes[4].SetActive(true);
+
+        _userInputsModel.OneInEightUserInput.EmitTurnedOffEvent += () => cubes[5].SetActive(false);
+        _userInputsModel.OneInEightUserInput.EmitTurnedOnEvent += () => cubes[5].SetActive(true);
     }
 
 
@@ -54,18 +59,18 @@ public class TemporaryTest : MonoBehaviour
         {
             _userInputsModel.MoodKeys.Keys[i].EmitCollectionKeyTriggeredEvent -= MoodKeysImplementation;
         }
-        _userInputsModel.FourInFourUserInput.KeyDownEventEmitted -= () => cubes[0].SetActive(true);
-        _userInputsModel.FourInFourUserInput.KeyUpEventEmitted -= () => cubes[0].SetActive(false);
-        _userInputsModel.OneInFourUserInput.KeyDownEventEmitted -= () => cubes[1].SetActive(true);
-        _userInputsModel.OneInFourUserInput.KeyUpEventEmitted -= () => cubes[1].SetActive(false);
-        _userInputsModel.TwoInFourUserInput.KeyDownEventEmitted -= () => cubes[2].SetActive(true);
-        _userInputsModel.TwoInFourUserInput.KeyUpEventEmitted -= () => cubes[2].SetActive(false);
-        _userInputsModel.EightInFourUserInput.KeyDownEventEmitted -= () => cubes[3].SetActive(true);
-        _userInputsModel.EightInFourUserInput.KeyUpEventEmitted -= () => cubes[3].SetActive(false);
-        _userInputsModel.SixteenInFourUserInput.KeyDownEventEmitted -= () => cubes[4].SetActive(true);
-        _userInputsModel.SixteenInFourUserInput.KeyUpEventEmitted -= () => cubes[4].SetActive(false);
-        _userInputsModel.OneInEightUserInput.KeyDownEventEmitted -= () => cubes[5].SetActive(true);
-        _userInputsModel.OneInEightUserInput.KeyUpEventEmitted -= () => cubes[5].SetActive(false);
+        _userInputsModel.FourInFourUserInput.EmitTurnedOffEvent -= () => cubes[0].SetActive(false);
+        _userInputsModel.FourInFourUserInput.EmitTurnedOnEvent -= () => cubes[0].SetActive(true);
+        _userInputsModel.OneInFourUserInput.EmitTurnedOffEvent -= () => cubes[1].SetActive(false);
+        _userInputsModel.OneInFourUserInput.EmitTurnedOnEvent -= () => cubes[1].SetActive(true);
+        _userInputsModel.TwoInFourUserInput.EmitTurnedOffEvent -= () => cubes[2].SetActive(false);
+        _userInputsModel.TwoInFourUserInput.EmitTurnedOnEvent -= () => cubes[2].SetActive(true);
+        _userInputsModel.EightInFourUserInput.EmitTurnedOffEvent -= () => cubes[3].SetActive(false);
+        _userInputsModel.EightInFourUserInput.EmitTurnedOnEvent -= () => cubes[3].SetActive(true);
+        _userInputsModel.SixteenInFourUserInput.EmitTurnedOffEvent -= () => cubes[4].SetActive(false);
+        _userInputsModel.SixteenInFourUserInput.EmitTurnedOnEvent -= () => cubes[4].SetActive(true);
+        _userInputsModel.OneInEightUserInput.EmitTurnedOffEvent -= () => cubes[5].SetActive(false);
+        _userInputsModel.OneInEightUserInput.EmitTurnedOnEvent -= () => cubes[5].SetActive(true);
     }
 
     private void RegisterExplosionKeysSubscriptions()
@@ -153,31 +158,43 @@ public class TemporaryTest : MonoBehaviour
             if (i == 0)
             {
                 cubes[i].transform.localScale = new Vector3(cubes[i].transform.localScale.x, _musicValuesModel.FourInFourValue, cubes[i].transform.localScale.z);
+                Color currentColor = cubes[i].GetComponent<Renderer>().material.color;
+                cubes[i].GetComponent<Renderer>().material.color = new Color(currentColor.r, currentColor.g, currentColor.b, _userInputsModel.FourInFourUserInput.FaderValue);
             }
 
             if (i == 1)
             {
                 cubes[i].transform.localScale = new Vector3(cubes[i].transform.localScale.x, _musicValuesModel.OneInFourValue, cubes[i].transform.localScale.z);
+                Color currentColor = cubes[i].GetComponent<Renderer>().material.color;
+                cubes[i].GetComponent<Renderer>().material.color = new Color(currentColor.r, currentColor.g, currentColor.b, _userInputsModel.OneInFourUserInput.FaderValue);
             }
 
             if (i == 2)
             {
                 cubes[i].transform.localScale = new Vector3(cubes[i].transform.localScale.x, _musicValuesModel.TwoInFourValue, cubes[i].transform.localScale.z);
+                Color currentColor = cubes[i].GetComponent<Renderer>().material.color;
+                cubes[i].GetComponent<Renderer>().material.color = new Color(currentColor.r, currentColor.g, currentColor.b, _userInputsModel.TwoInFourUserInput.FaderValue);
             }
 
             if (i == 3)
             {
                 cubes[i].transform.localScale = new Vector3(cubes[i].transform.localScale.x, _musicValuesModel.EightInFourValue, cubes[i].transform.localScale.z);
+                Color currentColor = cubes[i].GetComponent<Renderer>().material.color;
+                cubes[i].GetComponent<Renderer>().material.color = new Color(currentColor.r, currentColor.g, currentColor.b, _userInputsModel.EightInFourUserInput.FaderValue);
             }
 
             if (i == 4)
             {
                 cubes[i].transform.localScale = new Vector3(cubes[i].transform.localScale.x, _musicValuesModel.SixteenInFourValue, cubes[i].transform.localScale.z);
+                Color currentColor = cubes[i].GetComponent<Renderer>().material.color;
+                cubes[i].GetComponent<Renderer>().material.color = new Color(currentColor.r, currentColor.g, currentColor.b, _userInputsModel.SixteenInFourUserInput.FaderValue);
             }
 
             if (i == 5)
             {
                 cubes[i].transform.localScale = new Vector3(cubes[i].transform.localScale.x, _musicValuesModel.OneInEightValue, cubes[i].transform.localScale.z);
+                Color currentColor = cubes[i].GetComponent<Renderer>().material.color;
+                cubes[i].GetComponent<Renderer>().material.color = new Color(currentColor.r, currentColor.g, currentColor.b, _userInputsModel.OneInEightUserInput.FaderValue);
             }
         }
     }

@@ -6,5 +6,6 @@ public enum InputType
 {
     TriggeredUserInput,
     FadedUserInput,
-    ToggeledUserInput
+    ToggeledUserInput,
+    ToggeledAndFadedUserInput
 }

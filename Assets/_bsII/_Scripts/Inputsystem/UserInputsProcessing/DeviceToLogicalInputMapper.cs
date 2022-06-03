@@ -56,7 +56,7 @@ public class DeviceToLogicalInputMapper : MonoBehaviour
         }
         else if (noteInput.type == InputType.FadedUserInput)
         {
-            UserInputCollectionOfEight<FadedUserinput> userInputCollection = (UserInputCollectionOfEight<FadedUserinput>)property;
+            UserInputCollectionOfEight<FadedUserInput> userInputCollection = (UserInputCollectionOfEight<FadedUserInput>)property;
             return userInputCollection.Keys[noteInput.targetIndex];
         }
         else
@@ -73,11 +73,33 @@ public class DeviceToLogicalInputMapper : MonoBehaviour
         SettingsCcInput ccInput;
         if (_gameSettingsHandler.GameSettings.midiDeviceInputs.ccInputs.TryGetValue(channel + "_" + ccNumber, out ccInput))
         {
-            System.Object property = _userInputsModel.GetType().GetProperty(ccInput.targetProperty).GetValue(_userInputsModel);
+            if (ccInput.nested)
+            {
+                return HandleNestedCcInput(ccInput);
+            }
+            else
+            {
+                System.Object property = _userInputsModel.GetType().GetProperty(ccInput.targetProperty).GetValue(_userInputsModel);
 
-            IUserInput userInput = (IUserInput)property;
-            return userInput;
-            
+                IUserInput userInput = (IUserInput)property;
+                return userInput;
+            }
+        }
+        else
+        {
+            Debug.Log("Note not found");
+            return null;
+        }
+    }
+
+    private IUserInput HandleNestedCcInput(SettingsCcInput ccInput)
+    {
+        System.Object property = _userInputsModel.GetType().GetProperty(ccInput.containerTargetProperty).GetValue(_userInputsModel);
+        if (ccInput.containerType == InputType.ToggeledAndFadedUserInput)
+        {
+            ToggeledAndFadedUserInput containerProperty = (ToggeledAndFadedUserInput)property;
+            System.Object targetProperty = containerProperty.GetType().GetProperty(ccInput.targetProperty).GetValue(containerProperty);
+            return targetProperty as IUserInput;
         }
         else
         {

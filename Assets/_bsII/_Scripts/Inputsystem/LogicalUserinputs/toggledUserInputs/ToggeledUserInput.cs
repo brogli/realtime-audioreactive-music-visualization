@@ -5,17 +5,17 @@ using UnityEngine;
 
 public class ToggeledUserInput : IUserInput
 {
-    public delegate void KeyUpEvent();
-    public event KeyUpEvent KeyUpEventEmitted;
+    public delegate void TurnedOnEvent();
+    public event TurnedOnEvent EmitTurnedOnEvent;
 
-    public delegate void KeyDownEvent();
-    public event KeyDownEvent KeyDownEventEmitted;
+    public delegate void TurnedOffEvent();
+    public event TurnedOffEvent EmitTurnedOffEvent;
 
     public bool IsPressed { get; private set; }
 
     public float Value { get; private set; }
 
-    public void SetNewStateIfNecessary(bool newIsPressed, float value)
+    public void SetNewStateIfNecessary(bool newIsPressed, float _)
     {
         if (newIsPressed == IsPressed)
         {
@@ -25,14 +25,12 @@ public class ToggeledUserInput : IUserInput
         if (newIsPressed)
         {
             IsPressed = true;
-            KeyDownEventEmitted?.Invoke();
+            EmitTurnedOnEvent?.Invoke();
         } else
         {
             IsPressed = false;
-            KeyUpEventEmitted?.Invoke();
+            EmitTurnedOffEvent?.Invoke();
         }
-
-        Value = value;
     }
 }
 

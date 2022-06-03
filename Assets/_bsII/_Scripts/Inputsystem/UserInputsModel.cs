@@ -17,12 +17,12 @@ public class UserInputsModel : MonoBehaviour
     #endregion
 
     #region beat user inputs
-    public ToggeledUserInput FourInFourUserInput { get; private set; }
-    public ToggeledUserInput OneInFourUserInput { get; private set; }
-    public ToggeledUserInput TwoInFourUserInput { get; private set; }
-    public ToggeledUserInput EightInFourUserInput { get; private set; }
-    public ToggeledUserInput SixteenInFourUserInput { get; private set; }
-    public ToggeledUserInput OneInEightUserInput { get; private set; }
+    public ToggeledAndFadedUserInput FourInFourUserInput { get; private set; }
+    public ToggeledAndFadedUserInput OneInFourUserInput { get; private set; }
+    public ToggeledAndFadedUserInput TwoInFourUserInput { get; private set; }
+    public ToggeledAndFadedUserInput EightInFourUserInput { get; private set; }
+    public ToggeledAndFadedUserInput SixteenInFourUserInput { get; private set; }
+    public ToggeledAndFadedUserInput OneInEightUserInput { get; private set; }
     #endregion
 
     public void Awake()
@@ -34,12 +34,12 @@ public class UserInputsModel : MonoBehaviour
 
     private void InitializeBeatUserInputs()
     {
-        FourInFourUserInput = new ToggeledUserInput();
-        OneInFourUserInput = new ToggeledUserInput();
-        TwoInFourUserInput = new ToggeledUserInput();
-        EightInFourUserInput = new ToggeledUserInput();
-        SixteenInFourUserInput = new ToggeledUserInput();
-        OneInEightUserInput = new ToggeledUserInput();
+        FourInFourUserInput = new ToggeledAndFadedUserInput();
+        OneInFourUserInput = new ToggeledAndFadedUserInput();
+        TwoInFourUserInput = new ToggeledAndFadedUserInput();
+        EightInFourUserInput = new ToggeledAndFadedUserInput();
+        SixteenInFourUserInput = new ToggeledAndFadedUserInput();
+        OneInEightUserInput = new ToggeledAndFadedUserInput();
     }
 
     private void InitializeManagementInputs()
@@ -77,5 +77,15 @@ public class UserInputsModel : MonoBehaviour
             explosionKeys[i] = new TriggeredUserInput(i);
         }
         ExplosionKeys = new UserInputCollectionOfEight<TriggeredUserInput>(explosionKeys);
+    }
+
+    public void OnApplicationQuit()
+    {
+        FourInFourUserInput?.Unsubscribe();
+        OneInFourUserInput?.Unsubscribe();
+        TwoInFourUserInput?.Unsubscribe();
+        EightInFourUserInput?.Unsubscribe();
+        SixteenInFourUserInput?.Unsubscribe();
+        OneInEightUserInput?.Unsubscribe();
     }
 }

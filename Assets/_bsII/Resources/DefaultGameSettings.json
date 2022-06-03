@@ -196,28 +196,88 @@
         },
         "ccInputs": {
             "2_33": {
-                "targetProperty": "FourInFourUserInput",
-                "type": "ToggeledUserInput"
+                "targetProperty": "ToggeledUserInput",
+                "type": "ToggeledUserInput",
+                "nested": true,
+                "containerType": "ToggeledAndFadedUserInput",
+                "containerTargetProperty": "FourInFourUserInput"
+            },
+            "2_1": {
+                "targetProperty": "FadedUserInput",
+                "type": "FadedUserInput",
+                "nested": true,
+                "containerType": "ToggeledAndFadedUserInput",
+                "containerTargetProperty": "FourInFourUserInput"
             },
             "2_34": {
-                "targetProperty": "OneInFourUserInput",
-                "type": "ToggeledUserInput"
+                "targetProperty": "ToggeledUserInput",
+                "type": "ToggeledUserInput",
+                "nested": true,
+                "containerType": "ToggeledAndFadedUserInput",
+                "containerTargetProperty": "OneInFourUserInput"
+            },
+            "2_2": {
+                "targetProperty": "FadedUserInput",
+                "type": "FadedUserInput",
+                "nested": true,
+                "containerType": "ToggeledAndFadedUserInput",
+                "containerTargetProperty": "OneInFourUserInput"
             },
             "2_35": {
-                "targetProperty": "TwoInFourUserInput",
-                "type": "ToggeledUserInput"
+                "targetProperty": "ToggeledUserInput",
+                "type": "ToggeledUserInput",
+                "nested": true,
+                "containerType": "ToggeledAndFadedUserInput",
+                "containerTargetProperty": "TwoInFourUserInput"
+            },
+            "2_3": {
+                "targetProperty": "FadedUserInput",
+                "type": "FadedUserInput",
+                "nested": true,
+                "containerType": "ToggeledAndFadedUserInput",
+                "containerTargetProperty": "TwoInFourUserInput"
             },
             "2_36": {
-                "targetProperty": "EightInFourUserInput",
-                "type": "ToggeledUserInput"
+                "targetProperty": "ToggeledUserInput",
+                "type": "ToggeledUserInput",
+                "nested": true,
+                "containerType": "ToggeledAndFadedUserInput",
+                "containerTargetProperty": "EightInFourUserInput"
+            },
+            "2_4": {
+                "targetProperty": "FadedUserInput",
+                "type": "FadedUserInput",
+                "nested": true,
+                "containerType": "ToggeledAndFadedUserInput",
+                "containerTargetProperty": "EightInFourUserInput"
             },
             "2_37": {
-                "targetProperty": "SixteenInFourUserInput",
-                "type": "ToggeledUserInput"
+                "targetProperty": "ToggeledUserInput",
+                "type": "ToggeledUserInput",
+                "nested": true,
+                "containerType": "ToggeledAndFadedUserInput",
+                "containerTargetProperty": "SixteenInFourUserInput"
+            },
+            "2_5": {
+                "targetProperty": "FadedUserInput",
+                "type": "FadedUserInput",
+                "nested": true,
+                "containerType": "ToggeledAndFadedUserInput",
+                "containerTargetProperty": "SixteenInFourUserInput"
             },
             "2_38": {
-                "targetProperty": "OneInEightUserInput",
-                "type": "ToggeledUserInput"
+                "targetProperty": "ToggeledUserInput",
+                "type": "ToggeledUserInput",
+                "nested": true,
+                "containerType": "ToggeledAndFadedUserInput",
+                "containerTargetProperty": "OneInEightUserInput"
+            },
+            "2_6": {
+                "targetProperty": "FadedUserInput",
+                "type": "FadedUserInput",
+                "nested": true,
+                "containerType": "ToggeledAndFadedUserInput",
+                "containerTargetProperty": "OneInEightUserInput"
             }
         }
     }
