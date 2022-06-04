@@ -22,6 +22,60 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "FourInFour",
+                    "type": "Button",
+                    "id": "6fc8be1c-d0af-421d-8226-3ea36fabea3e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "OneInFour",
+                    "type": "Button",
+                    "id": "f99e5241-ce6b-4400-a863-69579fe04936",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "TwoInFour",
+                    "type": "Button",
+                    "id": "fc28f66e-a980-4a4d-b321-e288f0c25b16",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "EightInFour",
+                    "type": "Button",
+                    "id": "54723ea5-d8e7-4929-9cdb-1baee56740fc",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SixteenInFour",
+                    "type": "Button",
+                    "id": "c070b1c9-698b-4db8-9a49-26f246402c5e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "OneInEight",
+                    "type": "Button",
+                    "id": "c0376f32-d5c9-4f3f-a24f-c2d401f43059",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -38,12 +92,78 @@
                 },
                 {
                     "name": "",
+                    "id": "ce213e60-f2c3-48da-a56a-a4a38cbc4644",
+                    "path": "<Keyboard>/f7",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OneInEight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "2ff3cae3-9c8e-407d-b6c7-2c805cbff44b",
                     "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Set Game Settings To Default",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1ce8ee73-7a89-42d6-8c92-3631871b8130",
+                    "path": "<Keyboard>/f2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FourInFour",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c96b79ea-fed0-4134-97a8-1b3a026332c5",
+                    "path": "<Keyboard>/f3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OneInFour",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c9bfc4e7-464c-4e78-bd0f-66bd5e3483de",
+                    "path": "<Keyboard>/f4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TwoInFour",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1f4c943d-d80b-488b-b7fd-19803debb847",
+                    "path": "<Keyboard>/f5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "EightInFour",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "44c64cbd-b560-43ba-b520-4aa524990ce4",
+                    "path": "<Keyboard>/f6",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SixteenInFour",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

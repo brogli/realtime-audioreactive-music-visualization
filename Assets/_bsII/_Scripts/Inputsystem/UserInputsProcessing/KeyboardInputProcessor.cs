@@ -34,4 +34,54 @@ public class KeyboardInputProcessor : MonoBehaviour
             _userInputsModel.ResetGameSettingsToDefaults.SetNewStateIfNecessary(true, 0);
         }
     }
+
+    #region beat related
+    public void ProcessFourInFour(CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _userInputsModel.FourInFourUserInput.ToggeledUserInput.SetNewStateIfNecessary(!_userInputsModel.FourInFourUserInput.ToggeledUserInput.IsPressed, 0);
+        }
+    }
+
+    public void ProcessOneInFour(CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _userInputsModel.OneInFourUserInput.ToggeledUserInput.SetNewStateIfNecessary(!_userInputsModel.OneInFourUserInput.ToggeledUserInput.IsPressed, 0);
+        }
+    }
+
+    public void ProcessTwoInFour(CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _userInputsModel.TwoInFourUserInput.ToggeledUserInput.SetNewStateIfNecessary(!_userInputsModel.TwoInFourUserInput.ToggeledUserInput.IsPressed, 0);
+        }
+    }
+
+    public void ProcessEightInFour(CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _userInputsModel.EightInFourUserInput.ToggeledUserInput.SetNewStateIfNecessary(!_userInputsModel.EightInFourUserInput.ToggeledUserInput.IsPressed, 0);
+        }
+    }
+
+    public void ProcessSixteenInFour(CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _userInputsModel.SixteenInFourUserInput.ToggeledUserInput.SetNewStateIfNecessary(!_userInputsModel.SixteenInFourUserInput.ToggeledUserInput.IsPressed, 0);
+        }
+    }
+
+    public void ProcessOneInEight(CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _userInputsModel.OneInEightUserInput.ToggeledUserInput.SetNewStateIfNecessary(!_userInputsModel.OneInEightUserInput.ToggeledUserInput.IsPressed, 0);
+        }
+    }
+#endregion
 }
