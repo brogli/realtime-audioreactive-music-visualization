@@ -10,6 +10,9 @@ public class TemporaryTest : MonoBehaviour, IUserInputsConsumer
     public List<GameObject> DroneKeys;
     public List<GameObject> MoodKeys;
     public List<GameObject> ExplosionKeys;
+    public GameObject VolumeCube;
+    public GameObject LowFrequencyVolumeCube;
+
     private MusicValuesModel _musicValuesModel;
     private UserInputsModel _userInputsModel;
 
@@ -27,6 +30,13 @@ public class TemporaryTest : MonoBehaviour, IUserInputsConsumer
         BeatElements();
         MelodyKeysImplementation();
         DroneKeysImplementation();
+        VolumeImplementation();
+    }
+
+    private void VolumeImplementation()
+    {
+        VolumeCube.transform.localScale = new Vector3(VolumeCube.transform.localScale.x, _musicValuesModel.AverageVolume, VolumeCube.transform.localScale.z);
+        LowFrequencyVolumeCube.transform.localScale = new Vector3(LowFrequencyVolumeCube.transform.localScale.x, _musicValuesModel.LowFrequencyVolume, LowFrequencyVolumeCube.transform.localScale.z);
     }
 
     private void RegisterBeatRelatedUserInputs()

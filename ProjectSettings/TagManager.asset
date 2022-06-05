@@ -5,6 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - MidiMessageProcessor
+  - DeviceToLogicalInputMapper
+  - UserInputsModel
+  - GameSettingsHandler
+  - NoteProcessor
+  - MusicValuesModel
+  - BeatclockProcessor
+  - ControlChangeProcessor
+  - AudioSource
   layers:
   - Default
   - TransparentFX

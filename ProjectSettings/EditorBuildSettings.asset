@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/OutdoorsScene.unity
-    guid: 8124e5870f4fd4c779e7a5f994e84ad1
+  - enabled: 1
+    path: Assets/_bsII/_Scenes/PoC-Scene.unity
+    guid: 3d022bac9eee71e4dac23a0f79af102e
   m_configObjects: {}
