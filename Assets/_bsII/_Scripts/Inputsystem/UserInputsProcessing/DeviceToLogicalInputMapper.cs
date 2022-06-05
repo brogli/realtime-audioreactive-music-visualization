@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 
-public class DeviceToLogicalInputMapper : MonoBehaviour
+public class MidiDeviceToLogicalInputMapper : MonoBehaviour
 {
     private UserInputsModel _userInputsModel;
     private GameSettingsHandler _gameSettingsHandler;

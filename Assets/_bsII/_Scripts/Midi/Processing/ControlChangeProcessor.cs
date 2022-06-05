@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class ControlChangeProcessor : MonoBehaviour
 {
-    private DeviceToLogicalInputMapper _deviceToLogicalInputMapper;
+    private MidiDeviceToLogicalInputMapper _deviceToLogicalInputMapper;
     // Start is called before the first frame update
     void Start()
     {
-        _deviceToLogicalInputMapper = GameObject.FindGameObjectWithTag("DeviceToLogicalInputMapper").GetComponent<DeviceToLogicalInputMapper>();
+        _deviceToLogicalInputMapper = GameObject.FindGameObjectWithTag("DeviceToLogicalInputMapper").GetComponent<MidiDeviceToLogicalInputMapper>();
     }
 
     // Update is called once per frame
