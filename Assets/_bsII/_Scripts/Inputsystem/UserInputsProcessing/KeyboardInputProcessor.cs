@@ -19,6 +19,7 @@ public class KeyboardInputProcessor : MonoBehaviour
         
     }
 
+    #region management
     public void ProcessReloadGameSettings(CallbackContext context)
     {
         if (context.performed)
@@ -34,6 +35,25 @@ public class KeyboardInputProcessor : MonoBehaviour
             _userInputsModel.ResetGameSettingsToDefaults.SetNewStateIfNecessary(true, 0);
         }
     }
+    #endregion
+
+    #region volume related
+    public void ProcessAverageVolumeInput(CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _userInputsModel.AverageVolume.ToggeledUserInput.SetNewStateIfNecessary(!_userInputsModel.AverageVolume.ToggeledUserInput.IsPressed, 0);
+        }
+    }
+
+    public void ProcessLowFrequencyVolumeInput(CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _userInputsModel.LowFrequencyVolume.ToggeledUserInput.SetNewStateIfNecessary(!_userInputsModel.LowFrequencyVolume.ToggeledUserInput.IsPressed, 0);
+        }
+    }
+    #endregion
 
     #region beat related
     public void ProcessFourInFour(CallbackContext context)

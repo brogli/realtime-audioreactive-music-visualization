@@ -104,11 +104,52 @@ public class MusicValuesModel : MonoBehaviour
     }
     #endregion
 
+    #region volume
+
+    private float _averageVolume;
+    public float AverageVolume
+    {
+        get => _averageVolume;
+        set
+        {
+            _averageVolume = value;
+            _averageVolumeSmoothed.Enqueue(value);
+        }
+    }
+
+    private SmoothingRingBuffer _averageVolumeSmoothed;
+    public float AverageVolumeSmoothed 
+    {
+        get => _averageVolumeSmoothed.GetSmoothValue();
+    }
+
+
+
+    private float _lowFrequencyVolume;
+    public float LowFrequencyVolume
+    {
+        get => _lowFrequencyVolume;
+        set
+        {
+            _lowFrequencyVolume = value;
+            _lowFrequencyVolumeSmoothed.Enqueue(value);
+        }
+    }
+
+    private SmoothingRingBuffer _lowFrequencyVolumeSmoothed;
+    public float LowFrequencyVolumeSmoothed
+    {
+        get => _lowFrequencyVolumeSmoothed.GetSmoothValue();
+    }
+    #endregion
+
+
 
     // Start is called before the first frame update
     void Start()
     {
-
+        _averageVolumeSmoothed = new SmoothingRingBuffer(2);
+        _lowFrequencyVolumeSmoothed = new SmoothingRingBuffer(2);
     }
 
     // Update is called once per frame

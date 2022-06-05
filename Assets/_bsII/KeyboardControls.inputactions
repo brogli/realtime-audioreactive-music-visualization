@@ -24,6 +24,24 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "AverageVolume",
+                    "type": "Button",
+                    "id": "60b0a563-f755-4d5b-8bfe-08acea26ad7f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LowFreqVolume",
+                    "type": "Button",
+                    "id": "06dac078-9455-4511-8ee6-0e81f2ec2560",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "FourInFour",
                     "type": "Button",
                     "id": "6fc8be1c-d0af-421d-8226-3ea36fabea3e",
@@ -403,7 +421,7 @@
                 {
                     "name": "",
                     "id": "ce213e60-f2c3-48da-a56a-a4a38cbc4644",
-                    "path": "<Keyboard>/f7",
+                    "path": "<Keyboard>/f8",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -447,7 +465,7 @@
                 {
                     "name": "",
                     "id": "1ce8ee73-7a89-42d6-8c92-3631871b8130",
-                    "path": "<Keyboard>/f2",
+                    "path": "<Keyboard>/f3",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -458,7 +476,7 @@
                 {
                     "name": "",
                     "id": "c96b79ea-fed0-4134-97a8-1b3a026332c5",
-                    "path": "<Keyboard>/f3",
+                    "path": "<Keyboard>/f4",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -469,7 +487,7 @@
                 {
                     "name": "",
                     "id": "c9bfc4e7-464c-4e78-bd0f-66bd5e3483de",
-                    "path": "<Keyboard>/f4",
+                    "path": "<Keyboard>/f5",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -480,7 +498,7 @@
                 {
                     "name": "",
                     "id": "1f4c943d-d80b-488b-b7fd-19803debb847",
-                    "path": "<Keyboard>/f5",
+                    "path": "<Keyboard>/f6",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -491,7 +509,7 @@
                 {
                     "name": "",
                     "id": "44c64cbd-b560-43ba-b520-4aa524990ce4",
-                    "path": "<Keyboard>/f6",
+                    "path": "<Keyboard>/f7",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -848,6 +866,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "ExplosionKey7",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5c2960f8-9062-4c38-a281-17f42309b0ee",
+                    "path": "<Keyboard>/f1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AverageVolume",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f3f750a6-0231-45f0-86cb-701883e4e771",
+                    "path": "<Keyboard>/f2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LowFreqVolume",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
