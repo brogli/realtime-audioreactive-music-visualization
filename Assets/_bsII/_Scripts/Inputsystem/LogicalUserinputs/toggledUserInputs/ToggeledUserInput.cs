@@ -11,7 +11,7 @@ public class ToggeledUserInput : IUserInput
     public delegate void TurnedOffEvent();
     public event TurnedOffEvent EmitTurnedOffEvent;
 
-    public bool IsPressed { get; private set; }
+    public bool IsPressed { get; private set; } = false;
 
     public float Value { get; private set; }
 
