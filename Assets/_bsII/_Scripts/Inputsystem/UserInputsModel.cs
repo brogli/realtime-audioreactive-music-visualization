@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,11 +26,23 @@ public class UserInputsModel : MonoBehaviour
     public ToggeledAndFadedUserInput OneInEightUserInput { get; private set; }
     #endregion
 
+    #region volume things
+    public ToggeledAndFadedUserInput AverageVolume { get; private set; }
+    public ToggeledAndFadedUserInput LowFrequencyVolume { get; private set; }
+    #endregion
+
     public void Awake()
     {
         InitializeMelodyMoodDroneExplosionKeys();
         InitializeManagementInputs();
         InitializeBeatUserInputs();
+        InitializeVolumeElements();
+    }
+
+    private void InitializeVolumeElements()
+    {
+        AverageVolume = new ToggeledAndFadedUserInput();
+        LowFrequencyVolume = new ToggeledAndFadedUserInput();
     }
 
     private void InitializeBeatUserInputs()

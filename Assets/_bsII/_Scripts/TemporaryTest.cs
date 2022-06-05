@@ -37,6 +37,13 @@ public class TemporaryTest : MonoBehaviour, IUserInputsConsumer
     {
         VolumeCube.transform.localScale = new Vector3(VolumeCube.transform.localScale.x, _musicValuesModel.AverageVolume, VolumeCube.transform.localScale.z);
         LowFrequencyVolumeCube.transform.localScale = new Vector3(LowFrequencyVolumeCube.transform.localScale.x, _musicValuesModel.LowFrequencyVolume, LowFrequencyVolumeCube.transform.localScale.z);
+        
+        Color currentColor = VolumeCube.GetComponent<Renderer>().material.color;
+        VolumeCube.GetComponent<Renderer>().material.color = new Color(currentColor.r, currentColor.g, currentColor.b, _userInputsModel.AverageVolume.FaderValue);
+
+        currentColor = LowFrequencyVolumeCube.GetComponent<Renderer>().material.color;
+        LowFrequencyVolumeCube.GetComponent<Renderer>().material.color = new Color(currentColor.r, currentColor.g, currentColor.b, _userInputsModel.LowFrequencyVolume.FaderValue);
+
     }
 
     private void RegisterBeatRelatedUserInputs()
@@ -72,6 +79,15 @@ public class TemporaryTest : MonoBehaviour, IUserInputsConsumer
         RegisterMoodKeysSubscriptions();
         RegisterExplosionKeysSubscriptions();
         RegisterBeatRelatedUserInputs();
+        RegisterVolumeRelatedUserInputs();
+    }
+
+    private void RegisterVolumeRelatedUserInputs()
+    {
+        _userInputsModel.AverageVolume.EmitTurnedOffEvent += () => VolumeCube.SetActive(false);
+        _userInputsModel.AverageVolume.EmitTurnedOnEvent += () => VolumeCube.SetActive(true);
+        _userInputsModel.LowFrequencyVolume.EmitTurnedOffEvent += () => LowFrequencyVolumeCube.SetActive(false);
+        _userInputsModel.LowFrequencyVolume.EmitTurnedOnEvent += () => LowFrequencyVolumeCube.SetActive(true);
     }
 
     public void UnsubscribeUserInputs()
@@ -92,6 +108,11 @@ public class TemporaryTest : MonoBehaviour, IUserInputsConsumer
         _userInputsModel.SixteenInFourUserInput.EmitTurnedOnEvent -= () => cubes[4].SetActive(true);
         _userInputsModel.OneInEightUserInput.EmitTurnedOffEvent -= () => cubes[5].SetActive(false);
         _userInputsModel.OneInEightUserInput.EmitTurnedOnEvent -= () => cubes[5].SetActive(true);
+
+        _userInputsModel.AverageVolume.EmitTurnedOffEvent -= () => cubes[5].SetActive(false);
+        _userInputsModel.AverageVolume.EmitTurnedOnEvent -= () => cubes[5].SetActive(true);
+        _userInputsModel.LowFrequencyVolume.EmitTurnedOffEvent -= () => cubes[5].SetActive(false);
+        _userInputsModel.LowFrequencyVolume.EmitTurnedOnEvent -= () => cubes[5].SetActive(true);
     }
 
     private void RegisterExplosionKeysSubscriptions()
