@@ -80,15 +80,37 @@
             ],
             "bindings": [
                 {
-                    "name": "",
-                    "id": "f612a33b-e202-4907-99dd-d19b1a3ddd08",
+                    "name": "One Modifier",
+                    "id": "2bfa1ddd-051f-4dc4-a3da-f77b8d7d5efa",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reload Game Settings",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "839e17d6-dfc5-4643-bffb-481fb1f834b8",
+                    "path": "<Keyboard>/ctrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reload Game Settings",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "f987ce5c-6341-41fe-8669-a97bebc3fd9d",
                     "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Reload Game Settings",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
@@ -102,15 +124,37 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "2ff3cae3-9c8e-407d-b6c7-2c805cbff44b",
+                    "name": "One Modifier",
+                    "id": "9100bbcd-ed5f-4249-8a23-ea79ab67a043",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Set Game Settings To Default",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "25c8f124-7175-4a7a-aaa9-78e5c2552c6f",
+                    "path": "<Keyboard>/ctrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Set Game Settings To Default",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "ff14e793-d557-4915-9795-30d35ee1f1e7",
                     "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Set Game Settings To Default",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",

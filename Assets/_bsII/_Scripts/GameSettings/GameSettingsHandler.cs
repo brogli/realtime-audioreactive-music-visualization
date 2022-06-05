@@ -43,16 +43,17 @@ public class GameSettingsHandler : MonoBehaviour
         Debug.Log("Reloading Game Settings");
         if (DoesFileExist(_gameSettingsPath))
         {
+            Debug.Log("File does exist, reading values");
             string jsonString = await ReadFromFile(_gameSettingsPath);
             GameSettings = JsonConvert.DeserializeObject<GameSettings>(jsonString);
         }
         else
         {
+            Debug.Log("File does not exist, writing and reading from defaults");
             string defaultGameSettingsJson = ReadFromDefaults();
             WriteToFile(defaultGameSettingsJson, _gameSettingsPath);
             GameSettings = JsonConvert.DeserializeObject<GameSettings>(defaultGameSettingsJson);
         }
-        Debug.Log(GameSettings);
     }
 
     public void ResetGameSettingsToDefault()
@@ -70,11 +71,13 @@ public class GameSettingsHandler : MonoBehaviour
 
     private async Task<string> ReadFromFile(string path)
     {
+        string fileText;
+
         using (StreamReader reader = new(path))
         {
-            string fileText = await reader.ReadToEndAsync();
-            return fileText;
+            fileText = await reader.ReadToEndAsync();
         }
+        return fileText;
     }
 
     private bool DoesFileExist(string path)
@@ -82,11 +85,11 @@ public class GameSettingsHandler : MonoBehaviour
         return File.Exists(path);
     }
 
-    private async void WriteToFile(string jsonString, string path)
+    private void WriteToFile(string jsonString, string path)
     {
         using (StreamWriter writer = new(path))
         {
-            await writer.WriteAsync(jsonString);
+            writer.Write(jsonString);
         }
     }
 }
