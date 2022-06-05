@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TemporaryTest : MonoBehaviour
+public class TemporaryTest : MonoBehaviour, IUserInputsConsumer
 {
     public List<GameObject> cubes;
     public List<GameObject> MelodyKeys;
@@ -18,9 +18,7 @@ public class TemporaryTest : MonoBehaviour
     {
         _musicValuesModel = GameObject.FindGameObjectWithTag("MusicValuesModel").GetComponent<MusicValuesModel>();
         _userInputsModel = GameObject.FindGameObjectWithTag("UserInputsModel").GetComponent<UserInputsModel>();
-        RegisterMoodKeysSubscriptions();
-        RegisterExplosionKeysSubscriptions();
-        RegisterBeatRelatedUserInputs();
+        SubscribeUserInputs();
     }
 
     // Update is called once per frame
@@ -53,7 +51,20 @@ public class TemporaryTest : MonoBehaviour
     }
 
 
-    public void OnDisable()
+    public void OnApplicationQuit()
+    {
+        UnsubscribeUserInputs();
+    }
+
+
+    public void SubscribeUserInputs()
+    {
+        RegisterMoodKeysSubscriptions();
+        RegisterExplosionKeysSubscriptions();
+        RegisterBeatRelatedUserInputs();
+    }
+
+    public void UnsubscribeUserInputs()
     {
         for (int i = 0; i < _userInputsModel.MoodKeys.Keys.Length; i++)
         {

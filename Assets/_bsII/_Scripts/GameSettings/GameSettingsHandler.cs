@@ -6,7 +6,7 @@ using System.IO;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class GameSettingsHandler : MonoBehaviour
+public class GameSettingsHandler : MonoBehaviour, IUserInputsConsumer
 {
     public GameSettings GameSettings { get; private set; }
     private string _gameSettingsPath;
@@ -21,14 +21,24 @@ public class GameSettingsHandler : MonoBehaviour
 
     public void Start()
     {
-        _userInputsModel = GameObject.FindGameObjectWithTag("UserInputsModel").GetComponent<UserInputsModel>();
-        _userInputsModel.ReloadGameSettings.EmitKeyTriggeredEvent += ReloadGameSettings;
-        _userInputsModel.ResetGameSettingsToDefaults.EmitKeyTriggeredEvent += ResetGameSettingsToDefault;
+        SubscribeUserInputs();
         ReloadGameSettings();
 
     }
 
     public void OnDisable()
+    {
+        UnsubscribeUserInputs();
+    }
+    
+    public void SubscribeUserInputs()
+    {
+        _userInputsModel = GameObject.FindGameObjectWithTag("UserInputsModel").GetComponent<UserInputsModel>();
+        _userInputsModel.ReloadGameSettings.EmitKeyTriggeredEvent += ReloadGameSettings;
+        _userInputsModel.ResetGameSettingsToDefaults.EmitKeyTriggeredEvent += ResetGameSettingsToDefault;
+    }
+
+    public void UnsubscribeUserInputs()
     {
         _userInputsModel.ReloadGameSettings.EmitKeyTriggeredEvent -= ReloadGameSettings;
         _userInputsModel.ResetGameSettingsToDefaults.EmitKeyTriggeredEvent -= ResetGameSettingsToDefault;
@@ -92,4 +102,5 @@ public class GameSettingsHandler : MonoBehaviour
             writer.Write(jsonString);
         }
     }
+
 }
