@@ -101,7 +101,7 @@ public class FftProcessor : MonoBehaviour
         _musicValuesModel.AverageVolume = AverageVolume;
     }
 
-    void MakeFrequencyBands()
+    private void MakeFrequencyBands()
     {
         int count = 0;
         for (int i = 0; i < 8; i++)
