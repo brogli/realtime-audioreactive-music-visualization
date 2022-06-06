@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class UserInputsModel : MonoBehaviour
-{
+{ 
     #region management related
     public TriggeredUserInput ReloadGameSettings { get; private set; }
     public TriggeredUserInput ResetGameSettingsToDefaults { get; private set; }
+    public TriggeredUserInput LoadScene { get; private set; }
+    public TriggeredUserInput ActivateScene { get; private set; }
     #endregion
 
     #region audio related
@@ -59,6 +61,8 @@ public class UserInputsModel : MonoBehaviour
     {
         ReloadGameSettings = new TriggeredUserInput();
         ResetGameSettingsToDefaults = new TriggeredUserInput();
+        LoadScene = new TriggeredUserInput();
+        ActivateScene = new TriggeredUserInput();
     }
 
     private void InitializeMelodyMoodDroneExplosionKeys()

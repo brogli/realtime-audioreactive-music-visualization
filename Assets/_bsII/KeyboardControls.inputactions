@@ -24,6 +24,33 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "LoadScene0",
+                    "type": "Button",
+                    "id": "6b71697a-6c0f-439e-9541-2b2ec3fbbd32",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LoadScene1",
+                    "type": "Button",
+                    "id": "00d39ac9-6b94-4b2e-a58f-f6de86d129eb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ActivateScene",
+                    "type": "Button",
+                    "id": "752b7da2-4f14-412d-86a4-665597e71af2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "AverageVolume",
                     "type": "Button",
                     "id": "60b0a563-f755-4d5b-8bfe-08acea26ad7f",
@@ -888,6 +915,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "LowFreqVolume",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fd971bd3-bbeb-45f4-b26b-b0116956844b",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LoadScene1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ae83bbaa-fc55-43c3-a683-43513a928283",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LoadScene0",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "04900c8b-bfcf-4c81-9fd2-f0259fe9fb21",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ActivateScene",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

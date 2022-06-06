@@ -8,8 +8,10 @@ public class TriggeredUserInput : IUserInput
     public int index = 0;
     public delegate void KeyTriggerEvent();
     public delegate void CollectionKeyTriggerEvent(int index);
+    public delegate void KeyTriggerEventWithValue(float value);
     public event KeyTriggerEvent EmitKeyTriggeredEvent;
     public event CollectionKeyTriggerEvent EmitCollectionKeyTriggeredEvent;
+    public event KeyTriggerEventWithValue EmitKeyTriggeredEventWithValue;
 
     public TriggeredUserInput()
     {
@@ -23,7 +25,9 @@ public class TriggeredUserInput : IUserInput
 
     public void SetNewStateIfNecessary(bool newIsPressed, float value)
     {
+        Debug.Log("set new state in TriggeredUserInput");
         EmitKeyTriggeredEvent?.Invoke();
         EmitCollectionKeyTriggeredEvent?.Invoke(index);
+        EmitKeyTriggeredEventWithValue?.Invoke(value);
     }
 }

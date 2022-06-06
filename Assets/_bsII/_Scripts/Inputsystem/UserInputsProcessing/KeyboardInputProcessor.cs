@@ -16,7 +16,7 @@ public class KeyboardInputProcessor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     #region management
@@ -35,6 +35,40 @@ public class KeyboardInputProcessor : MonoBehaviour
             _userInputsModel.ResetGameSettingsToDefaults.SetNewStateIfNecessary(true, 0);
         }
     }
+
+    #endregion
+
+    #region scene loading
+    public void ProcessActivateScene(CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Debug.Log("triggering ActivateScene");
+            _userInputsModel.ActivateScene.SetNewStateIfNecessary(true, 0);
+        }
+    }
+
+    private void ProcessLoadScene(int index)
+    {
+        _userInputsModel.LoadScene.SetNewStateIfNecessary(true, index);
+    }
+    public void ProcessLoadScene0(CallbackContext context)
+    {
+        if (context.performed)
+        {
+            ProcessLoadScene(0);
+        }
+    }
+
+    public void ProcessLoadScene1(CallbackContext context)
+    {
+        if (context.performed)
+        {
+            ProcessLoadScene(1);
+        }
+    }
+
+
     #endregion
 
     #region volume related
