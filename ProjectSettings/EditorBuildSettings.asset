@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_bsII/_Scenes/PoC-Scene.unity
     guid: 3d022bac9eee71e4dac23a0f79af102e
+  - enabled: 1
+    path: Assets/_bsII/_Scenes/Scene1.unity
+    guid: b7489d896ffbc874cbbfbc7f517ec212
   m_configObjects: {}
