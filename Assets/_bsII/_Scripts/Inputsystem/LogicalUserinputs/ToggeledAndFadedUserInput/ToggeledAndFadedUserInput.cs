@@ -43,6 +43,7 @@ public class ToggeledAndFadedUserInput : IUserInput
     {
         if (FadedUserInput.IsActive)
         {
+            Debug.Log("2");
             EmitTurnedOnEvent?.Invoke();
         }
     }
