@@ -24,15 +24,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "LoadScene0",
-                    "type": "Button",
-                    "id": "6b71697a-6c0f-439e-9541-2b2ec3fbbd32",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "LoadScene1",
                     "type": "Button",
                     "id": "00d39ac9-6b94-4b2e-a58f-f6de86d129eb",
@@ -921,22 +912,11 @@
                 {
                     "name": "",
                     "id": "fd971bd3-bbeb-45f4-b26b-b0116956844b",
-                    "path": "<Keyboard>/2",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "LoadScene1",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ae83bbaa-fc55-43c3-a683-43513a928283",
                     "path": "<Keyboard>/1",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "LoadScene0",
+                    "action": "LoadScene1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
