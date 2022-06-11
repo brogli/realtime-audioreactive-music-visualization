@@ -48,27 +48,26 @@ public class TemporaryTest : MonoBehaviour, IUserInputsConsumer
 
     private void RegisterBeatRelatedUserInputs()
     {
-        //_userInputsModel.FourInFourUserInput.EmitTurnedOffEvent += () => cubes[0].SetActive(false);
-        //_userInputsModel.FourInFourUserInput.EmitTurnedOnEvent += () => cubes[0].SetActive(true);
+        _userInputsModel.FourInFourUserInput.EmitTurnedOffEvent += () => cubes[0].SetActive(false);
+        _userInputsModel.FourInFourUserInput.EmitTurnedOnEvent += () => cubes[0].SetActive(true);
 
-        //_userInputsModel.OneInFourUserInput.EmitTurnedOffEvent += () => cubes[1].SetActive(false);
-        //_userInputsModel.OneInFourUserInput.EmitTurnedOnEvent += () => cubes[1].SetActive(true);
+        _userInputsModel.OneInFourUserInput.EmitTurnedOffEvent += () => cubes[1].SetActive(false);
+        _userInputsModel.OneInFourUserInput.EmitTurnedOnEvent += () => cubes[1].SetActive(true);
 
-        //_userInputsModel.TwoInFourUserInput.EmitTurnedOffEvent += () => cubes[2].SetActive(false);
-        //_userInputsModel.TwoInFourUserInput.EmitTurnedOnEvent += () => cubes[2].SetActive(true);
+        _userInputsModel.TwoInFourUserInput.EmitTurnedOffEvent += () => cubes[2].SetActive(false);
+        _userInputsModel.TwoInFourUserInput.EmitTurnedOnEvent += () => cubes[2].SetActive(true);
 
-        //_userInputsModel.EightInFourUserInput.EmitTurnedOffEvent += () => cubes[3].SetActive(false);
-        //_userInputsModel.EightInFourUserInput.EmitTurnedOnEvent += () => cubes[3].SetActive(true);
+        _userInputsModel.EightInFourUserInput.EmitTurnedOffEvent += () => cubes[3].SetActive(false);
+        _userInputsModel.EightInFourUserInput.EmitTurnedOnEvent += () => cubes[3].SetActive(true);
 
-        //_userInputsModel.SixteenInFourUserInput.EmitTurnedOffEvent += () => cubes[4].SetActive(false);
-        //_userInputsModel.SixteenInFourUserInput.EmitTurnedOnEvent += () => cubes[4].SetActive(true);
+        _userInputsModel.SixteenInFourUserInput.EmitTurnedOffEvent += () => cubes[4].SetActive(false);
+        _userInputsModel.SixteenInFourUserInput.EmitTurnedOnEvent += () => cubes[4].SetActive(true);
 
-        //_userInputsModel.OneInEightUserInput.EmitTurnedOffEvent += () => cubes[5].SetActive(false);
-        //_userInputsModel.OneInEightUserInput.EmitTurnedOnEvent += () => cubes[5].SetActive(true);
+        _userInputsModel.OneInEightUserInput.EmitTurnedOffEvent += () => cubes[5].SetActive(false);
+        _userInputsModel.OneInEightUserInput.EmitTurnedOnEvent += () => cubes[5].SetActive(true);
     }
 
-
-    public void OnApplicationQuit()
+    public void OnDisable()
     {
         UnsubscribeUserInputs();
     }
