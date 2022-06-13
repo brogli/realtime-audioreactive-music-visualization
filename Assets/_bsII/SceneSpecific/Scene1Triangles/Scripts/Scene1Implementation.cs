@@ -12,6 +12,11 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
     public List<GameObject> EightInFourCores;
     public List<GameObject> OneInEightCores;
 
+    public List<Light> VolumeLights;
+    public List<Light> LowFrequencyVolumeLights;
+
+    public float VolumeLightBrightnessValue;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +60,16 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
         };
         TwoInFourCores.ForEach((core) => core.SetActive(_userInputsModel.TwoInFourUserInput.IsPressed));
 
+        // volume
+        _userInputsModel.AverageVolume.EmitTurnedOnOrOffEvent += SetVolumeActive;
+        VolumeLights.ForEach((light) => light.gameObject.SetActive(_userInputsModel.AverageVolume.IsPressed));
+        
+
+        // low frequency volume
+        _userInputsModel.LowFrequencyVolume.EmitTurnedOnOrOffEvent += SetLowFrequencyVolumeActive;
+        LowFrequencyVolumeLights.ForEach((light) => light.gameObject.SetActive(_userInputsModel.LowFrequencyVolume.IsPressed));
+
+
     }
 
     public void OnDisable()
@@ -85,7 +100,7 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
         };
 
         // 2-4
-        _userInputsModel.TwoInFourUserInput.EmitTurnedOnEvent += () =>
+        _userInputsModel.TwoInFourUserInput.EmitTurnedOnEvent -= () =>
         {
             TwoInFourCores.ForEach((core) => core.SetActive(true));
         };
@@ -93,6 +108,24 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
         {
             TwoInFourCores.ForEach((core) => core.SetActive(false));
         };
+
+        // Volume
+        _userInputsModel.AverageVolume.EmitTurnedOnOrOffEvent -= SetVolumeActive;
+
+
+        // low freq volume
+        _userInputsModel.LowFrequencyVolume.EmitTurnedOnOrOffEvent -= SetLowFrequencyVolumeActive;
+    }
+
+    private void SetVolumeActive(bool hasTurnedActive)
+    {
+        VolumeLights.ForEach((light) => light.gameObject.SetActive(hasTurnedActive));
+    }
+
+
+    private void SetLowFrequencyVolumeActive(bool hasTurnedActive)
+    {
+        LowFrequencyVolumeLights.ForEach((light) => light.gameObject.SetActive(hasTurnedActive));
     }
 
 
@@ -149,5 +182,8 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
                 core.GetComponent<Renderer>().material.SetColor("_EmissiveColor", Color.white * (OneInEightValueInverted) * 4);
 
             });
+
+        VolumeLights.ForEach(light => light.intensity = _musicValuesModel.AverageVolumeNormalizedPeak * VolumeLightBrightnessValue);
+        LowFrequencyVolumeLights.ForEach(light => light.intensity = _musicValuesModel.LowFrequencyVolumePeak * VolumeLightBrightnessValue);
     }
 }

@@ -107,6 +107,7 @@ public class MusicValuesModel : MonoBehaviour
     #region volume
 
     private float _averageVolume;
+    private float _averageVolumeMax = 0;
     public float AverageVolume
     {
         get => _averageVolume;
@@ -114,6 +115,17 @@ public class MusicValuesModel : MonoBehaviour
         {
             _averageVolume = value;
             _averageVolumeSmoothed.Enqueue(value);
+            if (value > _averageVolumeMax)
+            {
+                _averageVolumeMax = value;
+               
+            }
+            AverageVolumeNormalized = value / _averageVolumeMax;
+            Debug.Log($"averageMax: {_averageVolumeMax}, normalized current: {AverageVolumeNormalized}, normalized peak: {AverageVolumeNormalizedPeak}");
+            if (AverageVolumeNormalized > AverageVolumeNormalizedPeak)
+            {
+                AverageVolumeNormalizedPeak = AverageVolumeNormalized;
+            }
         }
     }
 
@@ -122,6 +134,10 @@ public class MusicValuesModel : MonoBehaviour
     {
         get => _averageVolumeSmoothed.GetSmoothValue();
     }
+
+    public float AverageVolumeNormalizedPeak { get; private set; }
+
+    public float AverageVolumeNormalized { get; private set; }
 
 
 
@@ -133,8 +149,14 @@ public class MusicValuesModel : MonoBehaviour
         {
             _lowFrequencyVolume = value;
             _lowFrequencyVolumeSmoothed.Enqueue(value);
+            if (value > LowFrequencyVolumePeak)
+            {
+                LowFrequencyVolumePeak = value;
+            }
         }
     }
+
+    public float LowFrequencyVolumePeak { get; private set; }
 
     private SmoothingRingBuffer _lowFrequencyVolumeSmoothed;
     public float LowFrequencyVolumeSmoothed
@@ -155,6 +177,21 @@ public class MusicValuesModel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (AverageVolumeNormalizedPeak - 0.01f < 0)
+        {
+            AverageVolumeNormalizedPeak = 0;
+        } else
+        {
+            AverageVolumeNormalizedPeak -= 0.01f;
+        }
 
+        if (LowFrequencyVolumePeak - 0.1f < 0)
+        {
+            LowFrequencyVolumePeak = 0;
+        }
+        else
+        {
+            LowFrequencyVolumePeak -= 0.1f;
+        }
     }
 }

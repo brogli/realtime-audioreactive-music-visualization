@@ -35,9 +35,9 @@ public class TemporaryTest : MonoBehaviour, IUserInputsConsumer
 
     private void VolumeImplementation()
     {
-        VolumeCube.transform.localScale = new Vector3(VolumeCube.transform.localScale.x, _musicValuesModel.AverageVolume, VolumeCube.transform.localScale.z);
-        LowFrequencyVolumeCube.transform.localScale = new Vector3(LowFrequencyVolumeCube.transform.localScale.x, _musicValuesModel.LowFrequencyVolume, LowFrequencyVolumeCube.transform.localScale.z);
-        
+        VolumeCube.transform.localScale = new Vector3(VolumeCube.transform.localScale.x, _musicValuesModel.AverageVolumeNormalizedPeak, VolumeCube.transform.localScale.z);
+        LowFrequencyVolumeCube.transform.localScale = new Vector3(LowFrequencyVolumeCube.transform.localScale.x, _musicValuesModel.LowFrequencyVolumePeak, LowFrequencyVolumeCube.transform.localScale.z);
+
         Color currentColor = VolumeCube.GetComponent<Renderer>().material.color;
         VolumeCube.GetComponent<Renderer>().material.color = new Color(currentColor.r, currentColor.g, currentColor.b, _userInputsModel.AverageVolume.FaderValue);
 
@@ -69,6 +69,7 @@ public class TemporaryTest : MonoBehaviour, IUserInputsConsumer
 
     public void OnDisable()
     {
+        Debug.Log("unsubscribing to test scene");
         UnsubscribeUserInputs();
     }
 
@@ -83,11 +84,22 @@ public class TemporaryTest : MonoBehaviour, IUserInputsConsumer
 
     private void RegisterVolumeRelatedUserInputs()
     {
-        _userInputsModel.AverageVolume.EmitTurnedOffEvent += () => VolumeCube.SetActive(false);
-        _userInputsModel.AverageVolume.EmitTurnedOnEvent += () => VolumeCube.SetActive(true);
-        _userInputsModel.LowFrequencyVolume.EmitTurnedOffEvent += () => LowFrequencyVolumeCube.SetActive(false);
-        _userInputsModel.LowFrequencyVolume.EmitTurnedOnEvent += () => LowFrequencyVolumeCube.SetActive(true);
+        _userInputsModel.AverageVolume.EmitTurnedOnOrOffEvent += SetVolumeActive;
+        _userInputsModel.LowFrequencyVolume.EmitTurnedOnOrOffEvent += SetLowFrequencyVolumeActive;
     }
+
+
+    private void SetVolumeActive(bool isActive)
+    {
+        VolumeCube.SetActive(isActive);
+    }
+
+
+    private void SetLowFrequencyVolumeActive(bool isActive)
+    {
+        LowFrequencyVolumeCube.SetActive(isActive);
+    }
+
 
     public void UnsubscribeUserInputs()
     {
@@ -108,11 +120,10 @@ public class TemporaryTest : MonoBehaviour, IUserInputsConsumer
         _userInputsModel.OneInEightUserInput.EmitTurnedOffEvent -= () => cubes[5].SetActive(false);
         _userInputsModel.OneInEightUserInput.EmitTurnedOnEvent -= () => cubes[5].SetActive(true);
 
-        _userInputsModel.AverageVolume.EmitTurnedOffEvent -= () => cubes[5].SetActive(false);
-        _userInputsModel.AverageVolume.EmitTurnedOnEvent -= () => cubes[5].SetActive(true);
-        _userInputsModel.LowFrequencyVolume.EmitTurnedOffEvent -= () => cubes[5].SetActive(false);
-        _userInputsModel.LowFrequencyVolume.EmitTurnedOnEvent -= () => cubes[5].SetActive(true);
+        _userInputsModel.AverageVolume.EmitTurnedOnOrOffEvent -= SetVolumeActive;
+        _userInputsModel.LowFrequencyVolume.EmitTurnedOnOrOffEvent -= SetLowFrequencyVolumeActive;
     }
+
 
     private void RegisterExplosionKeysSubscriptions()
     {

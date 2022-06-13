@@ -104,5 +104,7 @@ public class UserInputsModel : MonoBehaviour
         EightInFourUserInput?.Unsubscribe();
         SixteenInFourUserInput?.Unsubscribe();
         OneInEightUserInput?.Unsubscribe();
+        AverageVolume?.Unsubscribe();
+        LowFrequencyVolume?.Unsubscribe();
     }
 }

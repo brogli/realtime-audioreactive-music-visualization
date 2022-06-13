@@ -10,6 +10,12 @@ public class ToggeledAndFadedUserInput : IUserInput
     public delegate void TurnedOffEvent();
     public event TurnedOffEvent EmitTurnedOffEvent;
 
+    public delegate void TurnedOnOrOffEvent(bool hasTurnedOn);
+    /// <summary>
+    /// returns true if turned on and false if turned off
+    /// </summary>
+    public event TurnedOnOrOffEvent EmitTurnedOnOrOffEvent;
+
     public bool IsPressed
     {
         get => ToggeledUserInput.IsPressed;
@@ -32,20 +38,32 @@ public class ToggeledAndFadedUserInput : IUserInput
 
     private void SubscribeToChildEvents()
     {
-        ToggeledUserInput.EmitTurnedOffEvent += () => EmitTurnedOffEvent?.Invoke();
+        ToggeledUserInput.EmitTurnedOffEvent += HandleTurnedOffEventFromToggle; 
         ToggeledUserInput.EmitTurnedOnEvent += HandleTurnOnEventFromToggle;
-
-        FadedUserInput.EmitTurnedOffEvent += () => EmitTurnedOffEvent?.Invoke();
+        
+        FadedUserInput.EmitTurnedOffEvent += HandleTurnedOffEventFromFader;
         FadedUserInput.EmitTurnedOnEvent += HandleTurnOnEventFromFader;
+    }
+
+    private void HandleTurnedOffEventFromToggle()
+    {
+        EmitTurnedOffEvent?.Invoke();
+        EmitTurnedOnOrOffEvent?.Invoke(false);
     }
 
     private void HandleTurnOnEventFromToggle()
     {
         if (FadedUserInput.IsActive)
         {
-            Debug.Log("2");
             EmitTurnedOnEvent?.Invoke();
+            EmitTurnedOnOrOffEvent?.Invoke(true);
         }
+    }
+
+    private void HandleTurnedOffEventFromFader()
+    {
+        EmitTurnedOffEvent?.Invoke();
+        EmitTurnedOnOrOffEvent?.Invoke(false);
     }
 
     private void HandleTurnOnEventFromFader()
@@ -53,6 +71,7 @@ public class ToggeledAndFadedUserInput : IUserInput
         if (IsPressed)
         {
             EmitTurnedOnEvent?.Invoke();
+            EmitTurnedOnOrOffEvent?.Invoke(true);
         }
     }
 
@@ -63,10 +82,10 @@ public class ToggeledAndFadedUserInput : IUserInput
 
     public void Unsubscribe()
     {
-        ToggeledUserInput.EmitTurnedOffEvent -= () => EmitTurnedOffEvent?.Invoke();
-        ToggeledUserInput.EmitTurnedOnEvent -= () => EmitTurnedOnEvent?.Invoke();
+        ToggeledUserInput.EmitTurnedOffEvent -= HandleTurnedOffEventFromToggle;
+        ToggeledUserInput.EmitTurnedOnEvent -= HandleTurnOnEventFromToggle;
 
-        FadedUserInput.EmitTurnedOffEvent -= () => EmitTurnedOffEvent?.Invoke();
+        FadedUserInput.EmitTurnedOffEvent -= HandleTurnedOffEventFromFader;
         FadedUserInput.EmitTurnedOnEvent -= HandleTurnOnEventFromFader;
     }
 }
