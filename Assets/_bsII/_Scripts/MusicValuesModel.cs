@@ -118,22 +118,29 @@ public class MusicValuesModel : MonoBehaviour
             if (value > _averageVolumeMax)
             {
                 _averageVolumeMax = value;
-               
+
             }
-            AverageVolumeNormalized = value / _averageVolumeMax;
-            Debug.Log($"averageMax: {_averageVolumeMax}, normalized current: {AverageVolumeNormalized}, normalized peak: {AverageVolumeNormalizedPeak}");
+            AverageVolumeNormalized = (value - 0.2f) / (_averageVolumeMax - 0.2f);
+            Debug.Log($"averageMax: {_averageVolumeMax}, normalized current: {AverageVolumeNormalized}, normalized peak: {AverageVolumeNormalizedPeak}, current value: {value}");
             if (AverageVolumeNormalized > AverageVolumeNormalizedPeak)
             {
                 AverageVolumeNormalizedPeak = AverageVolumeNormalized;
+            }
+
+            if (value > AverageVolumePeak)
+            {
+                AverageVolumePeak = value;
             }
         }
     }
 
     private SmoothingRingBuffer _averageVolumeSmoothed;
-    public float AverageVolumeSmoothed 
+    public float AverageVolumeSmoothed
     {
         get => _averageVolumeSmoothed.GetSmoothValue();
     }
+
+    public float AverageVolumePeak { get; private set; }
 
     public float AverageVolumeNormalizedPeak { get; private set; }
 
@@ -170,8 +177,8 @@ public class MusicValuesModel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _averageVolumeSmoothed = new SmoothingRingBuffer(2);
-        _lowFrequencyVolumeSmoothed = new SmoothingRingBuffer(2);
+        _averageVolumeSmoothed = new SmoothingRingBuffer(5);
+        _lowFrequencyVolumeSmoothed = new SmoothingRingBuffer(5);
     }
 
     // Update is called once per frame
@@ -180,10 +187,32 @@ public class MusicValuesModel : MonoBehaviour
         if (AverageVolumeNormalizedPeak - 0.01f < 0)
         {
             AverageVolumeNormalizedPeak = 0;
-        } else
+        }
+        else
         {
             AverageVolumeNormalizedPeak -= 0.01f;
         }
+
+        
+
+        if (AverageVolumePeak - 0.1f < 0)
+        {
+            AverageVolumePeak = 0;
+        }
+        else
+        {
+            AverageVolumePeak -= 0.1f;
+        }
+
+        if (_averageVolumeMax - 0.01f < 0)
+        {
+            _averageVolumeMax = 0.1f;
+        }
+        else
+        {
+            _averageVolumeMax -= 0.01f;
+        }
+
 
         if (LowFrequencyVolumePeak - 0.1f < 0)
         {
