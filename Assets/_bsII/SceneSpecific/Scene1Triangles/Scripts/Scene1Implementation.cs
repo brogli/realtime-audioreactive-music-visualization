@@ -157,7 +157,7 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
 
             });
 
-        VolumeLights.ForEach(light => light.intensity = _musicValuesModel.AverageVolumeNormalizedEased * VolumeLightBrightnessValue);
-        LowFrequencyVolumeLights.ForEach(light => light.intensity = _musicValuesModel.LowFrequencyVolume * VolumeLightBrightnessValue);
+        VolumeLights.ForEach(light => light.intensity = _musicValuesModel.AverageVolumeNormalizedEasedSmoothed * VolumeLightBrightnessValue);
+        LowFrequencyVolumeLights.ForEach(light => light.intensity = _musicValuesModel.LowFrequencyVolumeNormalizedEasedSmoothed * VolumeLightBrightnessValue);
     }
 }

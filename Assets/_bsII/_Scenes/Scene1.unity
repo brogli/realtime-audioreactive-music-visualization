@@ -1879,7 +1879,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &467863797
 Transform:
   m_ObjectHideFlags: 0
@@ -2406,7 +2406,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 559075919}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.8, y: 0, z: 9.89}
+  m_LocalPosition: {x: 0, y: 0, z: 9.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2700,7 +2700,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &690119671
 Transform:
   m_ObjectHideFlags: 0
@@ -3915,7 +3915,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1060792462
 Transform:
   m_ObjectHideFlags: 0
@@ -5642,7 +5642,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1702362286
 Transform:
   m_ObjectHideFlags: 0
@@ -6220,13 +6220,9 @@ MonoBehaviour:
   VolumeLights:
   - {fileID: 559075921}
   - {fileID: 982358467}
-  - {fileID: 1702362289}
-  - {fileID: 1858144438}
   LowFrequencyVolumeLights:
   - {fileID: 261459226}
   - {fileID: 1661464575}
-  - {fileID: 690119674}
-  - {fileID: 467863800}
   VolumeLightBrightnessValue: 100
 --- !u!1 &1858144434
 GameObject:
@@ -6246,7 +6242,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1858144435
 Transform:
   m_ObjectHideFlags: 0
