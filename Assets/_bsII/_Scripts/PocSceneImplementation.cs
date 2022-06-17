@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TemporaryTest : MonoBehaviour, IUserInputsConsumer
+public class PocSceneImplementation : MonoBehaviour, IUserInputsConsumer
 {
     public List<GameObject> cubes;
     public List<GameObject> MelodyKeys;
@@ -50,23 +50,54 @@ public class TemporaryTest : MonoBehaviour, IUserInputsConsumer
 
     private void RegisterBeatRelatedUserInputs()
     {
-        _userInputsModel.FourInFourUserInput.EmitTurnedOffEvent += () => cubes[0].SetActive(false);
-        _userInputsModel.FourInFourUserInput.EmitTurnedOnEvent += () => cubes[0].SetActive(true);
+        _userInputsModel.FourInFourUserInput.EmitTurnedOnOrOffEvent += ToggleFourInFour;
+        ToggleFourInFour(_userInputsModel.FourInFourUserInput.IsPressed);
 
-        _userInputsModel.OneInFourUserInput.EmitTurnedOffEvent += () => cubes[1].SetActive(false);
-        _userInputsModel.OneInFourUserInput.EmitTurnedOnEvent += () => cubes[1].SetActive(true);
+        _userInputsModel.OneInFourUserInput.EmitTurnedOnOrOffEvent += ToggleOneInFour;
+        ToggleFourInFour(_userInputsModel.OneInFourUserInput.IsPressed);
 
-        _userInputsModel.TwoInFourUserInput.EmitTurnedOffEvent += () => cubes[2].SetActive(false);
-        _userInputsModel.TwoInFourUserInput.EmitTurnedOnEvent += () => cubes[2].SetActive(true);
+        _userInputsModel.TwoInFourUserInput.EmitTurnedOnOrOffEvent += ToggleTwoInFour;
+        ToggleFourInFour(_userInputsModel.TwoInFourUserInput.IsPressed);
 
-        _userInputsModel.EightInFourUserInput.EmitTurnedOffEvent += () => cubes[3].SetActive(false);
-        _userInputsModel.EightInFourUserInput.EmitTurnedOnEvent += () => cubes[3].SetActive(true);
+        _userInputsModel.EightInFourUserInput.EmitTurnedOnOrOffEvent += ToggleEightInFour;
+        ToggleFourInFour(_userInputsModel.EightInFourUserInput.IsPressed);
 
-        _userInputsModel.SixteenInFourUserInput.EmitTurnedOffEvent += () => cubes[4].SetActive(false);
-        _userInputsModel.SixteenInFourUserInput.EmitTurnedOnEvent += () => cubes[4].SetActive(true);
+        _userInputsModel.SixteenInFourUserInput.EmitTurnedOnOrOffEvent += ToggleSixteenInFour;
+        ToggleFourInFour(_userInputsModel.SixteenInFourUserInput.IsPressed);
 
-        _userInputsModel.OneInEightUserInput.EmitTurnedOffEvent += () => cubes[5].SetActive(false);
-        _userInputsModel.OneInEightUserInput.EmitTurnedOnEvent += () => cubes[5].SetActive(true);
+        _userInputsModel.OneInEightUserInput.EmitTurnedOnOrOffEvent += ToggleOneInEight;
+        ToggleFourInFour(_userInputsModel.OneInEightUserInput.IsPressed);
+
+    }
+
+    private void ToggleFourInFour(bool isNowActive)
+    {
+        cubes[0].SetActive(isNowActive);
+    }
+
+    private void ToggleOneInFour(bool isNowActive)
+    {
+        cubes[1].SetActive(isNowActive);
+    }
+
+    private void ToggleTwoInFour(bool isNowActive)
+    {
+        cubes[2].SetActive(isNowActive);
+    }
+
+    private void ToggleEightInFour(bool isNowActive)
+    {
+        cubes[3].SetActive(isNowActive);
+    }
+
+    private void ToggleSixteenInFour(bool isNowActive)
+    {
+        cubes[4].SetActive(isNowActive);
+    }
+
+    private void ToggleOneInEight(bool isNowActive)
+    {
+        cubes[5].SetActive(isNowActive);
     }
 
     public void OnDisable()
@@ -86,18 +117,18 @@ public class TemporaryTest : MonoBehaviour, IUserInputsConsumer
 
     private void RegisterVolumeRelatedUserInputs()
     {
-        _userInputsModel.AverageVolume.EmitTurnedOnOrOffEvent += SetVolumeActive;
-        _userInputsModel.LowFrequencyVolume.EmitTurnedOnOrOffEvent += SetLowFrequencyVolumeActive;
+        _userInputsModel.AverageVolume.EmitTurnedOnOrOffEvent += ToggleVolume;
+        _userInputsModel.LowFrequencyVolume.EmitTurnedOnOrOffEvent += ToggleLowFrequencyVolume;
     }
 
 
-    private void SetVolumeActive(bool isActive)
+    private void ToggleVolume(bool isActive)
     {
         VolumeCube.SetActive(isActive);
     }
 
 
-    private void SetLowFrequencyVolumeActive(bool isActive)
+    private void ToggleLowFrequencyVolume(bool isActive)
     {
         LowFrequencyVolumeCube.SetActive(isActive);
     }
@@ -109,27 +140,26 @@ public class TemporaryTest : MonoBehaviour, IUserInputsConsumer
         {
             _userInputsModel.MoodKeys.Keys[i].EmitCollectionKeyTriggeredEvent -= MoodKeysImplementation;
         }
-        _userInputsModel.FourInFourUserInput.EmitTurnedOffEvent -= () => cubes[0].SetActive(false);
-        _userInputsModel.FourInFourUserInput.EmitTurnedOnEvent -= () => cubes[0].SetActive(true);
-        _userInputsModel.OneInFourUserInput.EmitTurnedOffEvent -= () => cubes[1].SetActive(false);
-        _userInputsModel.OneInFourUserInput.EmitTurnedOnEvent -= () => cubes[1].SetActive(true);
-        _userInputsModel.TwoInFourUserInput.EmitTurnedOffEvent -= () => cubes[2].SetActive(false);
-        _userInputsModel.TwoInFourUserInput.EmitTurnedOnEvent -= () => cubes[2].SetActive(true);
-        _userInputsModel.EightInFourUserInput.EmitTurnedOffEvent -= () => cubes[3].SetActive(false);
-        _userInputsModel.EightInFourUserInput.EmitTurnedOnEvent -= () => cubes[3].SetActive(true);
-        _userInputsModel.SixteenInFourUserInput.EmitTurnedOffEvent -= () => cubes[4].SetActive(false);
-        _userInputsModel.SixteenInFourUserInput.EmitTurnedOnEvent -= () => cubes[4].SetActive(true);
-        _userInputsModel.OneInEightUserInput.EmitTurnedOffEvent -= () => cubes[5].SetActive(false);
-        _userInputsModel.OneInEightUserInput.EmitTurnedOnEvent -= () => cubes[5].SetActive(true);
+        _userInputsModel.FourInFourUserInput.EmitTurnedOnOrOffEvent -= ToggleFourInFour;
+        _userInputsModel.OneInFourUserInput.EmitTurnedOnOrOffEvent -= ToggleOneInFour;
+        _userInputsModel.TwoInFourUserInput.EmitTurnedOnOrOffEvent -= ToggleTwoInFour;
+        _userInputsModel.EightInFourUserInput.EmitTurnedOnOrOffEvent -= ToggleEightInFour;
+        _userInputsModel.SixteenInFourUserInput.EmitTurnedOnOrOffEvent -= ToggleSixteenInFour;
+        _userInputsModel.OneInEightUserInput.EmitTurnedOnOrOffEvent -= ToggleOneInEight;
 
-        _userInputsModel.AverageVolume.EmitTurnedOnOrOffEvent -= SetVolumeActive;
-        _userInputsModel.LowFrequencyVolume.EmitTurnedOnOrOffEvent -= SetLowFrequencyVolumeActive;
+        _userInputsModel.AverageVolume.EmitTurnedOnOrOffEvent -= ToggleVolume;
+        _userInputsModel.LowFrequencyVolume.EmitTurnedOnOrOffEvent -= ToggleLowFrequencyVolume;
+
+        for (int i = 0; i < _userInputsModel.ExplosionKeys.Keys.Length; i++)
+        {
+            _userInputsModel.ExplosionKeys.Keys[i].EmitCollectionKeyTriggeredEvent -= StartExplosionCoroutine;
+        }
     }
 
 
     private void RegisterExplosionKeysSubscriptions()
     {
-        for (int i = 0; i < _userInputsModel.MoodKeys.Keys.Length; i++)
+        for (int i = 0; i < _userInputsModel.ExplosionKeys.Keys.Length; i++)
         {
             _userInputsModel.ExplosionKeys.Keys[i].EmitCollectionKeyTriggeredEvent += StartExplosionCoroutine;
             ExplosionKeys[i].SetActive(false);

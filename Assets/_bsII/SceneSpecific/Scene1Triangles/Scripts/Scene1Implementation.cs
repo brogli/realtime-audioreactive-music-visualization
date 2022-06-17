@@ -28,48 +28,57 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
     public void SubscribeUserInputs()
     {
         // 4-4 
-        _userInputsModel.FourInFourUserInput.EmitTurnedOnEvent += () =>
-        {
-            FourInFourCores.ForEach((core) => core.SetActive(true));
-        };
-        _userInputsModel.FourInFourUserInput.EmitTurnedOffEvent += () =>
-        {
-            FourInFourCores.ForEach((core) => core.SetActive(false));
-        };
+        _userInputsModel.FourInFourUserInput.EmitTurnedOnOrOffEvent += ToggleFourInFour;
         FourInFourCores.ForEach((core) => core.SetActive(_userInputsModel.FourInFourUserInput.IsPressed));
 
         // 8-4
-        _userInputsModel.EightInFourUserInput.EmitTurnedOnEvent += () =>
-        {
-            EightInFourCores.ForEach((core) => core.SetActive(true));
-        };
-        _userInputsModel.EightInFourUserInput.EmitTurnedOffEvent += () =>
-        {
-            EightInFourCores.ForEach((core) => core.SetActive(false));
-        };
+        _userInputsModel.EightInFourUserInput.EmitTurnedOnOrOffEvent += ToggleEightInFour;
         EightInFourCores.ForEach((core) => core.SetActive(_userInputsModel.EightInFourUserInput.IsPressed));
 
         // 2-4
-        _userInputsModel.TwoInFourUserInput.EmitTurnedOnEvent += () =>
-        {
-            TwoInFourCores.ForEach((core) => core.SetActive(true));
-        };
-        _userInputsModel.TwoInFourUserInput.EmitTurnedOffEvent += () =>
-        {
-            TwoInFourCores.ForEach((core) => core.SetActive(false));
-        };
+        _userInputsModel.TwoInFourUserInput.EmitTurnedOnOrOffEvent += ToggleTwoInFour;
         TwoInFourCores.ForEach((core) => core.SetActive(_userInputsModel.TwoInFourUserInput.IsPressed));
 
         // volume
-        _userInputsModel.AverageVolume.EmitTurnedOnOrOffEvent += SetVolumeActive;
+        _userInputsModel.AverageVolume.EmitTurnedOnOrOffEvent += ToggleVolume;
         VolumeLights.ForEach((light) => light.gameObject.SetActive(_userInputsModel.AverageVolume.IsPressed));
         
 
         // low frequency volume
-        _userInputsModel.LowFrequencyVolume.EmitTurnedOnOrOffEvent += SetLowFrequencyVolumeActive;
+        _userInputsModel.LowFrequencyVolume.EmitTurnedOnOrOffEvent += ToggleLowFrequencyVolume;
         LowFrequencyVolumeLights.ForEach((light) => light.gameObject.SetActive(_userInputsModel.LowFrequencyVolume.IsPressed));
 
 
+    }
+
+    private void ToggleFourInFour(bool isNowActive)
+    {
+        FourInFourCores.ForEach((core) => core.SetActive(isNowActive));
+    }
+
+    private void ToggleOneInFour(bool isNowActive)
+    {
+        // todo
+    }
+
+    private void ToggleTwoInFour(bool isNowActive)
+    {
+        TwoInFourCores.ForEach((core) => core.SetActive(true));
+    }
+
+    private void ToggleEightInFour(bool isNowActive)
+    {
+        EightInFourCores.ForEach((core) => core.SetActive(true));
+    }
+
+    private void ToggleSixteenInFour(bool isNowActive)
+    {
+        // todo
+    }
+
+    private void ToggleOneInEight(bool isNowActive)
+    {
+        // todo
     }
 
     public void OnDisable()
@@ -79,51 +88,30 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
 
     public void UnsubscribeUserInputs()
     {
-        // 4-4
-        _userInputsModel.FourInFourUserInput.EmitTurnedOnEvent -= () =>
-        {
-            FourInFourCores.ForEach((core) => core.SetActive(true));
-        };
-        _userInputsModel.FourInFourUserInput.EmitTurnedOffEvent -= () =>
-        {
-            FourInFourCores.ForEach((core) => core.SetActive(false));
-        };
+        // 4-4 
+        _userInputsModel.FourInFourUserInput.EmitTurnedOnOrOffEvent -= ToggleFourInFour;
 
         // 8-4
-        _userInputsModel.EightInFourUserInput.EmitTurnedOnEvent -= () =>
-        {
-            EightInFourCores.ForEach((core) => core.SetActive(true));
-        };
-        _userInputsModel.EightInFourUserInput.EmitTurnedOffEvent -= () =>
-        {
-            EightInFourCores.ForEach((core) => core.SetActive(false));
-        };
+        _userInputsModel.EightInFourUserInput.EmitTurnedOnOrOffEvent -= ToggleEightInFour;
 
         // 2-4
-        _userInputsModel.TwoInFourUserInput.EmitTurnedOnEvent -= () =>
-        {
-            TwoInFourCores.ForEach((core) => core.SetActive(true));
-        };
-        _userInputsModel.TwoInFourUserInput.EmitTurnedOffEvent += () =>
-        {
-            TwoInFourCores.ForEach((core) => core.SetActive(false));
-        };
+        _userInputsModel.TwoInFourUserInput.EmitTurnedOnOrOffEvent -= ToggleTwoInFour;
 
         // Volume
-        _userInputsModel.AverageVolume.EmitTurnedOnOrOffEvent -= SetVolumeActive;
+        _userInputsModel.AverageVolume.EmitTurnedOnOrOffEvent -= ToggleVolume;
 
 
         // low freq volume
-        _userInputsModel.LowFrequencyVolume.EmitTurnedOnOrOffEvent -= SetLowFrequencyVolumeActive;
+        _userInputsModel.LowFrequencyVolume.EmitTurnedOnOrOffEvent -= ToggleLowFrequencyVolume;
     }
 
-    private void SetVolumeActive(bool hasTurnedActive)
+    private void ToggleVolume(bool hasTurnedActive)
     {
         VolumeLights.ForEach((light) => light.gameObject.SetActive(hasTurnedActive));
     }
 
 
-    private void SetLowFrequencyVolumeActive(bool hasTurnedActive)
+    private void ToggleLowFrequencyVolume(bool hasTurnedActive)
     {
         LowFrequencyVolumeLights.ForEach((light) => light.gameObject.SetActive(hasTurnedActive));
     }
