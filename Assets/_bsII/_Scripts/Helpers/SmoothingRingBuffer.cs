@@ -47,6 +47,13 @@ public class SmoothingRingBuffer : IFloatRingBuffer
         return sum / bufferSize;
     }
 
+    public (float minimum, float maximum) GetMinAndMax()
+    {
+        var min = Mathf.Min(bufferContent);
+        var max = Mathf.Max(bufferContent);
+        return (min, max);
+    }
+
     public void Enqueue(float item)
     {
         if (amountOfItemsInBuffer == bufferSize)

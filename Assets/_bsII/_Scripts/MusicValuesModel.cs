@@ -104,72 +104,103 @@ public class MusicValuesModel : MonoBehaviour
     }
     #endregion
 
-    #region volume
+    #region average volume
 
     private float _averageVolume;
-    private float _averageVolumeMax = 0;
-    public float AverageVolume
+    private float _averageVolumeRawMax = 0;
+    public float AverageVolumeRaw
     {
         get => _averageVolume;
         set
         {
             _averageVolume = value;
-            _averageVolumeSmoothed.Enqueue(value);
-            if (value > _averageVolumeMax)
+            if (value > _averageVolumeRawMax)
             {
-                _averageVolumeMax = value;
+                _averageVolumeRawMax = value;
 
             }
-            AverageVolumeNormalized = (value - 0.2f) / (_averageVolumeMax - 0.2f);
-            Debug.Log($"averageMax: {_averageVolumeMax}, normalized current: {AverageVolumeNormalized}, normalized peak: {AverageVolumeNormalizedPeak}, current value: {value}");
-            if (AverageVolumeNormalized > AverageVolumeNormalizedPeak)
+            AverageVolumeNormalized = Mathf.Min(1f,value / _averageVolumeRawMax);
+            AverageVolumeNormalizedEased = Easings.EaseInOutCubic(AverageVolumeNormalized);
+            AverageVolumeNormalizedEasedSmoothed = AverageVolumeNormalizedEased;
+
+            if (AverageVolumeNormalizedEased > AverageVolumeNormalizedEasedPeak)
             {
-                AverageVolumeNormalizedPeak = AverageVolumeNormalized;
+                AverageVolumeNormalizedEasedPeak = AverageVolumeNormalizedEased;
             }
 
-            if (value > AverageVolumePeak)
-            {
-                AverageVolumePeak = value;
-            }
         }
     }
 
-    private SmoothingRingBuffer _averageVolumeSmoothed;
-    public float AverageVolumeSmoothed
+    public float AverageVolumeNormalizedEased { get; private set; }
+
+
+    private SmoothingRingBuffer _averageVolumeNormalizedEasedSmoothed;
+    public float AverageVolumeNormalizedEasedSmoothed
     {
-        get => _averageVolumeSmoothed.GetSmoothValue();
+        get
+        {
+            (var min, var max) = _averageVolumeNormalizedEasedSmoothed.GetMinAndMax();
+            return _averageVolumeNormalizedEasedSmoothed.GetSmoothValue() + ((max - min) / 2);
+        }
+        set => _averageVolumeNormalizedEasedSmoothed.Enqueue(value);
     }
 
-    public float AverageVolumePeak { get; private set; }
 
-    public float AverageVolumeNormalizedPeak { get; private set; }
+    public float AverageVolumeNormalizedEasedPeak { get; private set; }
 
     public float AverageVolumeNormalized { get; private set; }
 
+    #endregion
 
 
+    #region low frequency volume
     private float _lowFrequencyVolume;
+    private float _lowFrequencyVolumeRawMax = 0;
+
     public float LowFrequencyVolume
     {
         get => _lowFrequencyVolume;
         set
         {
             _lowFrequencyVolume = value;
-            _lowFrequencyVolumeSmoothed.Enqueue(value);
-            if (value > LowFrequencyVolumePeak)
+            if (value > _lowFrequencyVolumeRawMax)
             {
-                LowFrequencyVolumePeak = value;
+                _lowFrequencyVolumeRawMax = value;
+
             }
+            LowFrequencyVolumeNormalized = Mathf.Min(1f, value / _lowFrequencyVolumeRawMax);
+            LowFrequencyVolumeNormalizedEased = Easings.EaseInOutCubic(LowFrequencyVolumeNormalized);
+            LowFrequencyVolumeNormalizedEasedSmoothed = LowFrequencyVolumeNormalizedEased;
+
+            if (LowFrequencyVolumeNormalizedEased > LowFrequencyVolumeNormalizedEasedPeak)
+            {
+                LowFrequencyVolumeNormalizedEasedPeak = LowFrequencyVolumeNormalizedEased;
+            }
+
         }
     }
 
+    public float LowFrequencyVolumeNormalized { get; private set; }
+
+    public float LowFrequencyVolumeNormalizedEased { get; private set; }
+
     public float LowFrequencyVolumePeak { get; private set; }
 
-    private SmoothingRingBuffer _lowFrequencyVolumeSmoothed;
-    public float LowFrequencyVolumeSmoothed
+    public float LowFrequencyVolumeNormalizedEasedPeak { get; private set; }
+
+
+    private SmoothingRingBuffer _lowFrequencyVolumeNormalizedEasedSmoothed;
+    public float LowFrequencyVolumeNormalizedEasedSmoothed
     {
-        get => _lowFrequencyVolumeSmoothed.GetSmoothValue();
+        get
+        {
+            (var min, var max) = _averageVolumeNormalizedEasedSmoothed.GetMinAndMax();
+            return _lowFrequencyVolumeNormalizedEasedSmoothed.GetSmoothValue() + ((max - min) / 2);
+        }
+        set => _lowFrequencyVolumeNormalizedEasedSmoothed.Enqueue(value);
     }
+
+    
     #endregion
 
 
@@ -177,40 +208,30 @@ public class MusicValuesModel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _averageVolumeSmoothed = new SmoothingRingBuffer(5);
-        _lowFrequencyVolumeSmoothed = new SmoothingRingBuffer(5);
+        _averageVolumeNormalizedEasedSmoothed = new SmoothingRingBuffer(5);
+        _lowFrequencyVolumeNormalizedEasedSmoothed = new SmoothingRingBuffer(5);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (AverageVolumeNormalizedPeak - 0.01f < 0)
+        if (AverageVolumeNormalizedEasedPeak - 0.01f < 0)
         {
-            AverageVolumeNormalizedPeak = 0;
+            AverageVolumeNormalizedEasedPeak = 0;
         }
         else
         {
-            AverageVolumeNormalizedPeak -= 0.01f;
+            AverageVolumeNormalizedEasedPeak -= 0.01f;
         }
 
-        
 
-        if (AverageVolumePeak - 0.1f < 0)
+        if (_averageVolumeRawMax - 0.01f < 0)
         {
-            AverageVolumePeak = 0;
+            _averageVolumeRawMax = 0.1f;
         }
         else
         {
-            AverageVolumePeak -= 0.1f;
-        }
-
-        if (_averageVolumeMax - 0.01f < 0)
-        {
-            _averageVolumeMax = 0.1f;
-        }
-        else
-        {
-            _averageVolumeMax -= 0.01f;
+            _averageVolumeRawMax -= 0.01f;
         }
 
 

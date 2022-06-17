@@ -99,7 +99,7 @@ public class FftProcessor : MonoBehaviour
             newAverageVolume += FrequencyBand[i];
         }
         AverageVolume = newAverageVolume;
-        _musicValuesModel.AverageVolume = AverageVolume;
+        _musicValuesModel.AverageVolumeRaw = AverageVolume;
     }
 
     private void MakeFrequencyBands()

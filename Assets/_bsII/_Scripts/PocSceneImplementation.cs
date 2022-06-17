@@ -12,6 +12,7 @@ public class PocSceneImplementation : MonoBehaviour, IUserInputsConsumer
     public List<GameObject> ExplosionKeys;
     public GameObject VolumeCube;
     public GameObject VolumeCubeNormalized;
+    public GameObject VolumeCubeNormalizedSmoothed;
     public GameObject LowFrequencyVolumeCube;
 
     private MusicValuesModel _musicValuesModel;
@@ -36,8 +37,10 @@ public class PocSceneImplementation : MonoBehaviour, IUserInputsConsumer
 
     private void VolumeImplementation()
     {
-        VolumeCube.transform.localScale = new Vector3(VolumeCube.transform.localScale.x, _musicValuesModel.AverageVolume, VolumeCube.transform.localScale.z);
-        VolumeCubeNormalized.transform.localScale = new Vector3(VolumeCubeNormalized.transform.localScale.x, _musicValuesModel.AverageVolumeSmoothed, VolumeCubeNormalized.transform.localScale.z);
+        VolumeCube.transform.localScale = new Vector3(VolumeCube.transform.localScale.x, _musicValuesModel.AverageVolumeRaw, VolumeCube.transform.localScale.z);
+        VolumeCubeNormalized.transform.localScale = new Vector3(VolumeCubeNormalized.transform.localScale.x, _musicValuesModel.AverageVolumeNormalizedEased, VolumeCubeNormalized.transform.localScale.z);
+        VolumeCubeNormalizedSmoothed.transform.localScale = new Vector3(VolumeCubeNormalizedSmoothed.transform.localScale.x, _musicValuesModel.AverageVolumeNormalizedEasedSmoothed, VolumeCubeNormalizedSmoothed.transform.localScale.z);
+
         LowFrequencyVolumeCube.transform.localScale = new Vector3(LowFrequencyVolumeCube.transform.localScale.x, _musicValuesModel.LowFrequencyVolumePeak, LowFrequencyVolumeCube.transform.localScale.z);
 
         Color currentColor = VolumeCube.GetComponent<Renderer>().material.color;

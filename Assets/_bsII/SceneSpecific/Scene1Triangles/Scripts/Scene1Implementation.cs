@@ -117,25 +117,11 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
     }
 
 
-    /// <summary>
-    /// Ease-in and ease-out
-    /// Sauce: https://stackoverflow.com/a/25730573
-    /// </summary>
-    /// <param name="t"></param>
-    /// <returns></returns>
-    private float ParametricBlend(float t)
-    {
-        float sqt = t * t;
-        return sqt / (2.0f * (sqt - t) + 1.0f);
-    }
-
-
-
 
     // Update is called once per frame
     void Update()
     {
-        float fourInFourValueInverted = ParametricBlend(1.0f - _musicValuesModel.FourInFourValue);
+        float fourInFourValueInverted = Easings.EaseInOutCubic(1.0f - _musicValuesModel.FourInFourValue);
         FourInFourCores.ForEach(
             (core) =>
             {
@@ -144,7 +130,7 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
 
             });
 
-        float EightInFourValueInverted = ParametricBlend(1.0f - _musicValuesModel.EightInFourValue);
+        float EightInFourValueInverted = Easings.EaseInOutCubic(1.0f - _musicValuesModel.EightInFourValue);
         EightInFourCores.ForEach(
             (core) =>
             {
@@ -153,7 +139,7 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
 
             });
 
-        float TwoInFourValueInverted = ParametricBlend(1.0f - _musicValuesModel.TwoInFourValue);
+        float TwoInFourValueInverted = Easings.EaseInOutCubic(1.0f - _musicValuesModel.TwoInFourValue);
         TwoInFourCores.ForEach(
             (core) =>
             {
@@ -162,7 +148,7 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
 
             });
 
-        float OneInEightValueInverted = ParametricBlend(1.0f - _musicValuesModel.OneInEightValue);
+        float OneInEightValueInverted = Easings.EaseInOutCubic(1.0f - _musicValuesModel.OneInEightValue);
         OneInEightCores.ForEach(
             (core) =>
             {
@@ -171,7 +157,7 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
 
             });
 
-        VolumeLights.ForEach(light => light.intensity = _musicValuesModel.AverageVolumeNormalizedPeak * VolumeLightBrightnessValue);
-        LowFrequencyVolumeLights.ForEach(light => light.intensity = _musicValuesModel.LowFrequencyVolumePeak * VolumeLightBrightnessValue);
+        VolumeLights.ForEach(light => light.intensity = _musicValuesModel.AverageVolumeNormalizedEased * VolumeLightBrightnessValue);
+        LowFrequencyVolumeLights.ForEach(light => light.intensity = _musicValuesModel.LowFrequencyVolume * VolumeLightBrightnessValue);
     }
 }
