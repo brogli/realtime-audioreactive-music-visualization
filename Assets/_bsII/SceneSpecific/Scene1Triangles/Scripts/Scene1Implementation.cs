@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,15 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
 
     public List<Light> VolumeLights;
     public List<Light> LowFrequencyVolumeLights;
+
+    public List<GameObject> MelodyKey0Elements;
+    public List<GameObject> MelodyKey1Elements;
+    public List<GameObject> MelodyKey2Elements;
+    public List<GameObject> MelodyKey3Elements;
+    public List<GameObject> MelodyKey4Elements;
+    public List<GameObject> MelodyKey5Elements;
+    public List<GameObject> MelodyKey6Elements;
+    public List<GameObject> MelodyKey7Elements;
 
     public float VolumeLightBrightnessValue;
 
@@ -42,13 +52,51 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
         // volume
         _userInputsModel.AverageVolume.EmitTurnedOnOrOffEvent += ToggleVolume;
         VolumeLights.ForEach((light) => light.gameObject.SetActive(_userInputsModel.AverageVolume.IsPressed));
-        
+
 
         // low frequency volume
         _userInputsModel.LowFrequencyVolume.EmitTurnedOnOrOffEvent += ToggleLowFrequencyVolume;
         LowFrequencyVolumeLights.ForEach((light) => light.gameObject.SetActive(_userInputsModel.LowFrequencyVolume.IsPressed));
 
+        // melodykeys
+        for (int i = 0; i < _userInputsModel.MelodyKeys.Keys.Length; i++)
+        {
+            _userInputsModel.MelodyKeys.Keys[i].EmitTurnedOnOrOffEvent += ToggleMelodyKey;
+            ToggleMelodyKey(_userInputsModel.MelodyKeys.Keys[i].IsPressed, i);
+        }
+    }
 
+    private void ToggleMelodyKey(bool hasTurnedOn, int index)
+    {
+        switch (index)
+        {
+            case 0:
+                MelodyKey0Elements.ForEach(element => element.SetActive(hasTurnedOn));
+                break;
+            case 1:
+                MelodyKey1Elements.ForEach(element => element.SetActive(hasTurnedOn));
+                break;
+            case 2:
+                MelodyKey2Elements.ForEach(element => element.SetActive(hasTurnedOn));
+                break;
+            case 3:
+                MelodyKey3Elements.ForEach(element => element.SetActive(hasTurnedOn));
+                break;
+            case 4:
+                MelodyKey4Elements.ForEach(element => element.SetActive(hasTurnedOn));
+                break;
+            case 5:
+                MelodyKey5Elements.ForEach(element => element.SetActive(hasTurnedOn));
+                break;
+            case 6:
+                MelodyKey6Elements.ForEach(element => element.SetActive(hasTurnedOn));
+                break;
+            case 7:
+                MelodyKey7Elements.ForEach(element => element.SetActive(hasTurnedOn));
+                break;
+            default:
+                break;
+        }
     }
 
     private void ToggleFourInFour(bool isNowActive)
@@ -103,6 +151,12 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
 
         // low freq volume
         _userInputsModel.LowFrequencyVolume.EmitTurnedOnOrOffEvent -= ToggleLowFrequencyVolume;
+
+        // melodykeys
+        foreach (var key in _userInputsModel.MelodyKeys.Keys)
+        {
+            key.EmitTurnedOnOrOffEvent -= ToggleMelodyKey;
+        }
     }
 
     private void ToggleVolume(bool hasTurnedActive)
@@ -125,8 +179,8 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
         FourInFourCores.ForEach(
             (core) =>
             {
-                
-                core.GetComponent<Renderer>().material.SetColor("_EmissiveColor", Color.white * ( fourInFourValueInverted) * 4);
+
+                core.GetComponent<Renderer>().material.SetColor("_EmissiveColor", Color.white * (fourInFourValueInverted) * 4);
 
             });
 

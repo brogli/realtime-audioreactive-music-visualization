@@ -390,7 +390,7 @@ GameObject:
   m_Component:
   - component: {fileID: 93925535}
   m_Layer: 0
-  m_Name: Triangle (10)
+  m_Name: 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -630,7 +630,7 @@ GameObject:
   m_Component:
   - component: {fileID: 121097221}
   m_Layer: 0
-  m_Name: Triangle (10)
+  m_Name: 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -737,6 +737,12 @@ PrefabInstance:
 --- !u!4 &143756520 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6654e510c6bead04f9a4f05548c4abb0,
+    type: 3}
+  m_PrefabInstance: {fileID: 143756519}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &143756521 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6654e510c6bead04f9a4f05548c4abb0,
     type: 3}
   m_PrefabInstance: {fileID: 143756519}
   m_PrefabAsset: {fileID: 0}
@@ -930,7 +936,7 @@ GameObject:
   m_Component:
   - component: {fileID: 194217590}
   m_Layer: 0
-  m_Name: Triangle (8)
+  m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1961,6 +1967,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 349480785}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &349480787 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6654e510c6bead04f9a4f05548c4abb0,
+    type: 3}
+  m_PrefabInstance: {fileID: 349480785}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &373350314
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2913,7 +2925,7 @@ GameObject:
   m_Component:
   - component: {fileID: 550489077}
   m_Layer: 0
-  m_Name: Triangle (8)
+  m_Name: 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3187,7 +3199,7 @@ GameObject:
   m_Component:
   - component: {fileID: 591329165}
   m_Layer: 0
-  m_Name: Triangle (13)
+  m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3466,7 +3478,7 @@ GameObject:
   m_Component:
   - component: {fileID: 683261577}
   m_Layer: 0
-  m_Name: Triangle (14)
+  m_Name: 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3925,7 +3937,7 @@ GameObject:
   m_Component:
   - component: {fileID: 730149554}
   m_Layer: 0
-  m_Name: Triangle (15)
+  m_Name: 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4412,6 +4424,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 826363172}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &826363174 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6654e510c6bead04f9a4f05548c4abb0,
+    type: 3}
+  m_PrefabInstance: {fileID: 826363172}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &837292256
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4504,7 +4522,7 @@ GameObject:
   m_Component:
   - component: {fileID: 891652399}
   m_Layer: 0
-  m_Name: Triangle (13)
+  m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4785,6 +4803,12 @@ PrefabInstance:
 --- !u!4 &903847115 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6654e510c6bead04f9a4f05548c4abb0,
+    type: 3}
+  m_PrefabInstance: {fileID: 903847114}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &903847116 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6654e510c6bead04f9a4f05548c4abb0,
     type: 3}
   m_PrefabInstance: {fileID: 903847114}
   m_PrefabAsset: {fileID: 0}
@@ -5295,6 +5319,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1032654638}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1032654640 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6654e510c6bead04f9a4f05548c4abb0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1032654638}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1041268161
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5379,6 +5409,12 @@ PrefabInstance:
 --- !u!4 &1041268162 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6654e510c6bead04f9a4f05548c4abb0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1041268161}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1041268163 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6654e510c6bead04f9a4f05548c4abb0,
     type: 3}
   m_PrefabInstance: {fileID: 1041268161}
   m_PrefabAsset: {fileID: 0}
@@ -5520,7 +5556,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1089751983}
   m_Layer: 0
-  m_Name: Triangle (15)
+  m_Name: 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5627,6 +5663,12 @@ PrefabInstance:
 --- !u!4 &1094876416 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6654e510c6bead04f9a4f05548c4abb0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1094876415}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1094876417 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6654e510c6bead04f9a4f05548c4abb0,
     type: 3}
   m_PrefabInstance: {fileID: 1094876415}
   m_PrefabAsset: {fileID: 0}
@@ -6269,7 +6311,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1407310330}
   m_Layer: 0
-  m_Name: Triangle (9)
+  m_Name: 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6335,7 +6377,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1416946997}
   m_Layer: 0
-  m_Name: Triangle (12)
+  m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6705,6 +6747,12 @@ PrefabInstance:
 --- !u!4 &1516656737 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6654e510c6bead04f9a4f05548c4abb0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1516656736}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1516656738 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6654e510c6bead04f9a4f05548c4abb0,
     type: 3}
   m_PrefabInstance: {fileID: 1516656736}
   m_PrefabAsset: {fileID: 0}
@@ -7524,7 +7572,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1622250332}
   m_Layer: 0
-  m_Name: Triangle (9)
+  m_Name: 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7631,6 +7679,12 @@ PrefabInstance:
 --- !u!4 &1645800480 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6654e510c6bead04f9a4f05548c4abb0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1645800479}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1645800481 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6654e510c6bead04f9a4f05548c4abb0,
     type: 3}
   m_PrefabInstance: {fileID: 1645800479}
   m_PrefabAsset: {fileID: 0}
@@ -7816,6 +7870,12 @@ PrefabInstance:
 --- !u!4 &1653079303 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6654e510c6bead04f9a4f05548c4abb0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1653079302}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1653079304 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6654e510c6bead04f9a4f05548c4abb0,
     type: 3}
   m_PrefabInstance: {fileID: 1653079302}
   m_PrefabAsset: {fileID: 0}
@@ -8584,7 +8644,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1741860594}
   m_Layer: 0
-  m_Name: Triangle (12)
+  m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8691,6 +8751,12 @@ PrefabInstance:
 --- !u!4 &1742871525 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6654e510c6bead04f9a4f05548c4abb0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1742871524}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1742871526 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6654e510c6bead04f9a4f05548c4abb0,
     type: 3}
   m_PrefabInstance: {fileID: 1742871524}
   m_PrefabAsset: {fileID: 0}
@@ -8818,6 +8884,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1753130476}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1753130478 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6654e510c6bead04f9a4f05548c4abb0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1753130476}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1761546233
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8902,6 +8974,12 @@ PrefabInstance:
 --- !u!4 &1761546234 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6654e510c6bead04f9a4f05548c4abb0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1761546233}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1761546235 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6654e510c6bead04f9a4f05548c4abb0,
     type: 3}
   m_PrefabInstance: {fileID: 1761546233}
   m_PrefabAsset: {fileID: 0}
@@ -9160,6 +9238,30 @@ MonoBehaviour:
   LowFrequencyVolumeLights:
   - {fileID: 261459226}
   - {fileID: 1661464575}
+  MelodyKey0Elements:
+  - {fileID: 826363174}
+  - {fileID: 1831261540}
+  MelodyKey1Elements:
+  - {fileID: 1742871526}
+  - {fileID: 1516656738}
+  MelodyKey2Elements:
+  - {fileID: 1653079304}
+  - {fileID: 903847116}
+  MelodyKey3Elements:
+  - {fileID: 1032654640}
+  - {fileID: 1753130478}
+  MelodyKey4Elements:
+  - {fileID: 1041268163}
+  - {fileID: 143756521}
+  MelodyKey5Elements:
+  - {fileID: 1094876417}
+  - {fileID: 1645800481}
+  MelodyKey6Elements:
+  - {fileID: 2040030205}
+  - {fileID: 349480787}
+  MelodyKey7Elements:
+  - {fileID: 1761546235}
+  - {fileID: 2070018840}
   VolumeLightBrightnessValue: 100
 --- !u!1 &1811288447
 GameObject:
@@ -9171,7 +9273,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1811288448}
   m_Layer: 0
-  m_Name: Triangle (8)
+  m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9278,6 +9380,12 @@ PrefabInstance:
 --- !u!4 &1831261539 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6654e510c6bead04f9a4f05548c4abb0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1831261538}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1831261540 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6654e510c6bead04f9a4f05548c4abb0,
     type: 3}
   m_PrefabInstance: {fileID: 1831261538}
   m_PrefabAsset: {fileID: 0}
@@ -10192,7 +10300,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1966140501}
   m_Layer: 0
-  m_Name: Triangle (14)
+  m_Name: 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10488,6 +10596,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2040030203}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2040030205 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6654e510c6bead04f9a4f05548c4abb0,
+    type: 3}
+  m_PrefabInstance: {fileID: 2040030203}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2042895002
 GameObject:
   m_ObjectHideFlags: 0
@@ -10498,7 +10612,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2042895003}
   m_Layer: 0
-  m_Name: Triangle (8)
+  m_Name: 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10976,6 +11090,12 @@ PrefabInstance:
 --- !u!4 &2070018839 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6654e510c6bead04f9a4f05548c4abb0,
+    type: 3}
+  m_PrefabInstance: {fileID: 2070018838}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2070018840 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6654e510c6bead04f9a4f05548c4abb0,
     type: 3}
   m_PrefabInstance: {fileID: 2070018838}
   m_PrefabAsset: {fileID: 0}
