@@ -111,12 +111,12 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
 
     private void ToggleTwoInFour(bool isNowActive)
     {
-        TwoInFourCores.ForEach((core) => core.SetActive(true));
+        TwoInFourCores.ForEach((core) => core.SetActive(isNowActive));
     }
 
     private void ToggleEightInFour(bool isNowActive)
     {
-        EightInFourCores.ForEach((core) => core.SetActive(true));
+        EightInFourCores.ForEach((core) => core.SetActive(isNowActive));
     }
 
     private void ToggleSixteenInFour(bool isNowActive)
