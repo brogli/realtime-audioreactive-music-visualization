@@ -25,7 +25,6 @@ public class TriggeredUserInput : IUserInput
 
     public void SetNewStateIfNecessary(bool newIsPressed, float value)
     {
-        Debug.Log("set new state in TriggeredUserInput");
         EmitKeyTriggeredEvent?.Invoke();
         EmitCollectionKeyTriggeredEvent?.Invoke(index);
         EmitKeyTriggeredEventWithValue?.Invoke(value);

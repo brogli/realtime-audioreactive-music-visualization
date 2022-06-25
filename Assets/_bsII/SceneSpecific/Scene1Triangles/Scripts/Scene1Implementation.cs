@@ -27,11 +27,14 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
 
     public float VolumeLightBrightnessValue;
 
+    private Scene1DroneKeyImplementation _scene1DroneKeyImplementation;
+
     // Start is called before the first frame update
     void Start()
     {
         _userInputsModel = GameObject.FindGameObjectWithTag("UserInputsModel").GetComponent<UserInputsModel>();
         _musicValuesModel = GameObject.FindGameObjectWithTag("MusicValuesModel").GetComponent<MusicValuesModel>();
+        _scene1DroneKeyImplementation = this.GetComponent<Scene1DroneKeyImplementation>();
         SubscribeUserInputs();
     }
 
@@ -64,6 +67,17 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
             _userInputsModel.MelodyKeys.Keys[i].EmitTurnedOnOrOffEvent += ToggleMelodyKey;
             ToggleMelodyKey(_userInputsModel.MelodyKeys.Keys[i].IsPressed, i);
         }
+
+        // droneKeys
+        for (int i = 0; i < _userInputsModel.DroneKeys.Keys.Length; i++)
+        {
+            _userInputsModel.DroneKeys.Keys[i].EmitTurnedOnOrOffEvent += ToggleDroneKey;
+        }
+    }
+
+    private void ToggleDroneKey(bool hasTurnedOn, int index)
+    {
+        _scene1DroneKeyImplementation.ToggleDroneKey(hasTurnedOn, index);
     }
 
     private void ToggleMelodyKey(bool hasTurnedOn, int index)
@@ -156,6 +170,13 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
         foreach (var key in _userInputsModel.MelodyKeys.Keys)
         {
             key.EmitTurnedOnOrOffEvent -= ToggleMelodyKey;
+        }
+
+
+        // droneKeys
+        for (int i = 0; i < _userInputsModel.DroneKeys.Keys.Length; i++)
+        {
+            _userInputsModel.MelodyKeys.Keys[i].EmitTurnedOnOrOffEvent -= ToggleDroneKey;
         }
     }
 
