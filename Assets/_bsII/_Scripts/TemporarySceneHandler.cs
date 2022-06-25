@@ -23,7 +23,6 @@ public class TemporarySceneHandler : MonoBehaviour, IUserInputsConsumer
         set
         {
             _isSceneActivationAllowed = value;
-            Debug.Log(value);
         }
     }
 

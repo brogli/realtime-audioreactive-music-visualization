@@ -41,7 +41,6 @@ public class Scene1DroneKeyImplementation : MonoBehaviour
 
         for (int i = 0; i < 8; i++)
         {
-            Debug.Log(_userInputsModel.DroneKeys.Keys[i].IsPressed);
             ToggleDroneKey(_userInputsModel.DroneKeys.Keys[i].IsPressed, i);
         }
     }

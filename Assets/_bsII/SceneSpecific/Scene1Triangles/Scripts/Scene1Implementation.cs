@@ -13,6 +13,9 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
     public List<GameObject> EightInFourCores;
     public List<GameObject> OneInEightCores;
 
+    public Transform OneInFourSpawnPosition;
+    public GameObject OneInFourPrefab;
+
     public List<Light> VolumeLights;
     public List<Light> LowFrequencyVolumeLights;
 
@@ -28,6 +31,7 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
     public float VolumeLightBrightnessValue;
 
     private Scene1DroneKeyImplementation _scene1DroneKeyImplementation;
+    private bool _isOneInFourActive;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +40,20 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
         _musicValuesModel = GameObject.FindGameObjectWithTag("MusicValuesModel").GetComponent<MusicValuesModel>();
         _scene1DroneKeyImplementation = this.GetComponent<Scene1DroneKeyImplementation>();
         SubscribeUserInputs();
+        SubscribeMusicInputs();
+    }
+
+    private void SubscribeMusicInputs()
+    {
+        _musicValuesModel.EmitOneInFourEvent += TriggerOneInFourEffect;
+    }
+
+    private void TriggerOneInFourEffect()
+    {
+        if (_isOneInFourActive)
+        {
+            Instantiate(OneInFourPrefab, OneInFourSpawnPosition);
+        }
     }
 
     public void SubscribeUserInputs()
@@ -51,6 +69,9 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
         // 2-4
         _userInputsModel.TwoInFourUserInput.EmitTurnedOnOrOffEvent += ToggleTwoInFour;
         TwoInFourCores.ForEach((core) => core.SetActive(_userInputsModel.TwoInFourUserInput.IsPressed));
+
+        // 1-4
+        _userInputsModel.OneInFourUserInput.EmitTurnedOnOrOffEvent += ToggleOneInFour;
 
         // volume
         _userInputsModel.AverageVolume.EmitTurnedOnOrOffEvent += ToggleVolume;
@@ -120,7 +141,7 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
 
     private void ToggleOneInFour(bool isNowActive)
     {
-        // todo
+        _isOneInFourActive = !_isOneInFourActive;
     }
 
     private void ToggleTwoInFour(bool isNowActive)
@@ -146,6 +167,12 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
     public void OnDisable()
     {
         UnsubscribeUserInputs();
+        UnsubscribeMusicInputs();
+    }
+
+    private void UnsubscribeMusicInputs()
+    {
+        _musicValuesModel.EmitOneInFourEvent -= TriggerOneInFourEffect;
     }
 
     public void UnsubscribeUserInputs()
@@ -158,6 +185,9 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
 
         // 2-4
         _userInputsModel.TwoInFourUserInput.EmitTurnedOnOrOffEvent -= ToggleTwoInFour;
+
+        // 1-4
+        _userInputsModel.OneInFourUserInput.EmitTurnedOnOrOffEvent -= ToggleOneInFour;
 
         // Volume
         _userInputsModel.AverageVolume.EmitTurnedOnOrOffEvent -= ToggleVolume;
@@ -200,9 +230,8 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
         FourInFourCores.ForEach(
             (core) =>
             {
-
                 core.GetComponent<Renderer>().material.SetColor("_EmissiveColor", Color.white * (fourInFourValueInverted) * 4);
-
+                core.GetComponent<Renderer>().material.SetColor("_BaseColor", new Color(0, 0, 0, (fourInFourValueInverted) * 4));
             });
 
         float EightInFourValueInverted = Easings.EaseInOutCubic(1.0f - _musicValuesModel.EightInFourValue);
@@ -211,7 +240,7 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
             {
 
                 core.GetComponent<Renderer>().material.SetColor("_EmissiveColor", Color.white * (EightInFourValueInverted) * 4);
-
+                core.GetComponent<Renderer>().material.SetColor("_BaseColor", new Color(0, 0, 0, (fourInFourValueInverted) * 4));
             });
 
         float TwoInFourValueInverted = Easings.EaseInOutCubic(1.0f - _musicValuesModel.TwoInFourValue);
@@ -220,7 +249,7 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
             {
 
                 core.GetComponent<Renderer>().material.SetColor("_EmissiveColor", Color.white * (TwoInFourValueInverted) * 4);
-
+                core.GetComponent<Renderer>().material.SetColor("_BaseColor", new Color(0, 0, 0, (fourInFourValueInverted) * 4));
             });
 
         float OneInEightValueInverted = Easings.EaseInOutCubic(1.0f - _musicValuesModel.OneInEightValue);
@@ -229,7 +258,7 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
             {
 
                 core.GetComponent<Renderer>().material.SetColor("_EmissiveColor", Color.white * (OneInEightValueInverted) * 4);
-
+                core.GetComponent<Renderer>().material.SetColor("_BaseColor", new Color(0, 0, 0, (fourInFourValueInverted) * 4));
             });
 
         VolumeLights.ForEach(light => light.intensity = _musicValuesModel.AverageVolumeNormalizedEasedSmoothed * VolumeLightBrightnessValue);
