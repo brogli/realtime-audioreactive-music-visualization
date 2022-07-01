@@ -226,7 +226,7 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
     // Update is called once per frame
     void Update()
     {
-        float fourInFourValueInverted = Easings.EaseInOutCubic(1.0f - _musicValuesModel.FourInFourValue);
+        float fourInFourValueInverted = Easings.EaseInCubic(1.0f - _musicValuesModel.FourInFourValue);
         FourInFourCores.ForEach(
             (core) =>
             {
@@ -234,31 +234,31 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
                 core.GetComponent<Renderer>().material.SetColor("_BaseColor", new Color(0, 0, 0, (fourInFourValueInverted) * 4));
             });
 
-        float EightInFourValueInverted = Easings.EaseInOutCubic(1.0f - _musicValuesModel.EightInFourValue);
+        float EightInFourValueInverted = Easings.EaseInCubic(1.0f - _musicValuesModel.EightInFourValue);
         EightInFourCores.ForEach(
             (core) =>
             {
 
                 core.GetComponent<Renderer>().material.SetColor("_EmissiveColor", Color.white * (EightInFourValueInverted) * 4);
-                core.GetComponent<Renderer>().material.SetColor("_BaseColor", new Color(0, 0, 0, (fourInFourValueInverted) * 4));
+                core.GetComponent<Renderer>().material.SetColor("_BaseColor", new Color(0, 0, 0, (EightInFourValueInverted) * 4));
             });
 
-        float TwoInFourValueInverted = Easings.EaseInOutCubic(1.0f - _musicValuesModel.TwoInFourValue);
+        float TwoInFourValueInverted = Easings.EaseInCubic(1.0f - _musicValuesModel.TwoInFourValue);
         TwoInFourCores.ForEach(
             (core) =>
             {
 
                 core.GetComponent<Renderer>().material.SetColor("_EmissiveColor", Color.white * (TwoInFourValueInverted) * 4);
-                core.GetComponent<Renderer>().material.SetColor("_BaseColor", new Color(0, 0, 0, (fourInFourValueInverted) * 4));
+                core.GetComponent<Renderer>().material.SetColor("_BaseColor", new Color(0, 0, 0, (TwoInFourValueInverted) * 4));
             });
 
-        float OneInEightValueInverted = Easings.EaseInOutCubic(1.0f - _musicValuesModel.OneInEightValue);
+        float OneInEightValueInverted = Easings.EaseInCubic(1.0f - _musicValuesModel.OneInEightValue);
         OneInEightCores.ForEach(
             (core) =>
             {
 
                 core.GetComponent<Renderer>().material.SetColor("_EmissiveColor", Color.white * (OneInEightValueInverted) * 4);
-                core.GetComponent<Renderer>().material.SetColor("_BaseColor", new Color(0, 0, 0, (fourInFourValueInverted) * 4));
+                core.GetComponent<Renderer>().material.SetColor("_BaseColor", new Color(0, 0, 0, (OneInEightValueInverted) * 4));
             });
 
         VolumeLights.ForEach(light => light.intensity = _musicValuesModel.AverageVolumeNormalizedEasedSmoothed * VolumeLightBrightnessValue);
