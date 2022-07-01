@@ -226,7 +226,7 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
     // Update is called once per frame
     void Update()
     {
-        float fourInFourValueInverted = Easings.EaseInCubic(1.0f - _musicValuesModel.FourInFourValue);
+        float fourInFourValueInverted = 1.0f - Easings.EaseInCubic(_musicValuesModel.FourInFourValue);
         FourInFourCores.ForEach(
             (core) =>
             {
@@ -234,7 +234,7 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
                 core.GetComponent<Renderer>().material.SetColor("_BaseColor", new Color(0, 0, 0, (fourInFourValueInverted) * 4));
             });
 
-        float EightInFourValueInverted = Easings.EaseInCubic(1.0f - _musicValuesModel.EightInFourValue);
+        float EightInFourValueInverted = 1.0f - Easings.EaseInCubic(_musicValuesModel.EightInFourValue);
         EightInFourCores.ForEach(
             (core) =>
             {
@@ -243,7 +243,7 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
                 core.GetComponent<Renderer>().material.SetColor("_BaseColor", new Color(0, 0, 0, (EightInFourValueInverted) * 4));
             });
 
-        float TwoInFourValueInverted = Easings.EaseInCubic(1.0f - _musicValuesModel.TwoInFourValue);
+        float TwoInFourValueInverted = 1.0f - Easings.EaseInCubic(_musicValuesModel.TwoInFourValue);
         TwoInFourCores.ForEach(
             (core) =>
             {
@@ -252,7 +252,7 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
                 core.GetComponent<Renderer>().material.SetColor("_BaseColor", new Color(0, 0, 0, (TwoInFourValueInverted) * 4));
             });
 
-        float OneInEightValueInverted = Easings.EaseInCubic(1.0f - _musicValuesModel.OneInEightValue);
+        float OneInEightValueInverted = Easings.EaseInCubic(1.0f -  _musicValuesModel.OneInEightValue);
         OneInEightCores.ForEach(
             (core) =>
             {
