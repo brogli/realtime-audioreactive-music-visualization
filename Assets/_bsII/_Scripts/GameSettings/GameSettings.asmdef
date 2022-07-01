@@ -1,0 +1,17 @@
+{
+    "name": "GameSettings",
+    "rootNamespace": "",
+    "references": [
+        "GUID:348d05cab21b47549977c7f5d50b2e59",
+        "GUID:384d401cf990a4f4f80cf91e112f8eda"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

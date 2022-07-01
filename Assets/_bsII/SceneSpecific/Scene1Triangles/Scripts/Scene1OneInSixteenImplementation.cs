@@ -110,6 +110,6 @@ public class Scene1OneInSixteenImplementation : MonoBehaviour
 
     public void ToggleSixteenInFour(bool isNowActive)
     {
-        SpawnParent.SetActive(isNowActive);
+        SpawnParent.SetActive(isNowActive); 
     }
 }

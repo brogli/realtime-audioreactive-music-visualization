@@ -1,0 +1,16 @@
+{
+    "name": "MusicValues",
+    "rootNamespace": "",
+    "references": [
+        "GUID:34cf4814dfda8e942a89abe60c2387b9"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
