@@ -18,7 +18,7 @@ public class ControlChangeProcessor : MonoBehaviour
         
     }
 
-    internal void ProcessControlChange(byte channel, byte number, byte value)
+    public void ProcessControlChange(byte channel, byte number, byte value)
     {
         _deviceToLogicalInputMapper.GetLogicalInputByChannelAndCcNumber(channel, number)?.SetNewStateIfNecessary(value > 1, value / 127.0f);
     }

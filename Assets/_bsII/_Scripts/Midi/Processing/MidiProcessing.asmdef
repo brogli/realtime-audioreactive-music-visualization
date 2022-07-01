@@ -1,0 +1,18 @@
+{
+    "name": "MidiProcessing",
+    "rootNamespace": "",
+    "references": [
+        "UserInputsProcessing",
+        "MusicValues",
+        "LogicalUserInputs"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -28,7 +28,7 @@ public class FftProcessor : MonoBehaviour
 
     private AudioSource _audioSource;
     private MusicValuesModel _musicValuesModel;
-    private float[] AudioSamples = new float[512];
+    private float[] AudioSamples = new float[1024];
     private float[] FrequencyBand = new float[8];
     private float CustomLowFrequencies;
     private float AverageVolume;
@@ -86,7 +86,8 @@ public class FftProcessor : MonoBehaviour
 
     private void GetCustomLowFrequencies()
     {
-        CustomLowFrequencies = ((AudioSamples[0] + AudioSamples[1] + AudioSamples[3]) / 3) * LowFrequencyVolumeMultiplier;
+        CustomLowFrequencies = ((AudioSamples[0] + AudioSamples[1] + AudioSamples[2] + AudioSamples[3] + AudioSamples[4] + AudioSamples[5] +
+            AudioSamples[6] + AudioSamples[7] + AudioSamples[8] + AudioSamples[9] + AudioSamples[10] + AudioSamples[11]) / 12) * LowFrequencyVolumeMultiplier;
         _musicValuesModel.LowFrequencyVolume = CustomLowFrequencies;
     }
 
@@ -98,7 +99,7 @@ public class FftProcessor : MonoBehaviour
             newAverageVolume += FrequencyBand[i];
         }
         AverageVolume = newAverageVolume;
-        _musicValuesModel.AverageVolume = AverageVolume;
+        _musicValuesModel.AverageVolumeRaw = AverageVolume;
     }
 
     private void MakeFrequencyBands()

@@ -52,13 +52,6 @@ public class KeyboardInputProcessor : MonoBehaviour
     {
         _userInputsModel.LoadScene.SetNewStateIfNecessary(true, index);
     }
-    public void ProcessLoadScene0(CallbackContext context)
-    {
-        if (context.performed)
-        {
-            ProcessLoadScene(0);
-        }
-    }
 
     public void ProcessLoadScene1(CallbackContext context)
     {
