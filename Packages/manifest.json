@@ -6,9 +6,17 @@
       "scopes": [
         "jp.keijiro"
       ]
-    }
+    },
+    {
+      "name": "package.openupm.com",
+      "url": "https://package.openupm.com",
+      "scopes": [
+          "com.unity.editoriterationprofiler"
+      ]
+  }
   ],
   "dependencies": {
+    "com.unity.editoriterationprofiler": "0.1.2-preview",
     "com.unity.collab-proxy": "1.15.16",
     "com.unity.feature.development": "1.0.1",
     "com.unity.ide.rider": "3.0.13",
