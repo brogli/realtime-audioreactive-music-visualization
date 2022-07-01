@@ -18,7 +18,7 @@ public class Scene1DroneKeyImplementation : MonoBehaviour
     public int MaxParticlesPerDroneKey;
     public float MoveSpeed;
 
-    private List<List<GameObject>> _allParticles = new();
+    private List<List<GameObject>> _allParticleSystems = new();
     private List<int> _indexesOfObjectToMove = new();
     private List<bool> _isDroneKeyActiveIndex = new();
     private float _timeSinceLastEmissionInSeconds;
@@ -34,7 +34,7 @@ public class Scene1DroneKeyImplementation : MonoBehaviour
 
         for (int i = 0; i < 8; i++)
         {
-            _allParticles.Add(new List<GameObject>());
+            _allParticleSystems.Add(new List<GameObject>());
             _indexesOfObjectToMove.Add(0);
             _isDroneKeyActiveIndex.Add(false);
         }
@@ -58,10 +58,9 @@ public class Scene1DroneKeyImplementation : MonoBehaviour
 
     private void MoveParticles(float step)
     {
-        for (int i = 0; i < _allParticles.Count; i++)
+        for (int i = 0; i < _allParticleSystems.Count; i++)
         {
-
-            foreach (var particle in _allParticles[i])
+            foreach (var particle in _allParticleSystems[i])
             {
                 particle.transform.localPosition = Vector3.MoveTowards(particle.transform.localPosition, TargetPositions[i].localPosition, step);
 
@@ -76,17 +75,17 @@ public class Scene1DroneKeyImplementation : MonoBehaviour
             // spawn
             _timeSinceLastEmissionInSeconds = 0;
 
-            for (int i = 0; i < _allParticles.Count; i++)
+            for (int i = 0; i < _allParticleSystems.Count; i++)
             {
 
-                if (_allParticles[i].Count >= MaxParticlesPerDroneKey)
+                if (_allParticleSystems[i].Count >= MaxParticlesPerDroneKey)
                 {
                     if (!_haveMaxParticlesSpawned)
                     {
                         _haveMaxParticlesSpawned = true;
                     }
-                    var objectToMove = _allParticles[i][_indexesOfObjectToMove[i]];
-                    _indexesOfObjectToMove[i] = (_indexesOfObjectToMove[i] + 1) % _allParticles[i].Count;
+                    var objectToMove = _allParticleSystems[i][_indexesOfObjectToMove[i]];
+                    _indexesOfObjectToMove[i] = (_indexesOfObjectToMove[i] + 1) % _allParticleSystems[i].Count;
                     objectToMove.transform.localPosition = StartPositions[i].localPosition;
                 }
                 else
@@ -97,7 +96,7 @@ public class Scene1DroneKeyImplementation : MonoBehaviour
                     {
                         particle.SetActive(false);
                     }
-                    _allParticles[i].Add(particle);
+                    _allParticleSystems[i].Add(particle);
                 }
             }
         }
@@ -106,7 +105,7 @@ public class Scene1DroneKeyImplementation : MonoBehaviour
     public void ToggleDroneKey(bool hasTurnedOn, int index)
     {
         _isDroneKeyActiveIndex[index] = hasTurnedOn;
-        _allParticles[index].ForEach(gameObject =>
+        _allParticleSystems[index].ForEach(gameObject =>
         {
             gameObject.SetActive(hasTurnedOn);
         });

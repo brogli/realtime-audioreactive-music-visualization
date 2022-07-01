@@ -31,6 +31,7 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
     public float VolumeLightBrightnessValue;
 
     private Scene1DroneKeyImplementation _scene1DroneKeyImplementation;
+    private Scene1OneInSixteenImplementation _scene1OneInSixteenImplementation;
     private bool _isOneInFourActive;
 
     // Start is called before the first frame update
@@ -39,6 +40,8 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
         _userInputsModel = GameObject.FindGameObjectWithTag("UserInputsModel").GetComponent<UserInputsModel>();
         _musicValuesModel = GameObject.FindGameObjectWithTag("MusicValuesModel").GetComponent<MusicValuesModel>();
         _scene1DroneKeyImplementation = this.GetComponent<Scene1DroneKeyImplementation>();
+        _scene1OneInSixteenImplementation = this.GetComponent<Scene1OneInSixteenImplementation>();
+
         SubscribeUserInputs();
         SubscribeMusicInputs();
     }
@@ -72,6 +75,10 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
 
         // 1-4
         _userInputsModel.OneInFourUserInput.EmitTurnedOnOrOffEvent += ToggleOneInFour;
+
+        // 1-16
+        _userInputsModel.SixteenInFourUserInput.EmitTurnedOnOrOffEvent += ToggleSixteenInFour;
+        ToggleSixteenInFour(_userInputsModel.SixteenInFourUserInput.IsPressed);
 
         // volume
         _userInputsModel.AverageVolume.EmitTurnedOnOrOffEvent += ToggleVolume;
@@ -156,7 +163,7 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
 
     private void ToggleSixteenInFour(bool isNowActive)
     {
-        // todo
+        _scene1OneInSixteenImplementation.ToggleSixteenInFour(isNowActive);
     }
 
     private void ToggleOneInEight(bool isNowActive)
@@ -192,6 +199,8 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
         // Volume
         _userInputsModel.AverageVolume.EmitTurnedOnOrOffEvent -= ToggleVolume;
 
+        // 1-16
+        _userInputsModel.SixteenInFourUserInput.EmitTurnedOnOrOffEvent -= ToggleSixteenInFour;
 
         // low freq volume
         _userInputsModel.LowFrequencyVolume.EmitTurnedOnOrOffEvent -= ToggleLowFrequencyVolume;
@@ -226,7 +235,7 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
     // Update is called once per frame
     void Update()
     {
-        float fourInFourValueInverted = 1.0f - Easings.EaseInCubic(_musicValuesModel.FourInFourValue);
+        float fourInFourValueInverted = 1.0f - Easings.EaseInQuad(_musicValuesModel.FourInFourValue);
         FourInFourCores.ForEach(
             (core) =>
             {
@@ -234,16 +243,15 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
                 core.GetComponent<Renderer>().material.SetColor("_BaseColor", new Color(0, 0, 0, (fourInFourValueInverted) * 4));
             });
 
-        float EightInFourValueInverted = 1.0f - Easings.EaseInCubic(_musicValuesModel.EightInFourValue);
+        float EightInFourValueInverted = 1.0f - (_musicValuesModel.EightInFourValue);
         EightInFourCores.ForEach(
             (core) =>
             {
-
-                core.GetComponent<Renderer>().material.SetColor("_EmissiveColor", Color.white * (EightInFourValueInverted) * 4);
+                core.GetComponent<Renderer>().material.SetColor("_EmissiveColor", Color.white * (EightInFourValueInverted) * 14);
                 core.GetComponent<Renderer>().material.SetColor("_BaseColor", new Color(0, 0, 0, (EightInFourValueInverted) * 4));
             });
 
-        float TwoInFourValueInverted = 1.0f - Easings.EaseInCubic(_musicValuesModel.TwoInFourValue);
+        float TwoInFourValueInverted = 1.0f - Easings.EaseInQuad(_musicValuesModel.TwoInFourValue);
         TwoInFourCores.ForEach(
             (core) =>
             {
@@ -252,7 +260,7 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
                 core.GetComponent<Renderer>().material.SetColor("_BaseColor", new Color(0, 0, 0, (TwoInFourValueInverted) * 4));
             });
 
-        float OneInEightValueInverted = Easings.EaseInCubic(1.0f -  _musicValuesModel.OneInEightValue);
+        float OneInEightValueInverted = 1.0f - Easings.EaseInQuad( _musicValuesModel.OneInEightValue);
         OneInEightCores.ForEach(
             (core) =>
             {

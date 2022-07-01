@@ -8,6 +8,13 @@ using UnityEngine;
 /// </summary>
 public static class Easings
 {
+    #region sinusoidal
+    public static float EaseInSine(float x)
+    {
+        return 1 - Mathf.Cos(x * (Mathf.PI / 2)) ;
+    }
+    #endregion
+
     #region quadratic
     public static float EaseInQuad(float x)
     {

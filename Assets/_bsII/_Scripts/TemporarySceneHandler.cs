@@ -15,7 +15,6 @@ public class TemporarySceneHandler : MonoBehaviour, IUserInputsConsumer
             bool isAllowed = _isSceneActivationAllowed;
             if (isAllowed)
             {
-                Debug.Log("resetting to false");
                 _isSceneActivationAllowed = false;
             }
             return isAllowed;
