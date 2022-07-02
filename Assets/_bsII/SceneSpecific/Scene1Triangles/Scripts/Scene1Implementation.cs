@@ -260,8 +260,8 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
             (core) =>
             {
 
-                core.GetComponent<Renderer>().material.SetColor("_EmissiveColor", Color.white * TwoInFourValueInverted * 4 * faderValueTwoInFour);
-                core.GetComponent<Renderer>().material.SetColor("_BaseColor", new Color(0, 0, 0, TwoInFourValueInverted * 4 * faderValueTwoInFour));
+                core.GetComponent<Renderer>().sharedMaterial.SetColor("_EmissiveColor", Color.white * TwoInFourValueInverted * 4 * faderValueTwoInFour);
+                core.GetComponent<Renderer>().sharedMaterial.SetColor("_BaseColor", new Color(0, 0, 0, TwoInFourValueInverted * 4 * faderValueTwoInFour));
             });
 
         float OneInEightValueInverted = 1.0f - Easings.EaseInQuad(_musicInputsModel.OneInEightValue);
