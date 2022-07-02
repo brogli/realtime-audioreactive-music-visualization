@@ -12,8 +12,6 @@ public class Scene1OneInFourTriangle : MonoBehaviour
     void Start()
     {
         _startTime = Time.timeSinceLevelLoad;
-        Debug.Log("Starting coroutine");
-        Debug.Log(_startTime);
         StartCoroutine(GrowAndDie());
     }
 

@@ -9,10 +9,10 @@ TagManager:
   - UserInputsModel
   - GameSettingsHandler
   - NoteProcessor
-  - MusicValuesModel
   - BeatclockProcessor
   - ControlChangeProcessor
   - AudioSource
+  - MusicInputsModel
   layers:
   - Default
   - TransparentFX

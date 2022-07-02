@@ -11,7 +11,7 @@ public class Scene1OneInSixteenImplementation : MonoBehaviour
     private List<SimpleParticleSystem> _particleSystems;
     private bool _areParticlesReady = false;
     private readonly List<GameObject> _particles = new(); // "Triangle" GameObjects containing a core and a border
-    private MusicValuesModel _musicValuesModel;
+    private MusicInputsModel _musicInputsModel;
     private List<int> indicesOfObjectsToShow;
     private readonly System.Random random = new();
 
@@ -20,7 +20,7 @@ public class Scene1OneInSixteenImplementation : MonoBehaviour
     void Start()
     {
         _particleSystems = ParticleSystemsContainer.GetComponents<SimpleParticleSystem>().ToList();
-        _musicValuesModel = GameObject.FindGameObjectWithTag("MusicValuesModel").GetComponent<MusicValuesModel>();
+        _musicInputsModel = GameObject.FindGameObjectWithTag("MusicInputsModel").GetComponent<MusicInputsModel>();
         SubscribeToMusicInputs();
     }
 
@@ -30,12 +30,12 @@ public class Scene1OneInSixteenImplementation : MonoBehaviour
     }
     private void SubscribeToMusicInputs()
     {
-        _musicValuesModel.EmitSixteenInFourEvent += SelectRandomIndices;
+        _musicInputsModel.EmitSixteenInFourEvent += SelectRandomIndices;
     }
 
     private void UnsubscribeToMusicInput()
     {
-        _musicValuesModel.EmitSixteenInFourEvent -= SelectRandomIndices;
+        _musicInputsModel.EmitSixteenInFourEvent -= SelectRandomIndices;
     }
 
     private void SelectRandomIndices()
@@ -77,7 +77,11 @@ public class Scene1OneInSixteenImplementation : MonoBehaviour
 
     private void AnimateParticles()
     {
-        var sixteenInFourValue = 1f - Easings.EaseInCubic(_musicValuesModel.SixteenInFourValue);
+        if (indicesOfObjectsToShow == null)
+        {
+            return;
+        }
+        var sixteenInFourValue = 1f - Easings.EaseInCubic(_musicInputsModel.SixteenInFourValue);
         foreach (int index in indicesOfObjectsToShow)
         {
             _particles[index].transform.GetComponentsInChildren<Renderer>().ToList().ForEach(renderer =>

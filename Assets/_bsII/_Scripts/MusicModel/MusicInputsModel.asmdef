@@ -1,5 +1,5 @@
 {
-    "name": "MusicValues",
+    "name": "MusicInputsModel",
     "rootNamespace": "",
     "references": [
         "GUID:34cf4814dfda8e942a89abe60c2387b9"

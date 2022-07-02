@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MusicValuesModel : MonoBehaviour
+public class MusicInputsModel : MonoBehaviour
 {
     #region beat values
     public delegate void BeatEvent();

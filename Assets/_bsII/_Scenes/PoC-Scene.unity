@@ -6141,8 +6141,8 @@ GameObject:
   - component: {fileID: 1512091108}
   - component: {fileID: 1512091109}
   m_Layer: 0
-  m_Name: MusicValuesModel
-  m_TagString: MusicValuesModel
+  m_Name: MusicInputsModel
+  m_TagString: MusicInputsModel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
