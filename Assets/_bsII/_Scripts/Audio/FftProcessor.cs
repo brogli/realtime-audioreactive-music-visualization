@@ -27,7 +27,7 @@ public class FftProcessor : MonoBehaviour
 
 
     private AudioSource _audioSource;
-    private MusicValuesModel _musicValuesModel;
+    private MusicInputsModel _musicInputsModel;
     private float[] AudioSamples = new float[1024];
     private float[] FrequencyBand = new float[8];
     private float CustomLowFrequencies;
@@ -37,7 +37,7 @@ public class FftProcessor : MonoBehaviour
     void Start()
     {
         _audioSource = GetComponent<AudioSource>();
-        _musicValuesModel = GameObject.FindGameObjectWithTag("MusicValuesModel").GetComponent<MusicValuesModel>();
+        _musicInputsModel = GameObject.FindGameObjectWithTag("MusicInputsModel").GetComponent<MusicInputsModel>();
 
         //mic stuff
         if (UseMicrophone)
@@ -88,7 +88,7 @@ public class FftProcessor : MonoBehaviour
     {
         CustomLowFrequencies = ((AudioSamples[0] + AudioSamples[1] + AudioSamples[2] + AudioSamples[3] + AudioSamples[4] + AudioSamples[5] +
             AudioSamples[6] + AudioSamples[7] + AudioSamples[8] + AudioSamples[9] + AudioSamples[10] + AudioSamples[11]) / 12) * LowFrequencyVolumeMultiplier;
-        _musicValuesModel.LowFrequencyVolume = CustomLowFrequencies;
+        _musicInputsModel.LowFrequencyVolume = CustomLowFrequencies;
     }
 
     private void CalculateAverageVolume()
@@ -99,7 +99,7 @@ public class FftProcessor : MonoBehaviour
             newAverageVolume += FrequencyBand[i];
         }
         AverageVolume = newAverageVolume;
-        _musicValuesModel.AverageVolumeRaw = AverageVolume;
+        _musicInputsModel.AverageVolumeRaw = AverageVolume;
     }
 
     private void MakeFrequencyBands()

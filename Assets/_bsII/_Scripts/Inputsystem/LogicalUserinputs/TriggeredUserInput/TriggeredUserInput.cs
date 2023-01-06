@@ -25,6 +25,11 @@ public class TriggeredUserInput : IUserInput
 
     public void SetNewStateIfNecessary(bool newIsPressed, float value)
     {
+        if (!newIsPressed)
+        {
+            // don't want to trigger on stopping the button pressing
+            return;
+        }
         EmitKeyTriggeredEvent?.Invoke();
         EmitCollectionKeyTriggeredEvent?.Invoke(index);
         EmitKeyTriggeredEventWithValue?.Invoke(value);

@@ -6,12 +6,11 @@ using UnityEngine;
 public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
 {
     private UserInputsModel _userInputsModel;
-    private MusicValuesModel _musicValuesModel;
+    private MusicInputsModel _musicInputsModel;
 
-    public List<GameObject> TwoInFourCores;
+    public List<GameObject> TwoInFourObjects;
     public List<GameObject> FourInFourCores;
     public List<GameObject> EightInFourCores;
-    public List<GameObject> OneInEightCores;
 
     public Transform OneInFourSpawnPosition;
     public GameObject OneInFourPrefab;
@@ -31,16 +30,20 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
     public float VolumeLightBrightnessValue;
 
     private Scene1DroneKeyImplementation _scene1DroneKeyImplementation;
-    private Scene1OneInSixteenImplementation _scene1OneInSixteenImplementation;
+    private Scene1SixteenInFourImplementation _scene1OneInSixteenImplementation;
     private bool _isOneInFourActive;
+    private bool _isOneInEightActive;
+    private Scene1ColorSwitcher _scene1ColorSwitcher;
+    private int _currentMoodIndex = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         _userInputsModel = GameObject.FindGameObjectWithTag("UserInputsModel").GetComponent<UserInputsModel>();
-        _musicValuesModel = GameObject.FindGameObjectWithTag("MusicValuesModel").GetComponent<MusicValuesModel>();
+        _musicInputsModel = GameObject.FindGameObjectWithTag("MusicInputsModel").GetComponent<MusicInputsModel>();
         _scene1DroneKeyImplementation = this.GetComponent<Scene1DroneKeyImplementation>();
-        _scene1OneInSixteenImplementation = this.GetComponent<Scene1OneInSixteenImplementation>();
+        _scene1OneInSixteenImplementation = this.GetComponent<Scene1SixteenInFourImplementation>();
+        _scene1ColorSwitcher = this.GetComponent<Scene1ColorSwitcher>();
 
         SubscribeUserInputs();
         SubscribeMusicInputs();
@@ -48,7 +51,8 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
 
     private void SubscribeMusicInputs()
     {
-        _musicValuesModel.EmitOneInFourEvent += TriggerOneInFourEffect;
+        _musicInputsModel.EmitOneInFourEvent += TriggerOneInFourEffect;
+        _musicInputsModel.EmitOneInEightEvent += TriggerOneInEightEffect;
     }
 
     private void TriggerOneInFourEffect()
@@ -56,6 +60,15 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
         if (_isOneInFourActive)
         {
             Instantiate(OneInFourPrefab, OneInFourSpawnPosition);
+        }
+    }
+
+    private void TriggerOneInEightEffect()
+    {
+        if (_isOneInEightActive)
+        {
+            _currentMoodIndex = (_currentMoodIndex + 1) % 8;
+            TriggerMoodKey(_currentMoodIndex);
         }
     }
 
@@ -71,14 +84,19 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
 
         // 2-4
         _userInputsModel.TwoInFourUserInput.EmitTurnedOnOrOffEvent += ToggleTwoInFour;
-        TwoInFourCores.ForEach((core) => core.SetActive(_userInputsModel.TwoInFourUserInput.IsPressed));
+        TwoInFourObjects.ForEach((obj) => obj.SetActive(_userInputsModel.TwoInFourUserInput.IsPressed));
 
         // 1-4
         _userInputsModel.OneInFourUserInput.EmitTurnedOnOrOffEvent += ToggleOneInFour;
+        _isOneInFourActive = _userInputsModel.OneInFourUserInput.IsPressed;
 
         // 1-16
         _userInputsModel.SixteenInFourUserInput.EmitTurnedOnOrOffEvent += ToggleSixteenInFour;
         ToggleSixteenInFour(_userInputsModel.SixteenInFourUserInput.IsPressed);
+
+        // 1-8
+        _userInputsModel.OneInEightUserInput.EmitTurnedOnOrOffEvent += ToggleOneInEight;
+        ToggleOneInEight(_userInputsModel.SixteenInFourUserInput.IsPressed);
 
         // volume
         _userInputsModel.AverageVolume.EmitTurnedOnOrOffEvent += ToggleVolume;
@@ -101,6 +119,17 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
         {
             _userInputsModel.DroneKeys.Keys[i].EmitTurnedOnOrOffEvent += ToggleDroneKey;
         }
+
+        // moodKeys
+        for (int i = 0; i < _userInputsModel.MoodKeys.Keys.Length; i++)
+        {
+            _userInputsModel.MoodKeys.Keys[i].EmitCollectionKeyTriggeredEvent += TriggerMoodKey;
+        }
+    }
+
+    private void TriggerMoodKey(int index)
+    {
+        _scene1ColorSwitcher.SwitchColors(index);
     }
 
     private void ToggleDroneKey(bool hasTurnedOn, int index)
@@ -153,7 +182,7 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
 
     private void ToggleTwoInFour(bool isNowActive)
     {
-        TwoInFourCores.ForEach((core) => core.SetActive(isNowActive));
+        TwoInFourObjects.ForEach((obj) => obj.SetActive(isNowActive));
     }
 
     private void ToggleEightInFour(bool isNowActive)
@@ -168,7 +197,7 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
 
     private void ToggleOneInEight(bool isNowActive)
     {
-        // todo
+        _isOneInEightActive = isNowActive;
     }
 
     public void OnDisable()
@@ -179,7 +208,7 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
 
     private void UnsubscribeMusicInputs()
     {
-        _musicValuesModel.EmitOneInFourEvent -= TriggerOneInFourEffect;
+        _musicInputsModel.EmitOneInFourEvent -= TriggerOneInFourEffect;
     }
 
     public void UnsubscribeUserInputs()
@@ -201,6 +230,9 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
 
         // 1-16
         _userInputsModel.SixteenInFourUserInput.EmitTurnedOnOrOffEvent -= ToggleSixteenInFour;
+
+        // 1-8
+        _userInputsModel.OneInEightUserInput.EmitTurnedOnOrOffEvent -= ToggleOneInEight;
 
         // low freq volume
         _userInputsModel.LowFrequencyVolume.EmitTurnedOnOrOffEvent -= ToggleLowFrequencyVolume;
@@ -235,41 +267,37 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
     // Update is called once per frame
     void Update()
     {
-        float fourInFourValueInverted = 1.0f - Easings.EaseInQuad(_musicValuesModel.FourInFourValue);
+        float fourInFourValueInverted = 1.0f - Easings.EaseInQuad(_musicInputsModel.FourInFourValue);
+        float faderValueFourinFour = _userInputsModel.FourInFourUserInput.FaderValue;
         FourInFourCores.ForEach(
             (core) =>
             {
-                core.GetComponent<Renderer>().material.SetColor("_EmissiveColor", Color.white * (fourInFourValueInverted) * 4);
-                core.GetComponent<Renderer>().material.SetColor("_BaseColor", new Color(0, 0, 0, (fourInFourValueInverted) * 4));
+                core.GetComponent<Renderer>().material.SetColor("_EmissiveColor", _scene1ColorSwitcher.FourInFourColor * fourInFourValueInverted  * faderValueFourinFour);
+                core.GetComponent<Renderer>().material.SetColor("_BaseColor", new Color(0, 0, 0, fourInFourValueInverted  * faderValueFourinFour));
             });
 
-        float EightInFourValueInverted = 1.0f - (_musicValuesModel.EightInFourValue);
+        float EightInFourValueInverted = 1.0f - (_musicInputsModel.EightInFourValue);
+        float faderValueEightInFour = _userInputsModel.EightInFourUserInput.FaderValue;
         EightInFourCores.ForEach(
             (core) =>
             {
-                core.GetComponent<Renderer>().material.SetColor("_EmissiveColor", Color.white * (EightInFourValueInverted) * 14);
-                core.GetComponent<Renderer>().material.SetColor("_BaseColor", new Color(0, 0, 0, (EightInFourValueInverted) * 4));
+                core.GetComponent<Renderer>().material.SetColor("_EmissiveColor", _scene1ColorSwitcher.EightInFourColor * EightInFourValueInverted  * faderValueEightInFour);
+                core.GetComponent<Renderer>().material.SetColor("_BaseColor", new Color(0, 0, 0, EightInFourValueInverted  * faderValueEightInFour));
             });
 
-        float TwoInFourValueInverted = 1.0f - Easings.EaseInQuad(_musicValuesModel.TwoInFourValue);
-        TwoInFourCores.ForEach(
-            (core) =>
+        float TwoInFourValueInverted = 1.0f - Easings.EaseInQuad(_musicInputsModel.TwoInFourValue);
+        float faderValueTwoInFour = _userInputsModel.TwoInFourUserInput.FaderValue;
+        TwoInFourObjects.ForEach(
+            (obj) =>
             {
-
-                core.GetComponent<Renderer>().material.SetColor("_EmissiveColor", Color.white * (TwoInFourValueInverted) * 4);
-                core.GetComponent<Renderer>().material.SetColor("_BaseColor", new Color(0, 0, 0, (TwoInFourValueInverted) * 4));
+                obj.GetComponent<Renderer>().sharedMaterial.SetColor("_EmissiveColor", _scene1ColorSwitcher.TwoInFourColor * TwoInFourValueInverted * faderValueTwoInFour);
+                obj.GetComponent<Renderer>().sharedMaterial.SetColor("_BaseColor", new Color(0, 0, 0, TwoInFourValueInverted  * faderValueTwoInFour));
             });
 
-        float OneInEightValueInverted = 1.0f - Easings.EaseInQuad( _musicValuesModel.OneInEightValue);
-        OneInEightCores.ForEach(
-            (core) =>
-            {
+        float volumeFaderValue = _userInputsModel.AverageVolume.FaderValue;
+        VolumeLights.ForEach(light => light.intensity = _musicInputsModel.AverageVolumeNormalizedEasedSmoothed * VolumeLightBrightnessValue * volumeFaderValue);
 
-                core.GetComponent<Renderer>().material.SetColor("_EmissiveColor", Color.white * (OneInEightValueInverted) * 4);
-                core.GetComponent<Renderer>().material.SetColor("_BaseColor", new Color(0, 0, 0, (OneInEightValueInverted) * 4));
-            });
-
-        VolumeLights.ForEach(light => light.intensity = _musicValuesModel.AverageVolumeNormalizedEasedSmoothed * VolumeLightBrightnessValue);
-        LowFrequencyVolumeLights.ForEach(light => light.intensity = _musicValuesModel.LowFrequencyVolumeNormalizedEasedSmoothed * VolumeLightBrightnessValue);
+        float lowFreqFaderValue = _userInputsModel.LowFrequencyVolume.FaderValue;
+        LowFrequencyVolumeLights.ForEach(light => light.intensity = _musicInputsModel.LowFrequencyVolumeNormalizedEasedSmoothed * VolumeLightBrightnessValue * lowFreqFaderValue);
     }
 }

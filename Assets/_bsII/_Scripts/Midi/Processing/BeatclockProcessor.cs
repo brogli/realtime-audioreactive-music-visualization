@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BeatclockProcessor : MonoBehaviour
 {
-    private MusicValuesModel _musicValuesModel;
+    private MusicInputsModel _musicInputsModel;
 
     private int _fourInFourValue = 1;
     private int _oneInFourValue = 1;
@@ -23,7 +23,7 @@ public class BeatclockProcessor : MonoBehaviour
 
     public void Start()
     {
-        _musicValuesModel = GameObject.FindGameObjectWithTag("MusicValuesModel").GetComponent<MusicValuesModel>();
+        _musicInputsModel = GameObject.FindGameObjectWithTag("MusicInputsModel").GetComponent<MusicInputsModel>();
     }
 
     public void ProcessBeatclock()
@@ -96,11 +96,11 @@ public class BeatclockProcessor : MonoBehaviour
 
     private void NormalizeAndPushValues()
     {
-        _musicValuesModel.FourInFourValue = _fourInFourValue / RegularAmountClockPulses;
-        _musicValuesModel.OneInFourValue = _oneInFourValue / QuadrupleAmountClockPulses;
-        _musicValuesModel.TwoInFourValue = _twoInFourValue / DoubleAmountClockPulses;
-        _musicValuesModel.EightInFourValue = _eightInFourValue / HalfAmountClockPulses;
-        _musicValuesModel.SixteenInFourValue = _sixteenInFourValue / QuarterAmountClockPulses;
-        _musicValuesModel.OneInEightValue = _oneInEightValue / EightTimesAmountClockPulses;
+        _musicInputsModel.FourInFourValue = _fourInFourValue / RegularAmountClockPulses;
+        _musicInputsModel.OneInFourValue = _oneInFourValue / QuadrupleAmountClockPulses;
+        _musicInputsModel.TwoInFourValue = _twoInFourValue / DoubleAmountClockPulses;
+        _musicInputsModel.EightInFourValue = _eightInFourValue / HalfAmountClockPulses;
+        _musicInputsModel.SixteenInFourValue = _sixteenInFourValue / QuarterAmountClockPulses;
+        _musicInputsModel.OneInEightValue = _oneInEightValue / EightTimesAmountClockPulses;
     }
 }

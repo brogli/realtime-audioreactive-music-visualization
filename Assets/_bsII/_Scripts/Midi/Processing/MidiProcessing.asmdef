@@ -3,8 +3,8 @@
     "rootNamespace": "",
     "references": [
         "UserInputsProcessing",
-        "MusicValues",
-        "LogicalUserInputs"
+        "LogicalUserInputs",
+        "MusicInputsModel"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

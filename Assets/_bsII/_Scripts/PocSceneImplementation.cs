@@ -15,13 +15,13 @@ public class PocSceneImplementation : MonoBehaviour, IUserInputsConsumer
     public GameObject VolumeCubeNormalizedSmoothed;
     public GameObject LowFrequencyVolumeCube;
 
-    private MusicValuesModel _musicValuesModel;
+    private MusicInputsModel _musicInputsModel;
     private UserInputsModel _userInputsModel;
 
     // Start is called before the first frame update
     void Start()
     {
-        _musicValuesModel = GameObject.FindGameObjectWithTag("MusicValuesModel").GetComponent<MusicValuesModel>();
+        _musicInputsModel = GameObject.FindGameObjectWithTag("MusicInputsModel").GetComponent<MusicInputsModel>();
         _userInputsModel = GameObject.FindGameObjectWithTag("UserInputsModel").GetComponent<UserInputsModel>();
         SubscribeUserInputs();
     }
@@ -37,11 +37,11 @@ public class PocSceneImplementation : MonoBehaviour, IUserInputsConsumer
 
     private void VolumeImplementation()
     {
-        VolumeCube.transform.localScale = new Vector3(VolumeCube.transform.localScale.x, _musicValuesModel.AverageVolumeRaw, VolumeCube.transform.localScale.z);
-        VolumeCubeNormalized.transform.localScale = new Vector3(VolumeCubeNormalized.transform.localScale.x, _musicValuesModel.AverageVolumeNormalizedEased, VolumeCubeNormalized.transform.localScale.z);
-        VolumeCubeNormalizedSmoothed.transform.localScale = new Vector3(VolumeCubeNormalizedSmoothed.transform.localScale.x, _musicValuesModel.AverageVolumeNormalizedEasedSmoothed, VolumeCubeNormalizedSmoothed.transform.localScale.z);
+        VolumeCube.transform.localScale = new Vector3(VolumeCube.transform.localScale.x, _musicInputsModel.AverageVolumeRaw, VolumeCube.transform.localScale.z);
+        VolumeCubeNormalized.transform.localScale = new Vector3(VolumeCubeNormalized.transform.localScale.x, _musicInputsModel.AverageVolumeNormalizedEased, VolumeCubeNormalized.transform.localScale.z);
+        VolumeCubeNormalizedSmoothed.transform.localScale = new Vector3(VolumeCubeNormalizedSmoothed.transform.localScale.x, _musicInputsModel.AverageVolumeNormalizedEasedSmoothed, VolumeCubeNormalizedSmoothed.transform.localScale.z);
 
-        LowFrequencyVolumeCube.transform.localScale = new Vector3(LowFrequencyVolumeCube.transform.localScale.x, _musicValuesModel.LowFrequencyVolumePeak, LowFrequencyVolumeCube.transform.localScale.z);
+        LowFrequencyVolumeCube.transform.localScale = new Vector3(LowFrequencyVolumeCube.transform.localScale.x, _musicInputsModel.LowFrequencyVolumePeak, LowFrequencyVolumeCube.transform.localScale.z);
 
         Color currentColor = VolumeCube.GetComponent<Renderer>().material.color;
         VolumeCube.GetComponent<Renderer>().material.color = new Color(currentColor.r, currentColor.g, currentColor.b, _userInputsModel.AverageVolume.FaderValue);
@@ -244,42 +244,42 @@ public class PocSceneImplementation : MonoBehaviour, IUserInputsConsumer
         {
             if (i == 0)
             {
-                cubes[i].transform.localScale = new Vector3(cubes[i].transform.localScale.x, _musicValuesModel.FourInFourValue, cubes[i].transform.localScale.z);
+                cubes[i].transform.localScale = new Vector3(cubes[i].transform.localScale.x, _musicInputsModel.FourInFourValue, cubes[i].transform.localScale.z);
                 Color currentColor = cubes[i].GetComponent<Renderer>().material.color;
                 cubes[i].GetComponent<Renderer>().material.color = new Color(currentColor.r, currentColor.g, currentColor.b, _userInputsModel.FourInFourUserInput.FaderValue);
             }
 
             if (i == 1)
             {
-                cubes[i].transform.localScale = new Vector3(cubes[i].transform.localScale.x, _musicValuesModel.OneInFourValue, cubes[i].transform.localScale.z);
+                cubes[i].transform.localScale = new Vector3(cubes[i].transform.localScale.x, _musicInputsModel.OneInFourValue, cubes[i].transform.localScale.z);
                 Color currentColor = cubes[i].GetComponent<Renderer>().material.color;
                 cubes[i].GetComponent<Renderer>().material.color = new Color(currentColor.r, currentColor.g, currentColor.b, _userInputsModel.OneInFourUserInput.FaderValue);
             }
 
             if (i == 2)
             {
-                cubes[i].transform.localScale = new Vector3(cubes[i].transform.localScale.x, _musicValuesModel.TwoInFourValue, cubes[i].transform.localScale.z);
+                cubes[i].transform.localScale = new Vector3(cubes[i].transform.localScale.x, _musicInputsModel.TwoInFourValue, cubes[i].transform.localScale.z);
                 Color currentColor = cubes[i].GetComponent<Renderer>().material.color;
                 cubes[i].GetComponent<Renderer>().material.color = new Color(currentColor.r, currentColor.g, currentColor.b, _userInputsModel.TwoInFourUserInput.FaderValue);
             }
 
             if (i == 3)
             {
-                cubes[i].transform.localScale = new Vector3(cubes[i].transform.localScale.x, _musicValuesModel.EightInFourValue, cubes[i].transform.localScale.z);
+                cubes[i].transform.localScale = new Vector3(cubes[i].transform.localScale.x, _musicInputsModel.EightInFourValue, cubes[i].transform.localScale.z);
                 Color currentColor = cubes[i].GetComponent<Renderer>().material.color;
                 cubes[i].GetComponent<Renderer>().material.color = new Color(currentColor.r, currentColor.g, currentColor.b, _userInputsModel.EightInFourUserInput.FaderValue);
             }
 
             if (i == 4)
             {
-                cubes[i].transform.localScale = new Vector3(cubes[i].transform.localScale.x, _musicValuesModel.SixteenInFourValue, cubes[i].transform.localScale.z);
+                cubes[i].transform.localScale = new Vector3(cubes[i].transform.localScale.x, _musicInputsModel.SixteenInFourValue, cubes[i].transform.localScale.z);
                 Color currentColor = cubes[i].GetComponent<Renderer>().material.color;
                 cubes[i].GetComponent<Renderer>().material.color = new Color(currentColor.r, currentColor.g, currentColor.b, _userInputsModel.SixteenInFourUserInput.FaderValue);
             }
 
             if (i == 5)
             {
-                cubes[i].transform.localScale = new Vector3(cubes[i].transform.localScale.x, _musicValuesModel.OneInEightValue, cubes[i].transform.localScale.z);
+                cubes[i].transform.localScale = new Vector3(cubes[i].transform.localScale.x, _musicInputsModel.OneInEightValue, cubes[i].transform.localScale.z);
                 Color currentColor = cubes[i].GetComponent<Renderer>().material.color;
                 cubes[i].GetComponent<Renderer>().material.color = new Color(currentColor.r, currentColor.g, currentColor.b, _userInputsModel.OneInEightUserInput.FaderValue);
             }
