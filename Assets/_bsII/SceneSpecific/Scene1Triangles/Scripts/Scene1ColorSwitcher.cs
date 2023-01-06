@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,33 +10,33 @@ public class Scene1ColorSwitcher : MonoBehaviour
     public GameObject SomeEightInFour;
     public GameObject SomeTwoInFour;
     public GameObject SomeMelodyObject;
+    public GameObject SomeDronekeyObject;
+    public LocalVolumetricFog VolumetricFog;
 
     private Camera _mainCamera;
-    private Material _fourInFourSharedMaterial;
-    private Material _eightInFourSharedMaterial;
-    private Material _twoInFourSharedMaterial;
     private Material _melodyKeysSharedMaterial;
+    private Material _droneKeysSharedMaterial;
+    private float _defaultColorIntensity = 8f;
 
-    public Color BackgroundColor { get; private set; } = Color.white;
     public Color FourInFourColor { get; private set; } = Color.white;
     public Color EightInFourColor { get; private set; } = Color.white;
-    public Color MelodyKeyColor { get; private set; } = Color.white;
     public Color TwoInFourColor { get; private set; } = Color.white;
+    public Color SixteenInFourColor { get; private set; } = Color.white;
+    public Color OneInFourColor { get; private set; } = Color.white;
+
 
     private List<List<Color>> _colorPalettes;
-    private List<Color> _defaultColorPalette;
-    private List<List<string>> _colorCodes;
+    private List<List<(float, string)>> _intensityHexColorpairs;
     // Start is called before the first frame update
     void Start()
     {
         _mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        _fourInFourSharedMaterial = SomeFourInFour.GetComponent<Renderer>().sharedMaterial;
-        _eightInFourSharedMaterial = SomeEightInFour.GetComponent<Renderer>().sharedMaterial;
-        _twoInFourSharedMaterial = SomeTwoInFour.GetComponent<Renderer>().sharedMaterial;
         _melodyKeysSharedMaterial = SomeMelodyObject.GetComponent<Renderer>().sharedMaterial;
+        _droneKeysSharedMaterial = SomeDronekeyObject.GetComponent<Renderer>().sharedMaterial;
 
         InitializeColorCodes();
         InitializeColorPalettes();
+        ResetToDefaultColors();
     }
 
     // Update is called once per frame
@@ -52,11 +53,15 @@ public class Scene1ColorSwitcher : MonoBehaviour
         }
         else
         {
-            _mainCamera.GetComponent<HDAdditionalCameraData>().backgroundColorHDR = _colorPalettes[index][0];
-            FourInFourColor = _colorPalettes[index][1];
-            EightInFourColor = _colorPalettes[index][2];
-            _melodyKeysSharedMaterial.SetColor("_EmissiveColor", _colorPalettes[index][3] * 4);
-            TwoInFourColor = _colorPalettes[index][4];
+            _mainCamera.GetComponent<HDAdditionalCameraData>().backgroundColorHDR = _colorPalettes[index - 1][0];
+            TwoInFourColor = _colorPalettes[index - 1][1];
+            FourInFourColor = _colorPalettes[index - 1][2];
+            EightInFourColor = _colorPalettes[index - 1][3];
+            SixteenInFourColor = _colorPalettes[index - 1][4];
+            _melodyKeysSharedMaterial.SetColor("_EmissiveColor", _colorPalettes[index - 1][5]);
+            _droneKeysSharedMaterial.SetColor("_EmissiveColor", _colorPalettes[index - 1][6]);
+            VolumetricFog.parameters.albedo = _colorPalettes[index - 1][7];
+            OneInFourColor = _colorPalettes[index - 1][8];
         }
     }
 
@@ -67,103 +72,47 @@ public class Scene1ColorSwitcher : MonoBehaviour
 
     private void ResetToDefaultColors()
     {
-        _mainCamera.GetComponent<HDAdditionalCameraData>().backgroundColorHDR = Color.black;
-        FourInFourColor = Color.white;
-        EightInFourColor = Color.white;
-        MelodyKeyColor = Color.white;
-        TwoInFourColor = Color.white;
+        if (_mainCamera != null)
+        {
+            _mainCamera.GetComponent<HDAdditionalCameraData>().backgroundColorHDR = Color.black;
+        }
+        FourInFourColor = Color.white * _defaultColorIntensity;
+        EightInFourColor = Color.white * _defaultColorIntensity;
+        TwoInFourColor = Color.white * _defaultColorIntensity;
+        SixteenInFourColor = Color.white * _defaultColorIntensity;
+        VolumetricFog.parameters.albedo = Color.white;
+        _melodyKeysSharedMaterial.SetColor("_EmissiveColor", Color.white * _defaultColorIntensity);
+        _droneKeysSharedMaterial.SetColor("_EmissiveColor", Color.white * _defaultColorIntensity);
+        OneInFourColor = Color.white * _defaultColorIntensity * 2;
     }
 
     private void InitializeColorCodes()
     {
-        _colorCodes = new()
-        {
-            new List<string>()
-        {
-            "#264653", "#2a9d8f", "#e9c46a", "#f4a261", "#e76f51"
-        },
-            new List<string>()
-        {
-            "#606c38", "#283618", "#fefae0", "#dda15e", "#bc6c25"
-        },
-            new List<string>()
-        {
-            "#e63946", "#f1faee", "#a8dadc", "#457b9d", "#1d3557"
-        },
-            new List<string>()
-        {
-            "#003049", "#d62828", "#f77f00", "#fcbf49", "#eae2b7"
-        },
-            new List<string>()
-        {
-            "#8ecae6", "#219ebc", "#023047", "#ffb703", "#fb8500"
-        },
-            new List<string>()
-        {
-            "#ffbe0b", "#fb5607", "#ff006e", "#8338ec", "#3a86ff"
-        },
-            new List<string>()
-        {
-            "#ef476f", "#ffd166", "#06d6a0", "#118ab2", "#073b4c"
-        },
-            new List<string>()
-        {
-            "#9b5de5", "#f15bb5", "#fee440", "#00bbf9", "#00f5d4"
-        },
-            new List<string>()
-        {
-            "#ff595e", "#ffca3a", "#8ac926", "#1982c4", "#6a4c93"
-        },
-            new List<string>()
-        {
-            "#390099", "#9e0059", "#ff0054", "#ff5400", "#ffbd00"
-        },
-            new List<string>()
-        {
-            "#0c0f0a", "#ff206e", "#fbff12", "#41ead4", "#ffffff"
-        },
-            new List<string>()
-        {
-            "#780000", "#c1121f", "#fdf0d5", "#003049", "#669bbc"
-        },
-            new List<string>()
-        {
-            "#386641", "#6a994e", "#a7c957", "#f2e8cf", "#bc4749"
-        },
-            new List<string>()
-        {
-            "#23c9ff", "#7cc6fe", "#ccd5ff", "#e7bbe3", "#c884a6"
-        },
-            new List<string>()
-        {
-            "#262626", "#acbfa4", "#e2e8ce", "#ff7f11", "#ff1b1c"
-        },
-            new List<string>()
-        {
-            "#042a2b", "#5eb1bf", "#cdedf6", "#ef7b45", "#d84727"
-        }
+        // camera/background, 2-4, 4-4, 8-4, 16-4, melody, drone, fog, 1-4
+        _intensityHexColorpairs = new()
+        {                               // cam/bg          2-4                  4-4                  8-4                  16-4                melody             drone                fog                1-4
+            new List<(float, string)>{ (1f, "#421C76"), (8.66f, "#FB5607"), (20.09f, "#FF006E"), (14.86f, "#3A86FF"), (8.66f, "#FB5607"), (6.45f, "#FFBE0B"), (15.09f, "#FF006E"), (1f, "#3A86FF"), (50.09f, "#FF006E") },
+            new List<(float, string)>{ (1f, "#300820"), (30.9f, "#0F4C5C"), (30.9f, "#0F4C5C"), (21.56f, "#E36414") , (21.56f, "#E36414"), (16.76f, "#9A031E"), (30.9f, "#0F4C5C"), (1f, "#9A031E"),  (51.56f, "#E36414") },
+            new List<(float, string)>{ (1f, "#0E1A2C"), (11.7f, "#FCCA46"), (19.5f, "#FE7F2D"), (14.5f, "#A1C181"), (11.7f, "#FCCA46"), (9.0f, "#619B8A"), (15.5f, "#FE7F2D"), (1f, "#FCCA46"), (46.76f, "#9A031E") },
+            new List<(float, string)>{ (1f, "#1D3557"), (20.0f, "#457B9D"), (13.02f, "#F1FAEE"), (9.0f, "#A8DADC"), (20.0f, "#457B9D"), (9.0f, "#E63946"), (9.0f, "#E63946"), (1f, "#F1FAEE"), (9.0f, "#E63946") },
+            new List<(float, string)>{ (1f, "#003D35"), (17.26f, "#9B5DE5"), (10.0f, "#FEE440"), (13.0f, "F15BB5"), (8.66f, "#FB5607"), (11.82f, "#00BBF9"), (10.0f, "#FEE440"), (1f, "#F1FAEE"), (60.0f, "#FEE440") },
+            new List<(float, string)>{ (1f, "#1C004C"), (13.35f, "#E00081"), (13.35f, "#E0A600"), (13.48f, "#E04900"), (8.05f, "#FFBD00"), (13.35f, "#E0A600"), (29.09f, "#9E0059"), (1f, "#0099FF"), (50f, "#0099FF") },
+            new List<(float, string)>{ (1f, "#0A3004"), (9.26f, "#08BDBD"), (17.75f, "#FF9914"), (13.04f, "#F21B3F"), (9.26f, "#08BDBD"), (4.88f, "#ABFF4F"), (17.75f, "#FF9914"), (1f, "#ABFF4F"), (43.04f, "#F21B3F") }
         };
+
     }
 
     private void InitializeColorPalettes()
     {
-        _defaultColorPalette = new()
-        {
-            Color.black,
-            Color.white,
-            Color.white,
-            Color.white,
-            Color.white
-        };
-
         _colorPalettes = new();
-        foreach (List<string> colorCodeGroup in _colorCodes)
+        foreach (List<(float, string)> intensityColorCombos in _intensityHexColorpairs)
         {
             List<Color> colorPalette = new();
-            foreach (string hexColor in colorCodeGroup)
+            foreach ((float intensity, string hexColor) intensityColorCombo in intensityColorCombos)
             {
                 Color color;
-                ColorUtility.TryParseHtmlString(hexColor, out color);
+                ColorUtility.TryParseHtmlString(intensityColorCombo.hexColor, out color);
+                color *= intensityColorCombo.intensity;
                 colorPalette.Add(color);
             }
             _colorPalettes.Add(colorPalette);

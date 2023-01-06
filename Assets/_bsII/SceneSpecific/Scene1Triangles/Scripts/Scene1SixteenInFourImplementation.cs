@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Scene1OneInSixteenImplementation : MonoBehaviour
+public class Scene1SixteenInFourImplementation : MonoBehaviour
 {
     public GameObject ParticleSystemsContainer;
     public GameObject SpawnParent;
@@ -14,6 +14,7 @@ public class Scene1OneInSixteenImplementation : MonoBehaviour
     private MusicInputsModel _musicInputsModel;
     private List<int> indicesOfObjectsToShow;
     private readonly System.Random random = new();
+    private Scene1ColorSwitcher _scene1ColorSwitcher;
 
 
     // Start is called before the first frame update
@@ -21,6 +22,7 @@ public class Scene1OneInSixteenImplementation : MonoBehaviour
     {
         _particleSystems = ParticleSystemsContainer.GetComponents<SimpleParticleSystem>().ToList();
         _musicInputsModel = GameObject.FindGameObjectWithTag("MusicInputsModel").GetComponent<MusicInputsModel>();
+        _scene1ColorSwitcher = this.GetComponent<Scene1ColorSwitcher>();
         SubscribeToMusicInputs();
     }
 
@@ -48,13 +50,21 @@ public class Scene1OneInSixteenImplementation : MonoBehaviour
             }
 
         }
+
+        if (_particles.Count < 1)
+        {
+            return;
+        }
+
         int amountOfNumbers = _particles.Count;
         indicesOfObjectsToShow = Enumerable.Range(0, amountOfNumbers)
                                      .Select(i => new Tuple<int, int>(random.Next(amountOfNumbers), i))
                                      .OrderBy(i => i.Item1)
                                      .Select(i => i.Item2)
-                                     .Take(_particles.Count / 5)
+                                     .Take(_particles.Count / ((_particles.Count - 1) / 2)) // TODO: intensity for 16-4 here
                                      .ToList();
+
+
 
         foreach (int index in indicesOfObjectsToShow)
         {
@@ -86,7 +96,7 @@ public class Scene1OneInSixteenImplementation : MonoBehaviour
         {
             _particles[index].transform.GetComponentsInChildren<Renderer>().ToList().ForEach(renderer =>
             {
-                renderer.sharedMaterial.SetColor("_EmissiveColor", Color.white * (sixteenInFourValue) * 4);
+                renderer.sharedMaterial.SetColor("_EmissiveColor", _scene1ColorSwitcher.SixteenInFourColor * (sixteenInFourValue));
                 renderer.sharedMaterial.SetColor("_BaseColor", new Color(0, 0, 0, (sixteenInFourValue) * 4));
             });
         }
