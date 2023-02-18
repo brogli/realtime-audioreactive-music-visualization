@@ -8,7 +8,7 @@ using UnityEngine.UIElements;
 public sealed class Scene1ExplosionFullScreenShaderGraph : CustomPostProcessVolumeComponent, IPostProcessComponent
 {
     [Tooltip("Controls the scale of the effect.")]
-    public ClampedFloatParameter scale = new ClampedFloatParameter(.5f, 0f, 1f);
+    public ClampedFloatParameter scale = new ClampedFloatParameter(0f, 0f, 1f);
     Material m_Material;
     private LocalKeyword isInvertActiveKeyword;
     public ClampedFloatParameter screenHeight = new ClampedFloatParameter(9f, 0f, 32f);

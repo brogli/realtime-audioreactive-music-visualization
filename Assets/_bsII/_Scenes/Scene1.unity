@@ -18334,6 +18334,8 @@ MonoBehaviour:
   - {fileID: 1256437783}
   MainCameraVolume: {fileID: 1914996416}
   VolumeLightBrightnessValue: 100
+  explosionType2Prefab: {fileID: 8681948455131995603, guid: a62ef4dd71a43c1468090a1d8edf4739,
+    type: 3}
 --- !u!114 &1788754029
 MonoBehaviour:
   m_ObjectHideFlags: 0

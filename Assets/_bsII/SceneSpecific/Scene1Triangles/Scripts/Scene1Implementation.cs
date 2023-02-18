@@ -32,6 +32,7 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
     public Volume MainCameraVolume;
 
     public float VolumeLightBrightnessValue;
+    public GameObject explosionType2Prefab;
 
     private Scene1DroneKeyImplementation _scene1DroneKeyImplementation;
     private Scene1SixteenInFourImplementation _scene1OneInSixteenImplementation;
@@ -189,7 +190,9 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
 
     private void TriggerExplosionType1(int index)
     {
-        throw new NotImplementedException();
+        float randomX = UnityEngine.Random.Range(-16, 16);
+        float randomY = UnityEngine.Random.Range(-8, 8);
+        Instantiate(explosionType2Prefab, new Vector3(randomX, randomY, 0.5f), Quaternion.identity);
     }
 
 

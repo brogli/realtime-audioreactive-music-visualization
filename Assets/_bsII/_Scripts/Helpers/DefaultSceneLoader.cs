@@ -17,7 +17,8 @@ public static class DefaultSceneLoader
             EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo();
         }
 
-        if (state == PlayModeStateChange.EnteredPlayMode && EditorSceneManager.GetActiveScene() != EditorSceneManager.GetSceneByBuildIndex(0))
+        if (state == PlayModeStateChange.EnteredPlayMode && EditorSceneManager.GetActiveScene() != EditorSceneManager.GetSceneByBuildIndex(0) &&
+            EditorSceneManager.GetActiveScene().name != "buildTriangleExplosion")
         {
             EditorSceneManager.LoadScene(0);
         }
