@@ -1,10 +1,7 @@
-using PlasticPipe.PlasticProtocol.Messages;
 using System.Collections;
 using System.Collections.Generic;
 using System.Net;
 using UnityEngine;
-using static UnityEditor.FilePathAttribute;
-
 
 public class Scene1ExplosionType1 : MonoBehaviour
 {
@@ -92,9 +89,4 @@ public class Scene1ExplosionType1 : MonoBehaviour
             renderer.material.SetColor("_BaseColor", new Color(0, 0, 0, 0));
         }
     }
-
-    //private IEnumerator AnimateElements()
-    //{
-
-    //}
 }
