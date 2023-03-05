@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.HighDefinition;
 
 public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
 {
@@ -27,7 +29,10 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
     public List<GameObject> MelodyKey6Elements;
     public List<GameObject> MelodyKey7Elements;
 
+    public Volume MainCameraVolume;
+
     public float VolumeLightBrightnessValue;
+    public GameObject explosionType2Prefab;
 
     private Scene1DroneKeyImplementation _scene1DroneKeyImplementation;
     private Scene1SixteenInFourImplementation _scene1OneInSixteenImplementation;
@@ -35,6 +40,8 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
     private bool _isOneInEightActive;
     private Scene1ColorSwitcher _scene1ColorSwitcher;
     private int _currentMoodIndex = 0;
+    private Scene1ExplosionFullScreenShaderGraph scene1ExplosionFullScreenShaderGraph;
+    private bool isExplosionFullScreenEffectStopped = false;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +52,12 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
         _scene1OneInSixteenImplementation = this.GetComponent<Scene1SixteenInFourImplementation>();
         _scene1ColorSwitcher = this.GetComponent<Scene1ColorSwitcher>();
 
+        if (!MainCameraVolume.sharedProfile.TryGet<Scene1ExplosionFullScreenShaderGraph>(out scene1ExplosionFullScreenShaderGraph))
+        {
+            throw new NullReferenceException(nameof(scene1ExplosionFullScreenShaderGraph));
+        }
+
+
         SubscribeUserInputs();
         SubscribeMusicInputs();
     }
@@ -53,6 +66,17 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
     {
         _musicInputsModel.EmitOneInFourEvent += TriggerOneInFourEffect;
         _musicInputsModel.EmitOneInEightEvent += TriggerOneInEightEffect;
+        _musicInputsModel.EmitEightInFourEvent += TriggerEightInFourEffect;
+    }
+
+    private void TriggerEightInFourEffect()
+    {
+        scene1ExplosionFullScreenShaderGraph.isInvertActive.value = !scene1ExplosionFullScreenShaderGraph.isInvertActive.value;
+        if (isExplosionFullScreenEffectStopped)
+        {
+            scene1ExplosionFullScreenShaderGraph.scale.value = 0;
+            isExplosionFullScreenEffectStopped = false;
+        }
     }
 
     private void TriggerOneInFourEffect()
@@ -125,7 +149,52 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
         {
             _userInputsModel.MoodKeys.Keys[i].EmitCollectionKeyTriggeredEvent += TriggerMoodKey;
         }
+
+        // explosionKeys
+        for (int i = 0; i < _userInputsModel.MoodKeys.Keys.Length / 2; i++)
+        {
+            _userInputsModel.ExplosionKeys.Keys[i].EmitCollectionKeyTriggeredEvent += TriggerExplosionType0;
+        }
+
+        for (int i = _userInputsModel.MoodKeys.Keys.Length / 2; i < _userInputsModel.MoodKeys.Keys.Length; i++)
+        {
+            _userInputsModel.ExplosionKeys.Keys[i].EmitCollectionKeyTriggeredEvent += TriggerExplosionType1;
+        }
     }
+    private void TriggerExplosionType0(int index)
+    {
+        scene1ExplosionFullScreenShaderGraph.scale.value = 1;
+        StartCoroutine(AnimateExplosionFullScreenEffect());
+    }
+
+    private IEnumerator AnimateExplosionFullScreenEffect()
+    {
+        var factor = 0.2f;
+        while (scene1ExplosionFullScreenShaderGraph.scale.value > 0.1f)
+        {
+            if (scene1ExplosionFullScreenShaderGraph.scale.value - factor * Time.deltaTime < 0.1f)
+            {
+                scene1ExplosionFullScreenShaderGraph.scale.value = 0.1f;
+                isExplosionFullScreenEffectStopped = true;
+            }
+            else
+            {
+                scene1ExplosionFullScreenShaderGraph.scale.value -= factor * Time.deltaTime;
+            }
+
+            yield return null;
+        }
+        //Debug.Log("setting to 0");
+        //scene1ExplosionFullScreenShaderGraph.scale.value = 0;
+    }
+
+    private void TriggerExplosionType1(int index)
+    {
+        float randomX = UnityEngine.Random.Range(-16, 16);
+        float randomY = UnityEngine.Random.Range(-8, 8);
+        Instantiate(explosionType2Prefab, new Vector3(randomX, randomY, 0.5f), Quaternion.identity);
+    }
+
 
     private void TriggerMoodKey(int index)
     {
@@ -202,6 +271,7 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
 
     public void OnDisable()
     {
+        scene1ExplosionFullScreenShaderGraph.scale.value = 0;
         UnsubscribeUserInputs();
         UnsubscribeMusicInputs();
     }
@@ -209,6 +279,8 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
     private void UnsubscribeMusicInputs()
     {
         _musicInputsModel.EmitOneInFourEvent -= TriggerOneInFourEffect;
+        _musicInputsModel.EmitOneInEightEvent -= TriggerOneInEightEffect;
+        _musicInputsModel.EmitEightInFourEvent -= TriggerEightInFourEffect;
     }
 
     public void UnsubscribeUserInputs()
@@ -243,11 +315,21 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
             key.EmitTurnedOnOrOffEvent -= ToggleMelodyKey;
         }
 
-
         // droneKeys
         for (int i = 0; i < _userInputsModel.DroneKeys.Keys.Length; i++)
         {
             _userInputsModel.MelodyKeys.Keys[i].EmitTurnedOnOrOffEvent -= ToggleDroneKey;
+        }
+
+        // explosionKeys
+        for (int i = 0; i < _userInputsModel.MoodKeys.Keys.Length / 2; i++)
+        {
+            _userInputsModel.ExplosionKeys.Keys[i].EmitCollectionKeyTriggeredEvent -= TriggerExplosionType0;
+        }
+
+        for (int i = _userInputsModel.MoodKeys.Keys.Length / 2; i < _userInputsModel.MoodKeys.Keys.Length; i++)
+        {
+            _userInputsModel.ExplosionKeys.Keys[i].EmitCollectionKeyTriggeredEvent -= TriggerExplosionType1;
         }
     }
 
@@ -272,8 +354,8 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
         FourInFourCores.ForEach(
             (core) =>
             {
-                core.GetComponent<Renderer>().material.SetColor("_EmissiveColor", _scene1ColorSwitcher.FourInFourColor * fourInFourValueInverted  * faderValueFourinFour);
-                core.GetComponent<Renderer>().material.SetColor("_BaseColor", new Color(0, 0, 0, fourInFourValueInverted  * faderValueFourinFour));
+                core.GetComponent<Renderer>().material.SetColor("_EmissiveColor", _scene1ColorSwitcher.FourInFourColor * fourInFourValueInverted * faderValueFourinFour);
+                core.GetComponent<Renderer>().material.SetColor("_BaseColor", new Color(0, 0, 0, fourInFourValueInverted * faderValueFourinFour));
             });
 
         float EightInFourValueInverted = 1.0f - (_musicInputsModel.EightInFourValue);
@@ -281,8 +363,8 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
         EightInFourCores.ForEach(
             (core) =>
             {
-                core.GetComponent<Renderer>().material.SetColor("_EmissiveColor", _scene1ColorSwitcher.EightInFourColor * EightInFourValueInverted  * faderValueEightInFour);
-                core.GetComponent<Renderer>().material.SetColor("_BaseColor", new Color(0, 0, 0, EightInFourValueInverted  * faderValueEightInFour));
+                core.GetComponent<Renderer>().material.SetColor("_EmissiveColor", _scene1ColorSwitcher.EightInFourColor * EightInFourValueInverted * faderValueEightInFour);
+                core.GetComponent<Renderer>().material.SetColor("_BaseColor", new Color(0, 0, 0, EightInFourValueInverted * faderValueEightInFour));
             });
 
         float TwoInFourValueInverted = 1.0f - Easings.EaseInQuad(_musicInputsModel.TwoInFourValue);
@@ -291,7 +373,7 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
             (obj) =>
             {
                 obj.GetComponent<Renderer>().sharedMaterial.SetColor("_EmissiveColor", _scene1ColorSwitcher.TwoInFourColor * TwoInFourValueInverted * faderValueTwoInFour);
-                obj.GetComponent<Renderer>().sharedMaterial.SetColor("_BaseColor", new Color(0, 0, 0, TwoInFourValueInverted  * faderValueTwoInFour));
+                obj.GetComponent<Renderer>().sharedMaterial.SetColor("_BaseColor", new Color(0, 0, 0, TwoInFourValueInverted * faderValueTwoInFour));
             });
 
         float volumeFaderValue = _userInputsModel.AverageVolume.FaderValue;
