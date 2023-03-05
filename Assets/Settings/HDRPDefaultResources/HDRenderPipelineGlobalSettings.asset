@@ -70,6 +70,7 @@ MonoBehaviour:
   afterPostProcessCustomPostProcesses:
   - Scene1ExplosionFullScreenShaderGraph, Scene1, Version=0.0.0.0, Culture=neutral,
     PublicKeyToken=null
+  - CameraCopy, DisplayStuff, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   beforeTAACustomPostProcesses: []
   lightLayerName0: Light Layer default
   lightLayerName1: Light Layer 1
