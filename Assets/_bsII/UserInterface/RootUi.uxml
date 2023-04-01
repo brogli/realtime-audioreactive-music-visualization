@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="top-half" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 50%;" />
+    <ui:VisualElement name="lower-half" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 50%; flex-direction: row;">
+        <ui:VisualElement name="lower-left" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 50%;" />
+        <ui:VisualElement name="lower-right" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 50%; flex-direction: row;">
+            <ui:VisualElement name="catalog-container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 95%;" />
+            <ui:VisualElement name="scrollbar-container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 5%;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
