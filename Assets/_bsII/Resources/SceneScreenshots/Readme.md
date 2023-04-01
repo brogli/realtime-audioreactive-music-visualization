@@ -1,0 +1,2 @@
+- must have only a number as name, numbers below 10 have a leading zero
+- Set Texture Type in import settings to "Sprite"

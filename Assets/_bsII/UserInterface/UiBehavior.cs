@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class UiBehavior : MonoBehaviour
 {
     public VisualTreeAsset RowTemplate;
+    public VisualTreeAsset ButtonContainerTemplate;
+    public int AmountOfVisibleRows = 3;
+    public int AmountOfButtonsPerRow = 3;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,32 +26,44 @@ public class UiBehavior : MonoBehaviour
     void OnEnable()
     {
         var uiDocument = GetComponent<UIDocument>();
-
         VisualElement root = uiDocument.rootVisualElement;
+        VisualElement catalogContainer = root.Q<VisualElement>("catalog-container");
+        Dictionary<string, Sprite> sprites = Resources
+            .LoadAll("SceneScreenshots", typeof(Sprite))
+            .Select(item => (Sprite)item)
+            .ToDictionary(item => item.name, item=> item);
 
-        VisualElement mainContainre = root.Q<VisualElement>("catalog-container");
-
-
-
-        for (int i = 0; i < 4; i++)
+        var amountOfScenes = sprites.Count();
+        int sceneIndex = 0;
+        var amountOfRows = amountOfScenes / AmountOfButtonsPerRow;
+        if (amountOfScenes % AmountOfButtonsPerRow != 0)
         {
-            var blah = RowTemplate.Instantiate();
-            blah.style.flexShrink = 0;
-
-            mainContainre.Add(blah);
-            var button0 = blah.Q<Button>("button0");
-            button0.clicked += delegate () { HandleClick(button0.name); };
-            var button1 = blah.Q<Button>("button1");
-            button1.clicked += delegate () { HandleClick(button1.name); };
-            var button2 = blah.Q<Button>("button2");
-            button2.clicked += delegate () { HandleClick(button2.name); };
+            amountOfRows += 1;
         }
 
+        for (int i = 0; i < amountOfRows; i++)
+        {
+            var row = RowTemplate.Instantiate();
+            row.style.flexShrink = 0;
+            row.style.flexDirection = FlexDirection.Row;
+            catalogContainer.Add(row);
 
-        var sprite = Resources.Load<Sprite>("SceneScreenshots/image01");
-        Debug.Log(sprite);
-        //bla2h.Q<Button>("element0").style.backgroundImage = new StyleBackground(sprite);
+            for (int j = 0; j < AmountOfButtonsPerRow; j++)
+            {
+                var buttonContainer = ButtonContainerTemplate.Instantiate();
+                buttonContainer.style.flexGrow = 1;
+                var button = buttonContainer.Q<Button>();
+                button.name = sceneIndex.ToString();
+                button.text = sceneIndex.ToString();
+                button.style.backgroundImage = new StyleBackground(sprites[sceneIndex.ToString("D2")]);
+                button.clicked += delegate () { HandleClick(button.name); };
+                row.Add(buttonContainer);
+                sceneIndex++;
+            }
+        }
     }
+
+
 
     private void HandleClick(string x)
     {

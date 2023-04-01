@@ -3706,6 +3706,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RowTemplate: {fileID: 9197481963319205126, guid: 68386358dcb28eb4f879c14727ef7912,
     type: 3}
+  ButtonContainerTemplate: {fileID: 9197481963319205126, guid: 2721c62e145b2c240bdb5b828c1e421a,
+    type: 3}
+  AmountOfVisibleRows: 3
+  AmountOfButtonsPerRow: 3
 --- !u!1 &777509313
 GameObject:
   m_ObjectHideFlags: 0
