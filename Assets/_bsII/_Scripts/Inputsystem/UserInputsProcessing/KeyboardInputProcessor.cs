@@ -36,6 +36,22 @@ public class KeyboardInputProcessor : MonoBehaviour
         }
     }
 
+    public void ProcessSelectNextScene(CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _userInputsModel.SelectNextScene.SetNewStateIfNecessary(true, 0);
+        }
+    }
+    public void ProcessPreviousNextScene(CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _userInputsModel.SelectPreviousScene.SetNewStateIfNecessary(true, 0);
+        }
+    }
+
+
     #endregion
 
     #region scene loading

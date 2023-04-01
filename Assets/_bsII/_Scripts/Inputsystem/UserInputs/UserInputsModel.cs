@@ -10,6 +10,8 @@ public class UserInputsModel : MonoBehaviour
     public TriggeredUserInput ResetGameSettingsToDefaults { get; private set; }
     public TriggeredUserInput LoadScene { get; private set; }
     public TriggeredUserInput ActivateScene { get; private set; }
+    public TriggeredUserInput SelectNextScene { get; private set; }
+    public TriggeredUserInput SelectPreviousScene { get; private set; }
     #endregion
 
     #region audio related
@@ -63,6 +65,8 @@ public class UserInputsModel : MonoBehaviour
         ResetGameSettingsToDefaults = new TriggeredUserInput();
         LoadScene = new TriggeredUserInput();
         ActivateScene = new TriggeredUserInput();
+        SelectNextScene = new TriggeredUserInput();
+        SelectPreviousScene = new TriggeredUserInput();
     }
 
     private void InitializeMelodyMoodDroneExplosionKeys()

@@ -184,8 +184,6 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
 
             yield return null;
         }
-        //Debug.Log("setting to 0");
-        //scene1ExplosionFullScreenShaderGraph.scale.value = 0;
     }
 
     private void TriggerExplosionType1(int index)

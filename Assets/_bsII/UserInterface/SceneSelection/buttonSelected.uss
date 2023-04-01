@@ -1,0 +1,4 @@
+.button-selected {
+    border-width: 10px;
+    border-color: green;
+}

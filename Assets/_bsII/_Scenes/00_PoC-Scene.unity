@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 262.1177, g: 324.74368, b: 429.81012, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3710,6 +3710,8 @@ MonoBehaviour:
     type: 3}
   AmountOfVisibleRows: 3
   AmountOfButtonsPerRow: 3
+  buttonSelected: {fileID: 7433441132597879392, guid: 1004c3991d1e11946b63f3c661951f8e,
+    type: 3}
 --- !u!1 &777509313
 GameObject:
   m_ObjectHideFlags: 0
@@ -9275,22 +9277,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2078528395}
         m_TargetAssemblyTypeName: KeyboardInputProcessor, Assembly-CSharp
-        m_MethodName: ProcessLoadScene0
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 6b71697a-6c0f-439e-9541-2b2ec3fbbd32
-    m_ActionName: KeyboardControls/LoadScene1[/Keyboard/1]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2078528395}
-        m_TargetAssemblyTypeName: KeyboardInputProcessor, Assembly-CSharp
         m_MethodName: ProcessLoadScene1
         m_Mode: 0
         m_Arguments:
@@ -9319,6 +9305,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 752b7da2-4f14-412d-86a4-665597e71af2
     m_ActionName: KeyboardControls/ActivateScene[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2078528395}
+        m_TargetAssemblyTypeName: KeyboardInputProcessor, UserInputsProcessing
+        m_MethodName: ProcessSelectNextScene
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9667a7b9-bce1-42c9-9e89-e4dd083212a0
+    m_ActionName: KeyboardControls/SelectNextScene[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2078528395}
+        m_TargetAssemblyTypeName: KeyboardInputProcessor, UserInputsProcessing
+        m_MethodName: ProcessPreviousNextScene
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 03c8a74f-fcfc-4331-859c-c292c2ccdca8
+    m_ActionName: KeyboardControls/SelectPreviousScene[/Keyboard/leftArrow]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: KeyboardControls

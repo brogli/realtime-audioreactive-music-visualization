@@ -1,3 +1,4 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <ui:Button display-tooltip-when-elided="true" style="flex-grow: 1;" />
+    <Style src="project://database/Assets/_bsII/UserInterface/SceneSelection/buttonSelected.uss?fileID=7433441132597879392&amp;guid=1004c3991d1e11946b63f3c661951f8e&amp;type=3#buttonSelected" />
+    <ui:Button display-tooltip-when-elided="true" focusable="false" style="flex-grow: 1; margin-left: 1px; margin-right: 1px; transition-duration: 0.1s;" />
 </ui:UXML>

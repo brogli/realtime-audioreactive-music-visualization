@@ -3,7 +3,7 @@
     <ui:VisualElement name="lower-half" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 50%; flex-direction: row;">
         <ui:VisualElement name="lower-left" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 50%;" />
         <ui:VisualElement name="lower-right" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 50%; flex-direction: row;">
-            <ui:VisualElement name="catalog-container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 95%;" />
+            <ui:VisualElement name="catalog-container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 95%; overflow: hidden;" />
             <ui:VisualElement name="scrollbar-container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 5%;" />
         </ui:VisualElement>
     </ui:VisualElement>
