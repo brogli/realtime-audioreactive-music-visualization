@@ -28,7 +28,7 @@ EditorSettings:
   m_EnterPlayModeOptions: 3
   m_GameObjectNamingDigits: 1
   m_GameObjectNamingScheme: 2
-  m_AssetNamingUsesSpace: 1
+  m_AssetNamingUsesSpace: 0
   m_InspectorUseIMGUIDefaultInspector: 0
   m_UseLegacyProbeSampleCount: 0
   m_SerializeInlineMappingsOnOneLine: 0
