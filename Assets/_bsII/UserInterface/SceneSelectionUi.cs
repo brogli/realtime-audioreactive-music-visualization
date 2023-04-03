@@ -56,23 +56,17 @@ public class SceneSelectionUi : MonoBehaviour, IUserInputsConsumer
 
     private void SetupVisibleContent(VisualElement catalogContainer)
     {
-        Dictionary<int, Sprite> sprites = Resources
-            .LoadAll("SceneScreenshots", typeof(Sprite))
-            .Select(item => (Sprite)item)
-            .OrderBy(item => {
-                return int.Parse(item.name).ToString("D3");
-            })
-            .ToDictionary(item => int.Parse(item.name), item => item);
+        SetupButtons(catalogContainer);
+
+        SetupIsReadyOverlay(catalogContainer);
+    }
+
+    private void SetupButtons(VisualElement catalogContainer)
+    {
+        Dictionary<int, Sprite> sprites = LoadSceneThumbnails();
 
         int amountOfScenesInBuildSettings = SceneManager.sceneCountInBuildSettings;
         HashSet<int> allBuildIndices = Enumerable.Range(0, amountOfScenesInBuildSettings).ToHashSet(); // 2nd arg in .Range is exclusive
-
-        _amountOfScenesToDisplay = sprites.Count();
-        var amountOfRows = _amountOfScenesToDisplay / AmountOfButtonsPerRow;
-        if (_amountOfScenesToDisplay % AmountOfButtonsPerRow != 0)
-        {
-            amountOfRows += 1;
-        }
 
         int currentButtonPerRowIndex = 0;
         int currentRowIndex = 0;
@@ -121,7 +115,22 @@ public class SceneSelectionUi : MonoBehaviour, IUserInputsConsumer
                 currentRowIndex++;
             }
         }
+    }
 
+    private static Dictionary<int, Sprite> LoadSceneThumbnails()
+    {
+        return Resources
+            .LoadAll("SceneScreenshots", typeof(Sprite))
+            .Select(item => (Sprite)item)
+            .OrderBy(item =>
+            {
+                return int.Parse(item.name).ToString("D3");
+            })
+            .ToDictionary(item => int.Parse(item.name), item => item);
+    }
+
+    private void SetupIsReadyOverlay(VisualElement catalogContainer)
+    {
         _isReadyOverlay = IsReadyOverlayTemplate.Instantiate();
         _isReadyOverlay.style.position = Position.Absolute;
         _isReadyOverlay.style.top = 0;
