@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TemporarySceneHandler : MonoBehaviour, IUserInputsConsumer
+public class SceneHandler : MonoBehaviour
 {
-    private UserInputsModel _userInputsModel;
+    public delegate void SceneIsReadyToActivate();
+    public event SceneIsReadyToActivate EmitSceneIsReadyToActivate;
+    private bool _isEmitSceneReadyEvocable = true;
 
     private bool _isSceneActivationAllowed = false;
     private bool IsSceneActivationAllowed
     {
         get
         {
+            // consume "true" and reset to "false"
             bool isAllowed = _isSceneActivationAllowed;
             if (isAllowed)
             {
@@ -28,13 +31,6 @@ public class TemporarySceneHandler : MonoBehaviour, IUserInputsConsumer
     // Start is called before the first frame update
     void Start()
     {
-        _userInputsModel = GameObject.FindGameObjectWithTag("UserInputsModel").GetComponent<UserInputsModel>();
-        SubscribeUserInputs();
-    }
-
-    public void OnApplicationQuit()
-    {
-        UnsubscribeUserInputs();
     }
 
     // Update is called once per frame
@@ -65,6 +61,11 @@ public class TemporarySceneHandler : MonoBehaviour, IUserInputsConsumer
                 //Change the Text to show the Scene is ready
                 //m_Text.text = "Press the space bar to continue";
                 Debug.Log("Loading progress: " + (asyncOperation.progress * 100) + "%, trying to activate");
+                if (_isEmitSceneReadyEvocable)
+                {
+                    EmitSceneIsReadyToActivate?.Invoke();
+                    _isEmitSceneReadyEvocable = !_isEmitSceneReadyEvocable;
+                }
                 //Wait to you press the space key to activate the Scene
                 if (IsSceneActivationAllowed)
                     //Activate the Scene
@@ -73,22 +74,16 @@ public class TemporarySceneHandler : MonoBehaviour, IUserInputsConsumer
 
             yield return null;
         }
+        _isEmitSceneReadyEvocable = !_isEmitSceneReadyEvocable;
     }
 
-    private void LoadScene(float index)
+    public void LoadScene(int sceneIndex)
     {
-        StartCoroutine(LoadSceneAsync((int)index));
+        StartCoroutine(LoadSceneAsync(sceneIndex));
     }
 
-    public void SubscribeUserInputs()
+    public void ActivateScene()
     {
-        _userInputsModel.LoadScene.EmitKeyTriggeredEventWithValue += LoadScene;
-        _userInputsModel.ActivateScene.EmitKeyTriggeredEvent += () => IsSceneActivationAllowed = true;
-    }
-
-    public void UnsubscribeUserInputs()
-    {
-        _userInputsModel.LoadScene.EmitKeyTriggeredEventWithValue -= LoadScene;
-        _userInputsModel.ActivateScene.EmitKeyTriggeredEvent -= () => IsSceneActivationAllowed = true;
+        IsSceneActivationAllowed = true;
     }
 }

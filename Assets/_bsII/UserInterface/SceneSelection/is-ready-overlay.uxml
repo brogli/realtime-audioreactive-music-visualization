@@ -1,0 +1,3 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:VisualElement name="is-ready" style="flex-grow: 1; background-color: rgba(4, 255, 0, 0.48); position: absolute; left: 0; top: 0; right: 0; bottom: 0;" />
+</ui:UXML>

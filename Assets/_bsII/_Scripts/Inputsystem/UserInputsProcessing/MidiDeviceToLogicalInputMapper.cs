@@ -87,7 +87,7 @@ public class MidiDeviceToLogicalInputMapper : MonoBehaviour
         }
         else
         {
-            Debug.Log("Note not found");
+            Debug.Log($"CcInput not found in Settings. Channel: {channel}, ccNumber: {ccNumber}");
             return null;
         }
     }

@@ -36,6 +36,22 @@ public class KeyboardInputProcessor : MonoBehaviour
         }
     }
 
+    public void ProcessSelectNextScene(CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _userInputsModel.SelectNextScene.SetNewStateIfNecessary(true, 0);
+        }
+    }
+    public void ProcessPreviousNextScene(CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _userInputsModel.SelectPreviousScene.SetNewStateIfNecessary(true, 0);
+        }
+    }
+
+
     #endregion
 
     #region scene loading
@@ -48,19 +64,13 @@ public class KeyboardInputProcessor : MonoBehaviour
         }
     }
 
-    private void ProcessLoadScene(int index)
-    {
-        _userInputsModel.LoadScene.SetNewStateIfNecessary(true, index);
-    }
-
-    public void ProcessLoadScene1(CallbackContext context)
+    public void ProcessLoadSelectedScene(CallbackContext context)
     {
         if (context.performed)
         {
-            ProcessLoadScene(1);
+            _userInputsModel.LoadScene.SetNewStateIfNecessary(true, 0);
         }
     }
-
 
     #endregion
 

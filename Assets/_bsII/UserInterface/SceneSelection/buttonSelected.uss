@@ -1,0 +1,12 @@
+.button-selected {
+    border-width: 10px;
+    border-color: green;
+    border-left-width: 8px;
+    border-right-width: 8px;
+    border-top-width: 8px;
+    border-bottom-width: 8px;
+    border-left-color: rgb(102, 255, 102);
+    border-right-color: rgb(102, 255, 102);
+    border-top-color: rgb(102, 255, 102);
+    border-bottom-color: rgb(102, 255, 102);
+}

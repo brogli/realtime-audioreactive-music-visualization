@@ -1,0 +1,5 @@
+- must have only a number as name
+- number must match the desired build index from the build settings
+- scenes that don't match an image here won't be in the UI
+- image numbers that don't match a build index will be ignored
+- Set Texture Type in import settings to "Sprite"

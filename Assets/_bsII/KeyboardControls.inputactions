@@ -15,6 +15,24 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "SelectNextScene",
+                    "type": "Button",
+                    "id": "9667a7b9-bce1-42c9-9e89-e4dd083212a0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SelectPreviousScene",
+                    "type": "Button",
+                    "id": "03c8a74f-fcfc-4331-859c-c292c2ccdca8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Set Game Settings To Default",
                     "type": "Button",
                     "id": "cab00c8b-5226-4f61-b361-d4c3ff4711c7",
@@ -24,7 +42,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "LoadScene1",
+                    "name": "LoadScene",
                     "type": "Button",
                     "id": "00d39ac9-6b94-4b2e-a58f-f6de86d129eb",
                     "expectedControlType": "Button",
@@ -912,11 +930,11 @@
                 {
                     "name": "",
                     "id": "fd971bd3-bbeb-45f4-b26b-b0116956844b",
-                    "path": "<Keyboard>/1",
+                    "path": "<Keyboard>/enter",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "LoadScene1",
+                    "action": "LoadScene",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -928,6 +946,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "ActivateScene",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5c7f888e-6463-49ea-b2f5-63498674cebc",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectNextScene",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a3084615-ebdc-4795-8354-37148c9b742b",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectPreviousScene",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
