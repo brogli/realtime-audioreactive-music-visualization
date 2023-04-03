@@ -64,19 +64,13 @@ public class KeyboardInputProcessor : MonoBehaviour
         }
     }
 
-    private void ProcessLoadScene(int index)
-    {
-        _userInputsModel.LoadScene.SetNewStateIfNecessary(true, index);
-    }
-
-    public void ProcessLoadScene1(CallbackContext context)
+    public void ProcessLoadSelectedScene(CallbackContext context)
     {
         if (context.performed)
         {
-            ProcessLoadScene(1);
+            _userInputsModel.LoadScene.SetNewStateIfNecessary(true, 0);
         }
     }
-
 
     #endregion
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TemporarySceneHandler : MonoBehaviour, IUserInputsConsumer
+public class SceneHandler : MonoBehaviour
 {
     private UserInputsModel _userInputsModel;
 
@@ -12,6 +12,7 @@ public class TemporarySceneHandler : MonoBehaviour, IUserInputsConsumer
     {
         get
         {
+            // consume "true" and reset to "false"
             bool isAllowed = _isSceneActivationAllowed;
             if (isAllowed)
             {
@@ -29,12 +30,6 @@ public class TemporarySceneHandler : MonoBehaviour, IUserInputsConsumer
     void Start()
     {
         _userInputsModel = GameObject.FindGameObjectWithTag("UserInputsModel").GetComponent<UserInputsModel>();
-        SubscribeUserInputs();
-    }
-
-    public void OnApplicationQuit()
-    {
-        UnsubscribeUserInputs();
     }
 
     // Update is called once per frame
@@ -75,20 +70,13 @@ public class TemporarySceneHandler : MonoBehaviour, IUserInputsConsumer
         }
     }
 
-    private void LoadScene(float index)
+    public void LoadScene(int sceneIndex)
     {
-        StartCoroutine(LoadSceneAsync((int)index));
+        StartCoroutine(LoadSceneAsync(sceneIndex));
     }
 
-    public void SubscribeUserInputs()
+    public void ActivateScene()
     {
-        _userInputsModel.LoadScene.EmitKeyTriggeredEventWithValue += LoadScene;
-        _userInputsModel.ActivateScene.EmitKeyTriggeredEvent += () => IsSceneActivationAllowed = true;
-    }
-
-    public void UnsubscribeUserInputs()
-    {
-        _userInputsModel.LoadScene.EmitKeyTriggeredEventWithValue -= LoadScene;
-        _userInputsModel.ActivateScene.EmitKeyTriggeredEvent -= () => IsSceneActivationAllowed = true;
+        IsSceneActivationAllowed = true;
     }
 }

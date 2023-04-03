@@ -1,4 +1,8 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/_bsII/UserInterface/SceneSelection/buttonSelected.uss?fileID=7433441132597879392&amp;guid=1004c3991d1e11946b63f3c661951f8e&amp;type=3#buttonSelected" />
-    <ui:Button display-tooltip-when-elided="true" focusable="false" style="flex-grow: 1; margin-left: 1px; margin-right: 1px; transition-duration: 0.1s;" />
+    <ui:VisualElement name="button-container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); margin-left: 1px; margin-right: 1px; margin-top: 2px; margin-bottom: 2px;">
+        <ui:Button display-tooltip-when-elided="true" focusable="false" style="flex-grow: 1; margin-left: 0; margin-right: 0; transition-duration: 0.1s; margin-top: 0; margin-bottom: 0;" />
+        <ui:VisualElement name="is-playing" style="flex-grow: 1; position: absolute; left: 0; top: 0; right: 0; bottom: 0; visibility: hidden; background-image: url(&apos;project://database/Assets/_bsII/UserInterface/SceneSelection/Icons/play-icon-inverted-outline2.png?fileID=2800000&amp;guid=6724da5d567aa6d4aa03fd095af99d96&amp;type=3#play-icon-inverted-outline2&apos;); -unity-background-scale-mode: scale-to-fit; margin-left: 20px; margin-right: 20px; margin-top: 20px; margin-bottom: 20px;" />
+        <ui:VisualElement name="is-loading" style="flex-grow: 1; position: absolute; left: 0; top: 0; right: 0; bottom: 0; visibility: hidden; background-image: url(&apos;project://database/Assets/_bsII/UserInterface/SceneSelection/Icons/loading-inverted-outline.png?fileID=2800000&amp;guid=20a53098393b9a24791a6ca0dc4c7945&amp;type=3#loading-inverted-outline&apos;); -unity-background-scale-mode: scale-to-fit; margin-left: 20px; margin-right: 20px; margin-top: 20px; margin-bottom: 20px;" />
+    </ui:VisualElement>
 </ui:UXML>

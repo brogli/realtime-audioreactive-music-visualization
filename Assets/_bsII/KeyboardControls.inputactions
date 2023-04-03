@@ -42,7 +42,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "LoadScene1",
+                    "name": "LoadScene",
                     "type": "Button",
                     "id": "00d39ac9-6b94-4b2e-a58f-f6de86d129eb",
                     "expectedControlType": "Button",
@@ -930,11 +930,11 @@
                 {
                     "name": "",
                     "id": "fd971bd3-bbeb-45f4-b26b-b0116956844b",
-                    "path": "<Keyboard>/1",
+                    "path": "<Keyboard>/enter",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "LoadScene1",
+                    "action": "LoadScene",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

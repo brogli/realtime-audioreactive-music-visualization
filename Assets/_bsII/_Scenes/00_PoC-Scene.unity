@@ -1973,7 +1973,7 @@ GameObject:
   - component: {fileID: 315170664}
   m_Layer: 0
   m_Name: SceneHandler
-  m_TagString: Untagged
+  m_TagString: SceneHandler
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3461,7 +3461,7 @@ GameObject:
   - component: {fileID: 707828407}
   m_Layer: 5
   m_Name: ScreenHandling
-  m_TagString: Untagged
+  m_TagString: SceneHandler
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9288,8 +9288,8 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2078528395}
-        m_TargetAssemblyTypeName: KeyboardInputProcessor, Assembly-CSharp
-        m_MethodName: ProcessLoadScene1
+        m_TargetAssemblyTypeName: KeyboardInputProcessor, UserInputsProcessing
+        m_MethodName: ProcessLoadSelectedScene
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

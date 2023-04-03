@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,35 +13,44 @@ public class SceneSelectionUi : MonoBehaviour, IUserInputsConsumer
     public int AmountOfButtonsPerRow = 3;
     public int RowHeightInPx = 120;
 
-    private Dictionary<int, Button> _sceneIndexToButton = new Dictionary<int, Button>();
     private Dictionary<Button, int> _buttonToRowNumber = new Dictionary<Button, int>();
+    private List<VisualElement> _rows = new List<VisualElement>();
     private LinkedList<Button> _buttons = new LinkedList<Button>();
     private LinkedListNode<Button> _currentlySelectedButtonNode;
+    private LinkedListNode<Button> _currentlyPlayingButtonNode;
+    private LinkedListNode<Button> _currentlyLoadingButtonNode;
     private int _currentlyVisibleRowsLowerBound = 0;
     private int _amountOfScenes;
     private UserInputsModel _userInputsModel;
+    private SceneHandler _sceneHandler;
 
 
     // Start is called before the first frame update
     void Start()
     {
         _userInputsModel = GameObject.FindGameObjectWithTag("UserInputsModel").GetComponent<UserInputsModel>();
+        _sceneHandler = GameObject.FindGameObjectWithTag("SceneHandler").GetComponent<SceneHandler>();
         SubscribeUserInputs();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (_currentlyLoadingButtonNode != null)
+        {
+            var currentlyLoadingElement = _currentlyLoadingButtonNode.Value.parent.Q<VisualElement>("is-loading");
+            var currentRotation = _currentlyLoadingButtonNode.Value.parent.Q<VisualElement>("is-loading").style.rotate;
+            currentlyLoadingElement.style.rotate = new StyleRotate(new Rotate((currentRotation.value.angle.value + Time.deltaTime * 70f) % 365));
+        }
     }
 
     public void InitializeSceneSelectionUi(VisualElement catalogContainer)
     {
-        SetupButtons(catalogContainer);
+        SetupRowsAndButtons(catalogContainer);
         InitializeCurrentSelection();
     }
 
-    private void SetupButtons(VisualElement catalogContainer)
+    private void SetupRowsAndButtons(VisualElement catalogContainer)
     {
         Dictionary<string, Sprite> sprites = Resources
             .LoadAll("SceneScreenshots", typeof(Sprite))
@@ -60,7 +70,9 @@ public class SceneSelectionUi : MonoBehaviour, IUserInputsConsumer
             var row = RowTemplate.Instantiate();
             row.style.flexShrink = 0;
             row.style.flexDirection = FlexDirection.Row;
+            row.style.transitionDuration = new List<TimeValue>() { new TimeValue(0.2f) };
             catalogContainer.Add(row);
+            _rows.Add(row);
 
             for (int j = 0; j < AmountOfButtonsPerRow; j++)
             {
@@ -69,12 +81,10 @@ public class SceneSelectionUi : MonoBehaviour, IUserInputsConsumer
                 buttonContainer.style.flexBasis = 0.333f;
                 var button = buttonContainer.Q<Button>();
                 button.name = sceneIndex.ToString();
-                button.text = sceneIndex.ToString();
                 button.style.backgroundImage = new StyleBackground(sprites[sceneIndex.ToString("D2")]);
                 button.clicked += delegate () { HandleClick(button.name); };
 
                 row.Add(buttonContainer);
-                _sceneIndexToButton.Add(sceneIndex, button);
                 _buttons.AddLast(button);
                 _buttonToRowNumber.Add(button, i);
 
@@ -83,15 +93,17 @@ public class SceneSelectionUi : MonoBehaviour, IUserInputsConsumer
         }
     }
 
+    private void InitializeCurrentSelection()
+    {
+        _currentlySelectedButtonNode = _buttons.First;
+        _currentlySelectedButtonNode.Value.AddToClassList("button-selected");
+        _currentlyPlayingButtonNode = _buttons.First;
+        _currentlyPlayingButtonNode.Value.parent.Q<VisualElement>("is-playing").style.visibility = Visibility.Visible;
+    }
+
     private void HandleClick(string x)
     {
         Debug.Log("hello " + x);
-    }
-
-    public void SubscribeUserInputs()
-    {
-        _userInputsModel.SelectNextScene.EmitKeyTriggeredEvent += HandleSelectNextScene;
-        _userInputsModel.SelectPreviousScene.EmitKeyTriggeredEvent += HandleSelectPreviousScene;
     }
 
     private void HandleSelectPreviousScene()
@@ -102,7 +114,9 @@ public class SceneSelectionUi : MonoBehaviour, IUserInputsConsumer
             return;
         }
         _currentlySelectedButtonNode.Value.RemoveFromClassList("button-selected");
+
         _currentlySelectedButtonNode = _currentlySelectedButtonNode.Previous;
+
         _currentlySelectedButtonNode.Value.AddToClassList("button-selected");
         ScrollToButtonIfNeeded(_currentlySelectedButtonNode.Value);
     }
@@ -128,14 +142,12 @@ public class SceneSelectionUi : MonoBehaviour, IUserInputsConsumer
                 _currentlyVisibleRowsLowerBound += rowsToMove;
             }
 
-            // translate all buttons
-            var currentNode = _buttons.First;
-            while (currentNode != null)
+            // translate all rows
+            _rows.ForEach(row =>
             {
-                var currentYtranslate = currentNode.Value.style.translate.value.y.value;
-                currentNode.Value.style.translate = new Translate(0, -rowsToMove * RowHeightInPx + currentYtranslate);
-                currentNode = currentNode.Next;
-            }
+                var currentYtranslate = row.style.translate.value.y.value;
+                row.style.translate = new Translate(0, -rowsToMove * RowHeightInPx + currentYtranslate);
+            });
         }
     }
 
@@ -152,22 +164,52 @@ public class SceneSelectionUi : MonoBehaviour, IUserInputsConsumer
         ScrollToButtonIfNeeded(_currentlySelectedButtonNode.Value);
     }
 
-    public void UnsubscribeUserInputs()
+
+    public void SubscribeUserInputs()
     {
-        _userInputsModel.SelectNextScene.EmitKeyTriggeredEvent -= HandleSelectNextScene;
-        _userInputsModel.SelectPreviousScene.EmitKeyTriggeredEvent -= HandleSelectPreviousScene;
+        _userInputsModel.LoadScene.EmitKeyTriggeredEvent += LoadScene;
+        _userInputsModel.SelectNextScene.EmitKeyTriggeredEvent += HandleSelectNextScene;
+        _userInputsModel.SelectPreviousScene.EmitKeyTriggeredEvent += HandleSelectPreviousScene;
+        _userInputsModel.ActivateScene.EmitKeyTriggeredEvent += HandleActivateScene;
     }
 
+    public void UnsubscribeUserInputs()
+    {
+        _userInputsModel.LoadScene.EmitKeyTriggeredEvent -= LoadScene;
+        _userInputsModel.SelectNextScene.EmitKeyTriggeredEvent -= HandleSelectNextScene;
+        _userInputsModel.SelectPreviousScene.EmitKeyTriggeredEvent -= HandleSelectPreviousScene;
+        _userInputsModel.ActivateScene.EmitKeyTriggeredEvent -= HandleActivateScene;
+    }
 
+    private void HandleActivateScene()
+    {
+        if (_currentlyLoadingButtonNode == null)
+        {
+            // we haven't loaded a scene to activate
+            return;
+        }
+        _currentlyPlayingButtonNode.Value.parent.Q<VisualElement>("is-playing").style.visibility = Visibility.Hidden;
+        _currentlyPlayingButtonNode = _currentlyLoadingButtonNode;
+        _currentlyPlayingButtonNode.Value.parent.Q<VisualElement>("is-playing").style.visibility = Visibility.Visible;
+        _currentlyLoadingButtonNode.Value.parent.Q<VisualElement>("is-loading").style.visibility = Visibility.Hidden;
+        _currentlyLoadingButtonNode = null;
+        _sceneHandler.ActivateScene();
+    }
+    private void LoadScene()
+    {
+        if (_currentlyLoadingButtonNode != null)
+        {
+            // we're already loading a scene
+            return;
+        }
+        _sceneHandler.LoadScene(int.Parse(_currentlySelectedButtonNode.Value.name));
+        _currentlyLoadingButtonNode = _currentlySelectedButtonNode;
+        _currentlyLoadingButtonNode.Value.parent.Q<VisualElement>("is-loading").style.visibility = Visibility.Visible;
+    }
 
     void OnDisable()
     {
         UnsubscribeUserInputs();
     }
-
-    private void InitializeCurrentSelection()
-    {
-        _currentlySelectedButtonNode = _buttons.First;
-        _currentlySelectedButtonNode.Value.AddToClassList("button-selected");
-    }
 }
+
