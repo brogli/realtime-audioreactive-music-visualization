@@ -44,7 +44,7 @@ sealed class MidiMessageReceiver : MonoBehaviour
 
                 OnControlChange = (byte channel, byte number, byte value) =>
                     {
-                        //Debug.Log(string.Format("{0} channel: [{1}] CC {2} ({3})", name, channel, number, value));
+                        Debug.Log(string.Format("{0} channel: [{1}] CC {2} ({3})", name, channel, number, value));
                         _midiMessageProcessor.ProcessControlChange(name, channel, number, value);
                     },
                 OnClockMessgeReceived = (byte channel) =>
