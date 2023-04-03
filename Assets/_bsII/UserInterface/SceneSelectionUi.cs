@@ -219,6 +219,12 @@ public class SceneSelectionUi : MonoBehaviour, IUserInputsConsumer
         _userInputsModel.SelectNextScene.EmitKeyTriggeredEvent += HandleSelectNextScene;
         _userInputsModel.SelectPreviousScene.EmitKeyTriggeredEvent += HandleSelectPreviousScene;
         _userInputsModel.ActivateScene.EmitKeyTriggeredEvent += HandleActivateScene;
+        _userInputsModel.SceneScroller.EmitTurnedOnEvent += HandleSceneScrollerOn;
+    }
+
+    private void HandleSceneScrollerOn()
+    {
+        Debug.Log(_userInputsModel.SceneScroller.FaderValue);
     }
 
     public void UnsubscribeUserInputs()

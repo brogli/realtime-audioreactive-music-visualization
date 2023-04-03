@@ -7,5 +7,6 @@ public enum InputType
     TriggeredUserInput,
     FadedUserInput,
     ToggeledUserInput,
-    ToggeledAndFadedUserInput
+    ToggeledAndFadedUserInput,
+    TwoSidedFadedUserInput
 }

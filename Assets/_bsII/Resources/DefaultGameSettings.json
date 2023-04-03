@@ -307,6 +307,13 @@
                 "nested": true,
                 "containerType": "ToggeledAndFadedUserInput",
                 "containerTargetProperty": "OneInEightUserInput"
+            },
+            "0_1": {
+                "targetProperty": "SceneScroller",
+                "type": "TwoSidedFadedUserInput",
+                "nested": false,
+                "containerType": "TwoSidedFadedUserInput",
+                "containerTargetProperty": "SceneScroller"
             }
         }
     }

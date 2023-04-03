@@ -6,7 +6,7 @@ public class FadedUserInput : IUserInput
     public delegate void TurnedOffEvent();
     public event TurnedOffEvent EmitTurnedOffEvent;
 
-    private const float TurnedOffThreshold = 0.05f;
+    private const float _turnedOffThreshold = 0.05f;
 
     public float FaderValue { get; private set; } = 1;
     public bool IsActive { get; private set; } = true;
@@ -18,13 +18,13 @@ public class FadedUserInput : IUserInput
             return;
         }
 
-        if (FaderValue < TurnedOffThreshold && value >= TurnedOffThreshold )
+        if (FaderValue < _turnedOffThreshold && value >= _turnedOffThreshold )
         {
             EmitTurnedOnEvent?.Invoke();
             IsActive = true;
 
         }
-        else if (FaderValue >= TurnedOffThreshold && value < TurnedOffThreshold)
+        else if (FaderValue >= _turnedOffThreshold && value < _turnedOffThreshold)
         {
             EmitTurnedOffEvent?.Invoke();
             IsActive = false;
