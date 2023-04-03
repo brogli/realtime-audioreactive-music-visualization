@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 262.1177, g: 324.74368, b: 429.81012, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3653,6 +3653,7 @@ GameObject:
   - component: {fileID: 767379544}
   - component: {fileID: 767379545}
   - component: {fileID: 767379546}
+  - component: {fileID: 767379547}
   m_Layer: 0
   m_Name: UserInterface
   m_TagString: Untagged
@@ -3704,14 +3705,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc41ae1e2f98a6b4182f0bb5c7dc49f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &767379547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767379543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a24d3c0c623d8484399e3d2ef04182dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   RowTemplate: {fileID: 9197481963319205126, guid: 68386358dcb28eb4f879c14727ef7912,
     type: 3}
   ButtonContainerTemplate: {fileID: 9197481963319205126, guid: 2721c62e145b2c240bdb5b828c1e421a,
     type: 3}
   AmountOfVisibleRows: 3
   AmountOfButtonsPerRow: 3
-  buttonSelected: {fileID: 7433441132597879392, guid: 1004c3991d1e11946b63f3c661951f8e,
-    type: 3}
+  RowHeightInPx: 120
 --- !u!1 &777509313
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,19 +1,15 @@
-using Newtonsoft.Json.Linq;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class UiBehavior : MonoBehaviour, IUserInputsConsumer
+public class SceneSelectionUi : MonoBehaviour, IUserInputsConsumer
 {
     public VisualTreeAsset RowTemplate;
     public VisualTreeAsset ButtonContainerTemplate;
     public int AmountOfVisibleRows = 3;
     public int AmountOfButtonsPerRow = 3;
-    public StyleSheet buttonSelected;
     public int RowHeightInPx = 120;
 
     private Dictionary<int, Button> _sceneIndexToButton = new Dictionary<int, Button>();
@@ -23,6 +19,7 @@ public class UiBehavior : MonoBehaviour, IUserInputsConsumer
     private int _currentlyVisibleRowsLowerBound = 0;
     private int _amountOfScenes;
     private UserInputsModel _userInputsModel;
+
 
     // Start is called before the first frame update
     void Start()
@@ -34,33 +31,14 @@ public class UiBehavior : MonoBehaviour, IUserInputsConsumer
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
-    void OnEnable()
+    public void InitializeSceneSelectionUi(VisualElement catalogContainer)
     {
-        var uiDocument = GetComponent<UIDocument>();
-        VisualElement root = uiDocument.rootVisualElement;
-        VisualElement catalogContainer = root.Q<VisualElement>("catalog-container");
         SetupButtons(catalogContainer);
         InitializeCurrentSelection();
-
-
-
-
     }
-
-    void OnDisable()
-    {
-        UnsubscribeUserInputs();
-    }
-
-    private void InitializeCurrentSelection()
-    {
-        _currentlySelectedButtonNode = _buttons.First;
-        _currentlySelectedButtonNode.Value.AddToClassList("button-selected");
-    }
-
 
     private void SetupButtons(VisualElement catalogContainer)
     {
@@ -147,7 +125,7 @@ public class UiBehavior : MonoBehaviour, IUserInputsConsumer
             {
                 // move up (visually)
                 rowsToMove = rowNumberOfButton - _currentlyVisibleRowsLowerBound;
-                _currentlyVisibleRowsLowerBound += rowsToMove; 
+                _currentlyVisibleRowsLowerBound += rowsToMove;
             }
 
             // translate all buttons
@@ -178,5 +156,18 @@ public class UiBehavior : MonoBehaviour, IUserInputsConsumer
     {
         _userInputsModel.SelectNextScene.EmitKeyTriggeredEvent -= HandleSelectNextScene;
         _userInputsModel.SelectPreviousScene.EmitKeyTriggeredEvent -= HandleSelectPreviousScene;
+    }
+
+
+
+    void OnDisable()
+    {
+        UnsubscribeUserInputs();
+    }
+
+    private void InitializeCurrentSelection()
+    {
+        _currentlySelectedButtonNode = _buttons.First;
+        _currentlySelectedButtonNode.Value.AddToClassList("button-selected");
     }
 }
