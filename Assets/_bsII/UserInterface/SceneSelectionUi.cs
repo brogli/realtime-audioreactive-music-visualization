@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class SceneSelectionUi : MonoBehaviour, IUserInputsConsumer
@@ -21,7 +22,7 @@ public class SceneSelectionUi : MonoBehaviour, IUserInputsConsumer
     private LinkedListNode<Button> _currentlyPlayingButtonNode;
     private LinkedListNode<Button> _currentlyLoadingButtonNode;
     private int _currentlyVisibleRowsLowerBound = 0;
-    private int _amountOfScenes;
+    private int _amountOfScenesToDisplay;
     private UserInputsModel _userInputsModel;
     private SceneHandler _sceneHandler;
     private TemplateContainer _isReadyOverlay;
@@ -55,43 +56,69 @@ public class SceneSelectionUi : MonoBehaviour, IUserInputsConsumer
 
     private void SetupVisibleContent(VisualElement catalogContainer)
     {
-        Dictionary<string, Sprite> sprites = Resources
+        Dictionary<int, Sprite> sprites = Resources
             .LoadAll("SceneScreenshots", typeof(Sprite))
             .Select(item => (Sprite)item)
-            .ToDictionary(item => item.name, item => item);
+            .OrderBy(item => {
+                return int.Parse(item.name).ToString("D3");
+            })
+            .ToDictionary(item => int.Parse(item.name), item => item);
 
-        _amountOfScenes = sprites.Count();
-        int sceneIndex = 0;
-        var amountOfRows = _amountOfScenes / AmountOfButtonsPerRow;
-        if (_amountOfScenes % AmountOfButtonsPerRow != 0)
+        int amountOfScenesInBuildSettings = SceneManager.sceneCountInBuildSettings;
+        HashSet<int> allBuildIndices = Enumerable.Range(0, amountOfScenesInBuildSettings).ToHashSet(); // 2nd arg in .Range is exclusive
+
+        _amountOfScenesToDisplay = sprites.Count();
+        var amountOfRows = _amountOfScenesToDisplay / AmountOfButtonsPerRow;
+        if (_amountOfScenesToDisplay % AmountOfButtonsPerRow != 0)
         {
             amountOfRows += 1;
         }
 
-        for (int i = 0; i < amountOfRows; i++)
+        int currentButtonPerRowIndex = 0;
+        int currentRowIndex = 0;
+        TemplateContainer currentRow = null;
+        foreach (var imageIndex in sprites.Keys.ToList())
         {
-            var row = RowTemplate.Instantiate();
-            row.style.flexShrink = 0;
-            row.style.flexDirection = FlexDirection.Row;
-            row.style.transitionDuration = new List<TimeValue>() { new TimeValue(0.2f) };
-            catalogContainer.Add(row);
-            _rows.Add(row);
-
-            for (int j = 0; j < AmountOfButtonsPerRow; j++)
+            if (!allBuildIndices.TryGetValue(imageIndex, out int buildIndex))
             {
+                // skip, since index can't be found in build indices
+                continue;
+            }
+
+            if (currentButtonPerRowIndex == 0)
+            {
+                // add row
+                currentRow = RowTemplate.Instantiate();
+                currentRow.style.flexShrink = 0;
+                currentRow.style.flexDirection = FlexDirection.Row;
+                currentRow.style.transitionDuration = new List<TimeValue>() { new TimeValue(0.2f) };
+                catalogContainer.Add(currentRow);
+                _rows.Add(currentRow);
+            }
+
+            if (currentButtonPerRowIndex < AmountOfButtonsPerRow)
+            {
+                // add button
                 var buttonContainer = ButtonContainerTemplate.Instantiate();
                 buttonContainer.style.flexGrow = 1;
                 buttonContainer.style.flexBasis = 0.333f;
                 var button = buttonContainer.Q<Button>();
-                button.name = sceneIndex.ToString();
-                button.style.backgroundImage = new StyleBackground(sprites[sceneIndex.ToString("D2")]);
+                allBuildIndices.TryGetValue(imageIndex, out int buildIndex);
+                button.name = buildIndex.ToString();
+                button.style.backgroundImage = new StyleBackground(sprites[imageIndex]);
                 button.clicked += delegate () { HandleClick(button.name); };
 
-                row.Add(buttonContainer);
+                currentRow.Add(buttonContainer);
                 _buttons.AddLast(button);
-                _buttonToRowNumber.Add(button, i);
+                _buttonToRowNumber.Add(button, currentRowIndex);
 
-                sceneIndex++;
+                currentButtonPerRowIndex++;
+            }
+
+            if (currentButtonPerRowIndex >= AmountOfButtonsPerRow)
+            {
+                currentButtonPerRowIndex = 0;
+                currentRowIndex++;
             }
         }
 
