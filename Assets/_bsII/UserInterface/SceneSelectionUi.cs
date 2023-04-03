@@ -79,7 +79,7 @@ public class SceneSelectionUi : MonoBehaviour, IUserInputsConsumer
         TemplateContainer currentRow = null;
         foreach (var imageIndex in sprites.Keys.ToList())
         {
-            if (!allBuildIndices.TryGetValue(imageIndex, out int buildIndex))
+            if (!allBuildIndices.TryGetValue(imageIndex, out int buildIndex0))
             {
                 // skip, since index can't be found in build indices
                 continue;
