@@ -9,6 +9,7 @@ public class SceneSelectionUi : MonoBehaviour, IUserInputsConsumer
 {
     public VisualTreeAsset RowTemplate;
     public VisualTreeAsset ButtonContainerTemplate;
+    public VisualTreeAsset IsReadyOverlayTemplate;
     public int AmountOfVisibleRows = 3;
     public int AmountOfButtonsPerRow = 3;
     public int RowHeightInPx = 120;
@@ -23,6 +24,7 @@ public class SceneSelectionUi : MonoBehaviour, IUserInputsConsumer
     private int _amountOfScenes;
     private UserInputsModel _userInputsModel;
     private SceneHandler _sceneHandler;
+    private TemplateContainer _isReadyOverlay;
 
 
     // Start is called before the first frame update
@@ -31,6 +33,7 @@ public class SceneSelectionUi : MonoBehaviour, IUserInputsConsumer
         _userInputsModel = GameObject.FindGameObjectWithTag("UserInputsModel").GetComponent<UserInputsModel>();
         _sceneHandler = GameObject.FindGameObjectWithTag("SceneHandler").GetComponent<SceneHandler>();
         SubscribeUserInputs();
+        _sceneHandler.EmitSceneIsReadyToActivate += HandleSceneIsReadyToActivate;
     }
 
     // Update is called once per frame
@@ -46,11 +49,11 @@ public class SceneSelectionUi : MonoBehaviour, IUserInputsConsumer
 
     public void InitializeSceneSelectionUi(VisualElement catalogContainer)
     {
-        SetupRowsAndButtons(catalogContainer);
+        SetupVisibleContent(catalogContainer);
         InitializeCurrentSelection();
     }
 
-    private void SetupRowsAndButtons(VisualElement catalogContainer)
+    private void SetupVisibleContent(VisualElement catalogContainer)
     {
         Dictionary<string, Sprite> sprites = Resources
             .LoadAll("SceneScreenshots", typeof(Sprite))
@@ -91,6 +94,15 @@ public class SceneSelectionUi : MonoBehaviour, IUserInputsConsumer
                 sceneIndex++;
             }
         }
+
+        _isReadyOverlay = IsReadyOverlayTemplate.Instantiate();
+        _isReadyOverlay.style.position = Position.Absolute;
+        _isReadyOverlay.style.top = 0;
+        _isReadyOverlay.style.right = 0;
+        _isReadyOverlay.style.bottom = 0;
+        _isReadyOverlay.style.left = 0;
+        _isReadyOverlay.style.visibility = Visibility.Hidden;
+        catalogContainer.Add(_isReadyOverlay);
     }
 
     private void InitializeCurrentSelection()
@@ -193,6 +205,7 @@ public class SceneSelectionUi : MonoBehaviour, IUserInputsConsumer
         _currentlyPlayingButtonNode.Value.parent.Q<VisualElement>("is-playing").style.visibility = Visibility.Visible;
         _currentlyLoadingButtonNode.Value.parent.Q<VisualElement>("is-loading").style.visibility = Visibility.Hidden;
         _currentlyLoadingButtonNode = null;
+        _isReadyOverlay.style.visibility = Visibility.Hidden;
         _sceneHandler.ActivateScene();
     }
     private void LoadScene()
@@ -210,6 +223,12 @@ public class SceneSelectionUi : MonoBehaviour, IUserInputsConsumer
     void OnDisable()
     {
         UnsubscribeUserInputs();
+        _sceneHandler.EmitSceneIsReadyToActivate -= HandleSceneIsReadyToActivate;
+    }
+
+    private void HandleSceneIsReadyToActivate()
+    {
+        _isReadyOverlay.style.visibility = Visibility.Visible;
     }
 }
 

@@ -5,7 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class SceneHandler : MonoBehaviour
 {
-    private UserInputsModel _userInputsModel;
+    public delegate void SceneIsReadyToActivate();
+    public event SceneIsReadyToActivate EmitSceneIsReadyToActivate;
+    private bool _isEmitSceneReadyEvocable = true;
 
     private bool _isSceneActivationAllowed = false;
     private bool IsSceneActivationAllowed
@@ -29,7 +31,6 @@ public class SceneHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _userInputsModel = GameObject.FindGameObjectWithTag("UserInputsModel").GetComponent<UserInputsModel>();
     }
 
     // Update is called once per frame
@@ -60,6 +61,11 @@ public class SceneHandler : MonoBehaviour
                 //Change the Text to show the Scene is ready
                 //m_Text.text = "Press the space bar to continue";
                 Debug.Log("Loading progress: " + (asyncOperation.progress * 100) + "%, trying to activate");
+                if (_isEmitSceneReadyEvocable)
+                {
+                    EmitSceneIsReadyToActivate?.Invoke();
+                    _isEmitSceneReadyEvocable = !_isEmitSceneReadyEvocable;
+                }
                 //Wait to you press the space key to activate the Scene
                 if (IsSceneActivationAllowed)
                     //Activate the Scene
@@ -68,6 +74,7 @@ public class SceneHandler : MonoBehaviour
 
             yield return null;
         }
+        _isEmitSceneReadyEvocable = !_isEmitSceneReadyEvocable;
     }
 
     public void LoadScene(int sceneIndex)

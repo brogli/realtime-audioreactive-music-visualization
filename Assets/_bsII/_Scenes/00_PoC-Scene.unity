@@ -3721,6 +3721,8 @@ MonoBehaviour:
     type: 3}
   ButtonContainerTemplate: {fileID: 9197481963319205126, guid: 2721c62e145b2c240bdb5b828c1e421a,
     type: 3}
+  IsReadyOverlayTemplate: {fileID: 9197481963319205126, guid: affa9c9ccf7dbd9469c9e3f95ab17cc8,
+    type: 3}
   AmountOfVisibleRows: 3
   AmountOfButtonsPerRow: 3
   RowHeightInPx: 120
@@ -9620,6 +9622,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UiCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8025684684296181312, guid: bb1390dc64ddbe3418593162f16398a6,
+        type: 3}
+      propertyPath: backgroundColorHDR.b
+      value: 0.019607844
+      objectReference: {fileID: 0}
+    - target: {fileID: 8025684684296181312, guid: bb1390dc64ddbe3418593162f16398a6,
+        type: 3}
+      propertyPath: backgroundColorHDR.g
+      value: 0.019607844
+      objectReference: {fileID: 0}
+    - target: {fileID: 8025684684296181312, guid: bb1390dc64ddbe3418593162f16398a6,
+        type: 3}
+      propertyPath: backgroundColorHDR.r
+      value: 0.019607844
       objectReference: {fileID: 0}
     - target: {fileID: 8887472306221980811, guid: bb1390dc64ddbe3418593162f16398a6,
         type: 3}
