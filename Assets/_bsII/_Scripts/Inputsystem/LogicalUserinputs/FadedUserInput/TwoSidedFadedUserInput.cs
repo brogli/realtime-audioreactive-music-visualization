@@ -17,11 +17,16 @@ public class TwoSidedFadedUserInput : IUserInput
 
     public float FaderValue
     {
-        get 
-        {
-            return _faderValue * 2 - 1;  
-        }
+        get { return _faderValue; }
         private set { _faderValue = value; }
+    }
+
+    public float FaderValueNormalizedBetweenMinusOneAndOne
+    {
+        get
+        {
+            return _faderValue * 2 - 1;
+        }
     }
     public bool IsActive { get; private set; } = true;
 

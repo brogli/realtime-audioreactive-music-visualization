@@ -26,6 +26,8 @@ public class SceneSelectionUi : MonoBehaviour, IUserInputsConsumer
     private UserInputsModel _userInputsModel;
     private SceneHandler _sceneHandler;
     private TemplateContainer _isReadyOverlay;
+    private bool _isContinuouslyScrolling;
+    private bool _isScrollingCoroutineRunning;
 
 
     // Start is called before the first frame update
@@ -46,6 +48,7 @@ public class SceneSelectionUi : MonoBehaviour, IUserInputsConsumer
             var currentRotation = _currentlyLoadingButtonNode.Value.parent.Q<VisualElement>("is-loading").style.rotate;
             currentlyLoadingElement.style.rotate = new StyleRotate(new Rotate((currentRotation.value.angle.value + Time.deltaTime * 70f) % 365));
         }
+
     }
 
     public void InitializeSceneSelectionUi(VisualElement catalogContainer)
@@ -220,12 +223,44 @@ public class SceneSelectionUi : MonoBehaviour, IUserInputsConsumer
         _userInputsModel.SelectPreviousScene.EmitKeyTriggeredEvent += HandleSelectPreviousScene;
         _userInputsModel.ActivateScene.EmitKeyTriggeredEvent += HandleActivateScene;
         _userInputsModel.SceneScroller.EmitTurnedOnEvent += HandleSceneScrollerOn;
+        _userInputsModel.SceneScroller.EmitTurnedOffEvent += HandleSceneScrollerOff;
+    }
+
+    private void HandleSceneScrollerOff()
+    {
+        _isContinuouslyScrolling = false;
+        StopCoroutine(ContinuousScrolling());
     }
 
     private void HandleSceneScrollerOn()
     {
-        Debug.Log(_userInputsModel.SceneScroller.FaderValue);
+        _isContinuouslyScrolling = true;
+        if (!_isScrollingCoroutineRunning)
+        {
+            StartCoroutine(ContinuousScrolling());
+        }
     }
+
+    private IEnumerator ContinuousScrolling()
+    {
+        _isScrollingCoroutineRunning = true;
+        while (_isContinuouslyScrolling)
+        {
+            var value = _userInputsModel.SceneScroller.FaderValueNormalizedBetweenMinusOneAndOne * .6f;
+            if (value > 0)
+            {
+                HandleSelectNextScene();
+            }
+            else
+            {
+                HandleSelectPreviousScene();
+            }
+            yield return new WaitForSeconds(.7f - Mathf.Abs(value));
+        }
+        _isScrollingCoroutineRunning = false;
+    }
+
+
 
     public void UnsubscribeUserInputs()
     {
@@ -233,6 +268,8 @@ public class SceneSelectionUi : MonoBehaviour, IUserInputsConsumer
         _userInputsModel.SelectNextScene.EmitKeyTriggeredEvent -= HandleSelectNextScene;
         _userInputsModel.SelectPreviousScene.EmitKeyTriggeredEvent -= HandleSelectPreviousScene;
         _userInputsModel.ActivateScene.EmitKeyTriggeredEvent -= HandleActivateScene;
+        _userInputsModel.SceneScroller.EmitTurnedOnEvent -= HandleSceneScrollerOn;
+        _userInputsModel.SceneScroller.EmitTurnedOffEvent -= HandleSceneScrollerOff;
     }
 
     private void HandleActivateScene()
