@@ -68,7 +68,7 @@ public class UserInputsModel : MonoBehaviour
         ActivateScene = new TriggeredUserInput();
         SelectNextScene = new TriggeredUserInput();
         SelectPreviousScene = new TriggeredUserInput();
-        SceneScroller = new TwoSidedFadedUserInput(0.1f);
+        SceneScroller = new TwoSidedFadedUserInput(0.15f);
     }
 
     private void InitializeMelodyMoodDroneExplosionKeys()

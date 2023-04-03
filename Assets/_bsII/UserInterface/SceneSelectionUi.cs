@@ -260,8 +260,6 @@ public class SceneSelectionUi : MonoBehaviour, IUserInputsConsumer
         _isScrollingCoroutineRunning = false;
     }
 
-
-
     public void UnsubscribeUserInputs()
     {
         _userInputsModel.LoadScene.EmitKeyTriggeredEvent -= LoadScene;

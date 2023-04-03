@@ -314,6 +314,20 @@
                 "nested": false,
                 "containerType": "TwoSidedFadedUserInput",
                 "containerTargetProperty": "SceneScroller"
+            },
+            "0_16": {
+                "targetProperty": "LoadScene",
+                "type": "TriggeredUserInput",
+                "nested": false,
+                "containerType": "TriggeredUserInput",
+                "containerTargetProperty": "LoadScene"
+            },
+            "0_18": {
+                "targetProperty": "ActivateScene",
+                "type": "TriggeredUserInput",
+                "nested": false,
+                "containerType": "TriggeredUserInput",
+                "containerTargetProperty": "ActivateScene"
             }
         }
     }
