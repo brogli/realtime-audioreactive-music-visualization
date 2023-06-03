@@ -43,7 +43,6 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
     private Scene1ExplosionFullScreenShaderGraph scene1ExplosionFullScreenShaderGraph;
     private bool isExplosionFullScreenEffectStopped = false;
 
-    // Start is called before the first frame update
     void Start()
     {
         _userInputsModel = GameObject.FindGameObjectWithTag("UserInputsModel").GetComponent<UserInputsModel>();
@@ -316,7 +315,14 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
         // droneKeys
         for (int i = 0; i < _userInputsModel.DroneKeys.Keys.Length; i++)
         {
-            _userInputsModel.MelodyKeys.Keys[i].EmitTurnedOnOrOffEvent -= ToggleDroneKey;
+            Debug.Log("unsubscribing drone keys");
+            _userInputsModel.DroneKeys.Keys[i].EmitTurnedOnOrOffEvent -= ToggleDroneKey;
+        }
+
+        // moodKeys
+        for (int i = 0; i < _userInputsModel.MoodKeys.Keys.Length; i++)
+        {
+            _userInputsModel.MoodKeys.Keys[i].EmitCollectionKeyTriggeredEvent -= TriggerMoodKey;
         }
 
         // explosionKeys

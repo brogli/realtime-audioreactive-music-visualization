@@ -81,21 +81,21 @@ public class UserInputsModel : MonoBehaviour
         MelodyKeys = new UserInputCollectionOfEight<ToggeledUserInput>(melodyKeys);
 
         var droneKeys = new ToggeledUserInput[8];
-        for (int i = 0; i < melodyKeys.Length; i++)
+        for (int i = 0; i < droneKeys.Length; i++)
         {
             droneKeys[i] = new ToggeledUserInput(i);
         }
         DroneKeys = new UserInputCollectionOfEight<ToggeledUserInput>(droneKeys);
 
         var moodKeys = new TriggeredUserInput[8];
-        for (int i = 0; i < melodyKeys.Length; i++)
+        for (int i = 0; i < moodKeys.Length; i++)
         {
             moodKeys[i] = new TriggeredUserInput(i);
         }
         MoodKeys = new UserInputCollectionOfEight<TriggeredUserInput>(moodKeys);
 
         var explosionKeys = new TriggeredUserInput[8];
-        for (int i = 0; i < melodyKeys.Length; i++)
+        for (int i = 0; i < explosionKeys.Length; i++)
         {
             explosionKeys[i] = new TriggeredUserInput(i);
         }
