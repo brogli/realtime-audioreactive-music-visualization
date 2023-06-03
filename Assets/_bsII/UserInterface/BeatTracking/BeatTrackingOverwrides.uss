@@ -1,0 +1,11 @@
+.unity-progress-bar__background {
+	background-color: #484848; 
+}
+
+.unity-progress-bar__container {
+	min-height: 16px;
+}
+
+.unity-progress-bar__title {
+	font-size: 9px;
+}
