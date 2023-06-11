@@ -11,6 +11,13 @@ public class HairSceneImplementation : MonoBehaviour, IMusicInputsConsumer, IUse
     public Transform TwoInFourRight;
     public Transform TwoInFourLeft;
 
+    public GameObject EightInFourPrefab;
+    public float EightInFourXmin;
+    public float EightInFourXmax;
+    public float EightInFourZmin;
+    public float EightInFourZmax;
+    public float EightInFourYspawn;
+
     public float FourInFourMovementFactor = 1;
     public float TwoInFourMovementFactor = 1;
 
@@ -81,6 +88,8 @@ public class HairSceneImplementation : MonoBehaviour, IMusicInputsConsumer, IUse
 
     }
 
+    #region music events
+
     private void HandleFourInFourMusicEvent()
     {
         Transform fourInFourToReset = _isRightFourInFoursTurn ? FourInFourRight : FourInFourLeft;
@@ -95,17 +104,27 @@ public class HairSceneImplementation : MonoBehaviour, IMusicInputsConsumer, IUse
         _isRightTwoInFoursTurn = !_isRightTwoInFoursTurn;
     }
 
+    private void HandleEightInFourMusicEvent()
+    {
+        var spawnPosition = new Vector3(UnityEngine.Random.Range(EightInFourXmin, EightInFourXmax), EightInFourYspawn, UnityEngine.Random.Range(EightInFourZmin, EightInFourZmax));
+        Instantiate(EightInFourPrefab, spawnPosition, Quaternion.Euler(-90, 0, 0));
+    }
+
     public void SubscribeMusicInputs()
     {
         _musicInputsModel.EmitFourInFourEvent += HandleFourInFourMusicEvent;
         _musicInputsModel.EmitTwoInFourEvent += HandleTwoInFourMusicEvent;
+        _musicInputsModel.EmitEightInFourEvent += HandleEightInFourMusicEvent;
     }
 
     public void UnsubscribeMusicInputs()
     {
         _musicInputsModel.EmitFourInFourEvent -= HandleFourInFourMusicEvent;
         _musicInputsModel.EmitTwoInFourEvent -= HandleTwoInFourMusicEvent;
+        _musicInputsModel.EmitEightInFourEvent -= HandleEightInFourMusicEvent;
     }
+
+    #endregion
 
     #region userinputs
 
@@ -152,7 +171,6 @@ public class HairSceneImplementation : MonoBehaviour, IMusicInputsConsumer, IUse
             TwoInFourRight.gameObject.SetActive(true);
         }
     }
-
     #endregion
 }
 
