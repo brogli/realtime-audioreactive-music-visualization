@@ -10,8 +10,11 @@ public class HairSceneImplementation : MonoBehaviour, IMusicInputsConsumer, IUse
     public Transform FourInFourRight;
     public Transform TwoInFourRight;
     public Transform TwoInFourLeft;
+    public Transform EightInFourShadowRight;
+    public Transform EightInFourShadowLeft;
+    public float EightInFourShadowScaleFactor = 1;
 
-    public GameObject EightInFourPrefab;
+    public GameObject SixteenInFourPrefab;
     public float EightInFourXmin;
     public float EightInFourXmax;
     public float EightInFourZmin;
@@ -31,6 +34,8 @@ public class HairSceneImplementation : MonoBehaviour, IMusicInputsConsumer, IUse
 
     private bool _isFourInFourUserInputOn;
     private bool _isTwoInFourUserInputOn;
+    private bool _isEightInFourActive;
+    private bool _isSixteenInFourActive;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +54,17 @@ public class HairSceneImplementation : MonoBehaviour, IMusicInputsConsumer, IUse
         UnsubscribeUserInputs();
     }
 
+    void Update()
+    {
+        if (_isEightInFourActive)
+        {
+            var eightInFourAsSine = Mathf.Sin(_musicInputsModel.FourInFourValue * 2 * Mathf.PI) * EightInFourShadowScaleFactor;
+            EightInFourShadowRight.localScale = new Vector3(eightInFourAsSine, EightInFourShadowRight.localScale.y, EightInFourShadowRight.localScale.z);
+
+            EightInFourShadowLeft.localScale = new Vector3(eightInFourAsSine, EightInFourShadowLeft.localScale.y, EightInFourShadowLeft.localScale.z);
+        }
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -61,6 +77,8 @@ public class HairSceneImplementation : MonoBehaviour, IMusicInputsConsumer, IUse
         {
             AnimateTwoInFour();
         }
+
+
     }
 
     private void AnimateFourInFour()
@@ -88,6 +106,8 @@ public class HairSceneImplementation : MonoBehaviour, IMusicInputsConsumer, IUse
 
     }
 
+
+
     #region music events
 
     private void HandleFourInFourMusicEvent()
@@ -104,24 +124,27 @@ public class HairSceneImplementation : MonoBehaviour, IMusicInputsConsumer, IUse
         _isRightTwoInFoursTurn = !_isRightTwoInFoursTurn;
     }
 
-    private void HandleEightInFourMusicEvent()
+    private void HandleSixteenInFourMusicEvent()
     {
-        var spawnPosition = new Vector3(UnityEngine.Random.Range(EightInFourXmin, EightInFourXmax), EightInFourYspawn, UnityEngine.Random.Range(EightInFourZmin, EightInFourZmax));
-        Instantiate(EightInFourPrefab, spawnPosition, Quaternion.Euler(-90, 0, 0));
+        if (_isSixteenInFourActive)
+        { 
+            var spawnPosition = new Vector3(UnityEngine.Random.Range(EightInFourXmin, EightInFourXmax), EightInFourYspawn, UnityEngine.Random.Range(EightInFourZmin, EightInFourZmax));
+            Instantiate(SixteenInFourPrefab, spawnPosition, Quaternion.Euler(-90, 0, 0));
+        }
     }
 
     public void SubscribeMusicInputs()
     {
         _musicInputsModel.EmitFourInFourEvent += HandleFourInFourMusicEvent;
         _musicInputsModel.EmitTwoInFourEvent += HandleTwoInFourMusicEvent;
-        _musicInputsModel.EmitEightInFourEvent += HandleEightInFourMusicEvent;
+        _musicInputsModel.EmitSixteenInFourEvent += HandleSixteenInFourMusicEvent;
     }
 
     public void UnsubscribeMusicInputs()
     {
         _musicInputsModel.EmitFourInFourEvent -= HandleFourInFourMusicEvent;
         _musicInputsModel.EmitTwoInFourEvent -= HandleTwoInFourMusicEvent;
-        _musicInputsModel.EmitEightInFourEvent -= HandleEightInFourMusicEvent;
+        _musicInputsModel.EmitSixteenInFourEvent -= HandleSixteenInFourMusicEvent;
     }
 
     #endregion
@@ -135,11 +158,40 @@ public class HairSceneImplementation : MonoBehaviour, IMusicInputsConsumer, IUse
 
         _userInputsModel.TwoInFourUserInput.EmitTurnedOnOrOffEvent += HandleTwoInFourUserEvent;
         HandleTwoInFourUserEvent(_userInputsModel.TwoInFourUserInput.IsPressed);
+
+        _userInputsModel.EightInFourUserInput.EmitTurnedOnOrOffEvent += HandleEightInFourUserEvent;
+        HandleEightInFourUserEvent(_userInputsModel.EightInFourUserInput.IsPressed);
+
+        _userInputsModel.SixteenInFourUserInput.EmitTurnedOnOrOffEvent += HandleSixteenInFourUserEvent;
+        HandleEightInFourUserEvent(_userInputsModel.SixteenInFourUserInput.IsPressed);
     }
 
     public void UnsubscribeUserInputs()
     {
         _userInputsModel.FourInFourUserInput.EmitTurnedOnOrOffEvent -= HandleFourInFourUserEvent;
+        _userInputsModel.TwoInFourUserInput.EmitTurnedOnOrOffEvent -= HandleTwoInFourUserEvent;
+        _userInputsModel.EightInFourUserInput.EmitTurnedOnOrOffEvent -= HandleEightInFourUserEvent;
+        _userInputsModel.SixteenInFourUserInput.EmitTurnedOnOrOffEvent -= HandleSixteenInFourUserEvent;
+    }
+
+    private void HandleSixteenInFourUserEvent(bool hasTurnedOn)
+    {
+        _isSixteenInFourActive = hasTurnedOn;
+    }
+
+    private void HandleEightInFourUserEvent(bool hasTurnedOn)
+    {
+        _isEightInFourActive = hasTurnedOn;
+        if (!_isEightInFourActive)
+        {
+            EightInFourShadowRight.gameObject.SetActive(false);
+            EightInFourShadowLeft.gameObject.SetActive(false);
+        }
+        else
+        {
+            EightInFourShadowRight.gameObject.SetActive(true);
+            EightInFourShadowLeft.gameObject.SetActive(true);
+        }
     }
 
     private void HandleFourInFourUserEvent(bool hasTurnedOn)
