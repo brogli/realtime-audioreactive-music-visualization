@@ -1,7 +1,107 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/_bsII/UserInterface/BeatTracking/BeatTrackingOverwrides.uss?fileID=7433441132597879392&amp;guid=f1435336946a469429fc659cd009f438&amp;type=3#BeatTrackingOverwrides" />
     <ui:VisualElement name="top-half" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 50%;" />
     <ui:VisualElement name="lower-half" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 50%; flex-direction: row;">
-        <ui:VisualElement name="lower-left" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 50%;" />
+        <ui:VisualElement name="lower-left" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 50%;">
+            <ui:VisualElement name="lower-left-upper" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; flex-basis: 40%;">
+                <ui:VisualElement name="lower-left-upper-container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+                    <ui:VisualElement name="4-4-row" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; align-items: stretch; justify-content: flex-start; margin-left: 4px; margin-top: 4px;">
+                        <ui:VisualElement name="4-4-container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 12%;">
+                            <ui:VisualElement name="4-4-label-row" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; flex-basis: 50%;">
+                                <ui:VisualElement name="4-4-label0" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); align-items: flex-start; justify-content: flex-end; align-self: flex-start;">
+                                    <ui:Label tabindex="-1" text="1" display-tooltip-when-elided="true" name="Label" style="margin-left: 0; padding-left: 0; padding-right: 0; margin-right: 0; color: rgb(255, 255, 255); padding-bottom: 0; margin-bottom: 0; margin-top: -3px; padding-top: 0; -unity-text-align: upper-left; white-space: nowrap; text-overflow: clip; flex-shrink: 1; flex-grow: 1; flex-basis: 50%; font-size: 9px;" />
+                                    <ui:VisualElement name="tick" style="flex-grow: 0; background-color: rgb(255, 255, 255); min-width: 5px; height: 0; width: 0; flex-basis: 50%; flex-shrink: 0;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="4-4-label0" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); align-items: flex-start; justify-content: flex-end; align-self: auto;">
+                                    <ui:Label tabindex="-1" text="1" display-tooltip-when-elided="true" name="Label" style="margin-left: 0; padding-left: 0; padding-right: 0; margin-right: 0; color: rgb(255, 255, 255); padding-bottom: 0; margin-bottom: 0; margin-top: -3px; padding-top: 0; -unity-text-align: upper-right; white-space: nowrap; text-overflow: clip; flex-shrink: 1; flex-grow: 1; flex-basis: 50%; font-size: 9px; align-self: flex-end;" />
+                                    <ui:VisualElement name="tick" style="flex-grow: 0; background-color: rgb(255, 255, 255); min-width: 5px; height: 0; width: 0; flex-basis: 50%; flex-shrink: 0; align-self: flex-end;" />
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                            <ui:ProgressBar value="0.5" title="4 in 4" low-value="0" high-value="1" name="4-4" style="margin-left: 0; margin-right: 0; flex-basis: 50%; flex-shrink: 1; flex-grow: 1; margin-top: 0; margin-bottom: 0;" />
+                        </ui:VisualElement>
+                        <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 88%;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="1-4-row" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; align-items: stretch; justify-content: flex-start; margin-left: 4px; margin-top: 4px;">
+                        <ui:VisualElement name="1-4-container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 55.56%;">
+                            <ui:VisualElement name="1-4-label-row" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; flex-basis: 50%;">
+                                <ui:VisualElement name="4-4-label0" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); align-items: flex-start; justify-content: flex-end; align-self: flex-start;">
+                                    <ui:Label tabindex="-1" text="1" display-tooltip-when-elided="true" name="Label" style="margin-left: 0; padding-left: 0; padding-right: 0; margin-right: 0; color: rgb(255, 255, 255); padding-bottom: 0; margin-bottom: 0; margin-top: -3px; padding-top: 0; -unity-text-align: upper-left; white-space: nowrap; text-overflow: clip; flex-shrink: 1; flex-grow: 1; flex-basis: 50%; font-size: 9px;" />
+                                    <ui:VisualElement name="tick" style="flex-grow: 0; background-color: rgb(255, 255, 255); min-width: 5px; height: 0; width: 0; flex-basis: 50%; flex-shrink: 0;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="4-4-label2" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); align-items: flex-start; justify-content: flex-end; align-self: flex-start;">
+                                    <ui:Label tabindex="-1" text="2" display-tooltip-when-elided="true" name="Label" style="margin-left: 0; padding-left: 0; padding-right: 0; margin-right: 0; color: rgb(255, 255, 255); padding-bottom: 0; margin-bottom: 0; margin-top: -3px; padding-top: 0; -unity-text-align: upper-left; white-space: nowrap; text-overflow: clip; flex-shrink: 1; flex-grow: 1; flex-basis: 50%; font-size: 9px;" />
+                                    <ui:VisualElement name="tick" style="flex-grow: 0; background-color: rgb(255, 255, 255); min-width: 5px; height: 0; width: 0; flex-basis: 50%; flex-shrink: 0;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="4-4-label3" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); align-items: flex-start; justify-content: flex-end; align-self: flex-start;">
+                                    <ui:Label tabindex="-1" text="3" display-tooltip-when-elided="true" name="Label" style="margin-left: 0; padding-left: 0; padding-right: 0; margin-right: 0; color: rgb(255, 255, 255); padding-bottom: 0; margin-bottom: 0; margin-top: -3px; padding-top: 0; -unity-text-align: upper-left; white-space: nowrap; text-overflow: clip; flex-shrink: 1; flex-grow: 1; flex-basis: 50%; font-size: 9px;" />
+                                    <ui:VisualElement name="tick" style="flex-grow: 0; background-color: rgb(255, 255, 255); min-width: 5px; height: 0; width: 0; flex-basis: 50%; flex-shrink: 0;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="4-4-label4" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); align-items: flex-start; justify-content: flex-end; align-self: flex-start;">
+                                    <ui:Label tabindex="-1" text="4" display-tooltip-when-elided="true" name="Label" style="margin-left: 0; padding-left: 0; padding-right: 0; margin-right: 0; color: rgb(255, 255, 255); padding-bottom: 0; margin-bottom: 0; margin-top: -3px; padding-top: 0; -unity-text-align: upper-left; white-space: nowrap; text-overflow: clip; flex-shrink: 1; flex-grow: 1; flex-basis: 50%; font-size: 9px;" />
+                                    <ui:VisualElement name="tick" style="flex-grow: 0; background-color: rgb(255, 255, 255); min-width: 5px; height: 0; width: 0; flex-basis: 50%; flex-shrink: 0;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="4-4-label0" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); align-items: flex-start; justify-content: flex-end; align-self: auto;">
+                                    <ui:Label tabindex="-1" text="1" display-tooltip-when-elided="true" name="Label" style="margin-left: 0; padding-left: 0; padding-right: 0; margin-right: 0; color: rgb(255, 255, 255); padding-bottom: 0; margin-bottom: 0; margin-top: -3px; padding-top: 0; -unity-text-align: upper-right; white-space: nowrap; text-overflow: clip; flex-shrink: 1; flex-grow: 1; flex-basis: 50%; font-size: 9px; align-self: flex-start;" />
+                                    <ui:VisualElement name="tick" style="flex-grow: 0; background-color: rgb(255, 255, 255); min-width: 5px; height: 0; width: 0; flex-basis: 50%; flex-shrink: 0; align-self: flex-start;" />
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                            <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 50%; flex-direction: row;">
+                                <ui:ProgressBar value="0.5" title="4 in 4" low-value="0" high-value="1" name="1-4" style="margin-left: 0; margin-right: 0; flex-basis: 82%; flex-shrink: 1; flex-grow: 1; margin-top: 0; margin-bottom: 0;" />
+                                <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 18%;" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 44.5%;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="1-8-row" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; align-items: stretch; justify-content: flex-start; margin-left: 4px; margin-top: 4px;">
+                        <ui:VisualElement name="1-8-container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+                            <ui:VisualElement name="1-8-label-row" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; flex-basis: 50%;">
+                                <ui:VisualElement name="4-4-label0" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); align-items: flex-start; justify-content: flex-end; align-self: flex-start;">
+                                    <ui:Label tabindex="-1" text="1" display-tooltip-when-elided="true" name="Label" style="margin-left: 0; padding-left: 0; padding-right: 0; margin-right: 0; color: rgb(255, 255, 255); padding-bottom: 0; margin-bottom: 0; margin-top: -3px; padding-top: 0; -unity-text-align: upper-left; white-space: nowrap; text-overflow: clip; flex-shrink: 1; flex-grow: 1; flex-basis: 50%; font-size: 9px;" />
+                                    <ui:VisualElement name="tick" style="flex-grow: 0; background-color: rgb(255, 255, 255); min-width: 5px; height: 0; width: 0; flex-basis: 50%; flex-shrink: 0;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="4-4-label0" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); align-items: flex-start; justify-content: flex-end; align-self: auto;">
+                                    <ui:Label tabindex="-1" text="2" display-tooltip-when-elided="true" name="Label" style="margin-left: 0; padding-left: 0; padding-right: 0; margin-right: 0; color: rgb(255, 255, 255); padding-bottom: 0; margin-bottom: 0; margin-top: -3px; padding-top: 0; -unity-text-align: upper-right; white-space: nowrap; text-overflow: clip; flex-shrink: 1; flex-grow: 1; flex-basis: 50%; font-size: 9px; align-self: flex-start;" />
+                                    <ui:VisualElement name="tick" style="flex-grow: 0; background-color: rgb(255, 255, 255); min-width: 5px; height: 0; width: 0; flex-basis: 50%; flex-shrink: 0; align-self: flex-start;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="4-4-label0" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); align-items: flex-start; justify-content: flex-end; align-self: auto;">
+                                    <ui:Label tabindex="-1" text="3" display-tooltip-when-elided="true" name="Label" style="margin-left: 0; padding-left: 0; padding-right: 0; margin-right: 0; color: rgb(255, 255, 255); padding-bottom: 0; margin-bottom: 0; margin-top: -3px; padding-top: 0; -unity-text-align: upper-right; white-space: nowrap; text-overflow: clip; flex-shrink: 1; flex-grow: 1; flex-basis: 50%; font-size: 9px; align-self: flex-start;" />
+                                    <ui:VisualElement name="tick" style="flex-grow: 0; background-color: rgb(255, 255, 255); min-width: 5px; height: 0; width: 0; flex-basis: 50%; flex-shrink: 0; align-self: flex-start;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="4-4-label0" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); align-items: flex-start; justify-content: flex-end; align-self: auto;">
+                                    <ui:Label tabindex="-1" text="4" display-tooltip-when-elided="true" name="Label" style="margin-left: 0; padding-left: 0; padding-right: 0; margin-right: 0; color: rgb(255, 255, 255); padding-bottom: 0; margin-bottom: 0; margin-top: -3px; padding-top: 0; -unity-text-align: upper-right; white-space: nowrap; text-overflow: clip; flex-shrink: 1; flex-grow: 1; flex-basis: 50%; font-size: 9px; align-self: flex-start;" />
+                                    <ui:VisualElement name="tick" style="flex-grow: 0; background-color: rgb(255, 255, 255); min-width: 5px; height: 0; width: 0; flex-basis: 50%; flex-shrink: 0; align-self: flex-start;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="4-4-label0" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); align-items: flex-start; justify-content: flex-end; align-self: auto;">
+                                    <ui:Label tabindex="-1" text="5" display-tooltip-when-elided="true" name="Label" style="margin-left: 0; padding-left: 0; padding-right: 0; margin-right: 0; color: rgb(255, 255, 255); padding-bottom: 0; margin-bottom: 0; margin-top: -3px; padding-top: 0; -unity-text-align: upper-right; white-space: nowrap; text-overflow: clip; flex-shrink: 1; flex-grow: 1; flex-basis: 50%; font-size: 9px; align-self: flex-start;" />
+                                    <ui:VisualElement name="tick" style="flex-grow: 0; background-color: rgb(255, 255, 255); min-width: 5px; height: 0; width: 0; flex-basis: 50%; flex-shrink: 0; align-self: flex-start;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="4-4-label0" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); align-items: flex-start; justify-content: flex-end; align-self: auto;">
+                                    <ui:Label tabindex="-1" text="6" display-tooltip-when-elided="true" name="Label" style="margin-left: 0; padding-left: 0; padding-right: 0; margin-right: 0; color: rgb(255, 255, 255); padding-bottom: 0; margin-bottom: 0; margin-top: -3px; padding-top: 0; -unity-text-align: upper-right; white-space: nowrap; text-overflow: clip; flex-shrink: 1; flex-grow: 1; flex-basis: 50%; font-size: 9px; align-self: flex-start;" />
+                                    <ui:VisualElement name="tick" style="flex-grow: 0; background-color: rgb(255, 255, 255); min-width: 5px; height: 0; width: 0; flex-basis: 50%; flex-shrink: 0; align-self: flex-start;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="4-4-label0" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); align-items: flex-start; justify-content: flex-end; align-self: auto;">
+                                    <ui:Label tabindex="-1" text="7" display-tooltip-when-elided="true" name="Label" style="margin-left: 0; padding-left: 0; padding-right: 0; margin-right: 0; color: rgb(255, 255, 255); padding-bottom: 0; margin-bottom: 0; margin-top: -3px; padding-top: 0; -unity-text-align: upper-right; white-space: nowrap; text-overflow: clip; flex-shrink: 1; flex-grow: 1; flex-basis: 50%; font-size: 9px; align-self: flex-start;" />
+                                    <ui:VisualElement name="tick" style="flex-grow: 0; background-color: rgb(255, 255, 255); min-width: 5px; height: 0; width: 0; flex-basis: 50%; flex-shrink: 0; align-self: flex-start;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="4-4-label0" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); align-items: flex-start; justify-content: flex-end; align-self: auto;">
+                                    <ui:Label tabindex="-1" text="8" display-tooltip-when-elided="true" name="Label" style="margin-left: 0; padding-left: 0; padding-right: 0; margin-right: 0; color: rgb(255, 255, 255); padding-bottom: 0; margin-bottom: 0; margin-top: -3px; padding-top: 0; -unity-text-align: upper-right; white-space: nowrap; text-overflow: clip; flex-shrink: 1; flex-grow: 1; flex-basis: 50%; font-size: 9px; align-self: flex-start;" />
+                                    <ui:VisualElement name="tick" style="flex-grow: 0; background-color: rgb(255, 255, 255); min-width: 5px; height: 0; width: 0; flex-basis: 50%; flex-shrink: 0; align-self: flex-start;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="4-4-label0" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); align-items: flex-start; justify-content: flex-end; align-self: auto;">
+                                    <ui:Label tabindex="-1" text="1" display-tooltip-when-elided="true" name="Label" style="margin-left: 0; padding-left: 0; padding-right: 0; margin-right: 0; color: rgb(255, 255, 255); padding-bottom: 0; margin-bottom: 0; margin-top: -3px; padding-top: 0; -unity-text-align: upper-right; white-space: nowrap; text-overflow: clip; flex-shrink: 1; flex-grow: 1; flex-basis: 50%; font-size: 9px; align-self: flex-start;" />
+                                    <ui:VisualElement name="tick" style="flex-grow: 0; background-color: rgb(255, 255, 255); min-width: 5px; height: 0; width: 0; flex-basis: 50%; flex-shrink: 0; align-self: flex-start;" />
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                            <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 50%; flex-direction: row;">
+                                <ui:ProgressBar value="0.5" title="1 in 8" low-value="0" high-value="1" name="1-8" style="margin-left: 0; margin-right: 0; flex-basis: 90%; flex-shrink: 1; flex-grow: 1; margin-top: 0; margin-bottom: 0;" />
+                                <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 10%;" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="lower-left-lower" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 60%;" />
+        </ui:VisualElement>
         <ui:VisualElement name="lower-right" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 50%; flex-direction: row;">
             <ui:VisualElement name="catalog-container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 95%; overflow: hidden;" />
             <ui:VisualElement name="scrollbar-container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 5%;" />
