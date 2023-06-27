@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TriggeredUserInput : IUserInput
+public class TriggeredUserInput : ISceneUserInput
 {
     public int index = 0;
     public delegate void KeyTriggerEvent();
@@ -27,11 +27,22 @@ public class TriggeredUserInput : IUserInput
     {
         if (!newIsPressed)
         {
-            // don't want to trigger on stopping the button pressing
+            // don't want to trigger on releasing the button
             return;
         }
         EmitKeyTriggeredEvent?.Invoke();
         EmitCollectionKeyTriggeredEvent?.Invoke(index);
         EmitKeyTriggeredEventWithValue?.Invoke(value);
     }
+
+    public bool IsUsedInScene()
+    {
+        return EmitKeyTriggeredEvent != null || EmitCollectionKeyTriggeredEvent != null || EmitKeyTriggeredEventWithValue != null;
+    }
+
+    public void ResetValidationFlags()
+    {
+        // not needed
+    }
+
 }

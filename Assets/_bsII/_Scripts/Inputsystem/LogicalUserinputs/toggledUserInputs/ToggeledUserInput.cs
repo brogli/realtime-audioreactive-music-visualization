@@ -3,16 +3,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ToggeledUserInput : IUserInput
+public class ToggeledUserInput : ISceneUserInput
 {
     public delegate void TurnedOnOrOffEvent(bool hasTurnedOn, int index);
     public event TurnedOnOrOffEvent EmitTurnedOnOrOffEvent;
-
-    public bool IsPressed { get; private set; } = false;
-
-    public float Value { get; private set; }
-
+    private bool _hasAccessors;
     private int _index;
+    private bool isPressed = false;
+    private float _value;
+
+    public bool IsPressed
+    {
+        get
+        {
+            _hasAccessors = true;
+            return isPressed;
+        }
+        private set => isPressed = value;
+    }
+    public float Value
+    {
+        get
+        {
+            _hasAccessors = true;
+            return _value;
+        }
+        private set => _value = value;
+    }
+
+
     public int Index
     {
         get => _index;
@@ -51,6 +70,16 @@ public class ToggeledUserInput : IUserInput
             IsPressed = false;
             EmitTurnedOnOrOffEvent?.Invoke(false, Index);
         }
+    }
+
+    public bool IsUsedInScene()
+    {
+        return EmitTurnedOnOrOffEvent != null || _hasAccessors;
+    }
+
+    public void ResetValidationFlags()
+    {
+        _hasAccessors = false;
     }
 }
 

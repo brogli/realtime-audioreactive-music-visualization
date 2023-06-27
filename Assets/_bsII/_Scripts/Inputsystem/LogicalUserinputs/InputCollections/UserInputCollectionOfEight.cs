@@ -2,17 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UserInputCollectionOfEight<T> where T : IUserInput
+public class UserInputCollectionOfEight<T> where T : ISceneUserInput
 {
     public T[] Keys { get; private set; }
 
     public UserInputCollectionOfEight(T[] keys)
     {
         Keys = keys;
-        //Keys = new T[8];
-        //for (int i = 0; i < Keys.Length; i++)
-        //{
-        //    //Keys[i] = new T();
-        //}
     }
 }

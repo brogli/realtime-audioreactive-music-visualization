@@ -100,7 +100,12 @@
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement name="lower-left-lower" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 60%;" />
+            <ui:VisualElement name="lower-left-lower" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 60%;">
+                <ui:VisualElement name="fps-container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row;">
+                    <ui:Label tabindex="-1" text="FPS" display-tooltip-when-elided="true" name="fps-label" style="color: rgb(255, 255, 255);" />
+                    <ui:Label tabindex="-1" text="FPS" display-tooltip-when-elided="true" name="fps-value" style="color: rgb(255, 255, 255);" />
+                </ui:VisualElement>
+            </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="lower-right" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 50%; flex-direction: row;">
             <ui:VisualElement name="catalog-container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 95%; overflow: hidden;" />

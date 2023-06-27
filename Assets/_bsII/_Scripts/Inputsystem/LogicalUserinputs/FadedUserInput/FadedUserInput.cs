@@ -1,4 +1,6 @@
-public class FadedUserInput : IUserInput
+using System.Diagnostics;
+
+public class FadedUserInput : ISceneUserInput
 {
     public delegate void TurnedOnEvent();
     public event TurnedOnEvent EmitTurnedOnEvent;
@@ -7,8 +9,17 @@ public class FadedUserInput : IUserInput
     public event TurnedOffEvent EmitTurnedOffEvent;
 
     private const float _turnedOffThreshold = 0.05f;
+    private float _faderValue = 1;
+    private bool _isFaderValueUsed = false;
 
-    public float FaderValue { get; private set; } = 1;
+    public float FaderValue { 
+        get 
+        {
+            _isFaderValueUsed = true;
+            return _faderValue; 
+        } 
+        private set => _faderValue = value; 
+    }
     public bool IsActive { get; private set; } = true;
 
     public void SetNewStateIfNecessary(bool isPressed, float value)
@@ -18,7 +29,7 @@ public class FadedUserInput : IUserInput
             return;
         }
 
-        if (FaderValue < _turnedOffThreshold && value >= _turnedOffThreshold )
+        if (FaderValue < _turnedOffThreshold && value >= _turnedOffThreshold)
         {
             EmitTurnedOnEvent?.Invoke();
             IsActive = true;
@@ -31,5 +42,15 @@ public class FadedUserInput : IUserInput
         }
 
         FaderValue = value;
+    }
+
+    public bool IsUsedInScene()
+    {
+        return _isFaderValueUsed;
+    }
+
+    public void ResetValidationFlags()
+    {
+        _isFaderValueUsed = false;
     }
 }
