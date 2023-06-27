@@ -315,7 +315,6 @@ public class Scene1Implementation : MonoBehaviour, IUserInputsConsumer
         // droneKeys
         for (int i = 0; i < _userInputsModel.DroneKeys.Keys.Length; i++)
         {
-            Debug.Log("unsubscribing drone keys");
             _userInputsModel.DroneKeys.Keys[i].EmitTurnedOnOrOffEvent -= ToggleDroneKey;
         }
 

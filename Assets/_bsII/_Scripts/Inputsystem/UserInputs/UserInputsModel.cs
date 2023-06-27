@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UserInputsModel : MonoBehaviour
 { 
@@ -42,6 +44,23 @@ public class UserInputsModel : MonoBehaviour
         InitializeManagementInputs();
         InitializeBeatUserInputs();
         InitializeVolumeElements();
+        SceneManager.sceneLoaded += ResetUserInputValidationFlags;
+    }
+
+    private void ResetUserInputValidationFlags(Scene arg0, LoadSceneMode arg1)
+    {
+        MelodyKeys.Keys.ToList().ForEach(key => { key.ResetValidationFlags(); });
+        DroneKeys.Keys.ToList().ForEach(key => { key.ResetValidationFlags(); });
+        MoodKeys.Keys.ToList().ForEach(key => { key.ResetValidationFlags(); });
+        ExplosionKeys.Keys.ToList().ForEach(key => { key.ResetValidationFlags(); });
+        FourInFourUserInput.ResetValidationFlags();
+        OneInFourUserInput.ResetValidationFlags();
+        TwoInFourUserInput.ResetValidationFlags();
+        EightInFourUserInput.ResetValidationFlags();
+        SixteenInFourUserInput.ResetValidationFlags();
+        OneInEightUserInput.ResetValidationFlags();
+        AverageVolume.ResetValidationFlags();
+        LowFrequencyVolume.ResetValidationFlags();
     }
 
     private void InitializeVolumeElements()
@@ -104,6 +123,7 @@ public class UserInputsModel : MonoBehaviour
 
     public void OnApplicationQuit()
     {
+        SceneManager.sceneLoaded -= ResetUserInputValidationFlags;
         FourInFourUserInput?.Unsubscribe();
         OneInFourUserInput?.Unsubscribe();
         TwoInFourUserInput?.Unsubscribe();

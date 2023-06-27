@@ -1,7 +1,10 @@
+using Codice.Client.BaseCommands;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.HighDefinition;
 
 public class HairSceneImplementation : MonoBehaviour, IMusicInputsConsumer, IUserInputsConsumer
 {
@@ -10,9 +13,10 @@ public class HairSceneImplementation : MonoBehaviour, IMusicInputsConsumer, IUse
     public Transform FourInFourRight;
     public Transform TwoInFourRight;
     public Transform TwoInFourLeft;
-    public Transform EightInFourShadowRight;
-    public Transform EightInFourShadowLeft;
-    public float EightInFourShadowScaleFactor = 1;
+    public List<Transform> EightInFours;
+    public Light MainLight;
+    public float MainLightMinIntensity;
+    public float MainLightMaxIntensity;
 
     public GameObject SixteenInFourPrefab;
     public float EightInFourXmin;
@@ -23,12 +27,21 @@ public class HairSceneImplementation : MonoBehaviour, IMusicInputsConsumer, IUse
 
     public float FourInFourMovementFactor = 1;
     public float TwoInFourMovementFactor = 1;
+    public float EightInFourMovementFactor = 1;
+
+    public List<Animator> melodyKeys = new List<Animator>();
+    public Volume SceneVolume;
+    public Transform DroneWind;
+    public Animator ExplosionSphere;
+    public Animator ExplosionSphere2;
+    public GameObject HairballPrefab;
 
     private UserInputsModel _userInputsModel;
     private MusicInputsModel _musicInputsModel;
 
     private float _fourInFourStartZ;
     private float _twoInFourStartY;
+    private float _eightInFourStartY;
     private bool _isRightFourInFoursTurn = true;
     private bool _isRightTwoInFoursTurn = true;
 
@@ -36,6 +49,12 @@ public class HairSceneImplementation : MonoBehaviour, IMusicInputsConsumer, IUse
     private bool _isTwoInFourUserInputOn;
     private bool _isEightInFourActive;
     private bool _isSixteenInFourActive;
+    private bool _isVolumeActive;
+    private bool _isLfVolumeActive;
+    private int _eightInFourCounter = 0;
+
+    private HDAdditionalLightData _mainLightData;
+    private SceneColorOverlayPostProcessVolume _sceneColorOverlayPostProcessVolume;
 
     // Start is called before the first frame update
     void Start()
@@ -44,24 +63,33 @@ public class HairSceneImplementation : MonoBehaviour, IMusicInputsConsumer, IUse
         _musicInputsModel = GameObject.FindGameObjectWithTag("MusicInputsModel").GetComponent<MusicInputsModel>();
         _fourInFourStartZ = FourInFourRight.position.z;
         _twoInFourStartY = TwoInFourRight.localPosition.y;
+        _eightInFourStartY = EightInFours[0].localPosition.y;
+        _mainLightData = MainLight.GetComponent<HDAdditionalLightData>();
         SubscribeMusicInputs();
         SubscribeUserInputs();
+
+        if (!SceneVolume.sharedProfile.TryGet<SceneColorOverlayPostProcessVolume>(out _sceneColorOverlayPostProcessVolume))
+        {
+            throw new NullReferenceException(nameof(_sceneColorOverlayPostProcessVolume));
+        }
     }
 
     void OnDisable()
     {
         UnsubscribeMusicInputs();
         UnsubscribeUserInputs();
+        _sceneColorOverlayPostProcessVolume.intensity.value = 0;
     }
 
     void Update()
     {
-        if (_isEightInFourActive)
+        if (_isLfVolumeActive)
         {
-            var eightInFourAsSine = Mathf.Sin(_musicInputsModel.FourInFourValue * 2 * Mathf.PI) * EightInFourShadowScaleFactor;
-            EightInFourShadowRight.localScale = new Vector3(eightInFourAsSine, EightInFourShadowRight.localScale.y, EightInFourShadowRight.localScale.z);
-
-            EightInFourShadowLeft.localScale = new Vector3(eightInFourAsSine, EightInFourShadowLeft.localScale.y, EightInFourShadowLeft.localScale.z);
+            _mainLightData.intensity = (_musicInputsModel.LowFrequencyVolumeNormalizedEasedSmoothed * (MainLightMaxIntensity - MainLightMinIntensity)) + MainLightMinIntensity;
+        }
+        else if (_isVolumeActive)
+        {
+            _mainLightData.intensity = (_musicInputsModel.AverageVolumeNormalizedEasedSmoothed * (MainLightMaxIntensity - MainLightMinIntensity)) + MainLightMinIntensity;
         }
     }
 
@@ -78,7 +106,22 @@ public class HairSceneImplementation : MonoBehaviour, IMusicInputsConsumer, IUse
             AnimateTwoInFour();
         }
 
+        if (_isEightInFourActive)
+        {
+            AnimateEightInFour();
+        }
 
+    }
+
+    private void AnimateEightInFour()
+    {
+        var eightInFourNewPosition = _eightInFourStartY + _musicInputsModel.EightInFourValue * EightInFourMovementFactor;
+        Transform eightInFourToMove = EightInFours[_eightInFourCounter];
+        eightInFourToMove.position = new Vector3(
+                eightInFourToMove.position.x,
+                eightInFourNewPosition,
+                eightInFourToMove.position.z
+            );
     }
 
     private void AnimateFourInFour()
@@ -127,10 +170,15 @@ public class HairSceneImplementation : MonoBehaviour, IMusicInputsConsumer, IUse
     private void HandleSixteenInFourMusicEvent()
     {
         if (_isSixteenInFourActive)
-        { 
+        {
             var spawnPosition = new Vector3(UnityEngine.Random.Range(EightInFourXmin, EightInFourXmax), EightInFourYspawn, UnityEngine.Random.Range(EightInFourZmin, EightInFourZmax));
             Instantiate(SixteenInFourPrefab, spawnPosition, Quaternion.Euler(-90, 0, 0));
         }
+    }
+
+    private void HandleEightInFourMusicEvent()
+    {
+        _eightInFourCounter = (_eightInFourCounter + 1) % 4;
     }
 
     public void SubscribeMusicInputs()
@@ -138,6 +186,7 @@ public class HairSceneImplementation : MonoBehaviour, IMusicInputsConsumer, IUse
         _musicInputsModel.EmitFourInFourEvent += HandleFourInFourMusicEvent;
         _musicInputsModel.EmitTwoInFourEvent += HandleTwoInFourMusicEvent;
         _musicInputsModel.EmitSixteenInFourEvent += HandleSixteenInFourMusicEvent;
+        _musicInputsModel.EmitEightInFourEvent += HandleEightInFourMusicEvent;
     }
 
     public void UnsubscribeMusicInputs()
@@ -145,6 +194,7 @@ public class HairSceneImplementation : MonoBehaviour, IMusicInputsConsumer, IUse
         _musicInputsModel.EmitFourInFourEvent -= HandleFourInFourMusicEvent;
         _musicInputsModel.EmitTwoInFourEvent -= HandleTwoInFourMusicEvent;
         _musicInputsModel.EmitSixteenInFourEvent -= HandleSixteenInFourMusicEvent;
+        _musicInputsModel.EmitEightInFourEvent -= HandleEightInFourMusicEvent;
     }
 
     #endregion
@@ -163,7 +213,33 @@ public class HairSceneImplementation : MonoBehaviour, IMusicInputsConsumer, IUse
         HandleEightInFourUserEvent(_userInputsModel.EightInFourUserInput.IsPressed);
 
         _userInputsModel.SixteenInFourUserInput.EmitTurnedOnOrOffEvent += HandleSixteenInFourUserEvent;
-        HandleEightInFourUserEvent(_userInputsModel.SixteenInFourUserInput.IsPressed);
+        HandleSixteenInFourUserEvent(_userInputsModel.SixteenInFourUserInput.IsPressed);
+
+        _userInputsModel.AverageVolume.EmitTurnedOnOrOffEvent += HandleVolumeUserEvent;
+        HandleVolumeUserEvent(_userInputsModel.AverageVolume.IsPressed);
+
+        _userInputsModel.LowFrequencyVolume.EmitTurnedOnOrOffEvent += HandleLfVolumeUserEvent;
+        HandleLfVolumeUserEvent(_userInputsModel.LowFrequencyVolume.IsPressed);
+
+        foreach (var key in _userInputsModel.MelodyKeys.Keys)
+        {
+            key.EmitTurnedOnOrOffEvent += HandleMelodyKey;
+        }
+
+        foreach (var key in _userInputsModel.MoodKeys.Keys)
+        {
+            key.EmitCollectionKeyTriggeredEvent += HandleMoodKey;
+        }
+
+        foreach (var key in _userInputsModel.DroneKeys.Keys)
+        {
+            key.EmitTurnedOnOrOffEvent += HandleDroneKey;
+        }
+
+        foreach (var key in _userInputsModel.ExplosionKeys.Keys)
+        {
+            key.EmitCollectionKeyTriggeredEvent += HandleExplosionKeys;
+        }
     }
 
     public void UnsubscribeUserInputs()
@@ -172,6 +248,114 @@ public class HairSceneImplementation : MonoBehaviour, IMusicInputsConsumer, IUse
         _userInputsModel.TwoInFourUserInput.EmitTurnedOnOrOffEvent -= HandleTwoInFourUserEvent;
         _userInputsModel.EightInFourUserInput.EmitTurnedOnOrOffEvent -= HandleEightInFourUserEvent;
         _userInputsModel.SixteenInFourUserInput.EmitTurnedOnOrOffEvent -= HandleSixteenInFourUserEvent;
+        _userInputsModel.AverageVolume.EmitTurnedOnOrOffEvent -= HandleVolumeUserEvent;
+        _userInputsModel.AverageVolume.EmitTurnedOnOrOffEvent -= HandleLfVolumeUserEvent;
+
+        foreach (var key in _userInputsModel.MelodyKeys.Keys)
+        {
+            key.EmitTurnedOnOrOffEvent -= HandleMelodyKey;
+        }
+
+        foreach (var key in _userInputsModel.MoodKeys.Keys)
+        {
+            key.EmitCollectionKeyTriggeredEvent -= HandleMoodKey;
+        }
+
+        foreach (var key in _userInputsModel.DroneKeys.Keys)
+        {
+            key.EmitTurnedOnOrOffEvent -= HandleDroneKey;
+        }
+
+        foreach (var key in _userInputsModel.ExplosionKeys.Keys)
+        {
+            key.EmitCollectionKeyTriggeredEvent -= HandleExplosionKeys;
+        }
+    }
+
+    private void HandleExplosionKeys(int index)
+    {
+        switch (index)
+        {
+            case 4:
+            case 6:
+                ExplosionSphere.SetTrigger("explode");
+                break;
+            case 5:
+            case 7:
+                ExplosionSphere2.SetTrigger("explode");
+                break;
+            case 0:
+            case 1:
+            case 2:
+            case 3:
+                float spawnX = UnityEngine.Random.Range(-2.5f, 2.5f);
+                float spawnZ = UnityEngine.Random.Range(-10f, -9.8f); 
+                Vector3 spawnPos = new Vector3(spawnX, 0f, spawnZ);
+                GameObject obj = Instantiate(HairballPrefab, spawnPos, Quaternion.identity);
+                Destroy(obj, 1f);
+                break;
+            default:
+                break;
+        }
+
+    }
+
+    private void HandleDroneKey(bool hasTurnedOn, int index)
+    {
+        if (hasTurnedOn)
+        {
+            DroneWind.gameObject.SetActive(true);
+            DroneWind.eulerAngles = new Vector3(0, index * 45, 0);
+        }
+        else
+        {
+            DroneWind.gameObject.SetActive(false);
+        }
+    }
+
+    private void HandleMoodKey(int index)
+    {
+        if (index == 0)
+        {
+            _sceneColorOverlayPostProcessVolume.intensity.value = 0;
+        }
+        else
+        {
+            _sceneColorOverlayPostProcessVolume.intensity.value = 1;
+            _sceneColorOverlayPostProcessVolume.color.value = Color.HSVToRGB((index - 1) * 0.14285f, 1, 1);
+        }
+    }
+
+    private void HandleMelodyKey(bool hasTurnedOn, int index)
+    {
+        if (hasTurnedOn)
+        {
+            melodyKeys[index].Rebind();
+            melodyKeys[index].Play("colorAnimation");
+            melodyKeys[index].SetFloat("animationSpeed", 0);
+        }
+        if (!hasTurnedOn)
+        {
+            melodyKeys[index].SetFloat("animationSpeed", 1);
+        }
+    }
+
+    private void HandleVolumeUserEvent(bool hasTurnedOn)
+    {
+        _isVolumeActive = hasTurnedOn;
+        if (!hasTurnedOn && !_isLfVolumeActive)
+        {
+            _mainLightData.intensity = 1414;
+        }
+    }
+
+    private void HandleLfVolumeUserEvent(bool hasTurnedOn)
+    {
+        _isLfVolumeActive = hasTurnedOn;
+        if (!hasTurnedOn && !_isVolumeActive)
+        {
+            _mainLightData.intensity = 1414;
+        }
     }
 
     private void HandleSixteenInFourUserEvent(bool hasTurnedOn)
@@ -182,16 +366,7 @@ public class HairSceneImplementation : MonoBehaviour, IMusicInputsConsumer, IUse
     private void HandleEightInFourUserEvent(bool hasTurnedOn)
     {
         _isEightInFourActive = hasTurnedOn;
-        if (!_isEightInFourActive)
-        {
-            EightInFourShadowRight.gameObject.SetActive(false);
-            EightInFourShadowLeft.gameObject.SetActive(false);
-        }
-        else
-        {
-            EightInFourShadowRight.gameObject.SetActive(true);
-            EightInFourShadowLeft.gameObject.SetActive(true);
-        }
+        EightInFours.ForEach(e => { e.gameObject.SetActive(hasTurnedOn); });
     }
 
     private void HandleFourInFourUserEvent(bool hasTurnedOn)

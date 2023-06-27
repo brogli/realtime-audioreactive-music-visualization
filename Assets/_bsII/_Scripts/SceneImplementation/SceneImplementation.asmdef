@@ -1,0 +1,19 @@
+{
+    "name": "SceneImplementation",
+    "rootNamespace": "",
+    "references": [
+        "GUID:ed426bbc91f0d164590618980e8f27a1",
+        "GUID:348d05cab21b47549977c7f5d50b2e59",
+        "GUID:384d401cf990a4f4f80cf91e112f8eda",
+        "GUID:909834f5a4256e84bbe319cdc17dca78"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

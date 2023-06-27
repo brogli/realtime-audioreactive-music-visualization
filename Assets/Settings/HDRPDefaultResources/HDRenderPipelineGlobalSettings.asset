@@ -111,6 +111,8 @@ MonoBehaviour:
   - IE.RichFX.RGBSplit, IE.RichFX, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - IE.RichFX.RGBDistortion, IE.RichFX, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - IE.RichFX.Posterize, IE.RichFX, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - SceneColorOverlayPostProcessVolume, CustomPostProcesses, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
   beforeTAACustomPostProcesses: []
   lightLayerName0: Light Layer default
   lightLayerName1: Light Layer 1
