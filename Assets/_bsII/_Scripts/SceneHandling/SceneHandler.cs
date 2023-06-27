@@ -10,6 +10,8 @@ public class SceneHandler : MonoBehaviour
     private bool _isEmitSceneReadyEvocable = true;
 
     private bool _isSceneActivationAllowed = false;
+    private bool _isSceneReadyToActivate = false;
+    private int _amountOfProgessLogs = 0;
     private bool IsSceneActivationAllowed
     {
         get
@@ -52,28 +54,38 @@ public class SceneHandler : MonoBehaviour
         while (!asyncOperation.isDone)
         {
             //Output the current progress
-            //m_Text.text = "Loading progress: " + (asyncOperation.progress * 100) + "%";
+            if (_amountOfProgessLogs < 8)
+            {
             Debug.Log("Loading progress: " + (asyncOperation.progress * 100) + "%");
+                _amountOfProgessLogs++;
+            }
 
             // Check if the load has finished
             if (asyncOperation.progress >= 0.9f)
             {
-                //Change the Text to show the Scene is ready
-                //m_Text.text = "Press the space bar to continue";
-                Debug.Log("Loading progress: " + (asyncOperation.progress * 100) + "%, trying to activate");
-                if (_isEmitSceneReadyEvocable)
+                if (!_isSceneReadyToActivate) 
                 {
-                    EmitSceneIsReadyToActivate?.Invoke();
-                    _isEmitSceneReadyEvocable = !_isEmitSceneReadyEvocable;
+                    _isSceneReadyToActivate = true;
+                    Debug.Log("Loading progress: " + (asyncOperation.progress * 100) + "%, trying to activate");
+                    if (_isEmitSceneReadyEvocable)
+                    {
+                        EmitSceneIsReadyToActivate?.Invoke();
+                        _isEmitSceneReadyEvocable = !_isEmitSceneReadyEvocable;
+                    }
                 }
+
                 //Wait to you press the space key to activate the Scene
                 if (IsSceneActivationAllowed)
+                {
                     //Activate the Scene
                     asyncOperation.allowSceneActivation = true;
+                }
             }
 
             yield return null;
         }
+        // scene has activated, cleanup:
+        _isSceneReadyToActivate = false;
         _isEmitSceneReadyEvocable = !_isEmitSceneReadyEvocable;
     }
 
