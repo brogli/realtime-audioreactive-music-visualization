@@ -44,7 +44,7 @@ public class FadedUserInput : ISceneUserInput
         FaderValue = value;
     }
 
-    public bool IsUsed()
+    public bool IsUsedInScene()
     {
         return _isFaderValueUsed;
     }

@@ -35,7 +35,7 @@ public class TriggeredUserInput : ISceneUserInput
         EmitKeyTriggeredEventWithValue?.Invoke(value);
     }
 
-    public bool IsUsed()
+    public bool IsUsedInScene()
     {
         return EmitKeyTriggeredEvent != null || EmitCollectionKeyTriggeredEvent != null || EmitKeyTriggeredEventWithValue != null;
     }

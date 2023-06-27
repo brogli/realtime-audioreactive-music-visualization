@@ -96,7 +96,7 @@ public class SceneImplementationValidator : MonoBehaviour
     {
         int problemCount = 0;
 
-        if (!_userInputsModel.LowFrequencyVolume.IsUsed())
+        if (!_userInputsModel.LowFrequencyVolume.IsUsedInScene())
         {
             problemCount++;
             Debug.LogWarning($"LowFrequencyVolume user input is not fully used.");
@@ -108,7 +108,7 @@ public class SceneImplementationValidator : MonoBehaviour
     {
         int problemCount = 0;
 
-        if (!_userInputsModel.AverageVolume.IsUsed())
+        if (!_userInputsModel.AverageVolume.IsUsedInScene())
         {
             problemCount++;
             Debug.LogWarning($"AverageVolume user input is not fully used.");
@@ -124,7 +124,7 @@ public class SceneImplementationValidator : MonoBehaviour
     {
         int problemCount = 0;
 
-        if (!_userInputsModel.OneInEightUserInput.IsUsed())
+        if (!_userInputsModel.OneInEightUserInput.IsUsedInScene())
         {
             problemCount++;
             Debug.LogWarning($"OneInEight user input is not fully used.");
@@ -136,7 +136,7 @@ public class SceneImplementationValidator : MonoBehaviour
     {
         int problemCount = 0;
 
-        if (!_userInputsModel.SixteenInFourUserInput.IsUsed())
+        if (!_userInputsModel.SixteenInFourUserInput.IsUsedInScene())
         {
             problemCount++;
             Debug.LogWarning($"SixteenInFour user input is not fully used.");
@@ -148,7 +148,7 @@ public class SceneImplementationValidator : MonoBehaviour
     {
         int problemCount = 0;
 
-        if (!_userInputsModel.EightInFourUserInput.IsUsed())
+        if (!_userInputsModel.EightInFourUserInput.IsUsedInScene())
         {
             problemCount++;
             Debug.LogWarning($"EightInFour user input is not fully used.");
@@ -161,7 +161,7 @@ public class SceneImplementationValidator : MonoBehaviour
     {
         int problemCount = 0;
 
-        if (!_userInputsModel.TwoInFourUserInput.IsUsed())
+        if (!_userInputsModel.TwoInFourUserInput.IsUsedInScene())
         {
             problemCount++;
             Debug.LogWarning($"TwoInFour user input is not fully used.");
@@ -174,7 +174,7 @@ public class SceneImplementationValidator : MonoBehaviour
     {
         int problemCount = 0;
 
-        if (!_userInputsModel.OneInFourUserInput.IsUsed())
+        if (!_userInputsModel.OneInFourUserInput.IsUsedInScene())
         {
             problemCount++;
             Debug.LogWarning($"OneInFour user input is not fully used.");
@@ -186,7 +186,7 @@ public class SceneImplementationValidator : MonoBehaviour
     {
         int problemCount = 0;
 
-        if (!_userInputsModel.FourInFourUserInput.IsUsed())
+        if (!_userInputsModel.FourInFourUserInput.IsUsedInScene())
         {
             problemCount++;
             Debug.LogWarning($"FourInFour user input is not fully used.");
@@ -203,7 +203,7 @@ public class SceneImplementationValidator : MonoBehaviour
         for (int i = 0; i < _userInputsModel.ExplosionKeys.Keys.Length; i++)
         {
             var key = _userInputsModel.ExplosionKeys.Keys[i];
-            if (!key.IsUsed())
+            if (!key.IsUsedInScene())
             {
                 problemCount++;
                 Debug.LogWarning($"Explosion key with index {i} is not used");
@@ -218,7 +218,7 @@ public class SceneImplementationValidator : MonoBehaviour
         for (int i = 0; i < _userInputsModel.MoodKeys.Keys.Length; i++)
         {
             var key = _userInputsModel.MoodKeys.Keys[i];
-            if (!key.IsUsed())
+            if (!key.IsUsedInScene())
             {
                 problemCount++;
                 Debug.LogWarning($"Mood key with index {i} is not used");
@@ -233,7 +233,7 @@ public class SceneImplementationValidator : MonoBehaviour
         for (int i = 0; i < _userInputsModel.DroneKeys.Keys.Length; i++)
         {
             var key = _userInputsModel.DroneKeys.Keys[i];
-            if (!key.IsUsed())
+            if (!key.IsUsedInScene())
             {
                 problemCount++;
                 Debug.LogWarning($"Drone key with index {i} is not used");
@@ -248,7 +248,7 @@ public class SceneImplementationValidator : MonoBehaviour
         for (int i = 0; i < _userInputsModel.MelodyKeys.Keys.Length; i++)
         {
             var key = _userInputsModel.MelodyKeys.Keys[i];
-            if (!key.IsUsed())
+            if (!key.IsUsedInScene())
             {
                 problemCount++;
                 Debug.LogWarning($"Melody key with index {i} is not used");

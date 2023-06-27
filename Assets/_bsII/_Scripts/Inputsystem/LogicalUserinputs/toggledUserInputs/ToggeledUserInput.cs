@@ -72,7 +72,7 @@ public class ToggeledUserInput : ISceneUserInput
         }
     }
 
-    public bool IsUsed()
+    public bool IsUsedInScene()
     {
         return EmitTurnedOnOrOffEvent != null || _hasAccessors;
     }

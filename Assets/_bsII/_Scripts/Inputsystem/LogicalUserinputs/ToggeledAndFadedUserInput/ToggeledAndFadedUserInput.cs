@@ -95,10 +95,10 @@ public class ToggeledAndFadedUserInput : ISceneUserInput
         FadedUserInput.EmitTurnedOnEvent -= HandleTurnOnEventFromFader;
     }
 
-    public bool IsUsed()
+    public bool IsUsedInScene()
     {
         bool isToggleUsed = _isIsPressedAccessed || (EmitTurnedOnEvent != null && EmitTurnedOffEvent != null) || EmitTurnedOnOrOffEvent != null;
-        bool isFaderUsed = FadedUserInput.IsUsed();
+        bool isFaderUsed = FadedUserInput.IsUsedInScene();
         if (!isFaderUsed) { Debug.LogWarning("Fader isn't used"); }
         if (!isToggleUsed) { Debug.LogWarning("Toggle isn't used"); }
         return isToggleUsed && isFaderUsed;

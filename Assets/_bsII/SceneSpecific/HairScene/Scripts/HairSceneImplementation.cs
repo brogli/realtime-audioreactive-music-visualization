@@ -54,6 +54,8 @@ public class HairSceneImplementation : MonoBehaviour, IMusicInputsConsumer, IUse
     private int _eightInFourCounter = 0;
 
     private HDAdditionalLightData _mainLightData;
+    private Animator _mainLightAnimator;
+    private Vector3 _mainLightInitPosition;
     private SceneColorOverlayPostProcessVolume _sceneColorOverlayPostProcessVolume;
 
     // Start is called before the first frame update
@@ -65,20 +67,24 @@ public class HairSceneImplementation : MonoBehaviour, IMusicInputsConsumer, IUse
         _twoInFourStartY = TwoInFourRight.localPosition.y;
         _eightInFourStartY = EightInFours[0].localPosition.y;
         _mainLightData = MainLight.GetComponent<HDAdditionalLightData>();
-        SubscribeMusicInputs();
-        SubscribeUserInputs();
+        _mainLightAnimator = MainLight.GetComponent<Animator>();
+        _mainLightInitPosition = new Vector3(MainLight.transform.position.x, MainLight.transform.position.y, MainLight.transform.position.z);
+
 
         if (!SceneVolume.sharedProfile.TryGet<SceneColorOverlayPostProcessVolume>(out _sceneColorOverlayPostProcessVolume))
         {
             throw new NullReferenceException(nameof(_sceneColorOverlayPostProcessVolume));
         }
+
+        SubscribeMusicInputs();
+        SubscribeUserInputs();
     }
 
     void OnDisable()
     {
+        _sceneColorOverlayPostProcessVolume.intensity.value = 0;
         UnsubscribeMusicInputs();
         UnsubscribeUserInputs();
-        _sceneColorOverlayPostProcessVolume.intensity.value = 0;
     }
 
     void Update()
@@ -90,6 +96,11 @@ public class HairSceneImplementation : MonoBehaviour, IMusicInputsConsumer, IUse
         else if (_isVolumeActive)
         {
             _mainLightData.intensity = (_musicInputsModel.AverageVolumeNormalizedEasedSmoothed * (MainLightMaxIntensity - MainLightMinIntensity)) + MainLightMinIntensity;
+        }
+
+        if (_userInputsModel.OneInFourUserInput.IsPressed)
+        {
+            AnimateOneInFour();
         }
     }
 
@@ -111,6 +122,12 @@ public class HairSceneImplementation : MonoBehaviour, IMusicInputsConsumer, IUse
             AnimateEightInFour();
         }
 
+    }
+
+    private void AnimateOneInFour()
+    {
+        var value = _musicInputsModel.OneInFourValue;
+        _mainLightAnimator.SetFloat("motionTime", value);
     }
 
     private void AnimateEightInFour()
@@ -181,6 +198,14 @@ public class HairSceneImplementation : MonoBehaviour, IMusicInputsConsumer, IUse
         _eightInFourCounter = (_eightInFourCounter + 1) % 4;
     }
 
+
+
+    private void HandleOneInEightMusicEvent()
+    {
+        _sceneColorOverlayPostProcessVolume.intensity.value = 1;
+        _sceneColorOverlayPostProcessVolume.color.value = Color.HSVToRGB(UnityEngine.Random.Range(0f, 1f), 1, 1);
+    }
+
     public void SubscribeMusicInputs()
     {
         _musicInputsModel.EmitFourInFourEvent += HandleFourInFourMusicEvent;
@@ -243,7 +268,23 @@ public class HairSceneImplementation : MonoBehaviour, IMusicInputsConsumer, IUse
         }
 
         _userInputsModel.OneInEightUserInput.EmitTurnedOnOrOffEvent += HandleOneInEightUserEvent;
-        HandleLfVolumeUserEvent(_userInputsModel.LowFrequencyVolume.IsPressed);
+        HandleOneInEightUserEvent(_userInputsModel.OneInEightUserInput.IsPressed);
+
+        _userInputsModel.OneInFourUserInput.EmitTurnedOnOrOffEvent += HandleOneInFourUserEvent;
+        HandleOneInFourUserEvent(_userInputsModel.OneInFourUserInput.IsPressed);
+    }
+
+    private void HandleOneInFourUserEvent(bool hasTurnedOn)
+    {
+        if (!hasTurnedOn)
+        {
+            // reset main light
+            _mainLightAnimator.enabled = false;
+            MainLight.transform.position = _mainLightInitPosition;
+        } else
+        {
+            _mainLightAnimator.enabled = true;
+        }
     }
 
     public void UnsubscribeUserInputs()
@@ -276,6 +317,7 @@ public class HairSceneImplementation : MonoBehaviour, IMusicInputsConsumer, IUse
         }
 
         _userInputsModel.OneInEightUserInput.EmitTurnedOnOrOffEvent -= HandleOneInEightUserEvent;
+        _userInputsModel.OneInFourUserInput.EmitTurnedOnOrOffEvent -= HandleOneInFourUserEvent;
     }
 
     private void HandleOneInEightUserEvent(bool hasTurnedOn)
@@ -288,12 +330,6 @@ public class HairSceneImplementation : MonoBehaviour, IMusicInputsConsumer, IUse
             _sceneColorOverlayPostProcessVolume.intensity.value = 0;
             _musicInputsModel.EmitOneInEightEvent -= HandleOneInEightMusicEvent;
         }
-    }
-
-    private void HandleOneInEightMusicEvent()
-    {
-        _sceneColorOverlayPostProcessVolume.intensity.value = 1;
-        _sceneColorOverlayPostProcessVolume.color.value = Color.HSVToRGB(UnityEngine.Random.Range(0f, 1f), 1, 1);
     }
 
     private void HandleExplosionKeys(int index)
