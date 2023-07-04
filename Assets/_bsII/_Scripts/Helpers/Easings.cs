@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,6 +20,11 @@ public static class Easings
     public static float EaseInQuad(float x)
     {
         return x * x;
+    }
+
+    public static float EaseInOutQuad(float x)
+    {
+        return x < 0.5f ? 2 * x * x : 1 - Mathf.Pow(-2 * x + 2, 2) / 2;
     }
     #endregion
 
