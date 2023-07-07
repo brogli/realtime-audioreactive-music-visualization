@@ -88,9 +88,6 @@ public class LeftRightMovementSceneImplementation : MonoBehaviour
 
     private void HandleTwoInFourMusicEvent()
     {
-        //Vector3 originalScale = _fourInFourElement.transform.parent.localScale;
-
-        //_fourInFourElement.transform.parent.localScale = new Vector3(originalScale.x, originalScale.y + 5, originalScale.z);
         if (_userInputsModel.TwoInFourUserInput.IsPressed)
         {
             StartCoroutine("TwoInFourCoroutine");
@@ -108,7 +105,6 @@ public class LeftRightMovementSceneImplementation : MonoBehaviour
             _fourInFourElement.transform.parent.localScale = new Vector3(currentScale.x, currentScale.y - 0.1f, currentScale.z);
             yield return null;
         }
-        Debug.Log("coroutin edone");
         _fourInFourElement.transform.parent.localScale = originalScale;
     }
 
