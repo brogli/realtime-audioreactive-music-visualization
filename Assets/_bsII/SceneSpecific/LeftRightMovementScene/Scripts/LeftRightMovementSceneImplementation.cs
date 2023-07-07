@@ -7,6 +7,7 @@ public class LeftRightMovementSceneImplementation : MonoBehaviour
 {
     [SerializeField]
     private Transform _fourInFourElement;
+
     [SerializeField]
     private float _fourInFourLeftXcoordinate = 5;
     [SerializeField]
@@ -35,7 +36,8 @@ public class LeftRightMovementSceneImplementation : MonoBehaviour
     {
         if (_userInputsModel.FourInFourUserInput.IsPressed)
         {
-            float xValue = _musicInputsModel.FourInFourValue;
+            float fourInFourValue = _musicInputsModel.FourInFourValueWithIntermediates;
+            float xValue = fourInFourValue;
             if (!_isFourInFourGoingRight)
             {
                 xValue = 1 - xValue;

@@ -7,12 +7,12 @@ public class BeatclockProcessor : MonoBehaviour
 {
     private MusicInputsModel _musicInputsModel;
 
-    private int _fourInFourValue = 1;
-    private int _oneInFourValue = 1;
-    private int _twoInFourValue = 1;
-    private int _eightInFourValue = 1;
-    private int _sixteenInFourValue = 1;
-    private int _oneInEightValue = 1;
+    private int _fourInFourValue = 0;
+    private int _oneInFourValue = 0;
+    private int _twoInFourValue = 0;
+    private int _eightInFourValue = 0;
+    private int _sixteenInFourValue = 0;
+    private int _oneInEightValue = 0;
 
     private const float QuarterAmountClockPulses = 6;
     private const float HalfAmountClockPulses = 12;
@@ -35,9 +35,9 @@ public class BeatclockProcessor : MonoBehaviour
     private void ProcessClockValues()
     {
         // four in four
-        if ((_fourInFourValue + 1) > RegularAmountClockPulses)
+        if ((_fourInFourValue + 1) > RegularAmountClockPulses - 1)
         {
-            _fourInFourValue = 1;
+            _fourInFourValue = 0;
         }
         else
         {
@@ -45,9 +45,9 @@ public class BeatclockProcessor : MonoBehaviour
         }
 
         // two in four
-        if ((_twoInFourValue + 1) > DoubleAmountClockPulses)
+        if ((_twoInFourValue + 1) > DoubleAmountClockPulses - 1)
         {
-            _twoInFourValue = 1;
+            _twoInFourValue = 0;
         }
         else
         {
@@ -55,9 +55,9 @@ public class BeatclockProcessor : MonoBehaviour
         }
 
         // one in four
-        if ((_oneInFourValue + 1) > QuadrupleAmountClockPulses)
+        if ((_oneInFourValue + 1) > QuadrupleAmountClockPulses - 1)
         {
-            _oneInFourValue = 1;
+            _oneInFourValue = 0;
         }
         else
         {
@@ -65,9 +65,9 @@ public class BeatclockProcessor : MonoBehaviour
         }
 
         // eight in four
-        if ((_eightInFourValue + 1) > HalfAmountClockPulses)
+        if ((_eightInFourValue + 1) > HalfAmountClockPulses - 1)
         {
-            _eightInFourValue = 1;
+            _eightInFourValue = 0;
         }
         else
         {
@@ -75,9 +75,9 @@ public class BeatclockProcessor : MonoBehaviour
         }
 
         // sixteen in four
-        if ((_sixteenInFourValue + 1) > QuarterAmountClockPulses)
+        if ((_sixteenInFourValue + 1) > QuarterAmountClockPulses - 1)
         {
-            _sixteenInFourValue = 1;
+            _sixteenInFourValue = 0;
         }
         else
         {
@@ -85,10 +85,11 @@ public class BeatclockProcessor : MonoBehaviour
         }
 
         // one in eight
-        if ((_oneInEightValue + 1) > EightTimesAmountClockPulses)
+        if ((_oneInEightValue + 1) > EightTimesAmountClockPulses - 1)
         {
-            _oneInEightValue = 1;
-        } else
+            _oneInEightValue = 0;
+        }
+        else
         {
             _oneInEightValue++;
         }

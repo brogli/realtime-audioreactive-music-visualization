@@ -579,8 +579,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fourInFourElement: {fileID: 427644357}
-  _fourInFourLeftXcoordinate: 5
-  _fourInFourMovementFactor: 20
+  _fourInFourElement1: {fileID: 0}
+  _fourInFourLeftXcoordinate: 10
+  _fourInFourMovementFactor: 25
 --- !u!114 &21294046532335777
 MonoBehaviour:
   m_ObjectHideFlags: 0

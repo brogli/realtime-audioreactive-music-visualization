@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class MusicInputsModel : MonoBehaviour
@@ -7,18 +9,58 @@ public class MusicInputsModel : MonoBehaviour
     #region beat values
     public delegate void BeatEvent();
     public event BeatEvent EmitFourInFourEvent;
-    private float fourInFourValue = 1.0f;
+    private float _fourInFourValue = 1.0f;
+    private Stopwatch _fourInFourStopWatch;
+    private float _lastConsumedFourInFourValue;
+    private long _timeOfLastConsumedFourInFourValue;
 
     public float FourInFourValue
     {
-        get => fourInFourValue;
+        get
+        {
+            return _fourInFourValue;
+        }
         set
         {
-            if (fourInFourValue > 0.5 && value < 0.5)
+            if (_fourInFourValue > 0.5f && value < 0.5f)
             {
                 EmitFourInFourEvent?.Invoke();
+                _fourInFourStopWatch.Restart();
             }
-            fourInFourValue = value;
+            _fourInFourValue = value;
+        }
+    }
+
+    public float FourInFourValueWithIntermediates
+    {
+        get
+        {
+            float fourInFourValue = _fourInFourValue;
+            
+            if (_lastConsumedFourInFourValue == fourInFourValue)
+            {
+                // would return the same value again, we don't want this, thus we extrapolate
+                // y_now = m * x_now + b
+                // b is 0
+                // x_now we call nowTime
+                // m we calculate using y_previous (_lastConsumedFourInFourValue) and x_previous (_timeOfLastConsumedFourInFourValue)
+                float m = _lastConsumedFourInFourValue / _timeOfLastConsumedFourInFourValue;
+                long nowTime = _fourInFourStopWatch.ElapsedTicks;
+                float extrapolatedValue = m * nowTime;
+                
+                if (extrapolatedValue <= 1)
+                {
+                    // plausible result
+                    fourInFourValue = extrapolatedValue;
+                }
+            } else
+            {
+                // there's a new beatclock value available, so we return it
+                _timeOfLastConsumedFourInFourValue = _fourInFourStopWatch.ElapsedTicks;
+                _lastConsumedFourInFourValue = fourInFourValue;
+            }            
+
+            return fourInFourValue;
         }
     }
 
@@ -190,6 +232,7 @@ public class MusicInputsModel : MonoBehaviour
 
 
     private SmoothingRingBuffer _lowFrequencyVolumeNormalizedEasedSmoothed;
+
     public float LowFrequencyVolumeNormalizedEasedSmoothed
     {
         get
@@ -210,6 +253,8 @@ public class MusicInputsModel : MonoBehaviour
     {
         _averageVolumeNormalizedEasedSmoothed = new SmoothingRingBuffer(5);
         _lowFrequencyVolumeNormalizedEasedSmoothed = new SmoothingRingBuffer(5);
+        _fourInFourStopWatch = new Stopwatch();
+        _fourInFourStopWatch.Start();
     }
 
     // Update is called once per frame
