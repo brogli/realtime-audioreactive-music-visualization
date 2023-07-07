@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LeftRightMovementSceneImplementation : MonoBehaviour
+public class LeftRightMovementSceneImplementation : MonoBehaviour, IMusicInputsConsumer, IUserInputsConsumer
 {
     [SerializeField]
-    private Transform _fourInFourElement;
+    private Transform _fourAndEightInFourElement;
+    private float _fourAndEightInFourOriginalX;
+    private float _fourAndEightInFourOriginalY;
 
     [SerializeField]
     private float _fourInFourLeftXcoordinate = 5;
@@ -31,17 +33,18 @@ public class LeftRightMovementSceneImplementation : MonoBehaviour
         _musicInputsModel = GameObject.FindGameObjectWithTag("MusicInputsModel").GetComponent<MusicInputsModel>();
 
         SubscribeMusicInputs();
-
+        SubscribeUserInputs();
     }
 
     private void OnDisable()
     {
         UnsubscribeMusicInputs();
+        UnsubscribeUserInputs();
     }
 
     void Update()
     {
-        Vector3 fourInFourElementPosition = _fourInFourElement.position;
+        Vector3 fourInFourElementPosition = _fourAndEightInFourElement.position;
         if (_userInputsModel.FourInFourUserInput.IsPressed)
         {
             float xValue = _musicInputsModel.FourInFourValueExtrapolated;
@@ -64,22 +67,22 @@ public class LeftRightMovementSceneImplementation : MonoBehaviour
             fourInFourElementPosition = new Vector3(fourInFourElementPosition.x, yCoordinate, fourInFourElementPosition.z);
         }
 
-        _fourInFourElement.position = fourInFourElementPosition;
+        _fourAndEightInFourElement.position = fourInFourElementPosition;
 
-        _fourInFourElement.Rotate(Vector3.right * 50 * Time.deltaTime, Space.World);
+        _fourAndEightInFourElement.Rotate(Vector3.right * 50 * Time.deltaTime, Space.World);
     }
 
     #region music inputs
 
 
-    private void SubscribeMusicInputs()
+    public void SubscribeMusicInputs()
     {
         _musicInputsModel.EmitFourInFourEvent += HandleFourInFourMusicEvent;
         _musicInputsModel.EmitEightInFourEvent += HandleEightInFourMusicEvent;
         _musicInputsModel.EmitTwoInFourEvent += HandleTwoInFourMusicEvent;
     }
 
-    private void UnsubscribeMusicInputs()
+    public void UnsubscribeMusicInputs()
     {
         _musicInputsModel.EmitFourInFourEvent -= HandleFourInFourMusicEvent;
         _musicInputsModel.EmitEightInFourEvent -= HandleEightInFourMusicEvent;
@@ -96,16 +99,16 @@ public class LeftRightMovementSceneImplementation : MonoBehaviour
 
     private IEnumerator TwoInFourCoroutine()
     {
-        Vector3 originalScale = _fourInFourElement.transform.parent.localScale;
+        Vector3 originalScale = _fourAndEightInFourElement.transform.parent.localScale;
 
-        _fourInFourElement.transform.parent.localScale = new Vector3(originalScale.x, originalScale.y + 2, originalScale.z);
-        while (Vector3.Distance(_fourInFourElement.transform.parent.localScale, originalScale) > 0.1f)
+        _fourAndEightInFourElement.transform.parent.localScale = new Vector3(originalScale.x, originalScale.y + 2, originalScale.z);
+        while (Vector3.Distance(_fourAndEightInFourElement.transform.parent.localScale, originalScale) > 0.1f)
         {
-            var currentScale = _fourInFourElement.transform.parent.localScale;
-            _fourInFourElement.transform.parent.localScale = new Vector3(currentScale.x, currentScale.y - 0.1f, currentScale.z);
+            var currentScale = _fourAndEightInFourElement.transform.parent.localScale;
+            _fourAndEightInFourElement.transform.parent.localScale = new Vector3(currentScale.x, currentScale.y - 0.1f, currentScale.z);
             yield return null;
         }
-        _fourInFourElement.transform.parent.localScale = originalScale;
+        _fourAndEightInFourElement.transform.parent.localScale = originalScale;
     }
 
     private void HandleEightInFourMusicEvent()
@@ -116,6 +119,45 @@ public class LeftRightMovementSceneImplementation : MonoBehaviour
     private void HandleFourInFourMusicEvent()
     {
         _isFourInFourGoingRight = !_isFourInFourGoingRight;
+    }
+    #endregion
+
+
+    #region user inputs
+
+    public void SubscribeUserInputs()
+    {
+        _userInputsModel.FourInFourUserInput.EmitTurnedOnOrOffEvent += HandleFourInFourUserInput;
+        _userInputsModel.EightInFourUserInput.EmitTurnedOnOrOffEvent += HandleEightInFourUserInput;
+    }
+
+    public void UnsubscribeUserInputs()
+    {
+        _userInputsModel.FourInFourUserInput.EmitTurnedOnOrOffEvent -= HandleFourInFourUserInput;
+        _userInputsModel.EightInFourUserInput.EmitTurnedOnOrOffEvent -= HandleEightInFourUserInput;
+    }
+
+    private void HandleFourInFourUserInput(bool hasTurnedOn)
+    {
+        if (hasTurnedOn)
+        {
+            _fourAndEightInFourOriginalX = _fourAndEightInFourElement.position.x;
+        } else
+        {
+            _fourAndEightInFourElement.position = new Vector3(_fourAndEightInFourOriginalX, _fourAndEightInFourElement.position.y, _fourAndEightInFourElement.position.z);
+        }
+    }
+
+    private void HandleEightInFourUserInput(bool hasTurnedOn)
+    {
+        if (hasTurnedOn)
+        {
+            _fourAndEightInFourOriginalY = _fourAndEightInFourElement.position.y;
+        }
+        else
+        {
+            _fourAndEightInFourElement.position = new Vector3(_fourAndEightInFourElement.position.x, _fourAndEightInFourOriginalY, _fourAndEightInFourElement.position.z);
+        }
     }
     #endregion
 }

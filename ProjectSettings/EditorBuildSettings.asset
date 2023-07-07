@@ -41,7 +41,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_bsII/_Scenes/11_dummyScene.unity
     guid: 0eca3a5e82972d44fa1b85ae8dbf739d
-  - enabled: 1
-    path: Assets/_bsII/_Scenes/try-animation-component.unity
-    guid: 360a26e69a0e88647afadcb75f1a5fe3
   m_configObjects: {}
