@@ -66,6 +66,7 @@ public class ScreenHandler : MonoBehaviour
             Is16to9 = true;
             Debug.Log("Setting 16:9 resolution");
             //Screen.SetResolution(1280, 720, true);
+            // temporarily also set 32:9 resolution
             Screen.SetResolution(2560, 720, true);
         }
     }

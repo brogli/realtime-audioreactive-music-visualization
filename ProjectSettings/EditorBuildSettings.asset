@@ -15,8 +15,8 @@ EditorBuildSettings:
     path: Assets/_bsII/_Scenes/02_hairScene.unity
     guid: 2cdefa3c777379543be00359730584a5
   - enabled: 1
-    path: Assets/_bsII/_Scenes/try-animation-component.unity
-    guid: 360a26e69a0e88647afadcb75f1a5fe3
+    path: Assets/_bsII/_Scenes/03_leftRightMovementScene.unity
+    guid: f0137c8a41e94224a9024c3e0a256f83
   - enabled: 1
     path: Assets/_bsII/_Scenes/04_dummyScene.unity
     guid: 02b4086e3aaf50e43a7c9949f91c4d55
