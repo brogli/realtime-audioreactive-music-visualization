@@ -2,13 +2,19 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
+using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 public class LeftRightMovementSceneImplementation : MonoBehaviour, IMusicInputsConsumer, IUserInputsConsumer
 {
     [SerializeField]
     private Transform _fourAndEightInFourElement;
+    private Mesh _fourAndEightInFourMesh;
+    private Vector3[] _fourAndEightInFourOriginalVertices;
     private float _fourAndEightInFourOriginalX;
     private float _fourAndEightInFourOriginalY;
+    [SerializeField]
+    private float _perlinFactor = 1.0f;
 
     [SerializeField]
     private float _fourInFourLeftXcoordinate = 5;
@@ -26,6 +32,7 @@ public class LeftRightMovementSceneImplementation : MonoBehaviour, IMusicInputsC
     private MusicInputsModel _musicInputsModel;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +41,9 @@ public class LeftRightMovementSceneImplementation : MonoBehaviour, IMusicInputsC
 
         SubscribeMusicInputs();
         SubscribeUserInputs();
+
+        _fourAndEightInFourMesh = _fourAndEightInFourElement.GetComponent<MeshFilter>().mesh;
+        _fourAndEightInFourOriginalVertices = _fourAndEightInFourMesh.vertices;
     }
 
     private void OnDisable()
@@ -69,7 +79,36 @@ public class LeftRightMovementSceneImplementation : MonoBehaviour, IMusicInputsC
 
         _fourAndEightInFourElement.position = fourInFourElementPosition;
 
-        _fourAndEightInFourElement.Rotate(Vector3.right * 50 * Time.deltaTime, Space.World);
+        _fourAndEightInFourElement.transform.Rotate(Vector3.right * 50 * Time.deltaTime, Space.World);
+        AnimateVolume();
+
+
+    }
+
+    private void AnimateVolume()
+    {
+        float perlinFactor = _perlinFactor;
+        if (_userInputsModel.AverageVolume.IsPressed)
+        {
+            perlinFactor = _musicInputsModel.AverageVolumeNormalizedEasedSmoothed * 100;
+        }
+
+        if (_userInputsModel.LowFrequencyVolume.IsPressed)
+        {
+            perlinFactor = _musicInputsModel.LowFrequencyVolumeNormalizedEased * 200;
+        }
+        Vector3[] vertices = _fourAndEightInFourMesh.vertices;
+        for (int i = 0; i < vertices.Length; i++)
+        {
+            float perlinValue = Perlin.Noise(Time.timeSinceLevelLoad + (vertices[i].x * perlinFactor), Time.timeSinceLevelLoad + (vertices[i].y * perlinFactor), Time.timeSinceLevelLoad + (vertices[i].z * perlinFactor)) * .5f + 1.5f;
+
+            var length = vertices[i].magnitude;
+            var desiredLength = length * perlinValue;
+            var weight = desiredLength / length;
+            vertices[i] = weight * _fourAndEightInFourOriginalVertices[i];
+
+        }
+        _fourAndEightInFourMesh.vertices = vertices;
     }
 
     #region music inputs
@@ -129,12 +168,101 @@ public class LeftRightMovementSceneImplementation : MonoBehaviour, IMusicInputsC
     {
         _userInputsModel.FourInFourUserInput.EmitTurnedOnOrOffEvent += HandleFourInFourUserInput;
         _userInputsModel.EightInFourUserInput.EmitTurnedOnOrOffEvent += HandleEightInFourUserInput;
+        foreach (var key in _userInputsModel.ExplosionKeys.Keys)
+        {
+            key.EmitCollectionKeyTriggeredEvent += HandleExplosionKey;
+        }
+
     }
 
     public void UnsubscribeUserInputs()
     {
         _userInputsModel.FourInFourUserInput.EmitTurnedOnOrOffEvent -= HandleFourInFourUserInput;
         _userInputsModel.EightInFourUserInput.EmitTurnedOnOrOffEvent -= HandleEightInFourUserInput;
+        foreach (var key in _userInputsModel.ExplosionKeys.Keys)
+        {
+            key.EmitCollectionKeyTriggeredEvent -= HandleExplosionKey;
+        }
+    }
+
+    private void HandleExplosionKey(int index)
+    {
+        Debug.Log(index);
+        if (index >= 0 && index <= 3)
+        {
+            // drums
+        }
+        else
+        {
+            // big explosions
+
+            for (var i = 1; i <= 8; i++)
+            {
+                Vector3 spawnPosition = _fourAndEightInFourElement.position + GetOffsetVector(index, i);
+                var gameObjecto = Instantiate(_fourAndEightInFourElement.gameObject, spawnPosition, _fourAndEightInFourElement.rotation);
+                var rigidBody = gameObjecto.AddComponent<Rigidbody>();
+                rigidBody.useGravity = false;
+                rigidBody.velocity = GetOffsetVector(index, i);
+                gameObjecto.AddComponent<RotateThySelf>();
+                gameObjecto.AddComponent<FadeOutAndDestroyThySelf>();
+                Destroy(gameObjecto, 5f);
+            }
+            for (var i = 1; i <= 8; i++)
+            {
+                Vector3 spawnPosition = _fourAndEightInFourElement.position + GetOffsetVector(index, -i);
+                var gameObjecto = Instantiate(_fourAndEightInFourElement.gameObject, spawnPosition, _fourAndEightInFourElement.rotation);
+                var rigidBody = gameObjecto.AddComponent<Rigidbody>();
+                rigidBody.useGravity = false;
+                rigidBody.velocity = GetOffsetVector(index, -i);
+                gameObjecto.AddComponent<RotateThySelf>();
+                gameObjecto.AddComponent<FadeOutAndDestroyThySelf>();
+                Destroy(gameObjecto, 5f);
+            }
+
+        }
+        //switch (index)
+        //{
+        //    case 4:
+        //    case 6:
+        //        ExplosionSphere.SetTrigger("explode");
+        //        break;
+        //    case 5:
+        //    case 7:
+        //        ExplosionSphere2.SetTrigger("explode");
+        //        break;
+        //    case 0:
+        //    case 1:
+        //    case 2:
+        //    case 3:
+        //        // drums
+        //        break;
+        //    default:
+        //        break;
+        //}
+    }
+
+    private Vector3 GetOffsetVector(float keyIndex, float iterationIndex)
+    {
+        Vector3 offset = Vector3.zero;
+
+        if (keyIndex == 4)
+        {
+            offset = new Vector3(0, iterationIndex, 0);
+        }
+        else if (keyIndex == 5)
+        {
+            offset = new Vector3(-iterationIndex, iterationIndex, 0);
+        }
+        else if (keyIndex == 6)
+        {
+            offset = new Vector3(-iterationIndex, 0, 0);
+        }
+        else if (keyIndex == 7)
+        {
+            offset = new Vector3(-iterationIndex, -iterationIndex, 0);
+        }
+
+        return offset;
     }
 
     private void HandleFourInFourUserInput(bool hasTurnedOn)
@@ -142,7 +270,8 @@ public class LeftRightMovementSceneImplementation : MonoBehaviour, IMusicInputsC
         if (hasTurnedOn)
         {
             _fourAndEightInFourOriginalX = _fourAndEightInFourElement.position.x;
-        } else
+        }
+        else
         {
             _fourAndEightInFourElement.position = new Vector3(_fourAndEightInFourOriginalX, _fourAndEightInFourElement.position.y, _fourAndEightInFourElement.position.z);
         }
