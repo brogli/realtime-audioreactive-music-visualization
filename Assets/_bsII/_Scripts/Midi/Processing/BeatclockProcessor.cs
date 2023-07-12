@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BeatclockProcessor : MonoBehaviour
+public class BeatclockProcessor : MonoBehaviour, IUserInputsConsumer
 {
     private MusicInputsModel _musicInputsModel;
-
+    private UserInputsModel _userInputsModel;
     private int _fourInFourValue = 0;
     private int _oneInFourValue = 0;
     private int _twoInFourValue = 0;
@@ -24,6 +24,13 @@ public class BeatclockProcessor : MonoBehaviour
     public void Start()
     {
         _musicInputsModel = GameObject.FindGameObjectWithTag("MusicInputsModel").GetComponent<MusicInputsModel>();
+        _userInputsModel = GameObject.FindGameObjectWithTag("UserInputsModel").GetComponent<UserInputsModel>();
+        SubscribeUserInputs();
+    }
+
+    private void OnDisable()
+    {
+        UnsubscribeUserInputs();
     }
 
     public void ProcessBeatclock()
@@ -103,5 +110,59 @@ public class BeatclockProcessor : MonoBehaviour
         _musicInputsModel.EightInFourValue = _eightInFourValue / HalfAmountClockPulses;
         _musicInputsModel.SixteenInFourValue = _sixteenInFourValue / QuarterAmountClockPulses;
         _musicInputsModel.OneInEightValue = _oneInEightValue / EightTimesAmountClockPulses;
+    }
+
+    public void SubscribeUserInputs()
+    {
+        _userInputsModel.SetOneInFourToNow.EmitKeyTriggeredEvent += HandleSetOneInFourToNow;
+        _userInputsModel.SetOneInEightToNow.EmitKeyTriggeredEvent += HandleSetOneInEightToNow;
+    }
+
+    private void HandleSetOneInEightToNow()
+    {
+        var currentOneInFourTickValue = _oneInFourValue;
+        if (_fourInFourValue < RegularAmountClockPulses)
+        {
+            _oneInEightValue = _fourInFourValue;
+        }
+        else
+        {
+            _oneInEightValue = ((int)EightTimesAmountClockPulses - 1) - _oneInFourValue;
+        }
+
+
+        // oneinfour too:
+        if (_fourInFourValue < RegularAmountClockPulses)
+        {
+            _oneInFourValue = _fourInFourValue;
+        }
+        else
+        {
+            _oneInFourValue = ((int)QuadrupleAmountClockPulses - 1) - _oneInFourValue;
+        }
+    }
+
+    private void HandleSetOneInFourToNow()
+    {
+        var currentOneInFourTickValue = _oneInFourValue;
+        if (_fourInFourValue < RegularAmountClockPulses)
+        {
+            _oneInFourValue = _fourInFourValue;
+        } else
+        {
+            _oneInFourValue = ((int)QuadrupleAmountClockPulses - 1) - _oneInFourValue;
+        }
+        var newOneInFourTickValue = _oneInFourValue;
+        var difference = currentOneInFourTickValue - newOneInFourTickValue;
+
+        // also deal with half of 1-8:
+        _oneInEightValue = _oneInEightValue - difference;
+    }
+
+    public void UnsubscribeUserInputs()
+    {
+        _userInputsModel.SetOneInFourToNow.EmitKeyTriggeredEvent -= HandleSetOneInFourToNow;
+        _userInputsModel.SetOneInEightToNow.EmitKeyTriggeredEvent -= HandleSetOneInEightToNow;
+
     }
 }

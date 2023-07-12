@@ -4,7 +4,8 @@
     "references": [
         "UserInputsProcessing",
         "LogicalUserInputs",
-        "MusicInputsModel"
+        "MusicInputsModel",
+        "UserInputs"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

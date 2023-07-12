@@ -31,6 +31,8 @@ public class UserInputsModel : MonoBehaviour
     public ToggeledAndFadedUserInput EightInFourUserInput { get; private set; }
     public ToggeledAndFadedUserInput SixteenInFourUserInput { get; private set; }
     public ToggeledAndFadedUserInput OneInEightUserInput { get; private set; }
+    public TriggeredUserInput SetOneInFourToNow { get; private set; }
+    public TriggeredUserInput SetOneInEightToNow { get; private set; }
     #endregion
 
     #region volume things
@@ -59,6 +61,8 @@ public class UserInputsModel : MonoBehaviour
         EightInFourUserInput.ResetValidationFlags();
         SixteenInFourUserInput.ResetValidationFlags();
         OneInEightUserInput.ResetValidationFlags();
+        SetOneInFourToNow.ResetValidationFlags();
+        SetOneInEightToNow.ResetValidationFlags();
         AverageVolume.ResetValidationFlags();
         LowFrequencyVolume.ResetValidationFlags();
     }
@@ -77,6 +81,9 @@ public class UserInputsModel : MonoBehaviour
         EightInFourUserInput = new ToggeledAndFadedUserInput();
         SixteenInFourUserInput = new ToggeledAndFadedUserInput();
         OneInEightUserInput = new ToggeledAndFadedUserInput();
+
+        SetOneInFourToNow = new TriggeredUserInput();
+        SetOneInEightToNow = new TriggeredUserInput();
     }
 
     private void InitializeManagementInputs()
