@@ -192,10 +192,47 @@
                 "targetProperty": "MelodyKeys",
                 "type": "ToggeledUserInput",
                 "targetIndex": 7
+            },
+            "1_43": {
+                "collection": false,
+                "targetProperty": "SetOneInFourToNow",
+                "type": "TriggeredUserInput"
+            },
+            "1_44": {
+                "collection": false,
+                "targetProperty": "SetOneInEightToNow",
+                "type": "TriggeredUserInput"
             }
         },
         "ccInputs": {
-            
+            "0_1": {
+                "targetProperty": "SceneScroller",
+                "type": "TwoSidedFadedUserInput",
+                "nested": false,
+                "containerType": "TwoSidedFadedUserInput",
+                "containerTargetProperty": "SceneScroller"
+            },
+            "0_16": {
+                "targetProperty": "LoadScene",
+                "type": "TriggeredUserInput",
+                "nested": false,
+                "containerType": "TriggeredUserInput",
+                "containerTargetProperty": "LoadScene"
+            },
+            "0_18": {
+                "targetProperty": "ActivateScene",
+                "type": "TriggeredUserInput",
+                "nested": false,
+                "containerType": "TriggeredUserInput",
+                "containerTargetProperty": "ActivateScene"
+            },
+            "1_16": {
+                "targetProperty": "BeatClockOffset",
+                "type": "TwoSidedFadedUserInput",
+                "nested": false,
+                "containerType": "TwoSidedFadedUserInput",
+                "containerTargetProperty": "BeatClockOffset"
+            },
             "2_32": {
                 "targetProperty": "ToggeledUserInput",
                 "type": "ToggeledUserInput",
@@ -307,27 +344,6 @@
                 "nested": true,
                 "containerType": "ToggeledAndFadedUserInput",
                 "containerTargetProperty": "OneInEightUserInput"
-            },
-            "0_1": {
-                "targetProperty": "SceneScroller",
-                "type": "TwoSidedFadedUserInput",
-                "nested": false,
-                "containerType": "TwoSidedFadedUserInput",
-                "containerTargetProperty": "SceneScroller"
-            },
-            "0_16": {
-                "targetProperty": "LoadScene",
-                "type": "TriggeredUserInput",
-                "nested": false,
-                "containerType": "TriggeredUserInput",
-                "containerTargetProperty": "LoadScene"
-            },
-            "0_18": {
-                "targetProperty": "ActivateScene",
-                "type": "TriggeredUserInput",
-                "nested": false,
-                "containerType": "TriggeredUserInput",
-                "containerTargetProperty": "ActivateScene"
             }
         }
     }
