@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -138,6 +139,30 @@ public class KeyboardInputProcessor : MonoBehaviour
         if (context.performed)
         {
             _userInputsModel.OneInEightUserInput.ToggeledUserInput.SetNewStateIfNecessary(!_userInputsModel.OneInEightUserInput.ToggeledUserInput.IsPressed, 0);
+        }
+    }
+
+    public void ProcessSetOneInFourToNow(CallbackContext context)
+    {
+        if (context.started)
+        {
+            _userInputsModel.SetOneInFourToNow.SetNewStateIfNecessary(true, 0);
+        }
+        if (context.canceled)
+        {
+            _userInputsModel.SetOneInFourToNow.SetNewStateIfNecessary(false, 0);
+        }
+    }
+
+    public void ProcessSetOneInEightToNow(CallbackContext context)
+    {
+        if (context.started)
+        {
+            _userInputsModel.SetOneInEightToNow.SetNewStateIfNecessary(true, 0);
+        }
+        if (context.canceled)
+        {
+            _userInputsModel.SetOneInEightToNow.SetNewStateIfNecessary(false, 0);
         }
     }
     #endregion

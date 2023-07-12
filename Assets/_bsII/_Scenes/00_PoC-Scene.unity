@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 4
+  m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -3700,6 +3700,7 @@ GameObject:
   - component: {fileID: 767379547}
   - component: {fileID: 767379548}
   - component: {fileID: 767379549}
+  - component: {fileID: 767379550}
   m_Layer: 0
   m_Name: UserInterface
   m_TagString: Untagged
@@ -3797,6 +3798,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AmountOfIterations: 50
+--- !u!114 &767379550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767379543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e10a299da3aa7f448018ba9c20a4cd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &777509313
 GameObject:
   m_ObjectHideFlags: 0
@@ -9424,6 +9437,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 03c8a74f-fcfc-4331-859c-c292c2ccdca8
     m_ActionName: KeyboardControls/SelectPreviousScene[/Keyboard/leftArrow]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2078528395}
+        m_TargetAssemblyTypeName: KeyboardInputProcessor, UserInputsProcessing
+        m_MethodName: ProcessSetOneInFourToNow
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9247195e-2d82-42fb-b90d-5b8744005710
+    m_ActionName: KeyboardControls/SetOneInFourToNow[/Keyboard/ctrl,/Keyboard/f1]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2078528395}
+        m_TargetAssemblyTypeName: KeyboardInputProcessor, UserInputsProcessing
+        m_MethodName: ProcessSetOneInEightToNow
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9191a3b3-e1f0-436e-a584-5c89521ab4cf
+    m_ActionName: KeyboardControls/SetOneInEightToNow[/Keyboard/ctrl,/Keyboard/f2]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: KeyboardControls
