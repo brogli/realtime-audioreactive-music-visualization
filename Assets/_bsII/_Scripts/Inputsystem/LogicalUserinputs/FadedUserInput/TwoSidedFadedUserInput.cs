@@ -21,6 +21,21 @@ public class TwoSidedFadedUserInput : IUserInput
         private set { _faderValue = value; }
     }
 
+    public float FaderValueNormalizedBetweenMinusAndPlusPointFive
+    {
+        get { return _faderValueNormalizedMinusAndPlusPointFive; }
+        private set
+        {
+            if (IsActive)
+            {
+                _faderValueNormalizedMinusAndPlusPointFive = value - 0.5f;
+            } else
+            {
+                _faderValueNormalizedMinusAndPlusPointFive = 0;
+            }
+        }
+    }
+
     public float FaderValueNormalizedBetweenMinusOneAndOne
     {
         get
@@ -31,6 +46,7 @@ public class TwoSidedFadedUserInput : IUserInput
     public bool IsActive { get; private set; } = true;
 
     private float _faderValue;
+    private float _faderValueNormalizedMinusAndPlusPointFive;
 
     private float _deadZoneSize = 0.2f;
     private float _deadZoneLowerBound = 0.4f;
@@ -60,8 +76,17 @@ public class TwoSidedFadedUserInput : IUserInput
         {
             EmitTurnedOffEvent?.Invoke();
             IsActive = false;
+            //FaderValueNormalizedBetweenMinusAndPlusPointFive = .5f; // so it is 0
         }
 
         FaderValue = value;
+        FaderValueNormalizedBetweenMinusAndPlusPointFive = value;
+        //if (IsActive)
+        //{
+            
+        //} else
+        //{
+        //    FaderValueNormalizedBetweenMinusAndPlusPointFive = .5f; // so it is 0
+        //}
     }
 }

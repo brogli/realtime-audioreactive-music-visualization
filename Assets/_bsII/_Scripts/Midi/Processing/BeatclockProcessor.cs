@@ -21,6 +21,8 @@ public class BeatclockProcessor : MonoBehaviour, IUserInputsConsumer
     private const float QuadrupleAmountClockPulses = 96;
     private const float EightTimesAmountClockPulses = 192;
 
+    private float _beatClockOffset = 0;
+
     public void Start()
     {
         _musicInputsModel = GameObject.FindGameObjectWithTag("MusicInputsModel").GetComponent<MusicInputsModel>();
@@ -104,12 +106,15 @@ public class BeatclockProcessor : MonoBehaviour, IUserInputsConsumer
 
     private void NormalizeAndPushValues()
     {
-        _musicInputsModel.FourInFourValue = _fourInFourValue / RegularAmountClockPulses;
-        _musicInputsModel.OneInFourValue = _oneInFourValue / QuadrupleAmountClockPulses;
-        _musicInputsModel.TwoInFourValue = _twoInFourValue / DoubleAmountClockPulses;
-        _musicInputsModel.EightInFourValue = _eightInFourValue / HalfAmountClockPulses;
-        _musicInputsModel.SixteenInFourValue = _sixteenInFourValue / QuarterAmountClockPulses;
-        _musicInputsModel.OneInEightValue = _oneInEightValue / EightTimesAmountClockPulses;
+        float beatClockOffset = _userInputsModel.BeatClockOffset.FaderValueNormalizedBetweenMinusAndPlusPointFive;
+        //Debug.Log(beatClockOffset); 
+        _musicInputsModel.FourInFourValue = BsIImath.AcutalModulo(((_fourInFourValue / RegularAmountClockPulses) + beatClockOffset), 1.0f);
+        //float 
+        _musicInputsModel.OneInFourValue = BsIImath.AcutalModulo(((_oneInFourValue / QuadrupleAmountClockPulses) + beatClockOffset / 4f), 1.0f);
+        _musicInputsModel.TwoInFourValue = BsIImath.AcutalModulo(((_twoInFourValue / DoubleAmountClockPulses) + beatClockOffset / 2), 1.0f);
+        _musicInputsModel.EightInFourValue = BsIImath.AcutalModulo(((_eightInFourValue / HalfAmountClockPulses) + beatClockOffset * 2), 1.0f);
+        _musicInputsModel.SixteenInFourValue = BsIImath.AcutalModulo(((_sixteenInFourValue / QuarterAmountClockPulses) + beatClockOffset * 4), 1.0f);
+        _musicInputsModel.OneInEightValue = BsIImath.AcutalModulo(((_oneInEightValue / EightTimesAmountClockPulses) + beatClockOffset / 8), 1.0f);
     }
 
     public void SubscribeUserInputs()
@@ -148,7 +153,8 @@ public class BeatclockProcessor : MonoBehaviour, IUserInputsConsumer
         if (_fourInFourValue < RegularAmountClockPulses)
         {
             _oneInFourValue = _fourInFourValue;
-        } else
+        }
+        else
         {
             _oneInFourValue = ((int)QuadrupleAmountClockPulses - 1) - _oneInFourValue;
         }

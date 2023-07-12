@@ -33,6 +33,7 @@ public class UserInputsModel : MonoBehaviour
     public ToggeledAndFadedUserInput OneInEightUserInput { get; private set; }
     public TriggeredUserInput SetOneInFourToNow { get; private set; }
     public TriggeredUserInput SetOneInEightToNow { get; private set; }
+    public TwoSidedFadedUserInput BeatClockOffset { get; private set; }
     #endregion
 
     #region volume things
@@ -84,6 +85,8 @@ public class UserInputsModel : MonoBehaviour
 
         SetOneInFourToNow = new TriggeredUserInput();
         SetOneInEightToNow = new TriggeredUserInput();
+
+        BeatClockOffset = new TwoSidedFadedUserInput(0.15f);
     }
 
     private void InitializeManagementInputs()
