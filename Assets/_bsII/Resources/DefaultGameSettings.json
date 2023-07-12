@@ -226,6 +226,27 @@
                 "containerType": "TriggeredUserInput",
                 "containerTargetProperty": "ActivateScene"
             },
+            "1_5": {
+                "targetProperty": "FadeToBlur",
+                "type": "FadedUserInput",
+                "nested": false,
+                "containerType": "FadedUserInput",
+                "containerTargetProperty": "FadeToBlur"
+            },
+            "1_6": {
+                "targetProperty": "FadeToWhite",
+                "type": "FadedUserInput",
+                "nested": false,
+                "containerType": "FadedUserInput",
+                "containerTargetProperty": "FadeToWhite"
+            },
+            "1_7": {
+                "targetProperty": "FadeToBlack",
+                "type": "FadedUserInput",
+                "nested": false,
+                "containerType": "FadedUserInput",
+                "containerTargetProperty": "FadeToBlack"
+            },
             "1_16": {
                 "targetProperty": "BeatClockOffset",
                 "type": "TwoSidedFadedUserInput",

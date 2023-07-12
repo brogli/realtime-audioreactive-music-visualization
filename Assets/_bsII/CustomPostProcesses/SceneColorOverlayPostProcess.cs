@@ -4,7 +4,7 @@ using UnityEngine.Rendering.HighDefinition;
 using System;
 
 [Serializable, VolumeComponentMenu("Post-processing/Custom/SceneColorPostProcessVolume")]
-public sealed class SceneColorOverlayPostProcessVolume : CustomPostProcessVolumeComponent, IPostProcessComponent
+public sealed class SceneColorOverlayPostProcess : CustomPostProcessVolumeComponent, IPostProcessComponent
 {
     [Tooltip("Controls the intensity of the effect.")]
     public ClampedFloatParameter intensity = new ClampedFloatParameter(0f, 0f, 1f);

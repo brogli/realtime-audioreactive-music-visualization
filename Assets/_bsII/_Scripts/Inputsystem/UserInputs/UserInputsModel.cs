@@ -41,12 +41,20 @@ public class UserInputsModel : MonoBehaviour
     public ToggeledAndFadedUserInput LowFrequencyVolume { get; private set; }
     #endregion
 
+    #region global post procesing effects
+    public FadedUserInput FadeToBlur { get; private set; }
+    public FadedUserInput FadeToWhite { get; private set; }
+    public FadedUserInput FadeToBlack { get; private set; }
+    
+    #endregion
+
     public void Awake()
     {
         InitializeMelodyMoodDroneExplosionKeys();
         InitializeManagementInputs();
         InitializeBeatUserInputs();
         InitializeVolumeElements();
+        InitializePostProcessingElements();
         SceneManager.sceneLoaded += ResetUserInputValidationFlags;
     }
 
@@ -129,6 +137,13 @@ public class UserInputsModel : MonoBehaviour
             explosionKeys[i] = new TriggeredUserInput(i);
         }
         ExplosionKeys = new UserInputCollectionOfEight<TriggeredUserInput>(explosionKeys);
+    }
+
+    private void InitializePostProcessingElements()
+    {
+        FadeToBlur = new();
+        FadeToWhite = new();
+        FadeToBlack = new();
     }
 
     public void OnApplicationQuit()

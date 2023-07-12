@@ -57,7 +57,7 @@ namespace LeftRightMovementScene
 
         [SerializeField]
         private Volume _sceneVolume;
-        private SceneColorOverlayPostProcessVolume _sceneColorOverlayPostProcessVolume;
+        private SceneColorOverlayPostProcess _sceneColorOverlayPostProcessVolume;
 
         [SerializeField]
         private List<Renderer> _melodyKeyRenderers;
