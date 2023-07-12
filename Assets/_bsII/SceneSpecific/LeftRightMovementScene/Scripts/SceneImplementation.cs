@@ -336,7 +336,8 @@ namespace LeftRightMovementScene
         {
             if (hasTurnedOn)
             {
-                
+                Color targetColor = _melodyKeyOriginalEmissiveColor * _melodyKeyTargetIntensity;
+                SetEmissiveColor(_melodyKeyRenderers[index].material, targetColor, 1);
             } else
             {
                 Color targetColor = _melodyKeyOriginalEmissiveColor * _melodyKeyTargetIntensity;
