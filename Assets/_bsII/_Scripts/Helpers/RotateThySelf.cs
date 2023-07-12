@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class RotateThySelf : MonoBehaviour
 {
-    public Vector3 RotationDirection { get; set; } = Vector3.right;
-    public float RotationSpeedFactor { get; set; } = 50;
+    [SerializeField]
+    private Vector3 _rotationDirection = Vector3.right;
+    [SerializeField]
+    private float _rotationSpeedFactor = 50;
 
+    public Vector3 RotationDirection { get => _rotationDirection; set => _rotationDirection = value; }
+    public float RotationSpeedFactor { get => _rotationSpeedFactor; set => _rotationSpeedFactor = value; }
     // Start is called before the first frame update
     void Start()
     {

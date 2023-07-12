@@ -71,7 +71,6 @@ MonoBehaviour:
   afterPostProcessCustomPostProcesses:
   - Scene1ExplosionFullScreenShaderGraph, Scene1, Version=0.0.0.0, Culture=neutral,
     PublicKeyToken=null
-  - CameraCopy, DisplayStuff, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - IE.RichFX.EGAFilter, IE.RichFX, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - IE.RichFX.ChromaLines, IE.RichFX, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - IE.RichFX.LetterBox, IE.RichFX, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -113,6 +112,7 @@ MonoBehaviour:
   - IE.RichFX.Posterize, IE.RichFX, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - SceneColorOverlayPostProcessVolume, CustomPostProcesses, Version=0.0.0.0, Culture=neutral,
     PublicKeyToken=null
+  - CameraCopy, DisplayStuff, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   beforeTAACustomPostProcesses: []
   lightLayerName0: Light Layer default
   lightLayerName1: Light Layer 1
