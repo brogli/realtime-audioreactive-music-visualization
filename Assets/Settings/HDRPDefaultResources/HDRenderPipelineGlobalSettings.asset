@@ -67,6 +67,16 @@ MonoBehaviour:
   beforeTransparentCustomPostProcesses: []
   beforePostProcessCustomPostProcesses:
   - IE.RichFX.BloomStreak, IE.RichFX, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - SnapshotShaders.HDRP.WorldScan, SnapshotShaders.HDRP, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  - SnapshotShaders.HDRP.Outline, SnapshotShaders.HDRP, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  - SnapshotShaders.HDRP.LightStreaks, SnapshotShaders.HDRP, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  - SnapshotShaders.HDRP.Neon, SnapshotShaders.HDRP, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  - SnapshotShaders.HDRP.Synthwave, SnapshotShaders.HDRP, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
   afterPostProcessBlursCustomPostProcesses: []
   afterPostProcessCustomPostProcesses:
   - Scene1ExplosionFullScreenShaderGraph, Scene1, Version=0.0.0.0, Culture=neutral,
@@ -87,9 +97,11 @@ MonoBehaviour:
   - IE.RichFX.CGAFilter, IE.RichFX, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - IE.RichFX.SimpleFrostedGlass, IE.RichFX, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - IE.RichFX.Recolor, IE.RichFX, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - IE.RichFX.SimpleGaussianBlur, IE.RichFX, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - IE.RichFX.LowLightCam, IE.RichFX, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - IE.RichFX.SimpleGaussianBlur, IE.RichFX, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - IE.RichFX.GaussianBlur, IE.RichFX, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - SnapshotShaders.HDRP.Blur, SnapshotShaders.HDRP, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
   - IE.RichFX.EightColor, IE.RichFX, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - IE.RichFX.EdgeDetection, IE.RichFX, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - IE.RichFX.GrayScale, IE.RichFX, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -110,6 +122,62 @@ MonoBehaviour:
   - IE.RichFX.RGBSplit, IE.RichFX, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - IE.RichFX.RGBDistortion, IE.RichFX, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - IE.RichFX.Posterize, IE.RichFX, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - SnapshotShaders.HDRP.RadialBlur, SnapshotShaders.HDRP, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  - SnapshotShaders.HDRP.Pixelate, SnapshotShaders.HDRP, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  - SnapshotShaders.HDRP.Glitch, SnapshotShaders.HDRP, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  - SnapshotShaders.HDRP.Halftone, SnapshotShaders.HDRP, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  - SnapshotShaders.HDRP.Sharpen, SnapshotShaders.HDRP, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  - SnapshotShaders.HDRP.FilmBars, SnapshotShaders.HDRP, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  - SnapshotShaders.HDRP.SepiaTone, SnapshotShaders.HDRP, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  - SnapshotShaders.HDRP.TextAdventure, SnapshotShaders.HDRP, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  - SnapshotShaders.HDRP.Mosaic, SnapshotShaders.HDRP, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  - SnapshotShaders.HDRP.Kaleidoscope, SnapshotShaders.HDRP, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  - SnapshotShaders.HDRP.Silhouette, SnapshotShaders.HDRP, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  - SnapshotShaders.HDRP.Dither, SnapshotShaders.HDRP, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  - SnapshotShaders.HDRP.Scanlines, SnapshotShaders.HDRP, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  - SnapshotShaders.HDRP.GameBoy, SnapshotShaders.HDRP, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  - SnapshotShaders.HDRP.Drawing, SnapshotShaders.HDRP, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  - SnapshotShaders.HDRP.Greyscale, SnapshotShaders.HDRP, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  - SnapshotShaders.HDRP.Invert, SnapshotShaders.HDRP, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  - SnapshotShaders.HDRP.SNES, SnapshotShaders.HDRP, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  - SnapshotShaders.HDRP.Painting, SnapshotShaders.HDRP, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  - SnapshotShaders.HDRP.Underwater, SnapshotShaders.HDRP, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  - SnapshotShaders.HDRP.BarrelDistortion, SnapshotShaders.HDRP, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
+  - SnapshotShaders.HDRP.Colorize, SnapshotShaders.HDRP, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  - SnapshotShaders.HDRP.Dither3D, SnapshotShaders.HDRP, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  - SnapshotShaders.HDRP.Vortex, SnapshotShaders.HDRP, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  - SnapshotShaders.HDRP.NoiseGrain, SnapshotShaders.HDRP, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  - SnapshotShaders.HDRP.SobelOutline, SnapshotShaders.HDRP, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  - SnapshotShaders.HDRP.SobelNeon, SnapshotShaders.HDRP, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  - SnapshotShaders.HDRP.Cutout, SnapshotShaders.HDRP, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
   - SceneColorOverlayPostProcess, CustomPostProcesses, Version=0.0.0.0, Culture=neutral,
     PublicKeyToken=null
   - FadeToBlackOrWhitePostProcess, CustomPostProcesses, Version=0.0.0.0, Culture=neutral,

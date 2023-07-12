@@ -1,3 +1,5 @@
+using IE.RichFX;
+using SnapshotShaders.HDRP;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,13 +10,26 @@ public class GlobalPostProcesses : MonoBehaviour, IUserInputsConsumer
 {
 
     private FadeToBlackOrWhitePostProcess _fadeToBlackOrWhitePostProcess;
+    private Blur _blurPostProcess;
+    private GaussianBlur _gaussianBlur;
     private UserInputsModel _userInputsModel;
+
 
     void Start()
     {
         if (!GetComponent<Volume>().sharedProfile.TryGet(out _fadeToBlackOrWhitePostProcess))
         {
             throw new NullReferenceException(nameof(_fadeToBlackOrWhitePostProcess));
+        }
+
+        if (!GetComponent<Volume>().sharedProfile.TryGet(out _blurPostProcess))
+        {
+            throw new NullReferenceException(nameof(_blurPostProcess));
+        }
+
+        if (!GetComponent<Volume>().sharedProfile.TryGet(out _gaussianBlur))
+        {
+            throw new NullReferenceException(nameof(_gaussianBlur));
         }
 
         _userInputsModel = GameObject.FindGameObjectWithTag("UserInputsModel").GetComponent<UserInputsModel>();
@@ -45,6 +60,9 @@ public class GlobalPostProcesses : MonoBehaviour, IUserInputsConsumer
 
         _userInputsModel.FadeToBlack.EmitTurnedOnEvent += HandleFadeToBlackOn;
         _userInputsModel.FadeToBlack.EmitTurnedOffEvent += HandleFadeToBlackOff;
+
+        _userInputsModel.FadeToBlur.EmitTurnedOffEvent += HandleFadeToBlurOn;
+        _userInputsModel.FadeToBlur.EmitTurnedOffEvent += HandleFadeToBlurOff;
     }
 
     public void UnsubscribeUserInputs()
@@ -54,9 +72,12 @@ public class GlobalPostProcesses : MonoBehaviour, IUserInputsConsumer
 
         _userInputsModel.FadeToBlack.EmitTurnedOnEvent -= HandleFadeToBlackOn;
         _userInputsModel.FadeToBlack.EmitTurnedOffEvent -= HandleFadeToBlackOff;
+
+        _userInputsModel.FadeToBlur.EmitTurnedOffEvent -= HandleFadeToBlurOn;
+        _userInputsModel.FadeToBlur.EmitTurnedOffEvent -= HandleFadeToBlurOff;
     }
 
-    #region handle fade to black and to white
+    #region handle fade to black, to white and to blur
     private void HandleFadeToWhiteOn()
     {
         _fadeToBlackOrWhitePostProcess.intensity.value = 1;
@@ -88,6 +109,23 @@ public class GlobalPostProcesses : MonoBehaviour, IUserInputsConsumer
         {
             _fadeToBlackOrWhitePostProcess.intensity.value = 0;
         }
+    }
+
+    private void HandleFadeToBlurOn()
+    {
+        //_blurPostProcess.active = true;
+        //_blurPostProcess.strength.overrideState = true;
+        //_blurPostProcess.strength.value = 300;
+        _gaussianBlur.active = true;
+        _gaussianBlur.intensity.overrideState = true;
+        //_gaussianBlur.intensity.value = 100;
+    }
+
+    private void HandleFadeToBlurOff()
+    {
+        //.darkenIntensity.overrideState = false;
+
+
     }
     #endregion
 
