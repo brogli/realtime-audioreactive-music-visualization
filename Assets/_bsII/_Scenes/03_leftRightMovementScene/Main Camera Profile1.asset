@@ -27,10 +27,10 @@ MonoBehaviour:
     m_Value: 1
   upperHemisphereLuxValue:
     m_OverrideState: 1
-    m_Value: 2.948698
+    m_Value: 2.8641675
   upperHemisphereLuxColor:
     m_OverrideState: 1
-    m_Value: {x: 0.5, y: 0.46174294, z: 0.43902975}
+    m_Value: {x: 0.5, y: 0.23423776, z: 0.2851771}
   desiredLuxValue:
     m_OverrideState: 0
     m_Value: 20000
@@ -45,7 +45,7 @@ MonoBehaviour:
     m_Value: 0
   hdriSky:
     m_OverrideState: 1
-    m_Value: {fileID: 8900000, guid: c4ade5ac931a64a469591ac1a4c46c2b, type: 3}
+    m_Value: {fileID: 8900000, guid: 33e0e1fc0244d1348b1c630937f22986, type: 3}
   distortionMode:
     m_OverrideState: 0
     m_Value: 0
@@ -152,6 +152,89 @@ MonoBehaviour:
   fogType:
     m_OverrideState: 0
     m_Value: 0
+--- !u!114 &-2786850944007953005
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc81c933f5015cc47b0042fcead76ca6, type: 3}
+  m_Name: SceneColorOverlayPostProcessVolume
+  m_EditorClassIdentifier: 
+  active: 1
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0
+  factor:
+    m_OverrideState: 1
+    m_Value: 2
+  color:
+    m_OverrideState: 1
+    m_Value: {r: 0, g: 0, b: 0, a: 1}
+--- !u!114 &-889745731873299667
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaa3b8214f75b354e9ba2caadd022259, type: 3}
+  m_Name: DepthOfField
+  m_EditorClassIdentifier: 
+  active: 1
+  quality:
+    m_OverrideState: 1
+    m_Value: 3
+  focusMode:
+    m_OverrideState: 1
+    m_Value: 2
+  focusDistance:
+    m_OverrideState: 0
+    m_Value: 10
+  focusDistanceMode:
+    m_OverrideState: 0
+    m_Value: 0
+  nearFocusStart:
+    m_OverrideState: 1
+    m_Value: 2.28
+  nearFocusEnd:
+    m_OverrideState: 1
+    m_Value: 9
+  farFocusStart:
+    m_OverrideState: 1
+    m_Value: 16.8
+  farFocusEnd:
+    m_OverrideState: 1
+    m_Value: 25
+  m_NearSampleCount:
+    m_OverrideState: 1
+    m_Value: 3
+  m_NearMaxBlur:
+    m_OverrideState: 1
+    m_Value: 0
+  m_FarSampleCount:
+    m_OverrideState: 1
+    m_Value: 10
+  m_FarMaxBlur:
+    m_OverrideState: 1
+    m_Value: 16
+  m_Resolution:
+    m_OverrideState: 0
+    m_Value: 2
+  m_HighQualityFiltering:
+    m_OverrideState: 0
+    m_Value: 1
+  m_PhysicallyBased:
+    m_OverrideState: 0
+    m_Value: 0
+  m_LimitManualRangeNearBlur:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,6 +254,8 @@ MonoBehaviour:
   - {fileID: 1064955899535701528}
   - {fileID: 6599946102553684557}
   - {fileID: -7982961379284132811}
+  - {fileID: -889745731873299667}
+  - {fileID: -2786850944007953005}
 --- !u!114 &1064955899535701528
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -258,7 +343,7 @@ MonoBehaviour:
     m_Value: 1
   fixedExposure:
     m_OverrideState: 1
-    m_Value: 10.000674
+    m_Value: 10.826482
   compensation:
     m_OverrideState: 0
     m_Value: 0

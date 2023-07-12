@@ -13,6 +13,7 @@ public sealed class CameraCopy : CustomPostProcessVolumeComponent, IPostProcessC
 
     Material m_Material;
     private GameObject _renderTextureQuad;
+    private Material _renderTexQuadSharedMaterial;
     private bool _copyToRenderTexture = false;
 
     public bool IsActive() => m_Material != null && intensity.value > 0f;
@@ -45,6 +46,7 @@ public sealed class CameraCopy : CustomPostProcessVolumeComponent, IPostProcessC
 
     public override void Render(CommandBuffer cmd, HDCamera camera, RTHandle source, RTHandle destination)
     {
+
         if (m_Material == null)
             return;
 
@@ -63,9 +65,13 @@ public sealed class CameraCopy : CustomPostProcessVolumeComponent, IPostProcessC
 
             SetUpRenderTexture();
 
-            _renderTextureQuad.GetComponent<Renderer>().sharedMaterial.SetTexture("_UnlitColorMap", RenderTexture);
+            if (_renderTexQuadSharedMaterial == null)
+            {
+                _renderTexQuadSharedMaterial = _renderTextureQuad.GetComponent<Renderer>().sharedMaterial;
+            }
+            _renderTexQuadSharedMaterial.SetTexture("_UnlitColorMap", RenderTexture);
         }
-        if (_copyToRenderTexture)
+        if (_copyToRenderTexture && camera.camera.tag == "MainCamera")
         {
             cmd.Blit(source, RenderTexture, m_Material);
         }
