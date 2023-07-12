@@ -6,7 +6,7 @@
             <ui:VisualElement name="lower-left-upper" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; flex-basis: 40%;">
                 <ui:VisualElement name="lower-left-upper-container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
                     <ui:VisualElement name="4-4-row" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; align-items: stretch; justify-content: flex-start; margin-left: 4px; margin-top: 4px;">
-                        <ui:VisualElement name="4-4-container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 12%;">
+                        <ui:VisualElement name="4-4-container" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); flex-basis: 12%; flex-shrink: 0;">
                             <ui:VisualElement name="4-4-label-row" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; flex-basis: 50%;">
                                 <ui:VisualElement name="4-4-label0" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); align-items: flex-start; justify-content: flex-end; align-self: flex-start;">
                                     <ui:Label tabindex="-1" text="1" display-tooltip-when-elided="true" name="Label" style="margin-left: 0; padding-left: 0; padding-right: 0; margin-right: 0; color: rgb(255, 255, 255); padding-bottom: 0; margin-bottom: 0; margin-top: -3px; padding-top: 0; -unity-text-align: upper-left; white-space: nowrap; text-overflow: clip; flex-shrink: 1; flex-grow: 1; flex-basis: 50%; font-size: 9px;" />
@@ -19,7 +19,17 @@
                             </ui:VisualElement>
                             <ui:ProgressBar value="0.5" title="4 in 4" low-value="0" high-value="1" name="4-4" style="margin-left: 0; margin-right: 0; flex-basis: 50%; flex-shrink: 1; flex-grow: 1; margin-top: 0; margin-bottom: 0;" />
                         </ui:VisualElement>
-                        <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 88%;" />
+                        <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 12%;" />
+                        <ui:VisualElement name="fps-container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; flex-basis: auto;">
+                            <ui:Label tabindex="-1" text="FPS:" display-tooltip-when-elided="true" name="fps-label" style="color: rgb(255, 255, 255);" />
+                            <ui:Label tabindex="-1" text="FPS" display-tooltip-when-elided="true" name="fps-value" style="color: rgb(255, 255, 255);" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="VisualElement" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: auto;" />
+                        <ui:VisualElement name="clock-offset-container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; flex-basis: auto;">
+                            <ui:Label tabindex="-1" text="beatclock offset:" display-tooltip-when-elided="true" name="clock-offset-label" style="color: rgb(255, 255, 255);" />
+                            <ui:Label tabindex="-1" text="0.0" display-tooltip-when-elided="true" name="clock-offset-value" style="color: rgb(255, 255, 255);" />
+                        </ui:VisualElement>
+                        <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: auto;" />
                     </ui:VisualElement>
                     <ui:VisualElement name="1-4-row" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; align-items: stretch; justify-content: flex-start; margin-left: 4px; margin-top: 4px;">
                         <ui:VisualElement name="1-4-container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 55.56%;">
@@ -100,12 +110,7 @@
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement name="lower-left-lower" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 60%;">
-                <ui:VisualElement name="fps-container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row;">
-                    <ui:Label tabindex="-1" text="FPS" display-tooltip-when-elided="true" name="fps-label" style="color: rgb(255, 255, 255);" />
-                    <ui:Label tabindex="-1" text="FPS" display-tooltip-when-elided="true" name="fps-value" style="color: rgb(255, 255, 255);" />
-                </ui:VisualElement>
-            </ui:VisualElement>
+            <ui:VisualElement name="lower-left-lower" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 60%;" />
         </ui:VisualElement>
         <ui:VisualElement name="lower-right" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 50%; flex-direction: row;">
             <ui:VisualElement name="catalog-container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 95%; overflow: hidden;" />
