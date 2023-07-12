@@ -3,16 +3,18 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.HighDefinition;
 using System;
 
-[Serializable, VolumeComponentMenu("Post-processing/Custom/SceneColorOverlayPostProcess")]
-public sealed class SceneColorOverlayPostProcess : CustomPostProcessVolumeComponent, IPostProcessComponent
+[Serializable, VolumeComponentMenu("Post-processing/Custom/FadeToBlackOrWhitePostProcess")]
+public sealed class FadeToBlackOrWhitePostProcess : CustomPostProcessVolumeComponent, IPostProcessComponent
 {
+    // default stuff:
     [Tooltip("Controls the intensity of the effect.")]
     public ClampedFloatParameter intensity = new ClampedFloatParameter(0f, 0f, 1f);
 
-    public ClampedFloatParameter factor = new ClampedFloatParameter(0f, 0f, 10f);
+    // custom stuff:
+    public ClampedFloatParameter lightenIntensity = new ClampedFloatParameter(0f, 0f, 1f);
+    public ClampedFloatParameter darkenIntensity = new ClampedFloatParameter(0f, 0f, 1f);
 
-    public ColorParameter color = new ColorParameter(Color.red);
-
+    // deefault stuff:
     Material m_Material;
 
     public bool IsActive() => m_Material != null && intensity.value > 0f;
@@ -20,14 +22,15 @@ public sealed class SceneColorOverlayPostProcess : CustomPostProcessVolumeCompon
     // Do not forget to add this post process in the Custom Post Process Orders list (Project Settings > Graphics > HDRP Global Settings).
     public override CustomPostProcessInjectionPoint injectionPoint => CustomPostProcessInjectionPoint.AfterPostProcess;
 
-    const string kShaderName = "Shader Graphs/SceneColorOverlay";
+    // custom stuff:
+    const string kShaderName = "Shader Graphs/FadeToBlackOrWhite";
 
     public override void Setup()
     {
         if (Shader.Find(kShaderName) != null)
             m_Material = new Material(Shader.Find(kShaderName));
         else
-            Debug.LogError($"Unable to find shader '{kShaderName}'. Post Process Volume SceneColorPostProcessVolume is unable to load.");
+            Debug.LogError($"Unable to find shader '{kShaderName}'. Post Process Volume FadeToBlackOrWhite is unable to load.");
     }
 
     public override void Render(CommandBuffer cmd, HDCamera camera, RTHandle source, RTHandle destination)
@@ -35,10 +38,15 @@ public sealed class SceneColorOverlayPostProcess : CustomPostProcessVolumeCompon
         if (m_Material == null)
             return;
 
+        // default stuff:
         m_Material.SetFloat("_Intensity", intensity.value);
         m_Material.SetTexture("_MainTex", source);
-        m_Material.SetFloat("_Factor", factor.value);
-        m_Material.SetColor("_Color", color.value);
+
+        // custom stuff:
+        m_Material.SetFloat("_whitenIntensity", lightenIntensity.value);
+        m_Material.SetFloat("_darkenIntensity", darkenIntensity.value);
+
+        // default stuff:
         HDUtils.DrawFullScreen(cmd, m_Material, destination, shaderPassId: 0);
     }
 

@@ -70,7 +70,7 @@ public class HairSceneImplementation : MonoBehaviour, IMusicInputsConsumer, IUse
         _mainLightInitPosition = new Vector3(MainLight.transform.position.x, MainLight.transform.position.y, MainLight.transform.position.z);
 
 
-        if (!SceneVolume.sharedProfile.TryGet<SceneColorOverlayPostProcess>(out _sceneColorOverlayPostProcessVolume))
+        if (!SceneVolume.sharedProfile.TryGet(out _sceneColorOverlayPostProcessVolume))
         {
             throw new NullReferenceException(nameof(_sceneColorOverlayPostProcessVolume));
         }

@@ -8,19 +8,28 @@ public class FadedUserInput : ISceneUserInput
     public delegate void TurnedOffEvent();
     public event TurnedOffEvent EmitTurnedOffEvent;
 
-    private const float _turnedOffThreshold = 0.05f;
+    private float _turnedOffThreshold = 0.05f;
     private float _faderValue = 1;
     private bool _isFaderValueUsed = false;
 
-    public float FaderValue { 
-        get 
+    public float FaderValue
+    {
+        get
         {
             _isFaderValueUsed = true;
-            return _faderValue; 
-        } 
-        private set => _faderValue = value; 
+            return _faderValue;
+        }
+        private set => _faderValue = value;
     }
     public bool IsActive { get; private set; } = true;
+
+    public FadedUserInput()
+    {
+    }
+    public FadedUserInput(float turnedOffThreshold)
+    {
+        _turnedOffThreshold = turnedOffThreshold;
+    }
 
     public void SetNewStateIfNecessary(bool isPressed, float value)
     {

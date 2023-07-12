@@ -141,9 +141,9 @@ public class UserInputsModel : MonoBehaviour
 
     private void InitializePostProcessingElements()
     {
-        FadeToBlur = new();
-        FadeToWhite = new();
-        FadeToBlack = new();
+        FadeToBlur = new(0.01f);
+        FadeToWhite = new(0.01f);
+        FadeToBlack = new(0.01f);
     }
 
     public void OnApplicationQuit()
