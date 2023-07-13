@@ -45,7 +45,17 @@ public class UserInputsModel : MonoBehaviour
     public FadedUserInput FadeToBlur { get; private set; }
     public FadedUserInput FadeToWhite { get; private set; }
     public FadedUserInput FadeToBlack { get; private set; }
-    
+
+    public ToggeledUserInput Kaleidoscope { get; private set; }
+    public ToggeledUserInput ColorInvert { get; private set; }
+    public ToggeledUserInput ColorInvertFourInFour { get; private set; }
+    public TriggeredUserInput Strobo { get; private set; }
+    public ToggeledUserInput TextOverlayBsII { get; private set; }
+    public ToggeledUserInput TextOverlayHammerTime { get; private set; }
+    public ToggeledUserInput ColorOverlayFourInFour { get; private set; }
+    public ToggeledUserInput SobelNeon { get; private set; }
+    public ToggeledUserInput RainbowFlow { get; private set; }
+
     #endregion
 
     public void Awake()
@@ -144,6 +154,15 @@ public class UserInputsModel : MonoBehaviour
         FadeToBlur = new(0.01f);
         FadeToWhite = new(0.01f);
         FadeToBlack = new(0.01f);
+        Kaleidoscope = new();
+        ColorInvert = new();
+        ColorInvertFourInFour = new();
+        Strobo = new();
+        TextOverlayBsII = new();
+        TextOverlayHammerTime = new();
+        ColorOverlayFourInFour = new();
+        SobelNeon = new();
+        RainbowFlow = new();
     }
 
     public void OnApplicationQuit()

@@ -381,4 +381,114 @@ public class KeyboardInputProcessor : MonoBehaviour
         ProcessExplosionKeys(context, 7);
     }
     #endregion
+
+    #region post processes
+    public void ProcessKaleidoscope(CallbackContext context)
+    {
+        if (context.started)
+        {
+            _userInputsModel.Kaleidoscope.SetNewStateIfNecessary(true, 0);
+        }
+        if (context.canceled)
+        {
+            _userInputsModel.Kaleidoscope.SetNewStateIfNecessary(false, 0);
+        }
+    }
+
+    public void ProcessColorInvert(CallbackContext context)
+    {
+        if (context.started)
+        {
+            _userInputsModel.ColorInvert.SetNewStateIfNecessary(true, 0);
+        }
+        if (context.canceled)
+        {
+            _userInputsModel.ColorInvert.SetNewStateIfNecessary(false, 0);
+        }
+    }
+
+    public void ProcessColorInvertFourInFour(CallbackContext context)
+    {
+        if (context.started)
+        {
+            _userInputsModel.ColorInvertFourInFour.SetNewStateIfNecessary(true, 0);
+        }
+        if (context.canceled)
+        {
+            _userInputsModel.ColorInvertFourInFour.SetNewStateIfNecessary(false, 0);
+        }
+    }
+
+    public void ProcessStrobo(CallbackContext context)
+    {
+        if (context.started)
+        {
+            _userInputsModel.Strobo.SetNewStateIfNecessary(true, 0);
+        }
+        if (context.canceled)
+        {
+            _userInputsModel.Strobo.SetNewStateIfNecessary(false, 0);
+        }
+    }
+
+    public void ProcessTextOverlayBsII(CallbackContext context)
+    {
+        if (context.started)
+        {
+            _userInputsModel.TextOverlayBsII.SetNewStateIfNecessary(true, 0);
+        }
+        if (context.canceled)
+        {
+            _userInputsModel.TextOverlayBsII.SetNewStateIfNecessary(false, 0);
+        }
+    }
+
+    public void ProcessTextOverlayHammerTime(CallbackContext context)
+    {
+        if (context.started)
+        {
+            _userInputsModel.TextOverlayHammerTime.SetNewStateIfNecessary(true, 0);
+        }
+        if (context.canceled)
+        {
+            _userInputsModel.TextOverlayHammerTime.SetNewStateIfNecessary(false, 0);
+        }
+    }
+
+    public void ProcessColorOverlayFourInFour(CallbackContext context)
+    {
+        if (context.started)
+        {
+            _userInputsModel.ColorOverlayFourInFour.SetNewStateIfNecessary(true, 0);
+        }
+        if (context.canceled)
+        {
+            _userInputsModel.ColorOverlayFourInFour.SetNewStateIfNecessary(false, 0);
+        }
+    }
+
+    public void ProcessSobelNeon(CallbackContext context)
+    {
+        if (context.started)
+        {
+            _userInputsModel.SobelNeon.SetNewStateIfNecessary(true, 0);
+        }
+        if (context.canceled)
+        {
+            _userInputsModel.SobelNeon.SetNewStateIfNecessary(false, 0);
+        }
+    }
+
+    public void ProcessRainbowFlow(CallbackContext context)
+    {
+        if (context.started)
+        {
+            _userInputsModel.RainbowFlow.SetNewStateIfNecessary(true, 0);
+        }
+        if (context.canceled)
+        {
+            _userInputsModel.RainbowFlow.SetNewStateIfNecessary(false, 0);
+        }
+    }
+    #endregion
 }
