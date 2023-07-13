@@ -14,11 +14,30 @@ public class GlobalPostProcesses : MonoBehaviour, IUserInputsConsumer
     private SimpleGaussianBlur _simpleGaussianBlur;
     private SimpleGaussianBlur1 _simpleGaussianBlur1;
     private SimpleGaussianBlur2 _simpleGaussianBlur2;
+    private Kaleidoscope _kaleidoscope;
+    private SobelNeon _sobelNeon;
+    private Invert _colorInvert;
+    private RainbowFlow _rainbowFlow;
 
     private UserInputsModel _userInputsModel;
 
     void Start()
     {
+        SetupVolumeOverrides();
+
+        _userInputsModel = GameObject.FindGameObjectWithTag("UserInputsModel").GetComponent<UserInputsModel>();
+        SubscribeUserInputs();
+
+    }
+
+
+    void OnDisable()
+    {
+        UnsubscribeUserInputs();
+    }
+    private void SetupVolumeOverrides()
+    {
+
         if (!GetComponent<Volume>().sharedProfile.TryGet(out _fadeToBlackOrWhitePostProcess))
         {
             throw new NullReferenceException(nameof(_fadeToBlackOrWhitePostProcess));
@@ -44,14 +63,25 @@ public class GlobalPostProcesses : MonoBehaviour, IUserInputsConsumer
             throw new NullReferenceException(nameof(_simpleGaussianBlur2));
         }
 
-        _userInputsModel = GameObject.FindGameObjectWithTag("UserInputsModel").GetComponent<UserInputsModel>();
-        SubscribeUserInputs();
+        if (!GetComponent<Volume>().sharedProfile.TryGet(out _kaleidoscope))
+        {
+            throw new NullReferenceException(nameof(_kaleidoscope));
+        }
 
-    }
+        if (!GetComponent<Volume>().sharedProfile.TryGet(out _sobelNeon))
+        {
+            throw new NullReferenceException(nameof(_sobelNeon));
+        }
 
-    void OnDisable()
-    {
-        UnsubscribeUserInputs();
+        if (!GetComponent<Volume>().sharedProfile.TryGet(out _colorInvert))
+        {
+            throw new NullReferenceException(nameof(_colorInvert));
+        }
+
+        if (!GetComponent<Volume>().sharedProfile.TryGet(out _rainbowFlow))
+        {
+            throw new NullReferenceException(nameof(_rainbowFlow));
+        }
     }
 
     void Update()
@@ -187,9 +217,10 @@ public class GlobalPostProcesses : MonoBehaviour, IUserInputsConsumer
     private void HandleRainbowFlow(bool hasTurnedOn, int index)
     {
         if (hasTurnedOn) {
-            Debug.Log("rainbowflow on");
+            _rainbowFlow.active = true;
         } else
         {
+            _rainbowFlow.active = false;
 
         }
     }
@@ -198,11 +229,15 @@ public class GlobalPostProcesses : MonoBehaviour, IUserInputsConsumer
     {
         if (hasTurnedOn)
         {
-            Debug.Log("sobelneon on");
+            _sobelNeon.active = true;
+            _sobelNeon.enabled.overrideState = true;
+            _sobelNeon.enabled.value = true;
         }
         else
         {
-
+            _sobelNeon.active = false;
+            _sobelNeon.enabled.overrideState = true;
+            _sobelNeon.enabled.value = false;
         }
     }
 
@@ -251,11 +286,13 @@ public class GlobalPostProcesses : MonoBehaviour, IUserInputsConsumer
     {
         if (hasTurnedOn)
         {
-            Debug.Log("colorinvert on");
+            _colorInvert.active = true;
+            _colorInvert.intensity.overrideState = true;
         }
         else
         {
-
+            _colorInvert.active = false;
+            _colorInvert.intensity.overrideState = false;
         }
     }
 
@@ -263,11 +300,13 @@ public class GlobalPostProcesses : MonoBehaviour, IUserInputsConsumer
     {
         if (hasTurnedOn)
         {
-            Debug.Log("kaleido on");
+            _kaleidoscope.active = true;
+            _kaleidoscope.segmentCount.overrideState = true;
         }
         else
         {
-
+            _kaleidoscope.active = false;
+            _kaleidoscope.segmentCount.overrideState = false;
         }
     }
     #endregion
