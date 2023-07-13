@@ -431,27 +431,15 @@ public class KeyboardInputProcessor : MonoBehaviour
         }
     }
 
-    public void ProcessTextOverlayBsII(CallbackContext context)
+    public void ProcessRandomTextOverlay(CallbackContext context)
     {
         if (context.started)
         {
-            _userInputsModel.TextOverlayBsII.SetNewStateIfNecessary(true, 0);
+            _userInputsModel.RandomTextOverlay.SetNewStateIfNecessary(true, 0);
         }
         if (context.canceled)
         {
-            _userInputsModel.TextOverlayBsII.SetNewStateIfNecessary(false, 0);
-        }
-    }
-
-    public void ProcessTextOverlayHammerTime(CallbackContext context)
-    {
-        if (context.started)
-        {
-            _userInputsModel.TextOverlayHammerTime.SetNewStateIfNecessary(true, 0);
-        }
-        if (context.canceled)
-        {
-            _userInputsModel.TextOverlayHammerTime.SetNewStateIfNecessary(false, 0);
+            _userInputsModel.RandomTextOverlay.SetNewStateIfNecessary(false, 0);
         }
     }
 
