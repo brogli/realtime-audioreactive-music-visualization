@@ -9532,6 +9532,134 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 9191a3b3-e1f0-436e-a584-5c89521ab4cf
     m_ActionName: KeyboardControls/SetOneInEightToNow[/Keyboard/ctrl,/Keyboard/f2]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2078528395}
+        m_TargetAssemblyTypeName: KeyboardInputProcessor, UserInputsProcessing
+        m_MethodName: ProcessKaleidoscope
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 84835687-6d86-4233-9817-0599ddc72811
+    m_ActionName: KeyboardControls/PostProcessKaleidoscope[/Keyboard/alt,/Keyboard/f1]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2078528395}
+        m_TargetAssemblyTypeName: KeyboardInputProcessor, UserInputsProcessing
+        m_MethodName: ProcessColorInvert
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: cb9d3127-58f8-4978-8c2b-359c6a528bf0
+    m_ActionName: KeyboardControls/PostProcessColorInvert[/Keyboard/alt,/Keyboard/f2]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2078528395}
+        m_TargetAssemblyTypeName: KeyboardInputProcessor, UserInputsProcessing
+        m_MethodName: ProcessColorInvertFourInFour
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 87d171b3-ca5d-440f-8e92-191c160bc219
+    m_ActionName: KeyboardControls/PostProcessColorInvertFourInFour[/Keyboard/alt,/Keyboard/f3]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2078528395}
+        m_TargetAssemblyTypeName: KeyboardInputProcessor, UserInputsProcessing
+        m_MethodName: ProcessStrobo
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e7e282fa-492f-4ce3-a750-443e3a67e645
+    m_ActionName: KeyboardControls/PostProcessStrobo[/Keyboard/alt,/Keyboard/f4]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2078528395}
+        m_TargetAssemblyTypeName: KeyboardInputProcessor, UserInputsProcessing
+        m_MethodName: ProcessRandomTextOverlay
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4942c5af-2e89-46f8-8229-96e33aede8b4
+    m_ActionName: KeyboardControls/PostProcessRandomTextOverlay[/Keyboard/alt,/Keyboard/f5]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2078528395}
+        m_TargetAssemblyTypeName: KeyboardInputProcessor, UserInputsProcessing
+        m_MethodName: ProcessColorOverlayFourInFour
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 65a6f701-2ec5-4dab-b842-9173a9554506
+    m_ActionName: KeyboardControls/PostProcessColorOverlayFourInFour[/Keyboard/alt,/Keyboard/f6]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2078528395}
+        m_TargetAssemblyTypeName: KeyboardInputProcessor, UserInputsProcessing
+        m_MethodName: ProcessSobelNeon
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d486e49d-c39d-4198-b45d-3ba53e574ea1
+    m_ActionName: KeyboardControls/PostProcessSobelNeon[/Keyboard/alt,/Keyboard/f7]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2078528395}
+        m_TargetAssemblyTypeName: KeyboardInputProcessor, UserInputsProcessing
+        m_MethodName: ProcessRainbowFlow
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7de1b654-2beb-4355-9dbe-8180fe3ad73f
+    m_ActionName: KeyboardControls/PostProcessRainbowFlowKaleidoscope7[/Keyboard/alt,/Keyboard/f8]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: KeyboardControls

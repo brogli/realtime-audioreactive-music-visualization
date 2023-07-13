@@ -501,7 +501,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "PostProcessRainbowFlowKaleidoscope7",
+                    "name": "PostProcessRainbowFlow",
                     "type": "Button",
                     "id": "7de1b654-2beb-4355-9dbe-8180fe3ad73f",
                     "expectedControlType": "Button",
@@ -1365,7 +1365,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "PostProcessRainbowFlowKaleidoscope7",
+                    "action": "PostProcessRainbowFlow",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -1376,7 +1376,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "PostProcessRainbowFlowKaleidoscope7",
+                    "action": "PostProcessRainbowFlow",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -1387,7 +1387,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "PostProcessRainbowFlowKaleidoscope7",
+                    "action": "PostProcessRainbowFlow",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }
