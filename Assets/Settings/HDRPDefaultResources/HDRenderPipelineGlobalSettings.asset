@@ -98,10 +98,6 @@ MonoBehaviour:
   - IE.RichFX.SimpleFrostedGlass, IE.RichFX, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - IE.RichFX.Recolor, IE.RichFX, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - IE.RichFX.LowLightCam, IE.RichFX, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - IE.RichFX.SimpleGaussianBlur, IE.RichFX, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - IE.RichFX.GaussianBlur, IE.RichFX, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - SnapshotShaders.HDRP.Blur, SnapshotShaders.HDRP, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
   - IE.RichFX.EightColor, IE.RichFX, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - IE.RichFX.EdgeDetection, IE.RichFX, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - IE.RichFX.GrayScale, IE.RichFX, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -122,6 +118,12 @@ MonoBehaviour:
   - IE.RichFX.RGBSplit, IE.RichFX, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - IE.RichFX.RGBDistortion, IE.RichFX, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - IE.RichFX.Posterize, IE.RichFX, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - SnapshotShaders.HDRP.Blur, SnapshotShaders.HDRP, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  - IE.RichFX.GaussianBlur, IE.RichFX, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - IE.RichFX.SimpleGaussianBlur, IE.RichFX, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - IE.RichFX.SimpleGaussianBlur1, IE.RichFX, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - IE.RichFX.SimpleGaussianBlur2, IE.RichFX, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - SnapshotShaders.HDRP.RadialBlur, SnapshotShaders.HDRP, Version=0.0.0.0, Culture=neutral,
     PublicKeyToken=null
   - SnapshotShaders.HDRP.Pixelate, SnapshotShaders.HDRP, Version=0.0.0.0, Culture=neutral,

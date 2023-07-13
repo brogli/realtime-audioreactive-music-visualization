@@ -11,9 +11,11 @@ public class GlobalPostProcesses : MonoBehaviour, IUserInputsConsumer
 
     private FadeToBlackOrWhitePostProcess _fadeToBlackOrWhitePostProcess;
     private Blur _blurPostProcess;
-    private GaussianBlur _gaussianBlur;
-    private UserInputsModel _userInputsModel;
+    private SimpleGaussianBlur _simpleGaussianBlur;
+    private SimpleGaussianBlur1 _simpleGaussianBlur1;
+    private SimpleGaussianBlur2 _simpleGaussianBlur2;
 
+    private UserInputsModel _userInputsModel;
 
     void Start()
     {
@@ -27,13 +29,24 @@ public class GlobalPostProcesses : MonoBehaviour, IUserInputsConsumer
             throw new NullReferenceException(nameof(_blurPostProcess));
         }
 
-        if (!GetComponent<Volume>().sharedProfile.TryGet(out _gaussianBlur))
+        if (!GetComponent<Volume>().sharedProfile.TryGet(out _simpleGaussianBlur))
         {
-            throw new NullReferenceException(nameof(_gaussianBlur));
+            throw new NullReferenceException(nameof(_simpleGaussianBlur));
+        }
+
+        if (!GetComponent<Volume>().sharedProfile.TryGet(out _simpleGaussianBlur1))
+        {
+            throw new NullReferenceException(nameof(_simpleGaussianBlur1));
+        }
+
+        if (!GetComponent<Volume>().sharedProfile.TryGet(out _simpleGaussianBlur2))
+        {
+            throw new NullReferenceException(nameof(_simpleGaussianBlur2));
         }
 
         _userInputsModel = GameObject.FindGameObjectWithTag("UserInputsModel").GetComponent<UserInputsModel>();
         SubscribeUserInputs();
+
     }
 
     void OnDisable()
@@ -43,6 +56,7 @@ public class GlobalPostProcesses : MonoBehaviour, IUserInputsConsumer
 
     void Update()
     {
+
         if (_userInputsModel.FadeToWhite.IsActive)
         {
             _fadeToBlackOrWhitePostProcess.lightenIntensity.value = _userInputsModel.FadeToWhite.FaderValue;
@@ -50,6 +64,13 @@ public class GlobalPostProcesses : MonoBehaviour, IUserInputsConsumer
         if (_userInputsModel.FadeToBlack.IsActive)
         {
             _fadeToBlackOrWhitePostProcess.darkenIntensity.value = _userInputsModel.FadeToBlack.FaderValue;
+        }
+        if (_userInputsModel.FadeToBlur.IsActive)
+        {
+            _blurPostProcess.strength.value = Mathf.RoundToInt(_userInputsModel.FadeToBlur.FaderValue * _blurPostProcess.strength.max);
+            _simpleGaussianBlur.intensity.value = _userInputsModel.FadeToBlur.FaderValue;
+            _simpleGaussianBlur1.intensity.value = _userInputsModel.FadeToBlur.FaderValue;
+            _simpleGaussianBlur2.intensity.value = _userInputsModel.FadeToBlur.FaderValue;
         }
     }
 
@@ -61,7 +82,7 @@ public class GlobalPostProcesses : MonoBehaviour, IUserInputsConsumer
         _userInputsModel.FadeToBlack.EmitTurnedOnEvent += HandleFadeToBlackOn;
         _userInputsModel.FadeToBlack.EmitTurnedOffEvent += HandleFadeToBlackOff;
 
-        _userInputsModel.FadeToBlur.EmitTurnedOffEvent += HandleFadeToBlurOn;
+        _userInputsModel.FadeToBlur.EmitTurnedOnEvent += HandleFadeToBlurOn;
         _userInputsModel.FadeToBlur.EmitTurnedOffEvent += HandleFadeToBlurOff;
     }
 
@@ -73,7 +94,7 @@ public class GlobalPostProcesses : MonoBehaviour, IUserInputsConsumer
         _userInputsModel.FadeToBlack.EmitTurnedOnEvent -= HandleFadeToBlackOn;
         _userInputsModel.FadeToBlack.EmitTurnedOffEvent -= HandleFadeToBlackOff;
 
-        _userInputsModel.FadeToBlur.EmitTurnedOffEvent -= HandleFadeToBlurOn;
+        _userInputsModel.FadeToBlur.EmitTurnedOnEvent -= HandleFadeToBlurOn;
         _userInputsModel.FadeToBlur.EmitTurnedOffEvent -= HandleFadeToBlurOff;
     }
 
@@ -113,19 +134,32 @@ public class GlobalPostProcesses : MonoBehaviour, IUserInputsConsumer
 
     private void HandleFadeToBlurOn()
     {
-        //_blurPostProcess.active = true;
-        //_blurPostProcess.strength.overrideState = true;
-        //_blurPostProcess.strength.value = 300;
-        _gaussianBlur.active = true;
-        _gaussianBlur.intensity.overrideState = true;
-        //_gaussianBlur.intensity.value = 100;
+        _blurPostProcess.active = true;
+        _blurPostProcess.strength.overrideState = true;
+
+        _simpleGaussianBlur.active = true;
+        _simpleGaussianBlur.intensity.overrideState = true;
+
+        _simpleGaussianBlur1.active = true;
+        _simpleGaussianBlur1.intensity.overrideState = true;
+
+        _simpleGaussianBlur2.active = true;
+        _simpleGaussianBlur2.intensity.overrideState = true;
     }
 
     private void HandleFadeToBlurOff()
     {
-        //.darkenIntensity.overrideState = false;
+        _blurPostProcess.strength.overrideState = false;
+        _blurPostProcess.active = false;
 
+        _simpleGaussianBlur.active = false;
+        _simpleGaussianBlur.intensity.overrideState = false;
 
+        _simpleGaussianBlur1.active = false;
+        _simpleGaussianBlur1.intensity.overrideState = false;
+
+        _simpleGaussianBlur2.active = false;
+        _simpleGaussianBlur2.intensity.overrideState = false;
     }
     #endregion
 
