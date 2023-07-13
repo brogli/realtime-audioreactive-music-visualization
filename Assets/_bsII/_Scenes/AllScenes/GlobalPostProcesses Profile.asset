@@ -16,22 +16,6 @@ MonoBehaviour:
   intensity:
     m_OverrideState: 1
     m_Value: 1
---- !u!114 &-6940970938418028362
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8b91bb5864c9734e940b1eab1598edb, type: 3}
-  m_Name: Painting
-  m_EditorClassIdentifier: 
-  active: 0
-  kernelSize:
-    m_OverrideState: 1
-    m_Value: 1
 --- !u!114 &-6640951360626753524
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -57,64 +41,6 @@ MonoBehaviour:
   blackAndWhite:
     m_OverrideState: 1
     m_Value: 0
---- !u!114 &-5021143974530155628
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b515df69e1ecd04e9fdc2b77cde0405, type: 3}
-  m_Name: Dither
-  m_EditorClassIdentifier: 
-  active: 0
-  enabled:
-    m_OverrideState: 1
-    m_Value: 1
-  noiseTex:
-    m_OverrideState: 0
-    m_Value: {fileID: 0}
-    dimension: 1
-  noiseSize:
-    m_OverrideState: 1
-    m_Value: 5.7
-  thresholdOffset:
-    m_OverrideState: 1
-    m_Value: -0.227
-  darkColor:
-    m_OverrideState: 0
-    m_Value: {r: 0, g: 0, b: 0, a: 1}
-  lightColor:
-    m_OverrideState: 0
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
-  useSceneColor:
-    m_OverrideState: 0
-    m_Value: 0
---- !u!114 &-4226654943787812249
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dddb2142ac0faf469d3625166621e57, type: 3}
-  m_Name: Glitch
-  m_EditorClassIdentifier: 
-  active: 0
-  offsetTexture:
-    m_OverrideState: 0
-    m_Value: {fileID: 0}
-    dimension: 1
-  offsetStrength:
-    m_OverrideState: 1
-    m_Value: 0.167
-  verticalTiling:
-    m_OverrideState: 1
-    m_Value: 0.9
 --- !u!114 &-1155214588860663175
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -177,86 +103,9 @@ MonoBehaviour:
   - {fileID: 1788195057119240547}
   - {fileID: -8482357693913134893}
   - {fileID: 3312787510433191697}
-  - {fileID: -4226654943787812249}
   - {fileID: 7667755646801371755}
-  - {fileID: -6940970938418028362}
   - {fileID: -1155214588860663175}
-  - {fileID: 3195991920430222780}
-  - {fileID: 1703741303749257022}
-  - {fileID: -5021143974530155628}
   - {fileID: -6640951360626753524}
-  - {fileID: 623071243487798573}
---- !u!114 &623071243487798573
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e44b6989af3e630408a8c64d83917908, type: 3}
-  m_Name: RadialBlur
-  m_EditorClassIdentifier: 
-  active: 0
-  strength:
-    m_OverrideState: 1
-    m_Value: 37
-  focalSize:
-    m_OverrideState: 1
-    m_Value: 0
---- !u!114 &1703741303749257022
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 464477f111ff8c34896f80349e847b0f, type: 3}
-  m_Name: Neon
-  m_EditorClassIdentifier: 
-  active: 0
-  enabled:
-    m_OverrideState: 1
-    m_Value: 0
-  colorSensitivity:
-    m_OverrideState: 1
-    m_Value: 0.158
-  colorStrength:
-    m_OverrideState: 1
-    m_Value: 0.153
-  depthSensitivity:
-    m_OverrideState: 1
-    m_Value: 0.121
-  depthStrength:
-    m_OverrideState: 1
-    m_Value: 0.359
-  normalSensitivity:
-    m_OverrideState: 1
-    m_Value: 0.163
-  normalStrength:
-    m_OverrideState: 1
-    m_Value: 0.153
-  depthThreshold:
-    m_OverrideState: 1
-    m_Value: 0.99
-  saturationFloor:
-    m_OverrideState: 1
-    m_Value: 0.75
-  lightnessFloor:
-    m_OverrideState: 1
-    m_Value: 0.75
-  backgroundColor:
-    m_OverrideState: 1
-    m_Value: {r: 0, g: 0, b: 0, a: 1}
-  emissiveEdgeColor:
-    m_OverrideState: 1
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
-  useSceneColor:
-    m_OverrideState: 1
-    m_Value: 0
 --- !u!114 &1788195057119240547
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -272,32 +121,7 @@ MonoBehaviour:
   active: 0
   intensity:
     m_OverrideState: 0
-    m_Value: 0
---- !u!114 &3195991920430222780
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 613cb2d660725d74e84ad6f809d2e4e1, type: 3}
-  m_Name: SobelOutline
-  m_EditorClassIdentifier: 
-  active: 0
-  enabled:
-    m_OverrideState: 1
     m_Value: 1
-  threshold:
-    m_OverrideState: 1
-    m_Value: 0.849
-  outlineColor:
-    m_OverrideState: 1
-    m_Value: {r: 1, g: 0.01978819, b: 0, a: 1}
-  backgroundColor:
-    m_OverrideState: 1
-    m_Value: {r: 0, g: 0.9612417, b: 1, a: 1}
 --- !u!114 &3312787510433191697
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -329,7 +153,7 @@ MonoBehaviour:
   active: 0
   strength:
     m_OverrideState: 0
-    m_Value: 1
+    m_Value: 37
 --- !u!114 &7667755646801371755
 MonoBehaviour:
   m_ObjectHideFlags: 3

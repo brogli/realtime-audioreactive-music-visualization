@@ -84,6 +84,15 @@ public class GlobalPostProcesses : MonoBehaviour, IUserInputsConsumer
 
         _userInputsModel.FadeToBlur.EmitTurnedOnEvent += HandleFadeToBlurOn;
         _userInputsModel.FadeToBlur.EmitTurnedOffEvent += HandleFadeToBlurOff;
+
+        _userInputsModel.Kaleidoscope.EmitTurnedOnOrOffEvent += HandleKaleidoscope;
+        _userInputsModel.ColorInvert.EmitTurnedOnOrOffEvent += HandleColorInvert;
+        _userInputsModel.ColorInvertFourInFour.EmitTurnedOnOrOffEvent += HandleColorInvertFourInFour;
+        _userInputsModel.Strobo.EmitTurnedOnOrOffEvent += HandleStrobo;
+        _userInputsModel.RandomTextOverlay.EmitKeyTriggeredEvent += HandleRandomTextOverlay;
+        _userInputsModel.ColorOverlayFourInFour.EmitTurnedOnOrOffEvent += HandleColorOverlayFourInFour;
+        _userInputsModel.SobelNeon.EmitTurnedOnOrOffEvent += HandleSobelNeon;
+        _userInputsModel.RainbowFlow.EmitTurnedOnOrOffEvent += HandleRainbowFlow;
     }
 
     public void UnsubscribeUserInputs()
@@ -96,6 +105,15 @@ public class GlobalPostProcesses : MonoBehaviour, IUserInputsConsumer
 
         _userInputsModel.FadeToBlur.EmitTurnedOnEvent -= HandleFadeToBlurOn;
         _userInputsModel.FadeToBlur.EmitTurnedOffEvent -= HandleFadeToBlurOff;
+
+        _userInputsModel.Kaleidoscope.EmitTurnedOnOrOffEvent -= HandleKaleidoscope;
+        _userInputsModel.ColorInvert.EmitTurnedOnOrOffEvent -= HandleColorInvert;
+        _userInputsModel.ColorInvertFourInFour.EmitTurnedOnOrOffEvent -= HandleColorInvertFourInFour;
+        _userInputsModel.Strobo.EmitTurnedOnOrOffEvent -= HandleStrobo;
+        _userInputsModel.RandomTextOverlay.EmitKeyTriggeredEvent -= HandleRandomTextOverlay;
+        _userInputsModel.ColorOverlayFourInFour.EmitTurnedOnOrOffEvent -= HandleColorOverlayFourInFour;
+        _userInputsModel.SobelNeon.EmitTurnedOnOrOffEvent -= HandleSobelNeon;
+        _userInputsModel.RainbowFlow.EmitTurnedOnOrOffEvent -= HandleRainbowFlow;
     }
 
     #region handle fade to black, to white and to blur
@@ -163,5 +181,94 @@ public class GlobalPostProcesses : MonoBehaviour, IUserInputsConsumer
     }
     #endregion
 
+    #region misc
 
+
+    private void HandleRainbowFlow(bool hasTurnedOn, int index)
+    {
+        if (hasTurnedOn) {
+            Debug.Log("rainbowflow on");
+        } else
+        {
+
+        }
+    }
+
+    private void HandleSobelNeon(bool hasTurnedOn, int index)
+    {
+        if (hasTurnedOn)
+        {
+            Debug.Log("sobelneon on");
+        }
+        else
+        {
+
+        }
+    }
+
+    private void HandleColorOverlayFourInFour(bool hasTurnedOn, int index)
+    {
+        if (hasTurnedOn)
+        {
+            Debug.Log("color overlay 4-4 on");
+        }
+        else
+        {
+
+        }
+    }
+
+    private void HandleRandomTextOverlay()
+    {
+        Debug.Log("random text overlay");
+    }
+
+    private void HandleStrobo(bool hasTurnedOn, int index)
+    {
+        if (hasTurnedOn)
+        {
+            Debug.Log("strobo on");
+        }
+        else
+        {
+
+        }
+    }
+
+    private void HandleColorInvertFourInFour(bool hasTurnedOn, int index)
+    {
+        if (hasTurnedOn)
+        {
+            Debug.Log("colorinvert 4-4 on");
+        }
+        else
+        {
+
+        }
+    }
+
+    private void HandleColorInvert(bool hasTurnedOn, int index)
+    {
+        if (hasTurnedOn)
+        {
+            Debug.Log("colorinvert on");
+        }
+        else
+        {
+
+        }
+    }
+
+    private void HandleKaleidoscope(bool hasTurnedOn, int index)
+    {
+        if (hasTurnedOn)
+        {
+            Debug.Log("kaleido on");
+        }
+        else
+        {
+
+        }
+    }
+    #endregion
 }

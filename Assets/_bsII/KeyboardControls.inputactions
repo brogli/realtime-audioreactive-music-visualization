@@ -1141,7 +1141,7 @@
                 {
                     "name": "modifier",
                     "id": "21ebffd2-a69f-4963-8527-ebef67558ed8",
-                    "path": "<Keyboard>/alt",
+                    "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -1174,7 +1174,7 @@
                 {
                     "name": "modifier",
                     "id": "fa59dd58-221a-4ab8-b5e0-d668acc7eb40",
-                    "path": "<Keyboard>/alt",
+                    "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -1207,7 +1207,7 @@
                 {
                     "name": "modifier",
                     "id": "799d30ca-83de-46d9-9ead-cdc59537bf6f",
-                    "path": "<Keyboard>/alt",
+                    "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -1240,7 +1240,7 @@
                 {
                     "name": "modifier",
                     "id": "d60867bf-8b4a-45ea-b7e7-fdd94fafd997",
-                    "path": "<Keyboard>/alt",
+                    "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -1273,7 +1273,7 @@
                 {
                     "name": "modifier",
                     "id": "75efd415-f540-4ded-8388-b2a5a52ce9f3",
-                    "path": "<Keyboard>/alt",
+                    "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -1306,7 +1306,7 @@
                 {
                     "name": "modifier",
                     "id": "19cca268-fe47-40d1-9b8b-bbaa426c0adc",
-                    "path": "<Keyboard>/alt",
+                    "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -1339,7 +1339,7 @@
                 {
                     "name": "modifier",
                     "id": "13e8ccfa-38cb-435a-9521-167678ed8686",
-                    "path": "<Keyboard>/alt",
+                    "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -1372,7 +1372,7 @@
                 {
                     "name": "modifier",
                     "id": "751e9a80-b250-453b-ba10-d8eb09b786d6",
-                    "path": "<Keyboard>/alt",
+                    "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
