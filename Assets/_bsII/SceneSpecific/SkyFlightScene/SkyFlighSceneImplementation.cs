@@ -212,7 +212,7 @@ public class SkyFlighSceneImplementation : MonoBehaviour, IMusicInputsConsumer, 
         _userInputsModel.EightInFourUserInput.EmitTurnedOnOrOffEvent -= HandleEightInFourUserEvent;
         _userInputsModel.SixteenInFourUserInput.EmitTurnedOnOrOffEvent -= HandleSixteenInFourUserEvent;
         _userInputsModel.AverageVolume.EmitTurnedOnOrOffEvent -= HandleVolumeUserEvent;
-        _userInputsModel.AverageVolume.EmitTurnedOnOrOffEvent -= HandleLfVolumeUserEvent;
+        _userInputsModel.LowFrequencyVolume.EmitTurnedOnOrOffEvent -= HandleLfVolumeUserEvent;
 
         foreach (var key in _userInputsModel.MelodyKeys.Keys)
         {
