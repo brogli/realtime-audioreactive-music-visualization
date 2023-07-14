@@ -21,11 +21,8 @@ EditorBuildSettings:
     path: Assets/_bsII/_Scenes/04_skyFlightScene.unity
     guid: d01ded47a71e7ff4b98eba35a7c3f566
   - enabled: 1
-    path: Assets/_bsII/_Scenes/tryReadingImageSequenceFromDisk.unity
-    guid: e548246fbd94a5040a1a65950810b697
-  - enabled: 1
-    path: Assets/_bsII/_Scenes/05_dummyScene.unity
-    guid: cd2b4742229974b4fbcd16d346a64e44
+    path: Assets/_bsII/_Scenes/05_imgSeqNatureScene.unity
+    guid: e61f83b45dcf7d849a394a8535dc14ed
   - enabled: 1
     path: Assets/_bsII/_Scenes/06_dummyScene.unity
     guid: 326eef43308acb849b3e25f6765cd921
