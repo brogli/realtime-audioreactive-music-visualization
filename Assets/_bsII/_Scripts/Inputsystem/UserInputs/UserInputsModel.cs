@@ -50,8 +50,7 @@ public class UserInputsModel : MonoBehaviour
     public ToggeledUserInput ColorInvert { get; private set; }
     public ToggeledUserInput ColorInvertFourInFour { get; private set; }
     public ToggeledUserInput Strobo { get; private set; }
-    public TriggeredUserInput RandomTextOverlay { get; private set; }
-    public TriggeredUserInput TextOverlayHammerTime { get; private set; }
+    public ToggeledUserInput RandomTextOverlay { get; private set; }
     public ToggeledUserInput ColorOverlayFourInFour { get; private set; }
     public ToggeledUserInput SobelNeon { get; private set; }
     public ToggeledUserInput RainbowFlow { get; private set; }
@@ -159,7 +158,6 @@ public class UserInputsModel : MonoBehaviour
         ColorInvertFourInFour = new();
         Strobo = new();
         RandomTextOverlay = new();
-        TextOverlayHammerTime = new();
         ColorOverlayFourInFour = new();
         SobelNeon = new();
         RainbowFlow = new();

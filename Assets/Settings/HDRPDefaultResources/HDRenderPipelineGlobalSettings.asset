@@ -180,9 +180,15 @@ MonoBehaviour:
     PublicKeyToken=null
   - SnapshotShaders.HDRP.Cutout, SnapshotShaders.HDRP, Version=0.0.0.0, Culture=neutral,
     PublicKeyToken=null
+  - SnapshotShaders.HDRP.InvertForStrobo, SnapshotShaders.HDRP, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
   - SceneColorOverlayPostProcess, CustomPostProcesses, Version=0.0.0.0, Culture=neutral,
     PublicKeyToken=null
+  - SceneExclusionColorOverlayPostProcess, CustomPostProcesses, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
   - FadeToBlackOrWhitePostProcess, CustomPostProcesses, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  - WhiteStrobeOverlayPostProcess, CustomPostProcesses, Version=0.0.0.0, Culture=neutral,
     PublicKeyToken=null
   - CameraCopy, DisplayStuff, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   beforeTAACustomPostProcesses: []

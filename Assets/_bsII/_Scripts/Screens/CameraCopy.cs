@@ -58,7 +58,7 @@ public sealed class CameraCopy : CustomPostProcessVolumeComponent, IPostProcessC
             _renderTextureQuad = GameObject.FindGameObjectWithTag("MainOutputRendertexture");
             if (_renderTextureQuad == null)
             {
-                Debug.Log("_renderTextureQuad still null");
+                //Debug.Log("_renderTextureQuad still null");
                 return;
             }
             _copyToRenderTexture = true;

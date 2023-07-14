@@ -6,9 +6,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class GlobalPostProcesses : MonoBehaviour, IUserInputsConsumer
+public class GlobalFx : MonoBehaviour, IUserInputsConsumer, IMusicInputsConsumer
 {
-
+    private RandomTextoverlay _randomTextOverlay;
     private FadeToBlackOrWhitePostProcess _fadeToBlackOrWhitePostProcess;
     private Blur _blurPostProcess;
     private SimpleGaussianBlur _simpleGaussianBlur;
@@ -18,14 +18,24 @@ public class GlobalPostProcesses : MonoBehaviour, IUserInputsConsumer
     private SobelNeon _sobelNeon;
     private Invert _colorInvert;
     private RainbowFlow _rainbowFlow;
+    private WhiteStrobeOverlayPostProcess _strobeOverlay;
+    private SceneExclusionColorOverlayPostProcess _exclusionColorOverlay;
 
     private UserInputsModel _userInputsModel;
+    private MusicInputsModel _musicInputsModel;
+
+    private float _stroboMeasureTime;
+    private const float _stroboPeriodInSeconds = 0.041f;
+
 
     void Start()
     {
         SetupVolumeOverrides();
 
         _userInputsModel = GameObject.FindGameObjectWithTag("UserInputsModel").GetComponent<UserInputsModel>();
+        _musicInputsModel = GameObject.FindGameObjectWithTag("MusicInputsModel").GetComponent<MusicInputsModel>();
+        _randomTextOverlay = GetComponent<RandomTextoverlay>();
+
         SubscribeUserInputs();
 
     }
@@ -34,6 +44,7 @@ public class GlobalPostProcesses : MonoBehaviour, IUserInputsConsumer
     void OnDisable()
     {
         UnsubscribeUserInputs();
+        UnsubscribeMusicInputs();
     }
     private void SetupVolumeOverrides()
     {
@@ -82,6 +93,14 @@ public class GlobalPostProcesses : MonoBehaviour, IUserInputsConsumer
         {
             throw new NullReferenceException(nameof(_rainbowFlow));
         }
+        if (!GetComponent<Volume>().sharedProfile.TryGet(out _strobeOverlay))
+        {
+            throw new NullReferenceException(nameof(_strobeOverlay));
+        }
+        if (!GetComponent<Volume>().sharedProfile.TryGet(out _exclusionColorOverlay))
+        {
+            throw new NullReferenceException(nameof(_exclusionColorOverlay));
+        }
     }
 
     void Update()
@@ -102,6 +121,19 @@ public class GlobalPostProcesses : MonoBehaviour, IUserInputsConsumer
             _simpleGaussianBlur1.intensity.value = _userInputsModel.FadeToBlur.FaderValue;
             _simpleGaussianBlur2.intensity.value = _userInputsModel.FadeToBlur.FaderValue;
         }
+        if (_userInputsModel.Strobo.IsPressed)
+        {
+            _stroboMeasureTime += Time.deltaTime;
+            if (_stroboMeasureTime > _stroboPeriodInSeconds)
+            {
+                if (_stroboMeasureTime < 2 * _stroboPeriodInSeconds)
+                {
+                    // didn't overshoot
+                    ToggleWhiteStrobeOverlay();
+                }
+                _stroboMeasureTime = 0;
+            }
+        }
     }
 
     public void SubscribeUserInputs()
@@ -119,7 +151,7 @@ public class GlobalPostProcesses : MonoBehaviour, IUserInputsConsumer
         _userInputsModel.ColorInvert.EmitTurnedOnOrOffEvent += HandleColorInvert;
         _userInputsModel.ColorInvertFourInFour.EmitTurnedOnOrOffEvent += HandleColorInvertFourInFour;
         _userInputsModel.Strobo.EmitTurnedOnOrOffEvent += HandleStrobo;
-        _userInputsModel.RandomTextOverlay.EmitKeyTriggeredEvent += HandleRandomTextOverlay;
+        _userInputsModel.RandomTextOverlay.EmitTurnedOnOrOffEvent += HandleRandomTextOverlay;
         _userInputsModel.ColorOverlayFourInFour.EmitTurnedOnOrOffEvent += HandleColorOverlayFourInFour;
         _userInputsModel.SobelNeon.EmitTurnedOnOrOffEvent += HandleSobelNeon;
         _userInputsModel.RainbowFlow.EmitTurnedOnOrOffEvent += HandleRainbowFlow;
@@ -140,7 +172,7 @@ public class GlobalPostProcesses : MonoBehaviour, IUserInputsConsumer
         _userInputsModel.ColorInvert.EmitTurnedOnOrOffEvent -= HandleColorInvert;
         _userInputsModel.ColorInvertFourInFour.EmitTurnedOnOrOffEvent -= HandleColorInvertFourInFour;
         _userInputsModel.Strobo.EmitTurnedOnOrOffEvent -= HandleStrobo;
-        _userInputsModel.RandomTextOverlay.EmitKeyTriggeredEvent -= HandleRandomTextOverlay;
+        _userInputsModel.RandomTextOverlay.EmitTurnedOnOrOffEvent -= HandleRandomTextOverlay;
         _userInputsModel.ColorOverlayFourInFour.EmitTurnedOnOrOffEvent -= HandleColorOverlayFourInFour;
         _userInputsModel.SobelNeon.EmitTurnedOnOrOffEvent -= HandleSobelNeon;
         _userInputsModel.RainbowFlow.EmitTurnedOnOrOffEvent -= HandleRainbowFlow;
@@ -214,11 +246,14 @@ public class GlobalPostProcesses : MonoBehaviour, IUserInputsConsumer
     #region misc
 
 
+
     private void HandleRainbowFlow(bool hasTurnedOn, int index)
     {
-        if (hasTurnedOn) {
+        if (hasTurnedOn)
+        {
             _rainbowFlow.active = true;
-        } else
+        }
+        else
         {
             _rainbowFlow.active = false;
 
@@ -245,41 +280,67 @@ public class GlobalPostProcesses : MonoBehaviour, IUserInputsConsumer
     {
         if (hasTurnedOn)
         {
-            Debug.Log("color overlay 4-4 on");
+            _musicInputsModel.EmitFourInFourEvent += HandleFourInFourMusicEventForColorColorOverlay;
         }
         else
         {
-
+            _musicInputsModel.EmitFourInFourEvent -= HandleFourInFourMusicEventForColorColorOverlay;
+            _exclusionColorOverlay.intensity.overrideState = false;
         }
     }
-
-    private void HandleRandomTextOverlay()
+    private void HandleFourInFourMusicEventForColorColorOverlay()
     {
-        Debug.Log("random text overlay");
+        Color newColor = Color.HSVToRGB(UnityEngine.Random.Range(0f, 1f), 1.0f, 1.0f);
+        _exclusionColorOverlay.color.value = newColor;
+        _exclusionColorOverlay.intensity.overrideState = !_exclusionColorOverlay.intensity.overrideState;
+    }
+
+    private void HandleRandomTextOverlay(bool hasTurnedOn, int index)
+    {
+        if (hasTurnedOn)
+        {
+            _randomTextOverlay.ActivateTextoverlay();
+        }
+        else
+        {
+            _randomTextOverlay.DeactivateTextOverlay();
+        }
     }
 
     private void HandleStrobo(bool hasTurnedOn, int index)
     {
         if (hasTurnedOn)
         {
-            Debug.Log("strobo on");
+            _stroboMeasureTime = 0;
         }
         else
         {
-
+            _strobeOverlay.active = false;
         }
+    }
+
+    private void ToggleWhiteStrobeOverlay()
+    {
+        _strobeOverlay.active = !_strobeOverlay.active;
     }
 
     private void HandleColorInvertFourInFour(bool hasTurnedOn, int index)
     {
         if (hasTurnedOn)
         {
-            Debug.Log("colorinvert 4-4 on");
+            _musicInputsModel.EmitFourInFourEvent += HandleFourInFourMusicEventForColorInvert;
         }
         else
         {
-
+            _musicInputsModel.EmitFourInFourEvent -= HandleFourInFourMusicEventForColorInvert;
+            HandleColorInvert(_userInputsModel.ColorInvertFourInFour.IsPressed, 0);
         }
+    }
+
+    private void HandleFourInFourMusicEventForColorInvert()
+    {
+        _colorInvert.active = !_colorInvert.active;
+        _colorInvert.intensity.overrideState = !_colorInvert.intensity.overrideState;
     }
 
     private void HandleColorInvert(bool hasTurnedOn, int index)
@@ -308,6 +369,17 @@ public class GlobalPostProcesses : MonoBehaviour, IUserInputsConsumer
             _kaleidoscope.active = false;
             _kaleidoscope.segmentCount.overrideState = false;
         }
+    }
+
+    public void SubscribeMusicInputs()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void UnsubscribeMusicInputs()
+    {
+        _musicInputsModel.EmitFourInFourEvent -= HandleFourInFourMusicEventForColorInvert;
+        _musicInputsModel.EmitFourInFourEvent -= HandleFourInFourMusicEventForColorColorOverlay;
     }
     #endregion
 }

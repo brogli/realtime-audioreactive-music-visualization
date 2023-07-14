@@ -18,7 +18,7 @@ public static class DefaultSceneLoader
         }
 
         if (state == PlayModeStateChange.EnteredPlayMode && EditorSceneManager.GetActiveScene() != EditorSceneManager.GetSceneByBuildIndex(0) &&
-            EditorSceneManager.GetActiveScene().name != "buildTriangleExplosion")
+            EditorSceneManager.GetActiveScene().name != "tryReadingImageSequenceFromDisk")
         {
             EditorSceneManager.LoadScene(0);
         }
