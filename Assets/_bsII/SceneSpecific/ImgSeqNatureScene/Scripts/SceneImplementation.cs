@@ -52,7 +52,8 @@ namespace ImgSeqNatureScene
         [SerializeField]
         private VideoPlayer videoPlayer;
         private string[] videoFilePaths;
-        private int[] videoFramePositions;
+        private long[] videoFramePositions;
+        private int currentVideoIndex;
 
 
         private UserInputsModel _userInputsModel;
@@ -89,9 +90,9 @@ namespace ImgSeqNatureScene
             string folderPath = Application.persistentDataPath + "/" + "videos" + "/" + "flower-scene";
             videoFilePaths = Directory.GetFiles(folderPath);
 
-            videoFramePositions = new int[videoFilePaths.Length];
+            videoFramePositions = new long[videoFilePaths.Length];
 
-            videoPlayer.url = videoFilePaths[0];
+            videoPlayer.url = videoFilePaths[currentVideoIndex];
             videoPlayer.Play();
         }
 
@@ -189,9 +190,14 @@ namespace ImgSeqNatureScene
         public void UnsubscribeUserInputs()
         {
             _userInputsModel.FourInFourUserInput.EmitTurnedOnOrOffEvent -= HandleFourInFourUserInput;
+            foreach (var key in _userInputsModel.MelodyKeys.Keys)
+            {
+                key.EmitTurnedOnOrOffEvent -= HandleMelodyKey;
+            }
+
             foreach (var key in _userInputsModel.MoodKeys.Keys)
             {
-                key.EmitCollectionKeyTriggeredEvent -= HandleMoodKey;
+                key.EmitCollectionKeyTriggeredEvent += HandleMoodKey;
             }
         }
 
@@ -199,15 +205,40 @@ namespace ImgSeqNatureScene
         {
             _userInputsModel.FourInFourUserInput.EmitTurnedOnOrOffEvent += HandleFourInFourUserInput;
             HandleFourInFourUserInput(_userInputsModel.FourInFourUserInput.IsPressed);
+            foreach (var key in _userInputsModel.MelodyKeys.Keys)
+            {
+                key.EmitTurnedOnOrOffEvent += HandleMelodyKey;
+            }
+
             foreach (var key in _userInputsModel.MoodKeys.Keys)
             {
                 key.EmitCollectionKeyTriggeredEvent += HandleMoodKey;
             }
         }
 
-
         private void HandleMoodKey(int index)
         {
+            videoFramePositions[currentVideoIndex] = videoPlayer.frame;
+            videoPlayer.Stop();
+            
+
+            int newIndex = index;
+            if (index >= videoFilePaths.Length)
+            {
+                newIndex = UnityEngine.Random.Range(0, videoFilePaths.Length);
+            }
+            currentVideoIndex = newIndex;
+            videoPlayer.url = videoFilePaths[currentVideoIndex];
+            videoPlayer.frame = videoFramePositions[currentVideoIndex];
+            videoPlayer.Play();
+        }
+
+        private void HandleMelodyKey(bool hasTurnedOn, int index)
+        {
+            if (!hasTurnedOn)
+            {
+                return;
+            }
             if (index == 0)
             {
                 _sceneColorOverlayPostProcessVolume.intensity.value = 0;
@@ -223,6 +254,13 @@ namespace ImgSeqNatureScene
         {
             _leftFourInFourElement.SetActive(hasTurnedOn);
             _rightFourInFourElement.SetActive(hasTurnedOn);
+            if (hasTurnedOn)
+            {
+                videoPlayer.Pause();
+            } else
+            {
+                videoPlayer.Play();
+            }
         }
         #endregion
 
