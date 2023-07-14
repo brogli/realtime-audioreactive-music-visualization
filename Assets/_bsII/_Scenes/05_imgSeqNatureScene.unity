@@ -1093,6 +1093,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66413965c97927240a1804a32bd0485e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  imgSeqFolderName: flower-nature
   _leftFourInFourElement: {fileID: 1028879316}
   _rightFourInFourElement: {fileID: 1148203896}
   _eightInFourElement0: {fileID: 1336426379}

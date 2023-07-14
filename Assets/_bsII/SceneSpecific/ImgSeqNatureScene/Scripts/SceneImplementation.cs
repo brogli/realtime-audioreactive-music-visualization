@@ -11,6 +11,9 @@ namespace ImgSeqNatureScene
 {
     public class SceneImplementation : MonoBehaviour, IMusicInputsConsumer, IUserInputsConsumer
     {
+        [Tooltip("persistentDataPath/image-sequences/?")]
+        [SerializeField]
+        private string _imgSeqFolderName;
         [SerializeField]
         private GameObject _leftFourInFourElement;
         [SerializeField]
@@ -155,7 +158,7 @@ namespace ImgSeqNatureScene
 
         private void LoadImgSequences()
         {
-            string rootFolderPath = Application.persistentDataPath + "/" + "image-sequences" + "/" + "flower-nature";
+            string rootFolderPath = Application.persistentDataPath + "/" + "image-sequences" + "/" + _imgSeqFolderName;
 
             string[] subdirectories = Directory.GetDirectories(rootFolderPath);
 
@@ -169,9 +172,9 @@ namespace ImgSeqNatureScene
                 }
                 if (subdir.ToUpper().EndsWith("eightInFour".ToUpper()))
                 {
-                    Debug.Log("eight four in four directory");
-                    string[] eightInFourSubdirs = Directory.GetDirectories(subdir);
-                    GetImageSequences(eightInFourSubdirs, _eightInFourSequences);
+                    //Debug.Log("eight four in four directory");
+                    //string[] eightInFourSubdirs = Directory.GetDirectories(subdir);
+                    //GetImageSequences(eightInFourSubdirs, _eightInFourSequences);
                 }
             }
         }
