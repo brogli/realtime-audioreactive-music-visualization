@@ -14,6 +14,10 @@ namespace ImgSeqNatureScene
         [Tooltip("persistentDataPath/image-sequences/?")]
         [SerializeField]
         private string _imgSeqFolderName;
+        [Tooltip("persistentDataPath/videos/?")]
+        [SerializeField]
+        private string _videoFolderName;
+
         [SerializeField]
         private GameObject _leftFourInFourElement;
         [SerializeField]
@@ -90,7 +94,7 @@ namespace ImgSeqNatureScene
 
         private void PrepareVideos()
         {
-            string folderPath = Application.persistentDataPath + "/" + "videos" + "/" + "flower-scene";
+            string folderPath = Application.persistentDataPath + "/" + "videos" + "/" + _videoFolderName;
             videoFilePaths = Directory.GetFiles(folderPath);
 
             videoFramePositions = new long[videoFilePaths.Length];
@@ -200,7 +204,7 @@ namespace ImgSeqNatureScene
 
             foreach (var key in _userInputsModel.MoodKeys.Keys)
             {
-                key.EmitCollectionKeyTriggeredEvent += HandleMoodKey;
+                key.EmitCollectionKeyTriggeredEvent -= HandleMoodKey;
             }
         }
 

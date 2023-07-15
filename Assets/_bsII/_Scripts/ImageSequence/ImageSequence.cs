@@ -23,7 +23,12 @@ public class ImageSequence
     /// <returns></returns>
     public Texture2D GetImageAtNormalizedIndex(float normalizedIndex)
     {
-        var actualIndex = Mathf.RoundToInt(normalizedIndex * (_sequence.Length -1 ));
+        var actualIndex = Mathf.RoundToInt(normalizedIndex * (_sequence.Length - 1));
         return _sequence[actualIndex];
+    }
+
+    public int Length()
+    {
+        return _sequence.Length;
     }
 }
