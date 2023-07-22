@@ -226,12 +226,89 @@
                 "containerType": "TriggeredUserInput",
                 "containerTargetProperty": "ActivateScene"
             },
+            "1_5": {
+                "targetProperty": "FadeToBlur",
+                "type": "FadedUserInput",
+                "nested": false,
+                "containerType": "FadedUserInput",
+                "containerTargetProperty": "FadeToBlur"
+            },
+            "1_6": {
+                "targetProperty": "FadeToWhite",
+                "type": "FadedUserInput",
+                "nested": false,
+                "containerType": "FadedUserInput",
+                "containerTargetProperty": "FadeToWhite"
+            },
+            "1_7": {
+                "targetProperty": "FadeToBlack",
+                "type": "FadedUserInput",
+                "nested": false,
+                "containerType": "FadedUserInput",
+                "containerTargetProperty": "FadeToBlack"
+            },
             "1_16": {
                 "targetProperty": "BeatClockOffset",
                 "type": "TwoSidedFadedUserInput",
                 "nested": false,
                 "containerType": "TwoSidedFadedUserInput",
                 "containerTargetProperty": "BeatClockOffset"
+            },
+            "1_71": {
+                "targetProperty": "Strobo",
+                "type": "ToggeledUserInput",
+                "nested": false,
+                "containerType": "ToggeledUserInput",
+                "containerTargetProperty": "Strobo"
+            },
+            "1_67": {
+                "targetProperty": "Kaleidoscope",
+                "type": "ToggeledUserInput",
+                "nested": false,
+                "containerType": "ToggeledUserInput",
+                "containerTargetProperty": "Kaleidoscope"
+            },
+            "1_51": {
+                "targetProperty": "ColorInvert",
+                "type": "ToggeledUserInput",
+                "nested": false,
+                "containerType": "ToggeledUserInput",
+                "containerTargetProperty": "ColorInvert"
+            },
+            "1_35": {
+                "targetProperty": "ColorInvertFourInFour",
+                "type": "ToggeledUserInput",
+                "nested": false,
+                "containerType": "ToggeledUserInput",
+                "containerTargetProperty": "ColorInvertFourInFour"
+            },
+            "1_66": {
+                "targetProperty": "RandomTextOverlay",
+                "type": "ToggeledUserInput",
+                "nested": false,
+                "containerType": "ToggeledUserInput",
+                "containerTargetProperty": "RandomTextOverlay"
+            },
+            "1_50": {
+                "targetProperty": "SobelNeon",
+                "type": "ToggeledUserInput",
+                "nested": false,
+                "containerType": "ToggeledUserInput",
+                "containerTargetProperty": "SobelNeon"
+            },
+            "1_34": {
+                "targetProperty": "ColorOverlayFourInFour",
+                "type": "ToggeledUserInput",
+                "nested": false,
+                "containerType": "ToggeledUserInput",
+                "containerTargetProperty": "ColorOverlayFourInFour"
+            },
+            "1_65": {
+                "targetProperty": "RainbowFlow",
+                "type": "ToggeledUserInput",
+                "nested": false,
+                "containerType": "ToggeledUserInput",
+                "containerTargetProperty": "RainbowFlow"
             },
             "2_32": {
                 "targetProperty": "ToggeledUserInput",

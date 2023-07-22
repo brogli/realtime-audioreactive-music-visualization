@@ -1,0 +1,246 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8482357693913134893
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04c8394c44f8c414aab126ab3e6007ea, type: 3}
+  m_Name: SimpleGaussianBlur1
+  m_EditorClassIdentifier: 
+  active: 0
+  intensity:
+    m_OverrideState: 1
+    m_Value: 1
+--- !u!114 &-6640951360626753524
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4951ac44ab224394d82b52ba36609b6e, type: 3}
+  m_Name: RainbowFlow
+  m_EditorClassIdentifier: 
+  active: 0
+  steps:
+    m_OverrideState: 1
+    m_Value: 5
+  speed:
+    m_OverrideState: 1
+    m_Value: 4.9
+  multiplier:
+    m_OverrideState: 1
+    m_Value: 0.5
+  blackAndWhite:
+    m_OverrideState: 1
+    m_Value: 0
+--- !u!114 &-5450079439945445461
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9869a4f18a40f444682da8078033b2c9, type: 3}
+  m_Name: InvertForStrobo
+  m_EditorClassIdentifier: 
+  active: 0
+  intensity:
+    m_OverrideState: 0
+    m_Value: 1
+--- !u!114 &-5312135632861320857
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a870a9ea66eb7184188ccb871f4c8201, type: 3}
+  m_Name: SceneExclusionColorOverlayPostProcess
+  m_EditorClassIdentifier: 
+  active: 1
+  intensity:
+    m_OverrideState: 0
+    m_Value: 1
+  factor:
+    m_OverrideState: 1
+    m_Value: 1.4
+  color:
+    m_OverrideState: 1
+    m_Value: {r: 1, g: 0, b: 0, a: 1}
+--- !u!114 &-1155214588860663175
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5df80dd7ef197ad49ae019064a1559fa, type: 3}
+  m_Name: SobelNeon
+  m_EditorClassIdentifier: 
+  active: 0
+  enabled:
+    m_OverrideState: 1
+    m_Value: 0
+  saturationFloor:
+    m_OverrideState: 1
+    m_Value: 0.777
+  lightnessFloor:
+    m_OverrideState: 1
+    m_Value: 1
+--- !u!114 &-177330483013624735
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22a77e5adeb3e1a4baf141f44b25870f, type: 3}
+  m_Name: FadeToBlackOrWhitePostProcess
+  m_EditorClassIdentifier: 
+  active: 1
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0
+  lightenIntensity:
+    m_OverrideState: 0
+    m_Value: 1
+  darkenIntensity:
+    m_OverrideState: 0
+    m_Value: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
+  m_Name: GlobalPostProcesses Profile
+  m_EditorClassIdentifier: 
+  components:
+  - {fileID: -177330483013624735}
+  - {fileID: 7326162986139716010}
+  - {fileID: 1788195057119240547}
+  - {fileID: -8482357693913134893}
+  - {fileID: 3312787510433191697}
+  - {fileID: 7667755646801371755}
+  - {fileID: -1155214588860663175}
+  - {fileID: -6640951360626753524}
+  - {fileID: 7970501750226905067}
+  - {fileID: -5450079439945445461}
+  - {fileID: 4220933370389029040}
+  - {fileID: -5312135632861320857}
+--- !u!114 &1788195057119240547
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f9608d0b7be709499c8576490633363, type: 3}
+  m_Name: SimpleGaussianBlur
+  m_EditorClassIdentifier: 
+  active: 0
+  intensity:
+    m_OverrideState: 0
+    m_Value: 1
+--- !u!114 &3312787510433191697
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e245cc9d1c05f7248ad2419c1bd41fc2, type: 3}
+  m_Name: SimpleGaussianBlur2
+  m_EditorClassIdentifier: 
+  active: 0
+  intensity:
+    m_OverrideState: 1
+    m_Value: 1
+--- !u!114 &4220933370389029040
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a92d1cf9600722949a98897566d4187a, type: 3}
+  m_Name: WhiteStrobeOverlayPostProcess
+  m_EditorClassIdentifier: 
+  active: 0
+  intensity:
+    m_OverrideState: 1
+    m_Value: 1
+--- !u!114 &7326162986139716010
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a09104886c7e22418969b473647bf71, type: 3}
+  m_Name: Blur
+  m_EditorClassIdentifier: 
+  active: 0
+  strength:
+    m_OverrideState: 0
+    m_Value: 37
+--- !u!114 &7667755646801371755
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c879f99f2120f334fb6e0b7910b7c95b, type: 3}
+  m_Name: Kaleidoscope
+  m_EditorClassIdentifier: 
+  active: 0
+  segmentCount:
+    m_OverrideState: 0
+    m_Value: 6
+--- !u!114 &7970501750226905067
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 528379cadca39dd43ada3c145e80195a, type: 3}
+  m_Name: Invert
+  m_EditorClassIdentifier: 
+  active: 0
+  intensity:
+    m_OverrideState: 0
+    m_Value: 1

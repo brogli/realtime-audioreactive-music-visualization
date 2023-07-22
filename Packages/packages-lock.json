@@ -5,7 +5,14 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "b8705cf22ce9fb3ae57427b2c635ab648ac81e2c"
+      "hash": "f86620f287be142158763612a5dbcaaab74d1f01"
+    },
+    "ch.brogli.snapshot-shaderspro-as-unity-package": {
+      "version": "https://github.com/brogli/snapshot-shaderspro-as-unity-package.git?path=/Assets/Snapshot Pro HDRP",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "abf138b2806a732b76a7b2fdca1dca6ee15d96a3"
     },
     "com.unity.ai.navigation": {
       "version": "1.1.4",

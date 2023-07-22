@@ -21,8 +21,6 @@ public class BeatclockProcessor : MonoBehaviour, IUserInputsConsumer
     private const float QuadrupleAmountClockPulses = 96;
     private const float EightTimesAmountClockPulses = 192;
 
-    private float _beatClockOffset = 0;
-
     public void Start()
     {
         _musicInputsModel = GameObject.FindGameObjectWithTag("MusicInputsModel").GetComponent<MusicInputsModel>();

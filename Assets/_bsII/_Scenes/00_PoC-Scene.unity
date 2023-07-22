@@ -4383,6 +4383,55 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 908725463}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &913697600
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 913697601}
+  - component: {fileID: 913697602}
+  m_Layer: 0
+  m_Name: UserInterfaceForMainScreen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &913697601
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913697600}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1269037604}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &913697602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913697600}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: 1b01209656abef04cb65151d1fa7f116, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: ad8adb676da90ff42b25cef706b03c16,
+    type: 3}
+  m_SortingOrder: 0
 --- !u!1 &944233109
 GameObject:
   m_ObjectHideFlags: 0
@@ -5840,8 +5889,10 @@ Transform:
   - {fileID: 707828406}
   - {fileID: 866008225}
   - {fileID: 767379544}
+  - {fileID: 913697601}
   - {fileID: 1386178915}
   - {fileID: 178697085}
+  - {fileID: 1350302917}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6098,6 +6149,88 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1347156023}
   m_CullTransparentMesh: 1
+--- !u!1 &1350302916
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1350302917}
+  - component: {fileID: 1350302918}
+  - component: {fileID: 1350302919}
+  - component: {fileID: 1350302920}
+  m_Layer: 0
+  m_Name: GlobalPostProcesses
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1350302917
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1350302916}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1269037604}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1350302918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1350302916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 1000001
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: acaf067cd8e44aa42b8cd49e135ebf79, type: 2}
+--- !u!114 &1350302919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1350302916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce3ad1af17111b74ea932af87a839be9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1350302920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1350302916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b885a97a7ff2754c9a1e628f89930e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ui: {fileID: 913697602}
+  textsToDisplay:
+  - now
+  - yes
+  - always
+  - hammer time
+  - BS II
 --- !u!1 &1365744381
 GameObject:
   m_ObjectHideFlags: 0
@@ -9469,6 +9602,134 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 9191a3b3-e1f0-436e-a584-5c89521ab4cf
     m_ActionName: KeyboardControls/SetOneInEightToNow[/Keyboard/ctrl,/Keyboard/f2]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2078528395}
+        m_TargetAssemblyTypeName: KeyboardInputProcessor, UserInputsProcessing
+        m_MethodName: ProcessKaleidoscope
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 84835687-6d86-4233-9817-0599ddc72811
+    m_ActionName: KeyboardControls/PostProcessKaleidoscope[/Keyboard/alt,/Keyboard/f1]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2078528395}
+        m_TargetAssemblyTypeName: KeyboardInputProcessor, UserInputsProcessing
+        m_MethodName: ProcessColorInvert
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: cb9d3127-58f8-4978-8c2b-359c6a528bf0
+    m_ActionName: KeyboardControls/PostProcessColorInvert[/Keyboard/alt,/Keyboard/f2]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2078528395}
+        m_TargetAssemblyTypeName: KeyboardInputProcessor, UserInputsProcessing
+        m_MethodName: ProcessColorInvertFourInFour
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 87d171b3-ca5d-440f-8e92-191c160bc219
+    m_ActionName: KeyboardControls/PostProcessColorInvertFourInFour[/Keyboard/alt,/Keyboard/f3]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2078528395}
+        m_TargetAssemblyTypeName: KeyboardInputProcessor, UserInputsProcessing
+        m_MethodName: ProcessStrobo
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e7e282fa-492f-4ce3-a750-443e3a67e645
+    m_ActionName: KeyboardControls/PostProcessStrobo[/Keyboard/alt,/Keyboard/f4]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2078528395}
+        m_TargetAssemblyTypeName: KeyboardInputProcessor, UserInputsProcessing
+        m_MethodName: ProcessRandomTextOverlay
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4942c5af-2e89-46f8-8229-96e33aede8b4
+    m_ActionName: KeyboardControls/PostProcessRandomTextOverlay[/Keyboard/alt,/Keyboard/f5]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2078528395}
+        m_TargetAssemblyTypeName: KeyboardInputProcessor, UserInputsProcessing
+        m_MethodName: ProcessColorOverlayFourInFour
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 65a6f701-2ec5-4dab-b842-9173a9554506
+    m_ActionName: KeyboardControls/PostProcessColorOverlayFourInFour[/Keyboard/alt,/Keyboard/f6]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2078528395}
+        m_TargetAssemblyTypeName: KeyboardInputProcessor, UserInputsProcessing
+        m_MethodName: ProcessSobelNeon
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d486e49d-c39d-4198-b45d-3ba53e574ea1
+    m_ActionName: KeyboardControls/PostProcessSobelNeon[/Keyboard/alt,/Keyboard/f7]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2078528395}
+        m_TargetAssemblyTypeName: KeyboardInputProcessor, UserInputsProcessing
+        m_MethodName: ProcessRainbowFlow
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7de1b654-2beb-4355-9dbe-8180fe3ad73f
+    m_ActionName: KeyboardControls/PostProcessRainbowFlowKaleidoscope7[/Keyboard/alt,/Keyboard/f8]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: KeyboardControls

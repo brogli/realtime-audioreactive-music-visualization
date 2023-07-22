@@ -17,6 +17,7 @@
   ],
   "dependencies": {
     "ch.brogli.richfx-as-unitypackage": "https://github.com/brogli/richfx-as-unity-package.git?path=/Assets/InanEvin",
+    "ch.brogli.snapshot-shaderspro-as-unity-package": "https://github.com/brogli/snapshot-shaderspro-as-unity-package.git?path=/Assets/Snapshot Pro HDRP",
     "com.unity.ai.navigation": "1.1.4",
     "com.unity.collab-proxy": "2.0.5",
     "com.unity.demoteam.hair": "https://github.com/Unity-Technologies/com.unity.demoteam.hair.git",

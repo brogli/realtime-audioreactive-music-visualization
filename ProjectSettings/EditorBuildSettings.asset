@@ -21,14 +21,14 @@ EditorBuildSettings:
     path: Assets/_bsII/_Scenes/04_skyFlightScene.unity
     guid: d01ded47a71e7ff4b98eba35a7c3f566
   - enabled: 1
-    path: Assets/_bsII/_Scenes/05_dummyScene.unity
-    guid: cd2b4742229974b4fbcd16d346a64e44
+    path: Assets/_bsII/_Scenes/05_imgSeqNatureScene.unity
+    guid: e61f83b45dcf7d849a394a8535dc14ed
   - enabled: 1
-    path: Assets/_bsII/_Scenes/06_dummyScene.unity
-    guid: 326eef43308acb849b3e25f6765cd921
+    path: Assets/_bsII/_Scenes/06_simpleVideoScene0.unity
+    guid: b410582d7fe7040488597ff4e45bc5cc
   - enabled: 1
-    path: Assets/_bsII/_Scenes/07_dummyScene.unity
-    guid: 9570964078bb7b446ad1f0e6081425a9
+    path: Assets/_bsII/_Scenes/07_photoGalleryScene.unity
+    guid: df4db7a306db3ee4982e3ecc616ef4f4
   - enabled: 1
     path: Assets/_bsII/_Scenes/08_dummyScene.unity
     guid: 7c161cc0364ff9043bc5bb465d96541f
